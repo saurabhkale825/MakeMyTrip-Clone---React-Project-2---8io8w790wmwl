@@ -1,0 +1,38 @@
+.airport-list-main {
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 90;
+  background-color: #fff;
+  margin: 0;
+  font-size: 16px;
+  width: 100%;
+  position: relative;
+}
+
+.airport-list-individual {
+  width: 100%;
+  display: flex;
+  margin: 5px;
+}
+
+.airport-list-content {
+  width: 70%;
+  height: 80%;
+  text-align: left;
+  /* border: 1px solid black; */
+  margin-top: 5px;
+}
+
+.airport-list-content p {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.airport-list-id {
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: 700;
+  color: #74747473;
+  margin: auto;
+}

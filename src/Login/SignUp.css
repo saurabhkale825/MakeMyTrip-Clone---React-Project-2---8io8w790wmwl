@@ -1,0 +1,48 @@
+.singup-page{
+    position: relative;
+    width: 90%;
+    height: 70%;
+    top: 10%;
+    left: 5%;
+}
+
+.signup-page-heading{
+    position: relative;
+    top: 1%;
+    left: 0%;
+    width: 200px;
+    font-size: 26px;
+    font-weight: 750;
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+.signup-page-input{
+    width: 98%;
+    height: 60%;
+    margin: 1% 0 0 1%;
+}
+
+.signup-page-input-values{
+    width: 80%;
+    height: 40px;
+    margin: 5px 0 10px 15px;
+    border: 0.7px solid rgba(0, 0, 0, 0.329);
+    border-radius: 5px;
+}
+
+.signup-page-submit-button{
+    width: 100%;
+    height: 50px;
+    border-radius: 34px;
+    color: #fff;
+    background-color:  #008cff;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-top: 20px;
+}

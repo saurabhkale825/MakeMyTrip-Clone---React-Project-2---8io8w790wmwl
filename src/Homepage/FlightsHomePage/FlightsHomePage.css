@@ -1,0 +1,190 @@
+.flights-homepage {
+  color: #4a4a4a;
+  border: 1px solid rgb(253, 253, 253);
+  position: absolute;
+  top: 22%;
+  left: 1%;
+  width: 98%;
+  min-height: 70%;
+  border-radius: 8px;
+  background-color: white;
+  margin: auto;
+}
+
+.trip-route {
+  width: 100%;
+  height: 40%;
+  /* margin: 0 auto 20px; */
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  border: solid 1px #e7e7e7;
+  position: absolute;
+  top: 20%;
+  /* border: 1px solid red; */
+}
+
+.trip-date {
+  width: 380px;
+  height: auto;
+  text-align: left;
+  border-right: 1px solid #e7e7e7;
+  /* border: 1px solid black; */
+}
+
+.trip-depature {
+  width: 170px;
+  height: 105px;
+  text-align: left;
+  border-right: 1px solid #e7e7e7;
+  margin-left: 20px;
+}
+
+.trip-class {
+  width: 265px;
+  height: 105px;
+  text-align: left;
+}
+
+.trip-class-heading {
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.trip-class-heading-icon {
+  color: #4885f5;
+  border: 0px solid;
+}
+.flights-section-calendar {
+  width: 80px;
+  text-align: left;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+.trip-start,
+.trip-destination,
+.no-of-passengers {
+  font-size: 28px;
+  font-weight: 750;
+  margin-left: 20px;
+  color: black;
+  text-transform: capitalize;
+  width: 200px;
+  border: none;
+}
+
+.depature-date {
+  font-size: 22px;
+  font-weight: 650;
+  color: #4a4a4ac7;
+  text-transform: capitalize;
+  width: 240px;
+  padding: 6px 2px;
+  margin-bottom: 5px;
+}
+
+.airport {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  margin-left: 20px;
+  width: 90%;
+}
+
+.depature-month {
+  margin-left: 2px;
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.search-button {
+  width: 216px;
+  padding: 10px;
+  margin-bottom: -32px;
+  opacity: 1;
+  color: #fff;
+  border-radius: 34px;
+  background: linear-gradient(93deg, #53b2fe, #065af3);
+  box-shadow: 0 1px 7px 0 rgba(0, 0, 0, 0.2);
+  display: inline-block;
+  flex-shrink: 0;
+  color: #fff;
+  text-transform: uppercase;
+  cursor: pointer;
+  outline: 0;
+  border: 0;
+  text-align: center;
+  position: relative;
+  top: -60px;
+}
+
+.fare-type {
+  display: flex;
+  width: 100%;
+  height: 45px;
+  position: absolute;
+  top: 70%;
+  margin-left: 20px;
+}
+
+.fare-type-heading {
+  width: 6%;
+  font-size: 12px;
+  font-weight: 700;
+  color: #000000;
+  text-align: left;
+}
+
+.fare-type-content {
+  width: 8%;
+  font-size: 12px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: left;
+  cursor: pointer;
+}
+
+.no-of-passengers-text{
+  color: #000000;
+  margin-left: 5px;
+  font-size: 20px;
+  font-weight: 700;
+
+}
+.no-of-passengers-class{
+  margin-left: 20px;
+  text-transform: capitalize;
+}
+.departure-airport-list{
+  width: 250px;
+  height: 270px;
+  z-index: 90;
+  position: absolute;
+  top: 35%;
+  left: 1%;
+  background-color: #fff;
+}
+
+.arrival-airport-list{
+  width: 250px;
+  height: 270px;
+  z-index: 90;
+  position: absolute;
+  top: 35%;
+  left: 30%;
+  background-color: #fff;
+}
+
+#airportList-input{
+  width: 90%;
+  height: 30px;
+  /* border: 1px solid black; */
+  text-align: left;
+  margin-left: 10px;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 700;
+}
