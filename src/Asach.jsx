@@ -28,6 +28,7 @@ function Asach() {
   }, []);
 
   useEffect(() => {
+    filterDataByAirline("65144a1b664a43628887c460") ;
     filterDataByAirline("65144a1b664a43628887c45e");
   }, [data]);
 

@@ -11,7 +11,7 @@ function DepartureAirportList() {
     const storedData = JSON.parse(sessionStorage.getItem("myData")) || {};
     storedData.departureCity = departureCity;
     sessionStorage.setItem("myData" , JSON.stringify(storedData));
-    console.log(sessionStorage.getItem("myData"));
+    // console.log(sessionStorage.getItem("myData"));
   }
 
   useEffect(() => {
