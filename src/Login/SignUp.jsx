@@ -1,89 +1,91 @@
 import { useState , useEffect } from "react";
 import "./SignUp.css";
 
-function SignUp() {
-  const [email, setEmail] = useState("");
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+function SignUp (){
 
-  // async function UserSingUp() {
-  //   try {
-  //     let item = {
-  //       name: username,
-  //       email: email,
-  //       password: password,
-  //       appType: "bookingportals",
-  //     };
-  //     const Header = {
-  //       "Content-Type": "application/json",
-  //       projectID: "8io8w790wmwl",
-  //     };
-  //     let getData = await fetch(`${process.env.REACT_APP_SINGUP_URL}`, {
-  //       method: "POST",
-  //       headers: Header,
-  //       body: JSON.stringify(item),
-  //     });
+  const[name , setName] = useState("");
+  const[email, setEmail] = useState("");
+  const[password , setPassword] = useState("");
 
-  //     let response = await getData.json();
-  //     console.log(response);
-  //     if (response.status === "success") {
-  //       alert("You SingUp in Successfully");
-  //       setName("");
-  //       setEmail("");
-  //       setPassword("");
-  //       navigate("/signup");
-  //     } else {
-  //       alert(response.message);
-  //     }
+  const [formData , setFormData] = useState({
+    name:name,
+    email:email,
+    password:password,
+  }) ;
 
-  //     localStorage.setItem("user-info", JSON.stringify(response));
-  //   } catch (e) {
-  //     console.log(e);
-  //   }
+   async function UserSingUp() {
+    try {
+      let item = {
+        name: name,
+        email: email,
+        password: password,
+        appType: "bookingportals",
+      };
+      const Header = {
+        "Content-Type": "application/json",
+        projectID: "8io8w790wmwl",
+      };
+      let getData = await fetch(`https://academics.newtonschool.co/api/v1/bookingportals/signup`, {
+        method: "POST",
+        headers: Header,
+        body: JSON.stringify(item),
+      });
 
+      let response = await getData.json();
+      console.log(response);
+      if (response.status === "success") {
+        alert("You SingUp in Successfully");
+        setName("");
+        setEmail("");
+        setPassword("");
+        
+      } else {
+        alert(response.message);
+      }
 
-  useEffect(() => {
-    const userSignup = async () =>{
-      
+      localStorage.setItem("user-info", JSON.stringify(response));
+    } catch (e) {
+      console.log(e);
     }
-  },[email]);
-
+  }
 
   return (
     <div className="singup-page">
-
+      <form>
       <div className="signup-page-input">
-        <div className="mx-4 text-s  font-bold">Username</div>
+        <div className="w-min ml-6 px-1 bg-white text-xs font-medium text-left tracking-wider">Username</div>
         <input
           type="name"
           className="signup-page-input-values"
-          autoComplete="false"
-          onChange={(e) => setUsername(e.target.value)}
-          value={username}
+           autoComplete="off"
+           onChange={(e) => setName(e.target.value)}
+          value={name}
         ></input>
 
-        <div className="mx-4 text-s  font-bold">E-mail</div>
+        <div className="w-fit ml-6 px-1 bg-white text-xs font-medium text-left tracking-wider">E-mail</div>
         <input
           type="email"
           className="signup-page-input-values"
-          autoComplete="false"
+          autoComplete="off"
           onChange={(e) => setEmail(e.target.value)}
-          value={email}
+           value={email}
         ></input>
 
-        <div className="mx-4 text-s  font-bold">Password</div>
+        <div className=" w-min ml-6 px-1 bg-white text-xs font-medium text-left tracking-wider">Password</div>
         <input
           type="password"
           className="signup-page-input-values"
-          autoComplete="false"
+          autoComplete="off"
           onChange={(e) => setPassword(e.target.value)}
           value={password}
         ></input>
       </div>
 
-      <div className="signup-page-submit-button">
+      <div className="signup-page-submit-button" onClick={UserSingUp}>
         SignUp
       </div>
+
+      </form>
     </div>
   );
 }

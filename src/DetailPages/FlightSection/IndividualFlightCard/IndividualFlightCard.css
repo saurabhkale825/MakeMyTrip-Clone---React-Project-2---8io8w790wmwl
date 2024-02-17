@@ -185,7 +185,7 @@
 }
 .individual-flight-more-details-content h2{
     font-size: 14px;
-    color:#000;
+    color:#ff0000;
     font-weight: 700;
     text-align: center;
 }
@@ -206,4 +206,16 @@
     outline: 0;
     border: 0;
     text-align: center;
+}
+
+.available-seat{
+    margin-top: -15px;
+    border: 1px solid rgb(113, 109, 109);
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items:center ;
+    border-radius: 8px;
+    padding: 5px;
+    font-size: 10px;
 }

@@ -1,11 +1,10 @@
 .login{
-    width:600px;
-    height: 600px;
+    width:100%;
+    height: 100%;
     position: fixed;
-    z-index: 55a;
-    top: 15%;
-    left: 15%;
-    background-color: transparent;
+    top: 0%;
+    background-color: rgba(0,0,0,0.7);
+    z-index: 99;
 }
 
 .login-page-carousel{
@@ -27,7 +26,7 @@
     position: fixed;
     top: 4%;
     left:45%;
-    background-color: transparent;
+    background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 1px 7px rgb(0 0 0/40%);
 }

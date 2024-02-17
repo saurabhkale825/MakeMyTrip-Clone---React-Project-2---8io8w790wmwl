@@ -19,7 +19,7 @@ function IndividualFlightCard(Flight) {
     else if(airline === "65144a1b664a43628887c45f"){
       return "SpiceJet";
     }
-    else{
+    else if(airline === "65144a1b664a43628887c461"){
       return "Akasa";
     }
   }
@@ -37,7 +37,7 @@ function IndividualFlightCard(Flight) {
       else if(airline === "65144a1b664a43628887c45f"){
         return "https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/SG.png?v=18";
       }
-      else{
+      else if(airline === "65144a1b664a43628887c461"){
         return "https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/QP.png?v=18";
       }
   }
@@ -141,7 +141,10 @@ function IndividualFlightCard(Flight) {
         <div>
           <div className="individual-flight-more-details-heading">     </div>
           <div className="individual-flight-more-details-content">
-            <h2>{`₹ ${Flight.Flight.ticketPrice}`}</h2>
+            <div className="available-seat">
+            <p >Available seats</p>
+            <h2 className="text-orange-800">{` ${Flight.Flight.availableSeats}`}</h2>
+            </div>
             <Link to={`/flight-book-now`}>
             <div className="individual-flight-book-now-button">Book Now</div>
             </Link></div>

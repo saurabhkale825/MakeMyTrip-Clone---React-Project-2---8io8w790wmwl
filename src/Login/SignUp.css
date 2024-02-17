@@ -24,11 +24,12 @@
 }
 
 .signup-page-input-values{
-    width: 80%;
+    width: 95%;
     height: 40px;
     margin: 5px 0 10px 15px;
     border: 0.7px solid rgba(0, 0, 0, 0.329);
     border-radius: 5px;
+    color: black;
 }
 
 .signup-page-submit-button{

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MyContext from "../Context/MyContext";
+import FlightContext from "../Context/FlightsContext";
+import HotelContext from "../Context/HotelContext";
 import HomePage from "../Homepage/HomePage";
 import HotelHomepage from "../Homepage/HotelHomePage/HotelHomepage";
 import TrainHomePage from "../Homepage/TrainHomePage/TrainHomePage";
@@ -10,7 +12,6 @@ import Login from "../Login/Login";
 import Calender from "../Calender/Calender";
 import TravellerSection from "../Homepage/FlightsHomePage/TrvellerSection/TravellerSection";
 import BusesDetails from "../Homepage/BusesHomePage/BusesDetails";
-import FlightContext from "../Context/FlightsContext";
 import AirportList from "../Homepage/FlightsHomePage/AirportList/DepartureAirPortList";
 import BookNowPage from "../DetailPages/FlightSection/BookNowPage/BookNowPage";
 import Asach from "../Asach";
@@ -31,6 +32,8 @@ function LandingPage() {
   const [airportList, setAirportList] = useState([]);
   const [showDepartureAirportList, setShowDepartureAirportList] = useState(false);
   const [showArrivalAirportList, setShowArrivalAirportList] = useState(false);
+  const [location , setLocation] = useState("Mumbai");
+  const [ checkin , setCheckin] = useState(new Date());
 
   return (
     <BrowserRouter>
@@ -87,6 +90,12 @@ function LandingPage() {
             <Route path="/asach" element={<Asach/>} />
           </Routes>
         </FlightContext.Provider>
+
+        {/* <HotelContext.Provider
+          value={{
+
+          }}
+        ></HotelContext.Provider> */}
       </MyContext.Provider>
     </BrowserRouter>
   );

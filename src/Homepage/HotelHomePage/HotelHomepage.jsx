@@ -6,10 +6,13 @@ import Footer from "../../Footer/Footer";
 import CircleOutlinedIcon from "@mui/icons-material/CircleOutlined";
 import CheckBoxTwoToneIcon from "@mui/icons-material/CheckBoxTwoTone";
 import OfferSection from "../../OfferSection/OfferSection"
+import axios from "axios";
+import DatePicker from "react-datepicker";
 
 
 function HotelHomepage() {
   const [selectedMode, setSelectedMode] = useState("4Rooms");
+  const [location , setLocation] = useState("Goa")
   return (
     <>
       <Header />
@@ -47,11 +50,18 @@ function HotelHomepage() {
         <div className="hotel-homepage-content">
           <div className="hotel-location">
             <p className="hotel-location-text">City,Property Name or Location</p>
-            <p className="hotel-location-city">Goa</p>
+            <p className="hotel-location-city">{`${location}`}</p>
             <p>India</p>
           </div>
+          
           <div className="check-in">
-            <p>Check-In</p>
+            <div> <DatePicker
+                  label="Check-in"
+                  className="flights-section-calendar"
+                  value="Check-in"
+                  onChange={(date) => setStartDate(date)}
+                  dateFormat="MMM/d/YY"
+                /></div>
             <p>
               <span className="hotel-location-city">16</span>
               <span className="depature-month">Dec'23</span>

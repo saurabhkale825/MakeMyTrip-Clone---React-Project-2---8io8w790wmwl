@@ -1,21 +1,75 @@
-import React from 'react'
+import React, {useState, useContext } from 'react'
 import "./LoginInput.css"
 import Google from "../Assest/Logo/Google logo.png"
+import MyContext from '../Context/MyContext'
+import { useSearchParams } from 'react-router-dom';
+
+
 
 function LoginInput() {
+
+  const {login , setLogin,showLogin , setShowLogin} = useContext(MyContext);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [token , setToken] = useState("");
+  const Token = localStorage.getItem("user-info");
+  
+  console.log(Token);
+
+
+  async function Login() {
+    try {
+      let item = { "email": email, "password": password, "appType": "ott" };
+      const Header = {
+        'Content-Type': "application/json",
+        projectID: "8io8w790wmwl",
+        Authorization:"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZDBmNTc0YmJkOGMzMWJkZDRlMWIxOSIsImlhdCI6MTcwODE5MzE0MCwiZXhwIjoxNzM5NzI5MTQwfQ.S4v978PXK7pA76DeNMURzY2KRKdJ0wJr0grcVMKlBfA"
+      };
+      let getData = await fetch(`https://academics.newtonschool.co/api/v1/bookingportals/login`, {
+        method: "POST",
+        headers: Header,
+        body: JSON.stringify(item),
+      });
+
+      let response = await getData.json();
+      console.log(response);
+      if (response.status === "success") {
+        localStorage.setItem("user-info", JSON.stringify(response));
+        alert("You are Logging in Successfully");
+        setLogin(true);
+        setEmail("");
+        setPassword("");
+        setShowLogin(false)
+      } else {
+        alert(response.message);
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
   return (
     <div className="login-page-input-section">
-          <div className="login-page-input-text">Email</div>
+          <div className="w-min mb-1 px-1 bg-white text-xs font-medium text-left tracking-wider">Email</div>
           <div className="login-page-input">
-            <input className='mx-1'></input>
+            <input className='mx-1'
+            type='email'
+            autoComplete='off'
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}>   
+            </input>
           </div>
 
-          <div className="login-page-input-text">Password</div>
+          <div className="w-min mb-1 px-1 bg-white text-xs font-medium text-left tracking-wider">Password</div>
           <div className="login-page-input">
-            <input className='mx-1'></input>
+            <input className='mx-1'
+            type='password'
+            autoComplete='off'
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}></input>
           </div>
 
-          <div className="login-page-continue-button">Continue</div>
+          <div className="login-page-continue-button" onClick={Login}>Continue</div>
 
           <div className='login-page-google-text'>
             <span className='login-page-line'>---------------</span>
@@ -23,7 +77,7 @@ function LoginInput() {
             <span className='login-page-line'>---------------</span>
           </div>
 
-          <div className='google-logo'>
+          <div className='google-logo' >
             <img src={Google} alt='google logo' width="40px" height="40px"/>
           </div>
         </div>

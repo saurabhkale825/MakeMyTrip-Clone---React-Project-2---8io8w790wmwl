@@ -11,13 +11,6 @@ import LoginPageTrain from "../../src/Assest/Logo/LoginPageTrainLogo.png"
 
 function Login() {
   const { login , setLogin, showLogin, setShowLogin } = useContext(MyContext);
-  const [inputType, setInputType] = useState("number");
-
-  
-
-  useEffect(() => {
-    console.log(login);
-  }, [login]);
 
   return (
     <div className="login">
@@ -79,10 +72,10 @@ function Login() {
       </div>
       </div>
 
-      <div className="login-page-cancel-button">
-        <Link to={"/"}>
+      <div className="login-page-cancel-button" onClick={() => setShowLogin(false)}>
+        
           <CloseIcon />
-        </Link>
+        
       </div>
 
       

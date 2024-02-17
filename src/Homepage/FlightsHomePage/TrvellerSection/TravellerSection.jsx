@@ -9,16 +9,12 @@ function TravellerSection() {
   
   const{traveller , setTraveller , selectedClass , setSelectedClass , setShowTravellerSection} = useContext(MyContext);
 
-
-
+  
+  const updatedTraveller =()=> selectedAdults + selectedChildren + selectedInfants;
+ 
   const handleApply = () => {
-    if(selectedAdults >= selectedInfants)
-    setTraveller((prevTraveller) => {
-      const updatedTraveller = selectedAdults + selectedChildren + selectedInfants;
-      console.log(updatedTraveller);
-      setShowTravellerSection(false);
-      return updatedTraveller;
-    });
+    setTraveller(updatedTraveller());
+    setShowTravellerSection(false);  
   }
   
 

@@ -13,7 +13,7 @@ import MyContext from "../../Context/MyContext";
 import FlightContext from "../../Context/FlightsContext";
 import DepartureAirportList from "./AirportList/DepartureAirPortList";
 import ArrivalAirportList from "./AirportList/ArrivalAirportList";
-import { StarRate } from "@mui/icons-material";
+import Login from "../../Login/Login";
 
 function FlightsHomePage() {
   const [selectedFare, setSelectedFare] = useState("regular");
@@ -22,7 +22,7 @@ function FlightsHomePage() {
   const [ myData , setMyData] = useState({});
  
   //contexts
-  const { showTravellerSection, setShowTravellerSection } = useContext(MyContext);
+  const { showTravellerSection, setShowTravellerSection , showLogin ,setShowLogin  } = useContext(MyContext);
   const {
     departureCity,
     setDepartureCity,
@@ -32,6 +32,7 @@ function FlightsHomePage() {
     setStartDate,
     day,
     traveller,
+    setTraveller,
     selectedClass,
     departureCityAirportId,
     setDepartureCityAirportId,
@@ -103,6 +104,7 @@ function FlightsHomePage() {
 
   return (
     <>
+    {showLogin === true ? <Login /> :null}
       <div className="flights-homepage">
         <div className="flights-homepage-content">
           <div className="trip-route">

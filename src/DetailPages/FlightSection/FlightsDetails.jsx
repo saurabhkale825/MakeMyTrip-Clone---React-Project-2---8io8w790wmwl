@@ -36,7 +36,7 @@ function FlightsDetails() {
   const [myData, setMyData] = useState(
     JSON.parse(sessionStorage.getItem("myData"))
   );
-  const [filterData, setFilterData] = useState([]);
+
   const departure = myData.departureCityAirportId;
   const arrival = myData.arrivalCityAirportId;
   const day = myData.day;
@@ -93,45 +93,10 @@ function FlightsDetails() {
     FetchFlights();
   }, [selectedSort, selectedFilter]);
 
-  const filterDataByAirline = (airlineId) => {
-    if (data) {
-      const filtered = data.filter((flight) => flight.airline === airlineId);
-      setFilterData(filtered);
-    }
-  };
-
-  const excludedAirlines = [
-    "65144a1b664a43628887c45e",
-    "65144a1b664a43628887c460",
-    "65144a1b664a43628887c45f",
-    "65144a1b664a43628887c45d",
-  ];
-
-  const filterDataByAkasa = () => {
-    if (data) {
-      const filtered = data.filter(
-        (item) => !excludedAirlines.includes(item.airline)
-      );
-      setFilterData(filtered);
-    }
-  };
-
-  const updateFilterData = (airline, airlineName) => {
-    handleAirlineClick(airline, airlineName);
-
-    airline === "123456789"
-      ? filterDataByAkasa()
-      : filterDataByAirline(airline);
-  };
-
   const updateClearAll = () => {
     setSelectedFilter("");
     setSelectedSort("");
   };
-
-  useEffect(() => {
-    updateFilterData(airline, airlineName);
-  }, [airline]);
 
   return (
     <div className="flights-details">
@@ -153,11 +118,13 @@ function FlightsDetails() {
                   <div className="airlines-innerbox">
                     <div
                       onClick={() =>
-                        updateSelectedFilter(`"airline":"65144a1b664a43628887c45e"`)
+                        updateSelectedFilter(
+                          `"airline":"65144a1b664a43628887c45e"`
+                        )
                       }
-                      
                     >
-                      {selectedFilter === `"airline":"65144a1b664a43628887c45e"`? (
+                      {selectedFilter ===
+                      `"airline":"65144a1b664a43628887c45e"` ? (
                         <CheckBoxIcon />
                       ) : (
                         <CheckBoxOutlineBlankIcon />
@@ -174,11 +141,13 @@ function FlightsDetails() {
                   <div className="airlines-innerbox">
                     <div
                       onClick={() =>
-                        updateSelectedFilter(`"airline":"65144a1b664a43628887c460"`)
+                        updateSelectedFilter(
+                          `"airline":"65144a1b664a43628887c460"`
+                        )
                       }
-                      
                     >
-                      {selectedFilter === `"airline":"65144a1b664a43628887c460"` ? (
+                      {selectedFilter ===
+                      `"airline":"65144a1b664a43628887c460"` ? (
                         <CheckBoxIcon />
                       ) : (
                         <CheckBoxOutlineBlankIcon />
@@ -195,10 +164,13 @@ function FlightsDetails() {
                   <div className="airlines-innerbox">
                     <div
                       onClick={() =>
-                        updateSelectedFilter(`"airline":"65144a1b664a43628887c45f"`)
+                        updateSelectedFilter(
+                          `"airline":"65144a1b664a43628887c45f"`
+                        )
                       }
                     >
-                      {selectedFilter === `"airline":"65144a1b664a43628887c45f"` ? (
+                      {selectedFilter ===
+                      `"airline":"65144a1b664a43628887c45f"` ? (
                         <CheckBoxIcon />
                       ) : (
                         <CheckBoxOutlineBlankIcon />
@@ -215,10 +187,13 @@ function FlightsDetails() {
                   <div className="airlines-innerbox">
                     <div
                       onClick={() =>
-                        updateSelectedFilter(`"airline":"65144a1b664a43628887c45d"`)
+                        updateSelectedFilter(
+                          `"airline":"65144a1b664a43628887c45d"`
+                        )
                       }
                     >
-                      {selectedFilter === `"airline":"65144a1b664a43628887c45d"` ? (
+                      {selectedFilter ===
+                      `"airline":"65144a1b664a43628887c45d"` ? (
                         <CheckBoxIcon />
                       ) : (
                         <CheckBoxOutlineBlankIcon />
@@ -234,9 +209,14 @@ function FlightsDetails() {
 
                   <div className="airlines-innerbox">
                     <div
-                      onClick={() => handleAirlineClick("123456789", "akasa")}
+                      onClick={() =>
+                        updateSelectedFilter(
+                          `"airline":"65144a1b664a43628887c461"`
+                        )
+                      }
                     >
-                      {airlineName === "akasa" ? (
+                      {selectedFilter ===
+                      `"airline":"65144a1b664a43628887c461"` ? (
                         <CheckBoxIcon />
                       ) : (
                         <CheckBoxOutlineBlankIcon />
@@ -378,12 +358,14 @@ function FlightsDetails() {
                 <h3 className="filtering-heading">{`Arrival to ${arrivalCity}`}</h3>
                 <div className="filtering-departure-option">
                   <div className="flight-departure-time-inner">
-                    <div className="flex-col content-center justify-center"
-                    onClick={() =>
-                      handleUpdateSelectedFilter(
-                        `"arrivalTime":{"$lte":"15:00"}`
-                      )
-                    }>
+                    <div
+                      className="flex-col content-center justify-center"
+                      onClick={() =>
+                        handleUpdateSelectedFilter(
+                          `"arrivalTime":{"$lte":"15:00"}`
+                        )
+                      }
+                    >
                       <img
                         src={Morning}
                         alt="logo"
@@ -395,12 +377,14 @@ function FlightsDetails() {
                   </div>
 
                   <div className="flight-departure-time-inner">
-                    <div className="flex-col content-center justify-center"
-                    onClick={() =>
-                      handleUpdateSelectedFilter(
-                        `"arrivalTime":{"$gte":"15:00"}`
-                      )
-                    }>
+                    <div
+                      className="flex-col content-center justify-center"
+                      onClick={() =>
+                        handleUpdateSelectedFilter(
+                          `"arrivalTime":{"$gte":"15:00"}`
+                        )
+                      }
+                    >
                       <img
                         src={Night}
                         alt="logo"
@@ -417,35 +401,35 @@ function FlightsDetails() {
               <h3 className="filtering-heading">Stops</h3>
               <div className="filtering-airlines-option">
                 <div className="airlines-innerbox">
-                <div onClick={() => updateSelectedFilter(`"stops":0`)}>
-                      {selectedFilter === `"stops":0` ? (
-                        <CheckBoxIcon />
-                      ) : (
-                        <CheckBoxOutlineBlankIcon />
-                      )}
-                    </div>
+                  <div onClick={() => updateSelectedFilter(`"stops":0`)}>
+                    {selectedFilter === `"stops":0` ? (
+                      <CheckBoxIcon />
+                    ) : (
+                      <CheckBoxOutlineBlankIcon />
+                    )}
+                  </div>
                   <span>Non Stop</span>
                 </div>
 
                 <div className="airlines-innerbox">
-                <div onClick={() => updateSelectedFilter(`"stops":1`)}>
-                      {selectedFilter === `"stops":1` ? (
-                        <CheckBoxIcon />
-                      ) : (
-                        <CheckBoxOutlineBlankIcon />
-                      )}
-                    </div>
+                  <div onClick={() => updateSelectedFilter(`"stops":1`)}>
+                    {selectedFilter === `"stops":1` ? (
+                      <CheckBoxIcon />
+                    ) : (
+                      <CheckBoxOutlineBlankIcon />
+                    )}
+                  </div>
                   <span>1 Stop</span>
                 </div>
 
                 <div className="airlines-innerbox">
-                <div onClick={() => updateSelectedFilter(`"stops":2`)}>
-                      {selectedFilter === `"stops":2`? (
-                        <CheckBoxIcon />
-                      ) : (
-                        <CheckBoxOutlineBlankIcon />
-                      )}
-                    </div>
+                  <div onClick={() => updateSelectedFilter(`"stops":2`)}>
+                    {selectedFilter === `"stops":2` ? (
+                      <CheckBoxIcon />
+                    ) : (
+                      <CheckBoxOutlineBlankIcon />
+                    )}
+                  </div>
                   <span>2 Stops</span>
                 </div>
               </div>
@@ -462,13 +446,17 @@ function FlightsDetails() {
           </div>
 
           <div>
-            {data?.length > 0
-              ? data?.map((flight) => (
-                  <div key={flight._id}>
-                    <IndividualFlightCard Flight={flight} />
-                  </div>
-                ))
-              : <p className="text-4xl font-bold text-black subpixel-antialiased absolute start-80 top-40 border-2 border-black p-5 rounded-2xl">No Data Found</p>}
+            {data?.length > 0 ? (
+              data?.map((flight) => (
+                <div key={flight._id}>
+                  <IndividualFlightCard Flight={flight} />
+                </div>
+              ))
+            ) : (
+              <p className="text-4xl font-bold text-black subpixel-antialiased absolute start-80 top-40 border-2 border-black p-5 rounded-2xl">
+                No Data Found
+              </p>
+            )}
           </div>
         </div>
       </div>
