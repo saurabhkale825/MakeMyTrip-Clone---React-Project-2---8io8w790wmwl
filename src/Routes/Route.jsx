@@ -17,7 +17,8 @@ import Asach from "../Asach";
 
 function LandingPage() {
   const [mode, setMode] = useState("Flights");
-  const [login, setLogin] = useState(true);
+  const[login , setLogin] = useState(false);
+  const [showLogin, setShowLogin] = useState(false);
   const [traveller, setTraveller] = useState(1);
   const [selectedClass, setSelectedClass] = useState("economy");
   const [showTravellerSection, setShowTravellerSection] = useState(false);
@@ -39,6 +40,8 @@ function LandingPage() {
           setMode,
           login,
           setLogin,
+          showLogin, 
+          setShowLogin, 
           showTravellerSection,
           setShowTravellerSection,
         }}
@@ -76,7 +79,6 @@ function LandingPage() {
             <Route path="/trains" element={<TrainHomePage />} />
             <Route path="/buses" element={<BusHomePage />} />
             <Route path="/datepicker" element={<Date />} />
-            <Route path="/login" element={<Login />} />
             <Route path="/calender" element={<Calender />} />
             <Route path="/traveller" element={<TravellerSection />} />
             <Route path="/buses/details" element={<BusesDetails />} />

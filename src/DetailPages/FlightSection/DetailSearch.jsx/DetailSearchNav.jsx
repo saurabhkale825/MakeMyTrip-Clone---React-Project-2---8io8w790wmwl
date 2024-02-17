@@ -111,15 +111,6 @@ useEffect(() => {
           </div>
         </div>
 
-        <div className="hsw-inner">
-          <div className="hsw-inputbox">
-            <div className="lbl-input">Passenger & Class</div>
-            <div className="hsw-inputbox-fromcity">
-              <span >1 Adult, </span>
-              <span>Economy</span>
-            </div>
-          </div>
-        </div>
         
         <Link to={"/flights/details"}>
         <button className="details-search"

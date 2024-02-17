@@ -10,7 +10,7 @@ import MyContext from "../../Context/MyContext";
 
 function Navbar() {
 
-  const{setMode} = useContext(MyContext);
+  const{setMode,setShowLogin , showLogin} = useContext(MyContext);
 
   return (
     <>
@@ -67,15 +67,15 @@ function Navbar() {
             </li>
 
             <li>
-              <Link to={"/login"}>
-              <div className="login-create-account">
+              
+              <div className="login-create-account" onClick={() => setShowLogin(!showLogin)}>
                 <div style={{ fontSize: "12px" }}>Login or Create account</div>
 
                 <div>
                   <ExpandMore />
                 </div>
               </div>
-              </Link>
+              
             </li>
 
             <li className="language-selector">

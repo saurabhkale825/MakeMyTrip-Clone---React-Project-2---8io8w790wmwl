@@ -1,5 +1,4 @@
 import "./Login.css";
-import ReactDOM from "react-dom";
 import { Link } from "react-router-dom";
 import CloseIcon from "@mui/icons-material/Close";
 import { useContext, useEffect, useState } from "react";
@@ -11,7 +10,7 @@ import LoginPageHotel from "../../src/Assest/Logo/LoginPageHotelLogo.png"
 import LoginPageTrain from "../../src/Assest/Logo/LoginPageTrainLogo.png"
 
 function Login() {
-  const { login, setLogin } = useContext(MyContext);
+  const { login , setLogin, showLogin, setShowLogin } = useContext(MyContext);
   const [inputType, setInputType] = useState("number");
 
   
@@ -20,7 +19,7 @@ function Login() {
     console.log(login);
   }, [login]);
 
-  return ReactDOM.createPortal (
+  return (
     <div className="login">
       <div className="login-page-carousel">
         <div className="login-page-carousel-content">
@@ -88,7 +87,7 @@ function Login() {
 
       
     </div>
-  ,document.getElementById('login-portal')
+  
   )
 
 

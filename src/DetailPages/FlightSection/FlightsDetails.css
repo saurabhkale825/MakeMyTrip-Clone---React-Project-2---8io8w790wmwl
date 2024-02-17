@@ -75,7 +75,6 @@
 .filtering-departure-option{
     display: flex;
     justify-content: space-evenly;
-    margin-left: -15px;
 }
 
 .flight-departure-time-inner{
