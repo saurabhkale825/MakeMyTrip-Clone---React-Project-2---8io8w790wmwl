@@ -1,0 +1,54 @@
+.train-individual-card{
+    width: 100%;
+    height: 250px;
+    border:0.5px solid #4a4a4ab1;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+.train-individaul-card-first{
+    display: flex;
+    align-items: center;
+}
+
+.train-individual-cart-name{
+    width: 25%;
+    text-align: left;
+    margin-left: 10px;
+    margin-right: 5%;
+}
+
+.trainName{
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -.49px;
+    color: #000;
+    margin-bottom: 5px;
+   
+}
+
+.train-departure-time ,.train-duration ,.train-arrival-time{
+    width: 12%;   
+    text-align: left;
+    padding: 5px;
+    border: 1px solid red;
+}
+
+.empty-space{
+    width: 5%;
+    height: 3px;
+    background-color: rgba(81, 103, 227, 0.411);
+}
+
+.train-fare{
+    width: 12%;
+    border: 1px solid red;
+    margin: 0 10px;
+    
+}
+
+.train-fare-content{
+    font-size: 16px;
+    font-weight: 700;
+    font-style:italic;
+}

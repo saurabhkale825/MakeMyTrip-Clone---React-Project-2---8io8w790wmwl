@@ -9,7 +9,6 @@
 }
 
 .header-heading {
-  /* border: 1px solid red; */
   display: flex;
   width: 113px;
   height: 36px;
@@ -19,9 +18,10 @@
   margin-left: 10px;
   cursor: pointer;
 }
+
+
 .header-content {
-  /* border: 1px solid white; */
-  width: 1080px;
+  width: 1070px;
   height: 42px;
   position: absolute;
   top: 0px;
@@ -35,12 +35,10 @@
   height: 42px;
   padding: 5px 10px;
   display: flex;
-  /* border: 1px solid red; */
   margin-left: 180px;
 }
 
 .super-offer-content {
-  /* border: 1px solid blueviolet; */
   width: 100%;
   height: 90%;
   margin: 0 5px;
@@ -62,7 +60,6 @@
   line-height: 10px;
   color: #c2c2c2;
   margin: 2px;
-  /* border: 1px solid green; */
 }
 
 .super-offer-icon-bg {
@@ -93,7 +90,6 @@
   height: 42px;
   padding: 5px 8px 5px 10px;
   display: flex;
-  /* border: 1px solid white; */
   text-align: left;
 }
 .my-trips-content {
@@ -104,7 +100,6 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  /* border: 1px solid rgb(72, 11, 147); */
   height: 42px;
   width: 203px;
   padding: 5px 10px;

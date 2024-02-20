@@ -9,88 +9,96 @@ import offerbg from "../../Assest/BackGround/%-bg.png";
 import MyContext from "../../Context/MyContext";
 
 function Navbar() {
-
-  const{setMode,setShowLogin , showLogin} = useContext(MyContext);
+  const { setMode, setShowLogin, showLogin } = useContext(MyContext);
 
   return (
     <>
       <div className="header">
         <div className="header-heading">
           <Link to={"/"}>
-          <div className="logo" onClick={() => setMode("Flights")}>
-            <img src={Logo} alt="logo" width="113px" height="36px" />
-          </div>
+            <div className="logo" onClick={() => setMode("Flights")}>
+              <img src={Logo} alt="logo" width="113px" height="36px" />
+            </div>
           </Link>
 
-          <ul className="header-content">
-            <li className="super-offer">
-              <div>
-                <div
-                  className="super-offer-icon-bg"
-                  style={{
-                    backgroundImage: `url(${offerbg})`,
-                    width: "25px",
-                    height: "25px",
-                  }}
-                >
-                  <div>%</div>
+          
+            <ul className="header-content">
+              <li className="super-offer">
+                <div>
+                  <div
+                    className="super-offer-icon-bg"
+                    style={{
+                      backgroundImage: `url(${offerbg})`,
+                      width: "25px",
+                      height: "25px",
+                    }}
+                  >
+                    <div>%</div>
+                  </div>
                 </div>
-              </div>
-              <div className="super-offer-content">
-                <div className="content-1">Super Offers</div>
-                <div className="content-2">Explore great deals & offers</div>
-              </div>
-            </li>
+                <div className="super-offer-content">
+                  <div className="content-1">Super Offers</div>
+                  <div className="content-2">Explore great deals & offers</div>
+                </div>
+              </li>
 
-            <li className="myBiz-introduction">
-              <div className="myBiz-logo"></div>
-              <div className="super-offer-content">
-                <div className="content-1">Introducing myBiz</div>
-                <div className="content-2">Business Travel Solution</div>
-              </div>
-            </li>
+              <li className="myBiz-introduction">
+                <div className="myBiz-logo"></div>
+                <div className="super-offer-content">
+                  <div className="content-1">Introducing myBiz</div>
+                  <div className="content-2">Business Travel Solution</div>
+                </div>
+              </li>
 
-            <li className="my-trips">
-              <div className="my-trip-logo">
-                <img
-                  src={TravelLogo}
-                  alt="travel-logo"
-                  width="25px"
-                  height="25px"
-                  style={{ marginTop: "5px" }}
-                />
-              </div>
-              <div className="super-offer-content">
-                <div className="content-1">My trips</div>
-                <div className="content-2">Manage your bookings</div>
-              </div>
-            </li>
+              <li className="my-trips">
+                <div className="my-trip-logo">
+                  <img
+                    src={TravelLogo}
+                    alt="travel-logo"
+                    width="25px"
+                    height="25px"
+                    style={{ marginTop: "5px" }}
+                  />
+                </div>
+                <div className="super-offer-content">
+                  <div className="content-1">My trips</div>
+                  <div className="content-2">Manage your bookings</div>
+                </div>
+              </li>
 
-            <li>
-              
-              <div className="login-create-account" onClick={() => setShowLogin(!showLogin)}>
-                <div style={{ fontSize: "12px" }}>Login or Create account</div>
+              <li>
+                <div
+                  className="login-create-account"
+                  onClick={() => setShowLogin(!showLogin)}
+                >
+                  <div style={{ fontSize: "12px" }}>
+                    Login or Create account
+                  </div>
 
+                  <div>
+                    <ExpandMore />
+                  </div>
+                </div>
+              </li>
+
+              <li className="language-selector">
+                <div>
+                  <img
+                    src={India}
+                    alt="india-logo"
+                    width="20px"
+                    height="20px"
+                  />
+                </div>
+
+                <div style={{ marginLeft: "2px" }}>IN | ENG | INR</div>
                 <div>
                   <ExpandMore />
                 </div>
-              </div>
-              
-            </li>
-
-            <li className="language-selector">
-              <div>
-                <img src={India} alt="india-logo" width="20px" height="20px" />
-              </div>
-
-              <div style={{ marginLeft: "2px" }}>IN | ENG | INR</div>
-              <div>
-                <ExpandMore />
-              </div>
-            </li>
-          </ul>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
     </>
   );
 }

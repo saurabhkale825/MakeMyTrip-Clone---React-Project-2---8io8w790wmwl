@@ -1,0 +1,24 @@
+.train-details{
+    width: 100%;
+    height: 200vh;
+    display: flex;
+    gap: 5px;
+}
+
+.train-details-functionality{
+    width: 25%;
+    padding: 5px;
+    border: 0.5px solid #4a4a4ab1;
+    background-color: #fff;
+    border-radius: 4px;
+    margin: 10px 0 0 10px;
+}
+
+.train-details-content{
+    border: 0.5px solid rgba(42, 42, 42, 0.333);
+    width: 70%;
+    margin: 10px 0 0 10px;
+    padding: 5px;
+    background-color: #fff;
+    padding: 15px;
+}

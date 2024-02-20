@@ -1,18 +1,45 @@
-import { useState } from "react";
+import { useContext, useState, useEffect, useCallback } from "react";
 import "./HotelHomepage.css";
 import Header from "../Header/Header";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../../Footer/Footer";
 import CircleOutlinedIcon from "@mui/icons-material/CircleOutlined";
 import CheckBoxTwoToneIcon from "@mui/icons-material/CheckBoxTwoTone";
-import OfferSection from "../../OfferSection/OfferSection"
+import OfferSection from "../../OfferSection/OfferSection";
 import axios from "axios";
 import DatePicker from "react-datepicker";
-
+import HotelContext from "../../Context/HotelContext";
+import { format } from "date-fns";
+import { Link } from "react-router-dom";
 
 function HotelHomepage() {
+  const { location, setLocation, checkin, setCheckin, checkout, setCheckout } =
+    useContext(HotelContext);
+  /* State required only for Hotels HOmePage*/
   const [selectedMode, setSelectedMode] = useState("4Rooms");
-  const [location , setLocation] = useState("Goa")
+  const [hotelData , setHotelData] = useState({});
+
+  const FormatedDate = (date) => format(date, "dd MMM'' yy");
+
+  const updateCheckout = useCallback((checkout) => {
+    const currentDate = checkout;
+    setCheckout(new Date(currentDate.setUTCDate(currentDate.getUTCDate() + 1)));
+  });
+  
+  useEffect(() => {
+    const storedData = sessionStorage.getItem('hotelData');
+    if (storedData) {
+      setHotelData(JSON.parse(storedData));
+    }
+  }, []);
+
+
+  const updateData = (newData) => {
+    setHotelData(newData);
+    sessionStorage.setItem('hotelData', JSON.stringify(newData));
+  };
+
+
   return (
     <>
       <Header />
@@ -49,31 +76,47 @@ function HotelHomepage() {
 
         <div className="hotel-homepage-content">
           <div className="hotel-location">
-            <p className="hotel-location-text">City,Property Name or Location</p>
-            <p className="hotel-location-city">{`${location}`}</p>
+            <p className="hotel-location-text">
+              City,Property Name or Location
+            </p>
+            <div>
+              <input
+                type="name"
+                autoComplete="off"
+                value={location}
+                onChange={(e) => setLocation(e.target.value)}
+                className="hotel-location-city"
+              ></input>
+            </div>
             <p>India</p>
           </div>
-          
+
           <div className="check-in">
-            <div> <DatePicker
-                  label="Check-in"
-                  className="flights-section-calendar"
-                  value="Check-in"
-                  onChange={(date) => setStartDate(date)}
-                  dateFormat="MMM/d/YY"
-                /></div>
+            <div>
+              <DatePicker
+                label="Check-in"
+                className="flights-section-calendar"
+                value="Check-in"
+                onChange={(date) => setCheckin(date)}
+                dateFormat="MMM/d/YY"
+              />
+            </div>
             <p>
-              <span className="hotel-location-city">16</span>
-              <span className="depature-month">Dec'23</span>
+              <span className="depature-month">{FormatedDate(checkin)}</span>
             </p>
 
             <p>Saturday</p>
           </div>
           <div className="check-out">
-            <p>Check-out</p>
+            <div><DatePicker
+                label="Check-in"
+                className="flights-section-calendar"
+                value="Check-out"
+                onChange={(date) => setCheckout(date)}
+                dateFormat="MMM/d/YY"
+              /></div>
             <p>
-              <span className="hotel-location-city">17</span>
-              <span className="depature-month">Dec'23</span>
+              <span className="depature-month">{FormatedDate(checkout)}</span>
             </p>
 
             <p>Sunday</p>
@@ -82,18 +125,16 @@ function HotelHomepage() {
             <div>Rooms & Guests</div>
             <span className="hotel-location-city">1</span>
             <span className="depature-month">Room</span>
-            <span className="hotel-location-city">2</span>
+            <span className="hotel-location-city "> 2</span>
             <span className="depature-month">Adults</span>
-          </div>
-          <div className="price-per-night">
-            <div className="hotel-location-text">Price Per Night</div>
-            <div className="hotel-price-selection">0-1500, 1500-2500,....</div>
           </div>
         </div>
 
-        <div className="hotelhomepge-search-button">SEARCH</div>
+        <Link to={"/hotels/details"}>
+          <div className="hotelhomepge-search-button" onClick={() => updateData({"location" :`${location}`, "checkin":`${checkin}` , "checkout":`${checkout}`})}>SEARCH</div>
+        </Link>
       </div>
-      <OfferSection/>
+      <OfferSection />
       <Footer />
     </>
   );

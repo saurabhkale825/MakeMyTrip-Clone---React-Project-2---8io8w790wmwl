@@ -44,7 +44,7 @@ function FlightsHomePage() {
     setShowArrivalAirportList
   } = useContext(FlightContext);
 
-  const FormatedDate = (date) => format(date, "dd MMM''yy");
+  const FormatedDate = (date) => format(date, "dd MMM'' yy");
 
   useEffect(() => {
     const storedData = sessionStorage.getItem('myData');

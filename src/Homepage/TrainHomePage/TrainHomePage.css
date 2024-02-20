@@ -1,57 +1,121 @@
-.train-homepage{
-    width: 1200px;
-    min-height:40% ;
-    margin: 0 auto;
-    position: absolute;
-    top: 20%;
-    z-index: 10;
-    border-radius: 8px;
-    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-    padding: 60px 20px 0;
+.train-homepage {
+  width: 100%;
+  min-height: 40%;
+  margin: 0 0;
+  position: absolute;
+  top: 20%;
+  z-index: 10;
+  border-radius: 8px;
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  padding: 60px 20px 0;
 }
 
-.train-homepage-option{
-    width: 100%;
-    height: 40px;
-    /* padding: 10px; */
-    border: 1px solid black;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.train-homepage-option-text {
+  display: flex;
+  margin-top: 10px;
+  text-align: left;
 }
 
-.train-homepage-option-left{
-    width: 80%;
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    gap: 30px;
-} 
+.train-homepage-city{
+    width: 40%;
+    height: 120px;
+    padding: 10px 20px;
+    border: 1px solid #e7e7e7;  
+}
 
-.option-selected{
+.border-radius-left{
+    border-top-left-radius: 16px;
+    border-bottom-left-radius: 16px;
+}
+
+.train-homepage-travel{
+    width: 20%;
+    height: 120px;
+    padding: 10px 20px;
+    border: 1px solid #e7e7e7;
+}
+
+.border-radius-right{
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+}
+
+.train-homepage-label{
     font-size: 14px;
-    font-weight: 700;
-    color: black;
+    color: #4A4A4A;
+    margin: 0px 0px 2px;
+    padding: 1px 2px;
+}
+
+.train-homepage-city-name{
+    border: 0;
+    outline: 0;
+    background: none;
+    width: 270px;
     cursor: pointer;
+    font-size: 32px;
+    line-height: 32px;
+    font-weight: 700;
+    padding: 1px 2px;
+    color: black;
 }
 
-.train-homepage-option-text{
-    border: 1px solid black;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-    
+.train-homepage-date{
+    border: 0;
+    outline: 0;
+    background: none;
+    width: 270px;
+    cursor: pointer;
+    font-size: 24px;
+    line-height: 24px;
+    font-weight: 600;
+    padding: 1px 2px;
+    color: #4a4a4ac1;
 }
-.train-homepage-start-city,.train-homepage-destination-city{
-    text-align: left;
-    border: 1px solid red;
-    width: 35%;
+
+.train-homepage-class{
+    border: 0;
+    outline: 0;
+    background: none;
+    width: 270px;
+    cursor: pointer;
+    font-size: 24px;
+    line-height: 24px;
+    font-weight: 600;
+    padding: 1px 2px;
+    color: #030303c1;
+}
+
+.train-search-button{
+    width: 216px;
     padding: 10px;
+    margin-bottom: -32px;
+    opacity: 1;
+    color: #fff;
+    border-radius: 34px;
+    background: linear-gradient(93deg, #53b2fe, #065af3);
+    box-shadow: 0 1px 7px 0 rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    flex-shrink: 0;
+    color: #fff;
+    text-transform: uppercase;
+    cursor: pointer;
+    outline: 0;
+    border: 0;
+    text-align: center;
+    position: relative;
+    top: 35px;
 }
 
-.train-homepage-travel-date , .train-homepage-travel-class{
-    text-align: left;
-    border: 1px solid black;
-    width: 15%;
+.train-homepage-city:hover ,  .train-homepage-travel:hover  {
+    background-color : #6ea1ff2a;
+}
+
+.flights-section-calendar{
+    border: none;
+}
+
+.train-homepage-travel:hover .flights-section-calendar{
+    background-color : #6ea1ff06;
 }
