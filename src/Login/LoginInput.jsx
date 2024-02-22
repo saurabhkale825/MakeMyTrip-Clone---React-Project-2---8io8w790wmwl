@@ -2,7 +2,8 @@ import React, {useState, useContext } from 'react'
 import "./LoginInput.css"
 import Google from "../Assest/Logo/Google logo.png"
 import MyContext from '../Context/MyContext'
-import { useSearchParams } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -12,18 +13,17 @@ function LoginInput() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [token , setToken] = useState("");
-  const Token = localStorage.getItem("user-info");
+  const Token = JSON.parse(localStorage.getItem("user-info"));
   
-  console.log(Token);
+  console.log(Token.token);
 
 
   async function Login() {
     try {
-      let item = { "email": email, "password": password, "appType": "ott" };
+      let item = { "email": email, "password": password, "appType": "bookingportals" };
       const Header = {
         'Content-Type': "application/json",
-        projectID: "8io8w790wmwl",
-        Authorization:"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZDBmNTc0YmJkOGMzMWJkZDRlMWIxOSIsImlhdCI6MTcwODE5MzE0MCwiZXhwIjoxNzM5NzI5MTQwfQ.S4v978PXK7pA76DeNMURzY2KRKdJ0wJr0grcVMKlBfA"
+        "projectID": "8io8w790wmwl"
       };
       let getData = await fetch(`https://academics.newtonschool.co/api/v1/bookingportals/login`, {
         method: "POST",

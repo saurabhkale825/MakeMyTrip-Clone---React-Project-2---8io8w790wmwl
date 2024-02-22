@@ -4,6 +4,7 @@
     border:0.5px solid #4a4a4ab1;
     border-radius: 4px;
     padding: 5px;
+    margin: 0 0 10px 0;
 }
 
 .train-individaul-card-first{
@@ -16,6 +17,7 @@
     text-align: left;
     margin-left: 10px;
     margin-right: 5%;
+   
 }
 
 .trainName{
@@ -27,11 +29,10 @@
    
 }
 
-.train-departure-time ,.train-duration ,.train-arrival-time{
+.train-departure-time ,.train-duration ,.train-arrival-time,.train-availableSeats ,.train-fare{
     width: 12%;   
-    text-align: left;
     padding: 5px;
-    border: 1px solid red;
+   
 }
 
 .empty-space{
@@ -40,15 +41,38 @@
     background-color: rgba(81, 103, 227, 0.411);
 }
 
-.train-fare{
-    width: 12%;
-    border: 1px solid red;
-    margin: 0 10px;
-    
-}
-
 .train-fare-content{
     font-size: 16px;
     font-weight: 700;
     font-style:italic;
+}
+
+.train-individaul-card-second{
+    width: 100%;
+    display: flex;
+    margin-top: 20px;
+}
+
+.individual-coach-details{
+    min-width: 10%;
+    height: 90px;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,.2);
+    background-color: #fff;
+    padding: 10px 10px;
+    cursor: pointer;
+    display: inline-block;
+    margin-bottom: 20px;
+    position: relative;
+    margin: 10px 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.update-time{
+    font-size: 8px;
+}
+
+.update-seats{
+    font-size: 10px;
 }

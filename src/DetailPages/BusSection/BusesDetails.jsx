@@ -1,13 +1,12 @@
 import React from 'react'
 import "./BusesDetails.css";
 import BusesDetailsNav from './BusesDetailsNav';
-import NavbarDetails from '../Navbar/NavbarDetails';
+import NavbarDetails from '../../Homepage/Navbar/NavbarDetails';
 import ACIcon from "../../Assest/Icons/ACIcon.png";
 import NonACIcon from "../../Assest/Icons/NonAcIcon.png";
 import Sleeper from "../../Assest/Icons/Sleeper.png";
 import Seater from "../../Assest/Icons/Seater.png";
-import { blueGrey } from '@mui/material/colors';
-import CheckBoxSharpIcon from '@mui/icons-material/CheckBoxSharp';
+
 
 
 function BusesDetails() {

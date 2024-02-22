@@ -50,7 +50,7 @@
   font-size: 14px;
 }
 
-#from-city , #destination-city , .bus-homepage-date-content{
+.bus-homepage-from-city , #destination-city , .bus-homepage-date-content{
   font-size: 30px ;
   font-weight: 700;
   line-height: 30px ;

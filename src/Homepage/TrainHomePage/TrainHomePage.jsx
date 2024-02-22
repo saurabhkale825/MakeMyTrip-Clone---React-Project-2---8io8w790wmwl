@@ -16,12 +16,19 @@ import { Link } from "react-router-dom";
 function TrainHomePage() {
 
   const[showCalender , setShowCalender] = useState(false);
-  const {source , setSource ,destination , setDestination ,travelDate , setTravelDate} = useContext(TrainContext);
+  const {source , setSource ,destination , setDestination ,travelDate , setTravelDate ,trainDay , setTrainDay} = useContext(TrainContext);
   
   const [showSource, setShowSource] = useState(false);
   const [showDestination , setShowDestination] = useState(false);
 
   const FormatedDate = (date) => format(date, "dd MMM'' yy");
+
+  const UpdateTrainDay = (date) => {
+    setTrainDay(date.toLocaleDateString("en-US", { weekday: "long" }))
+  }
+  useEffect(() => {
+    UpdateTrainDay(travelDate);  
+  }, [travelDate]);
 
   useEffect(() => {
     console.log(showSource);
@@ -60,7 +67,7 @@ function TrainHomePage() {
                 
               </div>
               <div className="train-homepage-date ">{FormatedDate(travelDate)}</div>
-              <div className="m-1 text-xs">{travelDate.toLocaleDateString("en-US", { weekday: "long" })}</div>
+              <div className="m-1 text-xs">{trainDay}</div>
               
             </div>
             

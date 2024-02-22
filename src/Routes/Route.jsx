@@ -12,12 +12,13 @@ import FlightsDetails from "../DetailPages/FlightSection/FlightsDetails";
 import Login from "../Login/Login";
 import Calender from "../Calender/Calender";
 import TravellerSection from "../Homepage/FlightsHomePage/TrvellerSection/TravellerSection";
-import BusesDetails from "../Homepage/BusesHomePage/BusesDetails";
+import BusesDetails from "../DetailPages/BusSection/BusesDetails";
 import AirportList from "../Homepage/FlightsHomePage/AirportList/DepartureAirPortList";
 import BookNowPage from "../DetailPages/FlightSection/BookNowPage/BookNowPage";
 import HotelDetails from "../DetailPages/HotelSection/HotelDetails";
 import SourceTrainStationList from "../Homepage/TrainHomePage/SourceTrainStationList";
 import TrainDetails from "../DetailPages/TrainSection/TrainDetails";
+import RailwayReview from "../DetailPages/TrainSection/RailwayReview/RailwayReview"
 
 
 function LandingPage() {
@@ -42,6 +43,7 @@ function LandingPage() {
   const [source , setSource] = useState("Delhi Junction");
   const [destination , setDestination]= useState("Surat");
   const [travelDate , setTravelDate] = useState(new Date());
+  const [trainDay , setTrainDay] = useState("");
   
   return (
     <BrowserRouter>
@@ -103,7 +105,9 @@ function LandingPage() {
               destination,
               setDestination,
               travelDate,
-              setTravelDate
+              setTravelDate,
+              trainDay,
+              setTrainDay
             }}
           >
           <Routes>
@@ -121,6 +125,7 @@ function LandingPage() {
             <Route path="/hotels/details" element={<HotelDetails /> }/>
             <Route path="/trains/details" element={<TrainDetails/>} />
             <Route path="/asach" element={<SourceTrainStationList/>} />
+            <Route path="/railways/review" element={<RailwayReview/>} />
           </Routes>
           </TrainContext.Provider>
           </HotelContext.Provider> 

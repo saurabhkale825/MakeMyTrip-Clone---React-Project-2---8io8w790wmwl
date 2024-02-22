@@ -19,6 +19,49 @@ function BusHomePage() {
 
   const FormatedDate = (travelDate) => format(travelDate, "dd MMM''yy");
 
+  const BusStands = [
+    {"busStand":"Mumbai"},
+    {"busStand":"Delhi"},
+    {"busStand":"Bangalore"},
+    {"busStand":"Kolkata"},
+    {"busStand":"Chennai"},
+    {"busStand":"Hydrabad"},
+    {"busStand":"Pune"},
+    {"busStand":"Ahamedabad"},
+    {"busStand":"Surat"},
+    {"busStand":"Jaipur"},
+    {"busStand":"Lucknow"},
+    {"busStand":"Nagpur"},
+    {"busStand":"Thane"},
+    {"busStand":"Bhopal"},
+    {"busStand":"Vishakhapatnam"},
+    {"busStand":"Patna"},
+    {"busStand":"Vadodara"},
+    {"busStand":"Ludhiana"},
+    {"busStand":"Agra"},
+    {"busStand":"Nashik"},
+    {"busStand":"Faridabad"},
+    {"busStand":"Rajkot"},
+    {"busStand":"Varanasi"},
+    {"busStand":"Dhanabad"},
+    {"busStand":"Jadhpur"},
+    {"busStand":"Raipur"},
+    {"busStand":"Coimbadore"},
+    {"busStand":"Jabalpur"},
+    {"busStand":"Vijaywada"},
+    {"busStand":"Kanpur"},
+    {"busStand":"Indore"},
+    {"busStand":"Pimpri-Chinchwad"},
+    {"busStand":"Gaziabad"},
+    {"busStand":"Merrut"},
+    {"busStand":"Kalyan-Dombivali"},
+    {"busStand":"Vasai-Virar"},
+    {"busStand":"Srinagar"},
+    {"busStand":"Amristar"},
+    {"busStand":"Allahabad"},
+    {"busStand":"Gwalior"},
+  ]
+
   return (
     <>
       <Header />
@@ -35,11 +78,7 @@ function BusHomePage() {
         <div className="bus-homepage-content">
           <div className="bus-homepage-from-city">
             <div className="bus-homepage-normal-text">From</div>
-            <input 
-              id="from-city" 
-              value={fromcity} 
-              onChange={(e) => {setFromcity(e.target.value)}}
-            />
+            <div className="bus-homepage-city-heading">Delhi</div>
             <div className="bus-homepage-normal-text">India</div>
           </div>
 
