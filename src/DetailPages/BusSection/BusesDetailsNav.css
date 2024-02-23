@@ -19,9 +19,9 @@
     background: hsla(0,0%,100%,.1);
     border-radius: 4px;
     margin-right: 5px;
-    display: flex;
-    flex-direction: column;
+    text-align: left;
     position: relative;
+    width: 180px;
 }
 .lbl-input{
     text-transform: uppercase;
@@ -47,7 +47,7 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    margin-top: 5px;
+    margin: 7px 12px;
 }
 
 .bsw-inner-swap{

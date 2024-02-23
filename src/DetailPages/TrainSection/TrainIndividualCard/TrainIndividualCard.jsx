@@ -31,8 +31,8 @@ function TrainIndividualCard(Trains) {
             <div className="flex justify-between items-center text-xs">
               <div>
                 departs on:
-                {Trains?.Trains.daysOfOperation?.map((item) => (
-                  <span className="xl-1">{FormatDay(item)} </span>
+                {Trains?.Trains.daysOfOperation?.map((item , index) => (
+                  <span className="xl-1" key={index}>{FormatDay(item)} </span>
                 ))}
               </div>
             </div>
