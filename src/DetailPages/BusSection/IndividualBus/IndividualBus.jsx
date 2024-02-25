@@ -1,9 +1,12 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "./IndividualBus.css";
 import StarIcon from "@mui/icons-material/Star";
 import { Link } from "react-router-dom";
+import SeatSelection from "../SeatSelection/SeatSelection";
 
 function IndividualBus(bus) {
+
+  const[showSelectionSeat , setShowSelectionSeat] = useState(false);
 
   const DurationHours = (arrival, departure) => {
     const a = parseInt(arrival.split(":")[0]);
@@ -92,10 +95,11 @@ function IndividualBus(bus) {
           ))}
           </ul>
         </div>
-        <div className="individual-bus-middle-lower-right">
+        <div className="individual-bus-middle-lower-right" onClick={() => setShowSelectionSeat(!showSelectionSeat)}>
             select seats
         </div>
       </div>
+      <div  className={showSelectionSeat === true ? "block" : "hidden"}><SeatSelection /></div>
     </div>
   );
 }

@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React, { useState , useEffect } from "react";
+import { BrowserRouter, Routes, Route, json } from "react-router-dom";
 import MyContext from "../Context/MyContext";
 import FlightContext from "../Context/FlightsContext";
 import HotelContext from "../Context/HotelContext";
@@ -20,9 +20,11 @@ import HotelDetails from "../DetailPages/HotelSection/HotelDetails";
 import SourceTrainStationList from "../Homepage/TrainHomePage/SourceTrainStationList";
 import TrainDetails from "../DetailPages/TrainSection/TrainDetails";
 import RailwayReview from "../DetailPages/TrainSection/RailwayReview/RailwayReview";
+import SeatSelection from "../DetailPages/BusSection/SeatSelection/SeatSelection";
 
 function LandingPage() {
   const [mode, setMode] = useState("Flights");
+  const [authenticate , setAuthenticate] = useState(false);
   const [login, setLogin] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
   const [traveller, setTraveller] = useState(1);
@@ -35,8 +37,7 @@ function LandingPage() {
   const [startDate, setStartDate] = useState(new Date());
   const [day, setDay] = useState("");
   const [airportList, setAirportList] = useState([]);
-  const [showDepartureAirportList, setShowDepartureAirportList] =
-    useState(false);
+  const [showDepartureAirportList, setShowDepartureAirportList] =useState(false);
   const [showArrivalAirportList, setShowArrivalAirportList] = useState(false);
   const [location, setLocation] = useState("Mumbai");
   const [checkin, setCheckin] = useState(new Date());
@@ -48,6 +49,10 @@ function LandingPage() {
   const [busSource, setBusSource] = useState("Mumbai");
   const [busDestination, setBusDestination] = useState("Pune");
   const [busTravelDate, setBusTravelDate] = useState(new Date());
+
+  useEffect(() => {
+    setLogin((JSON.parse(sessionStorage.getItem("isLoggedIn"))) === true ? true : false)  
+  }, []);
 
   return (
     <BrowserRouter>
@@ -61,6 +66,8 @@ function LandingPage() {
           setShowLogin,
           showTravellerSection,
           setShowTravellerSection,
+          authenticate,
+          setAuthenticate
         }}
       >
         <FlightContext.Provider
@@ -132,11 +139,13 @@ function LandingPage() {
                   <Route path="/traveller" element={<TravellerSection />} />
                   <Route path="/buses/details" element={<BusesDetails />} />
                   <Route path="/airports" element={<AirportList />} />
-                  <Route path="/flight-book-now" element={<BookNowPage />} />
+                  <Route path="/flight/:itemId" element={<BookNowPage />} />
                   <Route path="/hotels/details" element={<HotelDetails />} />
                   <Route path="/trains/details" element={<TrainDetails />} />
                   <Route path="/asach" element={<SourceTrainStationList />} />
                   <Route path="/railways/review" element={<RailwayReview />} />
+                  <Route path="/selectionseat" element={< SeatSelection />} />
+
                 </Routes>
               </BusContext.Provider>
             </TrainContext.Provider>

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useCallback,useEffect ,useContext } from "react";
 import "./Header.css";
 import { Link } from "react-router-dom";
 import Logo from "../../Assest/Logo/mmtLogoWhite.png";
@@ -9,8 +9,17 @@ import offerbg from "../../Assest/BackGround/%-bg.png";
 import MyContext from "../../Context/MyContext";
 
 function Navbar() {
-  const { setMode, setShowLogin, showLogin } = useContext(MyContext);
+  const { setMode, setShowLogin, showLogin ,login , setLogin } = useContext(MyContext);
 
+  useEffect(() => {
+    const storedLoginStatus = localStorage.getItem('isLoggedIn');
+    if (storedLoginStatus === 'true') {
+      setLogin(true);
+    } 
+  }, []);
+
+  const name = JSON.parse(localStorage.getItem("user-info")).data.name;
+  
   return (
     <>
       <div className="header">
@@ -67,18 +76,22 @@ function Navbar() {
               </li>
 
               <li>
-                <div
+                
+               {login === true? <div className="loged-name">
+                <span className="userLoggedIn"></span>
+                <span>{`Hi ${name}`}</span></div>:<div
                   className="login-create-account"
                   onClick={() => setShowLogin(!showLogin)}
                 >
+                  {/*  */}
                   <div style={{ fontSize: "12px" }}>
-                    Login or Create account
+                  Login or Create account 
                   </div>
-
+                  </div>}
                   <div>
                     <ExpandMore />
                   </div>
-                </div>
+
               </li>
 
               <li className="language-selector">

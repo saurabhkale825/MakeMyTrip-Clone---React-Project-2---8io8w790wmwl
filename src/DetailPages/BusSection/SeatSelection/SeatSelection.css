@@ -1,0 +1,25 @@
+.SeatSelection{
+    border-top: 1px solid #676767;
+    width: 100%;
+    height: 500px;
+    position: relative;
+    
+}
+
+.bus-layout{
+    width: 240px;
+    height: 450px;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #7e7d7d;
+    border-radius: 12px;
+    margin-top: 10px;
+}
+
+.bus-layout-line{
+    width: 45%;
+    height: 100%;
+}
+
+
+

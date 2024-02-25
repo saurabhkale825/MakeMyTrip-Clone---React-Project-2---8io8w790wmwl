@@ -461,21 +461,7 @@ function TrainDetails() {
           
 
           <div className="train-details-content">
-            {/* <div className="rb-container-main">
-              <div className="rb-container">
-              <img src="https://jsak.mmtcdn.com/rails_cdn_rnw/images/82c7e64d_railofy_banner_icon.webp" alt="promo-icon" class="rb-icon"></img>
-
-              <div className="rb-content-container">
-                <div className="rb-header-text">Introducing Trip Guarantee</div>
-                <div className="text-xs ml-15">
-                  <span style={{color:"rgb(245,239,255)"}}>Get </span>
-                  <span style={{color:"rgb(255,225,64)"}}>3X refund  </span>
-                  <span style={{color:"rgb(245,239,255)"}} >{`if your waitlisted ticket doesnt get confirmed. Use this amount to upgrade your ticket to :`} </span>
-                  </div>
-                </div>
-              </div>
-              </div> */}
-
+            
             <div>
             <h3 className="text-left my-4 text-2xl font-bold text-slate-950">{`Trains From ${source} To ${destination}`}</h3>
             {data?.length ? (

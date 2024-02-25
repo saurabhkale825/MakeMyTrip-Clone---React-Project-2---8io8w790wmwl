@@ -12,11 +12,11 @@ function LoginInput() {
   const {login , setLogin,showLogin , setShowLogin} = useContext(MyContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [token , setToken] = useState("");
-  const Token = JSON.parse(localStorage.getItem("user-info"));
-  
-  console.log(Token.token);
 
+  const handleLogin = () => {
+    localStorage.setItem('isLoggedIn', 'true');
+    setLogin(true);
+  }
 
   async function Login() {
     try {
@@ -36,7 +36,7 @@ function LoginInput() {
       if (response.status === "success") {
         localStorage.setItem("user-info", JSON.stringify(response));
         alert("You are Logging in Successfully");
-        setLogin(true);
+        handleLogin();
         setEmail("");
         setPassword("");
         setShowLogin(false)

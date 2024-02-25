@@ -1,6 +1,6 @@
 .individualbus{
     width: 98%;
-    height: 180px; 
+    height: auto; 
     margin: 15px 0 0 1%;
     margin-left: 1%;
     background-color: #fff;
@@ -133,7 +133,8 @@
     height: 25%;
     display: flex;
     justify-content: space-between;
-    margin: 10px 0 0 2%;
+    margin: 10px 0 10px 2%;
+
 }
 
 .individual-bus-middle-lower-left{

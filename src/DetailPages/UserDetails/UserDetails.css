@@ -1,0 +1,36 @@
+.user-deatils{
+    width: 98%;
+    height: 1000px;
+    margin: 1%;
+    background-color: transparent;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.user-details-text{
+    background-color: rgb(255, 237, 209);
+    padding: 10px;
+    margin: 10px;
+}
+
+.userdetails-maindiv{
+    border-radius: 4px;
+    box-shadow: 0 1px 4px #00000036;
+    background-color: #fff;
+    margin: 20px 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 13px;
+}
+
+#email , #name , #lastname , #mobile{
+    border-radius: 4px;
+    border: 1px solid hsla(0, 0%, 60.8%, .5);
+    padding: 10px;
+    color: #4a4a4a;
+    outline: 0;
+    width: 230px;
+    font-size: 14px;
+}

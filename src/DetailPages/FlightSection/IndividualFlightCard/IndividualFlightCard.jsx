@@ -145,7 +145,7 @@ function IndividualFlightCard(Flight) {
             <p >Available seats</p>
             <h2 className="text-orange-800">{` ${Flight.Flight.availableSeats}`}</h2>
             </div>
-            <Link to={`/flight-book-now`}>
+            <Link to={`/flight/${Flight.Flight._id}`}>
             <div className="individual-flight-book-now-button">Book Now</div>
             </Link></div>
         </div>

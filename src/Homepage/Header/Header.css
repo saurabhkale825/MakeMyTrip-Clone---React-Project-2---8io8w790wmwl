@@ -111,6 +111,26 @@
   );
 }
 
+.loged-name{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 42px;
+  width: 203px;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.userLoggedIn{
+  background-image: linear-gradient(45deg, #219393, #ace143);
+  margin-right: 10px;
+  color: #fff;
+  border-radius:25%;
+  width: fit-content;
+  height: fit-content;
+}
+
 .language-selector {
   display: flex;
   align-items: center;
