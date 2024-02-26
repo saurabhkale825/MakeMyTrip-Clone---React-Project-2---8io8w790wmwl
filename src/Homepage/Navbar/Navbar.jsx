@@ -24,9 +24,9 @@ import MyContext from "../../Context/MyContext";
 function Navbar() {
  const{mode,setMode} = useContext(MyContext);
   
-//  useEffect(() => {
-//     console.log(mode);
-//   }, [mode]);
+ useEffect(() => {
+    console.log(mode);
+  }, [mode]);
 
   return (
     <div className="navbar">

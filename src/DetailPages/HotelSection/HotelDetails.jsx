@@ -7,6 +7,7 @@ import IndividualHotel from "./IndividualHotel";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import CheckBox from "@mui/icons-material/CheckBox";
 import CheckBoxOutlineBlank from "@mui/icons-material/CheckBoxOutlineBlank";
+import axios from "axios";
 
 
 function HotelDetails() {
@@ -19,11 +20,33 @@ function HotelDetails() {
   const [selectedHotelFilter , setSelectedHotelFilter] = useState("");
   const [minHotelPrice , setMinHotelPrice] = useState(0);
   const [maxHotelPrice , setMaxHotelPrice] = useState(10000);
+  const [data , setData] = useState([]);
 
   useEffect(() => {
     setLocation(hoteldata.location);
     console.log(hoteldata);
   }, []);
+
+  const FetchHotels = async() => {
+    try {
+      const response = await axios.get(
+        `https://academics.newtonschool.co/api/v1/bookingportals/hotel?search={"location":"Mumbai"}`,
+        {
+          headers: {
+            projectID: "8io8w790wmwl",
+          },
+        }
+      );
+
+      setData(response.data?.data?.hotels);
+      console.log(response.data?.data.hotels);
+    } catch (error) {
+      console.error("Error fetching train data:", error);
+    }
+  }
+  useEffect(() => {
+    FetchHotels();
+  }, [location]);
 
   return (
     <>
@@ -170,7 +193,17 @@ function HotelDetails() {
             </div>
           </div>
           <div className="hotel-details-content-wrapper">
-            <IndividualHotel />
+          {data?.length ? (
+            data?.map((item) => (
+              <div key={item._id}>
+                <IndividualHotel hotels={item}/>
+              </div>
+            ))
+          ) : (
+            <p className="text-4xl font-bold text-black subpixel-antialiased relative border-2 border-black p-5 rounded-2xl">
+              No Data Found
+            </p>
+          )}
           </div>
         </div>
       </div>

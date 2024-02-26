@@ -1,10 +1,10 @@
 .user-deatils{
-    width: 98%;
-    height: 1000px;
-    margin: 1%;
+    width: 80%;
+    height: max-content;
+    margin: 1% 10%;
     background-color: transparent;
-    border: 1px solid black;
-    padding: 10px;
+    /* border: 1px solid black; */
+    padding: 10px 10px 50px 10px;
 }
 
 .user-details-text{
@@ -25,7 +25,7 @@
     padding: 13px;
 }
 
-#email , #name , #lastname , #mobile{
+#email , #name , #lastname , #mobile , #state , #pincode , #address{
     border-radius: 4px;
     border: 1px solid hsla(0, 0%, 60.8%, .5);
     padding: 10px;
@@ -33,4 +33,27 @@
     outline: 0;
     width: 230px;
     font-size: 14px;
+}
+
+.indi-box{
+    border: 1px solid hsla(0, 0%, 60.8%, .5);
+    box-shadow: 0 1px 4px #00000036;
+    margin: 0px 0px 25px 0;
+}
+
+.userdetails-submit-button{
+    display: flex;
+    border-radius: 35px;
+    box-shadow: 0 1px 7px 0 rgba(0,0,0,.22);
+    cursor: pointer;
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    height: 32px;
+    padding: 0 20px;
+    border: none;
+    outline: none;
+    font-weight: 900;
+    background-image: linear-gradient(97deg, #53b2fe, #065af3 130%);
 }

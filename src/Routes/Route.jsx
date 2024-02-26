@@ -21,6 +21,7 @@ import SourceTrainStationList from "../Homepage/TrainHomePage/SourceTrainStation
 import TrainDetails from "../DetailPages/TrainSection/TrainDetails";
 import RailwayReview from "../DetailPages/TrainSection/RailwayReview/RailwayReview";
 import SeatSelection from "../DetailPages/BusSection/SeatSelection/SeatSelection";
+import Payment from "../DetailPages/Payment/Payment";
 
 function LandingPage() {
   const [mode, setMode] = useState("Flights");
@@ -106,6 +107,8 @@ function LandingPage() {
               setCheckout,
             }}
           >
+
+            
             <TrainContext.Provider
               value={{
                 source,
@@ -145,7 +148,7 @@ function LandingPage() {
                   <Route path="/asach" element={<SourceTrainStationList />} />
                   <Route path="/railways/review" element={<RailwayReview />} />
                   <Route path="/selectionseat" element={< SeatSelection />} />
-
+                  <Route path="/payment" element={< Payment />} />
                 </Routes>
               </BusContext.Provider>
             </TrainContext.Provider>
