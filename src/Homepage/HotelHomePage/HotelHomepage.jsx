@@ -11,13 +11,15 @@ import DatePicker from "react-datepicker";
 import HotelContext from "../../Context/HotelContext";
 import { format } from "date-fns";
 import { Link } from "react-router-dom";
+import InputCities from "./InputCities";
 
 function HotelHomepage() {
-  const { location, setLocation, checkin, setCheckin, checkout, setCheckout } =
+  const { location, setLocation, checkin, setCheckin, checkout, setCheckout , showInputCities , setShowInputCities } =
     useContext(HotelContext);
   /* State required only for Hotels HOmePage*/
   const [selectedMode, setSelectedMode] = useState("4Rooms");
-  const [hotelData , setHotelData] = useState({});
+  const [hotelData, setHotelData] = useState({});
+ 
 
   const FormatedDate = (date) => format(date, "dd MMM'' yy");
 
@@ -25,20 +27,18 @@ function HotelHomepage() {
     const currentDate = checkout;
     setCheckout(new Date(currentDate.setUTCDate(currentDate.getUTCDate() + 1)));
   });
-  
+
   useEffect(() => {
-    const storedData = sessionStorage.getItem('hotelData');
+    const storedData = sessionStorage.getItem("hotelData");
     if (storedData) {
       setHotelData(JSON.parse(storedData));
     }
   }, []);
 
-
   const updateData = (newData) => {
     setHotelData(newData);
-    sessionStorage.setItem('hotelData', JSON.stringify(newData));
+    sessionStorage.setItem("hotelData", JSON.stringify(newData));
   };
-
 
   return (
     <>
@@ -75,20 +75,20 @@ function HotelHomepage() {
         </div>
 
         <div className="hotel-homepage-content">
+        {showInputCities === true ? <InputCities />:null}
           <div className="hotel-location">
+          <div className="flex flex-col">
             <p className="hotel-location-text">
               City,Property Name or Location
             </p>
             <div>
-              <input
-                type="name"
-                autoComplete="off"
-                value={location}
-                onChange={(e) => setLocation(e.target.value)}
-                className="hotel-location-city"
-              ></input>
+              <div className="hotel-location-city"  onClick={() => setShowInputCities(!showInputCities)}>{location}</div>
             </div>
             <p>India</p>
+            
+          </div>
+          
+         
           </div>
 
           <div className="check-in">
@@ -108,13 +108,15 @@ function HotelHomepage() {
             <p>Saturday</p>
           </div>
           <div className="check-out">
-            <div><DatePicker
+            <div>
+              <DatePicker
                 label="Check-in"
                 className="flights-section-calendar"
                 value="Check-out"
                 onChange={(date) => setCheckout(date)}
                 dateFormat="MMM/d/YY"
-              /></div>
+              />
+            </div>
             <p>
               <span className="depature-month">{FormatedDate(checkout)}</span>
             </p>
@@ -131,7 +133,18 @@ function HotelHomepage() {
         </div>
 
         <Link to={"/hotels/details"}>
-          <div className="hotelhomepge-search-button" onClick={() => updateData({"location" :`${location}`, "checkin":`${checkin}` , "checkout":`${checkout}`})}>SEARCH</div>
+          <div
+            className="hotelhomepge-search-button"
+            onClick={() =>
+              updateData({
+                location: `${location}`,
+                checkin: `${checkin}`,
+                checkout: `${checkout}`,
+              })
+            }
+          >
+            SEARCH
+          </div>
         </Link>
       </div>
       <OfferSection />

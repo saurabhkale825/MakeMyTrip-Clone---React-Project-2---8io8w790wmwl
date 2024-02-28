@@ -1,0 +1,161 @@
+.individual-detail-hotel{
+    border: 1px solid rgb(5, 5, 5);
+    width: 100%;
+    height: auto;
+    padding: 1%;
+}
+
+.individual-detail-hotel-container{
+    width: 100%;
+    height:auto;
+    background-color: #fff;
+    margin-top: 1%;
+    border-radius: 8px;
+}
+
+.indi-hotel-header{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 2%;
+    padding: 5px;
+}
+
+.indi-hotel-display{
+    width:100%;
+    height: auto;
+    margin-top: 1%;
+    padding-bottom: 20px;
+}
+
+.indi-hotel-carousel{
+    width: 67%;
+    margin-left: 1.5%;   
+}
+
+.slider-images{
+    width: 800px;
+    height: 500px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 16px;
+
+}
+
+.indi-hotel-carousel-side{
+    width: 27%;
+    margin: 0 2%;
+    padding: 5px;
+}
+
+.map-bg{
+    object-fit: cover;
+    object-position: center;
+    height: 150px;
+    padding: 2px;
+}
+
+.indi-hotel-heading{
+    width: 98%;
+    height: 70px;
+    /* border: 1px solid black; */
+    margin: 1% 2%;
+    text-align: left;
+    padding: 5px;
+}
+
+.indi-hotel-amenities{
+    width: max-content;
+    height: auto;
+    padding: 15px 50px 15px 15px;
+    margin-left: 2%;
+    border: 1px solid black;
+    box-shadow: 1px 2px 3px #707070;
+    text-align: left;
+    margin-top: 2%;
+    cursor: pointer;
+}
+
+.indi-hotel-sticky-header{
+    position: sticky;
+    top: 0px;
+    width: 95%;
+    margin-left: 2%;
+    height: 50px;
+    background-color: #fff;
+    border-bottom: 0.7px solid #bababa;
+    box-shadow: 0 8px 8px #8a6b7614;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: #000000;
+    font-weight: 700;
+    font-size: 18px;
+    margin-top: 5px;
+    cursor: pointer;
+    z-index: 990;
+}
+
+.indi-hotel-about{
+    width: 98%;
+    height: fit-content;
+    margin: 1% 0 0 2%;
+    text-align: left;
+    padding: 5px 5px 15px 5px;
+    border-bottom: 1px solid  #bababa;
+}
+
+
+.indi-hotel-rooms{
+    margin-top: 30px;
+    border-bottom: 1px solid  #bababa;
+}
+
+
+.indi-room{
+    width: 98%;
+    height: 200px;
+    margin-left: 2%;
+    /* border: 1px solid black; */
+    padding: 5px 10px 0 10px;
+    text-align: left;
+}
+.indi-hotel-select-room{
+    background-image: linear-gradient(96deg, #53b2fe, #065af3);
+    border: 0;
+    border-radius: 34px;
+    box-shadow: 0 1px 7px 0 #0003;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 900;
+    outline: 0;
+    padding: 9px 20px;
+    text-align: center;
+    text-transform: uppercase;
+    width: fit-content;
+    margin-left: 60%;
+}
+
+.indi-hotel-property-rules{
+    width: 97%;
+    height: fit-content;
+    margin: 1% 0 0 2%;
+    text-align: left;
+    padding: 5px 10px;
+}
+
+.asach{
+    height: 1000px;
+}
+
+.width-set{
+    width: 47%;
+}
+
+.text-eight{
+    font-size:8px;
+}
+
+.text-ten{
+    font-size: 10px;
+}

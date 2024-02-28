@@ -1,0 +1,41 @@
+.hotel-booking-page{
+    width:100vw;
+    height: auto;
+    padding: 0px;
+    margin: 0px;
+    
+}
+
+.hotel-booking-page-header{
+    background: #041422;
+    width: 100%;
+    height: 70px;
+    position: sticky;
+    top: 0;
+    z-index: 8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10%;
+}
+
+.hotel-booking-page-container{
+    height: 350px;
+    border-radius: 4px;
+    box-shadow: 0 1px 4px #00000036;
+    background-color: #fff;
+    width: 80%;
+    margin: 1% 10%;
+
+}
+
+.hotel-booking-page-info{
+    width: 98%;
+    height: auto;
+    margin:1% 1%;
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+}
+

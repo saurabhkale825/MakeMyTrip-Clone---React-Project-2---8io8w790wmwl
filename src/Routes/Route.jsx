@@ -22,6 +22,10 @@ import TrainDetails from "../DetailPages/TrainSection/TrainDetails";
 import RailwayReview from "../DetailPages/TrainSection/RailwayReview/RailwayReview";
 import SeatSelection from "../DetailPages/BusSection/SeatSelection/SeatSelection";
 import Payment from "../DetailPages/Payment/Payment";
+import InputCities from "../Homepage/HotelHomePage/InputCities";
+import HotelCarousel from "../DetailPages/HotelSection/HotelCarousel";
+import IndividualDetailHotel from "../DetailPages/HotelSection/IndividualDetailHotel/IndividualDetailHotel";
+import HotelBookingPage from "../DetailPages/HotelSection/HotelBookingPage/HotelBookingPage";
 
 function LandingPage() {
   const [mode, setMode] = useState("Flights");
@@ -41,8 +45,11 @@ function LandingPage() {
   const [showDepartureAirportList, setShowDepartureAirportList] =useState(false);
   const [showArrivalAirportList, setShowArrivalAirportList] = useState(false);
   const [location, setLocation] = useState("Mumbai");
+  const [showInputCities , setShowInputCities] = useState(false);
   const [checkin, setCheckin] = useState(new Date());
   const [checkout, setCheckout] = useState(new Date());
+  const [hotelPrice , setHotelPrice] = useState("");
+  const [hotelTax , setHotelTax] = useState("");
   const [source, setSource] = useState("Delhi Junction");
   const [destination, setDestination] = useState("Surat");
   const [travelDate, setTravelDate] = useState(new Date());
@@ -105,6 +112,12 @@ function LandingPage() {
               setCheckin,
               checkout,
               setCheckout,
+              showInputCities,
+              setShowInputCities,
+              hotelPrice , 
+              setHotelPrice ,
+              hotelTax , 
+              setHotelTax
             }}
           >
 
@@ -149,6 +162,9 @@ function LandingPage() {
                   <Route path="/railways/review" element={<RailwayReview />} />
                   <Route path="/selectionseat" element={< SeatSelection />} />
                   <Route path="/payment" element={< Payment />} />
+                  <Route path="/inputCities" element={< HotelCarousel />} />
+                  <Route path="/hotels/:itemId" element={<IndividualDetailHotel />} />
+                  <Route path="/hotels/bookingpage/:itemId" element={< HotelBookingPage />} />
                 </Routes>
               </BusContext.Provider>
             </TrainContext.Provider>

@@ -1,0 +1,15 @@
+.hotel-carousel{
+    width:200px;
+    height: 250px;
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    border: 1px solid black;
+}
+
+.indiviual-image{
+    width: 100%;
+    height: 250px;  
+    object-fit: cover;
+    object-position: center;
+}

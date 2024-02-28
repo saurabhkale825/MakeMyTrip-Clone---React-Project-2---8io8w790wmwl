@@ -8,6 +8,7 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import CheckBox from "@mui/icons-material/CheckBox";
 import CheckBoxOutlineBlank from "@mui/icons-material/CheckBoxOutlineBlank";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 
 function HotelDetails() {
@@ -24,7 +25,7 @@ function HotelDetails() {
 
   useEffect(() => {
     setLocation(hoteldata.location);
-    console.log(hoteldata);
+    // console.log(hoteldata);
   }, []);
 
   const FetchHotels = async() => {
@@ -36,10 +37,10 @@ function HotelDetails() {
             projectID: "8io8w790wmwl",
           },
         }
-      );
+      )   ;
 
       setData(response.data?.data?.hotels);
-      console.log(response.data?.data.hotels);
+      // console.log(response.data?.data.hotels);
     } catch (error) {
       console.error("Error fetching train data:", error);
     }
@@ -196,7 +197,9 @@ function HotelDetails() {
           {data?.length ? (
             data?.map((item) => (
               <div key={item._id}>
+                <Link to={`/hotels/${item._id}`}>
                 <IndividualHotel hotels={item}/>
+                </Link>
               </div>
             ))
           ) : (

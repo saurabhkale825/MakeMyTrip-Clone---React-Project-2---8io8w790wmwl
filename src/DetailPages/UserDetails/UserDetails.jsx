@@ -16,17 +16,17 @@ function UserDetails() {
             <div className='flex gap-8  w-full p-4 indi-box'>
                     <div className='flex flex-col'>
                     <label htmlFor="name" className='text-left mb-2'>First Name </label> 
-                    <input type='name' id='name' required className="name-input" autoComplete='off' placeholder=" Enter First Name" class=''/>
+                    <input type='name' id='name' required className="name-input" autoComplete='off' placeholder=" Enter First Name" />
                 </div>
 
                 <div className='flex flex-col'>
                     <label htmlFor="name" className='text-left mb-2'>Last Name</label> 
-                    <input type='name' id='lastname' className="name-input" required autoComplete='off' placeholder=' Enter Last Name' class=''/>
+                    <input type='name' id='lastname' className="name-input" required autoComplete='off' placeholder=' Enter Last Name' />
                 </div>
 
                 <div className='flex items-center gap-6'>
                     <div className='flex'> 
-                    <input type='radio' id='gender1' name="gender" value="Male" required autoComplete='off' className=''/>
+                    <input type='radio' id='gender1' name="gender" value="Male" required autoComplete='off' />
                     <label htmlFor="gender1" className='font-semibold ml-1'> Male</label>
                     </div>
 
