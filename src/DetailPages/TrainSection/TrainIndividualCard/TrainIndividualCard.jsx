@@ -1,6 +1,7 @@
-import {useEffect} from "react";
+import {useContext} from "react";
 import "./TrainIndividualCard.css";
 import { Link } from "react-router-dom";
+import TrainContext from "../../../Context/TrainContext";
 
 function TrainIndividualCard(Trains) {
 
@@ -18,6 +19,12 @@ function TrainIndividualCard(Trains) {
     }
   };
 
+  const {setCoachType , setSeats} = useContext(TrainContext)
+
+  const UpdateSeats = (coach , seat) => {
+    setCoachType(coach);
+    setSeats(seat);
+  }
   
 
   return (
@@ -69,8 +76,8 @@ function TrainIndividualCard(Trains) {
 
       <div className="train-individaul-card-second">
         {Trains?.Trains?.coaches?.map((coach) => (
-          <Link to={"/railways/review"}>
-          <div className="individual-coach-details" key={coach._id}>
+          <Link to={`/railways/bookingpage/${Trains?.Trains._id}`}>
+          <div className="individual-coach-details" key={coach._id}  onClick={() => UpdateSeats(coach.coachType , coach.numberOfSeats)}>
             <div className="flex justify-between items-center">
               <div className="text-lg font-semibold text-black">
                 {coach.coachType}

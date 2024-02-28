@@ -19,12 +19,12 @@ import BookNowPage from "../DetailPages/FlightSection/BookNowPage/BookNowPage";
 import HotelDetails from "../DetailPages/HotelSection/HotelDetails";
 import SourceTrainStationList from "../Homepage/TrainHomePage/SourceTrainStationList";
 import TrainDetails from "../DetailPages/TrainSection/TrainDetails";
-import RailwayReview from "../DetailPages/TrainSection/RailwayReview/RailwayReview";
 import SeatSelection from "../DetailPages/BusSection/SeatSelection/SeatSelection";
 import Payment from "../DetailPages/Payment/Payment";
 import HotelCarousel from "../DetailPages/HotelSection/HotelCarousel/HotelCarousel";
 import IndividualDetailHotel from "../DetailPages/HotelSection/IndividualDetailHotel/IndividualDetailHotel";
 import HotelBookingPage from "../DetailPages/HotelSection/HotelBookingPage/HotelBookingPage";
+import TrainBookingShow from "../DetailPages/TrainSection/TrainBookingPage/TrainBookingPage";
 
 function LandingPage() {
   const [mode, setMode] = useState("Flights");
@@ -53,6 +53,8 @@ function LandingPage() {
   const [destination, setDestination] = useState("Surat");
   const [travelDate, setTravelDate] = useState(new Date());
   const [trainDay, setTrainDay] = useState("");
+  const [coachType , setCoachType] = useState("");
+  const [seats , setSeats] = useState("");
   const [busSource, setBusSource] = useState("Mumbai");
   const [busDestination, setBusDestination] = useState("Pune");
   const [busTravelDate, setBusTravelDate] = useState(new Date());
@@ -131,6 +133,10 @@ function LandingPage() {
                 setTravelDate,
                 trainDay,
                 setTrainDay,
+                coachType , 
+                setCoachType ,
+                seats , 
+                setSeats
               }}
             >
               <BusContext.Provider
@@ -158,7 +164,7 @@ function LandingPage() {
                   <Route path="/hotels/details" element={<HotelDetails />} />
                   <Route path="/trains/details" element={<TrainDetails />} />
                   <Route path="/asach" element={<SourceTrainStationList />} />
-                  <Route path="/railways/review" element={<RailwayReview />} />
+                  <Route path="/railways/bookingpage/:itemId" element={<TrainBookingShow />} />
                   <Route path="/selectionseat" element={< SeatSelection />} />
                   <Route path="/payment" element={< Payment />} />
                   <Route path="/inputCities" element={< HotelCarousel />} />

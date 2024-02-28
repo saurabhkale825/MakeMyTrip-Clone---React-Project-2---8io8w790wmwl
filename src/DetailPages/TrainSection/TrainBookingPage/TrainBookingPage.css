@@ -1,0 +1,19 @@
+.train-booking-show{
+    width: 100vw;
+    height: auto;
+    margin: 0%;
+    padding: 0%;
+}
+
+.train-bookin-page-header{
+    background: #0a223d;
+    width: 100%;
+    height: 70px;
+    position: sticky;
+    top: 0;
+    z-index: 8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10%;
+}
