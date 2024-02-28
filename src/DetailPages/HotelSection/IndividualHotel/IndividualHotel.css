@@ -97,3 +97,11 @@
     color: #000;
 
 }
+
+.card-image{
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 8px;
+}

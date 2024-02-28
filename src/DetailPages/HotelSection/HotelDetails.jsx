@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./HotelDetails.css";
-import HotelSearchNav from "./HotelSearchNav";
+import HotelSearchNav from "./HotelSearchNav/HotelSearchNav";
 import NavbarDetails from "../../Homepage/Navbar/NavbarDetails";
 import HotelContext from "../../Context/HotelContext";
-import IndividualHotel from "./IndividualHotel";
+import IndividualHotel from "./IndividualHotel/IndividualHotel";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import CheckBox from "@mui/icons-material/CheckBox";
 import CheckBoxOutlineBlank from "@mui/icons-material/CheckBoxOutlineBlank";
@@ -12,26 +12,26 @@ import { Link } from "react-router-dom";
 
 
 function HotelDetails() {
-  const { location, setLocation, checkin, setCheckin, checkout, setCheckout } =
-    useContext(HotelContext);
+  const { location, setLocation, checkin, setCheckin, checkout, setCheckout } = useContext(HotelContext);
   const [hoteldata, setHoteldata] = useState(
     JSON.parse(sessionStorage.getItem("hotelData"))
   );
 
   const [selectedHotelFilter , setSelectedHotelFilter] = useState("");
+  const [selectedHotelSort , setSelectedHotelSort] = useState("");
   const [minHotelPrice , setMinHotelPrice] = useState(0);
   const [maxHotelPrice , setMaxHotelPrice] = useState(10000);
   const [data , setData] = useState([]);
 
   useEffect(() => {
     setLocation(hoteldata.location);
-    // console.log(hoteldata);
   }, []);
 
   const FetchHotels = async() => {
     try {
       const response = await axios.get(
-        `https://academics.newtonschool.co/api/v1/bookingportals/hotel?search={"location":"Mumbai"}`,
+        `https://academics.newtonschool.co/api/v1/bookingportals/hotel?search={"location":"${location}"}&filter=
+        {${selectedHotelFilter}}&sort={${selectedHotelSort}}`,
         {
           headers: {
             projectID: "8io8w790wmwl",
@@ -40,7 +40,6 @@ function HotelDetails() {
       )   ;
 
       setData(response.data?.data?.hotels);
-      // console.log(response.data?.data.hotels);
     } catch (error) {
       console.error("Error fetching train data:", error);
     }
@@ -48,6 +47,10 @@ function HotelDetails() {
   useEffect(() => {
     FetchHotels();
   }, [location]);
+
+  useEffect(() => {
+    FetchHotels();
+  }, [selectedHotelFilter , selectedHotelSort]); 
 
   return (
     <>
@@ -60,13 +63,13 @@ function HotelDetails() {
               <div className="sort-by">SORT BY:</div>
             </div>
             <div className="hotel-details-sorting-content">
-              <div className="sorting-values">
+              <div className="sorting-values" onClick={() => setSelectedHotelSort("")}>
                 <div>Popular</div>
                 <div className="sort-bar"></div>
               </div>
             </div>
             <div className="hotel-details-sorting-content">
-              <div className="sorting-values">
+              <div className="sorting-values"  onClick={() => setSelectedHotelSort(`"rating":-1`)}>
                 <div>
                   <span>UserRating</span>
                   <span>(Highest First)</span>
@@ -75,7 +78,7 @@ function HotelDetails() {
               </div>
             </div>
             <div className="hotel-details-sorting-content">
-              <div className="sorting-values">
+              <div className="sorting-values"  onClick={() => setSelectedHotelSort(`"avgCostPerNight":1`)}>
                 <div>
                   <span>Price</span>
                   <span>(Lowest First)</span>
@@ -84,7 +87,7 @@ function HotelDetails() {
               </div>
             </div>
             <div className="hotel-details-sorting-content">
-              <div className="sorting-values">
+              <div className="sorting-values" onClick={() => setSelectedHotelSort(`"avgCostPerNight":-1`)}>
                 <div>
                   <span>Price</span>
                   <span>(Highest First)</span>
@@ -193,6 +196,7 @@ function HotelDetails() {
                 </div>
             </div>
           </div>
+         
           <div className="hotel-details-content-wrapper">
           {data?.length ? (
             data?.map((item) => (

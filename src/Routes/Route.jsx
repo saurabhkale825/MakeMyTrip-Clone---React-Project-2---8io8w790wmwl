@@ -22,8 +22,7 @@ import TrainDetails from "../DetailPages/TrainSection/TrainDetails";
 import RailwayReview from "../DetailPages/TrainSection/RailwayReview/RailwayReview";
 import SeatSelection from "../DetailPages/BusSection/SeatSelection/SeatSelection";
 import Payment from "../DetailPages/Payment/Payment";
-import InputCities from "../Homepage/HotelHomePage/InputCities";
-import HotelCarousel from "../DetailPages/HotelSection/HotelCarousel";
+import HotelCarousel from "../DetailPages/HotelSection/HotelCarousel/HotelCarousel";
 import IndividualDetailHotel from "../DetailPages/HotelSection/IndividualDetailHotel/IndividualDetailHotel";
 import HotelBookingPage from "../DetailPages/HotelSection/HotelBookingPage/HotelBookingPage";
 

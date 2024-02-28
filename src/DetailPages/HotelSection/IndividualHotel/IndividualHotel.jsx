@@ -1,7 +1,7 @@
 import React from "react";
 import "./IndividualHotel.css";
 import ImageGallery from "react-image-gallery";
-import HotelCarousel from "./HotelCarousel";
+import HotelCarousel from "../HotelCarousel/HotelCarousel";
 
 function IndividualHotel(hotel) {
   
@@ -25,8 +25,8 @@ function IndividualHotel(hotel) {
       <div className="individual-hotel-content">
        
         <div>
-          <img src={hotel?.hotels.images[0]} alt="logo" width="170px" height="200px"/>
-          {/* <HotelCarousel images={hotel?.hotels.images} /> */}
+          <img src={hotel?.hotels.images[0]} alt="logo" className="card-image"/>
+          {/* <HotelCarousel images={hotel?.hotels} /> */}
         </div>
         <div className="individual-hotel-content-Left">
           <div className="individual-hotel-content-name">{hotel?.hotels.name}</div>
@@ -52,7 +52,7 @@ function IndividualHotel(hotel) {
           </div>
 
           <div className="individual-hotel-content-price">
-            <div className="hotel-base-cost">₹{hotel?.hotels.rooms[0].costDetails.baseCost}</div>
+            <div className="hotel-base-cost">₹{Math.floor(hotel?.hotels.avgCostPerNight)}</div>
             <div>{`+ ₹ ${hotel?.hotels.rooms[0].costDetails.taxesAndFees} taxes & fees `}</div>
             <div>Per Night for 2 Rooms</div>
           </div>

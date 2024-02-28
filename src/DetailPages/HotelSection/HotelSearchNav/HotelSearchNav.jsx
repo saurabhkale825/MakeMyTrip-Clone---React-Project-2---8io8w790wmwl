@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import "./HotelSearchNav.css";
-import HotelContext from "../../Context/HotelContext"
+import HotelContext from "../../../Context/HotelContext"
 import { format } from "date-fns";
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
