@@ -10,7 +10,8 @@ import LoginPageHotel from "../../src/Assest/Logo/LoginPageHotelLogo.png"
 import LoginPageTrain from "../../src/Assest/Logo/LoginPageTrainLogo.png"
 
 function Login() {
-  const { login , setLogin, showLogin, setShowLogin } = useContext(MyContext);
+  const { login , setLogin, showLogin, setShowLogin ,authenticate,
+    setAuthenticate } = useContext(MyContext);
 
   return (
     <div className="login">
@@ -40,27 +41,27 @@ function Login() {
         <div className="login-page-navbar">
           <div
             className={
-              login === true
+              showLogin === true
                 ? "login-page-personal-account-selected"
                 : "login-page-personal-account"
             }
-            onClick={() => setLogin(true)}
+            onClick={() => setShowLogin(true)}
           >
             Personal Account
           </div>
           <div
             className={
-              login === false
+              showLogin === false
                 ? "login-page-signup-selected"
                 : "login-page-signup"
             }
-            onClick={() => setLogin(false)}
+            onClick={() => setShowLogin(false)}
           >
             Signup
           </div>
         </div>
 
-        {login === true ? <LoginInput/>:<SignUp/>}
+        {showLogin === true ? <LoginInput/>:<SignUp/>}
 
         <div className="login-page-footer">
         <span className="login-page-footer-text">By proceeding, you agree to MakeMyTrip's</span>
@@ -72,7 +73,7 @@ function Login() {
       </div>
       </div>
 
-      <div className="login-page-cancel-button" onClick={() => setShowLogin(false)}>
+      <div className="login-page-cancel-button" onClick={() => setLogin(false)}>
         
           <CloseIcon />
         

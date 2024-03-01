@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import "./BusesDetailsNav.css"
 import SwapHorizIcon from '@mui/icons-material/SwapHoriz';
-import BusContext from '../../Context/BusContext';
+import BusContext from '../../../Context/BusContext';
 import { format } from "date-fns";
 
 function BusesDetailsNav() {

@@ -104,7 +104,7 @@ function FlightsHomePage() {
 
   return (
     <>
-    {showLogin === true ? <Login /> :null}
+    
       <div className="flights-homepage">
         <div className="flights-homepage-content">
           <div className="trip-route">

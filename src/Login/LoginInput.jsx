@@ -9,14 +9,11 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function LoginInput() {
 
-  const {login , setLogin,showLogin , setShowLogin} = useContext(MyContext);
+  const {login , setLogin , authenticate,
+    setAuthenticate,} = useContext(MyContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = () => {
-    localStorage.setItem('isLoggedIn', 'true');
-    setLogin(true);
-  }
 
   async function Login() {
     try {
@@ -32,14 +29,15 @@ function LoginInput() {
       });
 
       let response = await getData.json();
-      console.log(response);
+
       if (response.status === "success") {
         localStorage.setItem("user-info", JSON.stringify(response));
         alert("You are Logging in Successfully");
         handleLogin();
         setEmail("");
         setPassword("");
-        setShowLogin(false)
+        setAuthenticate(true);
+        setLogin(false);;
       } else {
         alert(response.message);
       }

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext , useEffect, useState } from "react";
 import "./Header.css";
 import { Link } from "react-router-dom";
 import Logo from "../../Assest/Logo/mmtLogoWhite.png";
@@ -9,7 +9,24 @@ import offerbg from "../../Assest/BackGround/%-bg.png";
 import MyContext from "../../Context/MyContext";
 
 function Navbar() {
-  const { setMode, setShowLogin, showLogin } = useContext(MyContext);
+  const { setMode, setShowLogin, showLogin, login  , setLogin , authenticate,
+    setAuthenticate} = useContext(MyContext);
+  const [showLogout , setShowLogout] = useState(false);;
+
+  const handleLogOut = () => {
+    setAuthenticate(false)
+    localStorage.removeItem("user-info");
+  };
+
+  const user = localStorage.getItem('user-info');
+  const userData = user ? JSON.parse(user) : null;
+  const userName = userData && userData.data ? userData.data.name : null;
+
+  useEffect(() => {
+    if(user){
+      console.log(userName);
+    }
+  },[])
 
   return (
     <>
@@ -21,84 +38,77 @@ function Navbar() {
             </div>
           </Link>
 
-          
-            <ul className="header-content">
-              <li className="super-offer">
-                <div>
-                  <div
-                    className="super-offer-icon-bg"
-                    style={{
-                      backgroundImage: `url(${offerbg})`,
-                      width: "25px",
-                      height: "25px",
-                    }}
-                  >
-                    <div>%</div>
-                  </div>
+          <ul className="header-content flex justify-end">
+            <li className="super-offer">
+              <div>
+                <div
+                  className="super-offer-icon-bg"
+                  style={{
+                    backgroundImage: `url(${offerbg})`,
+                    width: "25px",
+                    height: "25px",
+                  }}
+                >
+                  <div>%</div>
                 </div>
-                <div className="super-offer-content">
-                  <div className="content-1">Super Offers</div>
-                  <div className="content-2">Explore great deals & offers</div>
-                </div>
-              </li>
+              </div>
+              <div className="super-offer-content">
+                <div className="content-1">Super Offers</div>
+                <div className="content-2">Explore great deals & offers</div>
+              </div>
+            </li>
 
-              <li className="myBiz-introduction">
-                <div className="myBiz-logo"></div>
-                <div className="super-offer-content">
-                  <div className="content-1">Introducing myBiz</div>
-                  <div className="content-2">Business Travel Solution</div>
-                </div>
-              </li>
-
-              <li className="my-trips">
-                <div className="my-trip-logo">
-                  <img
-                    src={TravelLogo}
-                    alt="travel-logo"
-                    width="25px"
-                    height="25px"
-                    style={{ marginTop: "5px" }}
-                  />
-                </div>
+            <li className="my-trips">
+              <div className="my-trip-logo">
+                <img
+                  src={TravelLogo}
+                  alt="travel-logo"
+                  width="25px"
+                  height="25px"
+                  style={{ marginTop: "5px" }}
+                />
+              </div>
+              <Link to={"/mytrips"}>
                 <div className="super-offer-content">
                   <div className="content-1">My trips</div>
                   <div className="content-2">Manage your bookings</div>
                 </div>
-              </li>
+              </Link>
+            </li>
 
-              <li>
-                <div
-                  className="login-create-account"
-                  onClick={() => setShowLogin(!showLogin)}
-                >
-                  <div style={{ fontSize: "12px" }}>
-                    Login or Create account
-                  </div>
-
+            <li>
+              <Link to={"/"}>
+              <div
+                className="login-create-account"
+                onClick={() => setLogin(!login)}
+              >
+                {authenticate === false ? (
                   <div>
-                    <ExpandMore />
+                    <p> Login or Create account</p>
                   </div>
-                </div>
-              </li>
+                ) : (
+                  <div onClick={() => setShowLogout(!showLogout)}>
+                    <div className="flex gap-x-2 text-base">
+                      <div> {`Hi ${userName}`}</div>
+                    </div>
+                  </div>
+                )}
+              </div>
+              </Link>
+            </li>
+                
 
-              <li className="language-selector">
-                <div>
-                  <img
-                    src={India}
-                    alt="india-logo"
-                    width="20px"
-                    height="20px"
-                  />
-                </div>
+           
 
-                <div style={{ marginLeft: "2px" }}>IN | ENG | INR</div>
-                <div>
-                  <ExpandMore />
-                </div>
-              </li>
-            </ul>
-          </div>
+            <li className="language-selector">
+              {(authenticate === true  ) ?<div className="logout" onClick={handleLogOut
+          }>Logout</div> : null}
+            </li>
+          </ul>
+
+          
         </div>
+      </div>
     </>
   );
 }

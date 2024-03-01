@@ -71,6 +71,7 @@
     border-radius: 5px;
     background-color: #ffffff4c;
     color: rgb(0, 0, 0);
+    width: fit-content;
 }
 
 .individual-hotel-content-right {

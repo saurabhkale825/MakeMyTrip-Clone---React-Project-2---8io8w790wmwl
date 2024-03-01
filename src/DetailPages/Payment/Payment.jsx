@@ -16,6 +16,7 @@ import SBI from "../../Assest/Logo/BanklogoSprite-c0931f75 (3).png";
 import Axis from "../../Assest/Logo/BanklogoSprite-c0931f75 (4).png";
 import Paytm from "../../Assest/Logo/BanklogoSprite-c0931f75 (5).png";
 import { ToastContainer, toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
 function Payment() {
   const notify = () => {
@@ -176,7 +177,9 @@ function Payment() {
                     placeholder="@upi"
                   />
                   <button className="pay-button" onClick={notify}>
-                    Verify & Pay
+                    <Link to={"/mytrips"}>
+                    <div>Verify & Pay</div>
+                    </Link>
                   </button>
                   <ToastContainer
                     position="top-center"

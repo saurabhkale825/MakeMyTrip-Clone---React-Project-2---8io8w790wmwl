@@ -1,0 +1,43 @@
+.bus-booking-page{
+    width: 100vw;
+    height: auto;
+    margin: 0%;
+    padding: 0%;
+}
+
+.bus-booking-page-header{
+    background: #0a223d;
+    width: 100%;
+    height: 70px;
+    position: sticky;
+    top: 0;
+    z-index: 8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10%;
+}
+
+.bus-booking-page-container{
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 1px 4px #00000036;
+    background-color: #fff;
+    width: 80%;
+    margin: 1% 10%;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.bg-primo{
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 7px 0px;
+    margin: 10px auto 18px;
+    padding: 10px 25px 10px 15px;
+    -webkit-font-smoothing: antialiased;
+    background: linear-gradient(91.44deg, rgb(48, 35, 174) 0%, rgb(145, 32, 134) 100%);
+    white-space: pre-wrap;
+}

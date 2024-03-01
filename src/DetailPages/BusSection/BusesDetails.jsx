@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import "./BusesDetails.css";
-import BusesDetailsNav from "./BusesDetailsNav";
+import BusesDetailsNav from "./BusDetailsNav/BusesDetailsNav";
 import NavbarDetails from "../../Homepage/Navbar/NavbarDetails";
 import BusContext from "../../Context/BusContext";
 import IndividualBus from "./IndividualBus/IndividualBus";
@@ -34,7 +34,7 @@ function BusesDetails() {
       );
 
       setData(response.data?.data?.buses);
-      console.log(response.data?.data);
+      // console.log(response.data?.data);
     } catch (error) {
       console.error("Error fetching train data:", error);
     }

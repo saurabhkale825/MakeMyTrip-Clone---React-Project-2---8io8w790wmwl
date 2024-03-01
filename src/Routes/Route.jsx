@@ -25,12 +25,16 @@ import HotelCarousel from "../DetailPages/HotelSection/HotelCarousel/HotelCarous
 import IndividualDetailHotel from "../DetailPages/HotelSection/IndividualDetailHotel/IndividualDetailHotel";
 import HotelBookingPage from "../DetailPages/HotelSection/HotelBookingPage/HotelBookingPage";
 import TrainBookingShow from "../DetailPages/TrainSection/TrainBookingPage/TrainBookingPage";
+import BusBookingPage from "../DetailPages/BusSection/BusBookingPage/BusBookingPage";
+import MyTrips from "../MyTrips/MyTrips";
+
 
 function LandingPage() {
+  
   const [mode, setMode] = useState("Flights");
   const [authenticate , setAuthenticate] = useState(false);
   const [login, setLogin] = useState(false);
-  const [showLogin, setShowLogin] = useState(false);
+  const [showLogin, setShowLogin] = useState(true);
   const [traveller, setTraveller] = useState(1);
   const [selectedClass, setSelectedClass] = useState("economy");
   const [showTravellerSection, setShowTravellerSection] = useState(false);
@@ -73,10 +77,11 @@ function LandingPage() {
           setLogin,
           showLogin,
           setShowLogin,
-          showTravellerSection,
-          setShowTravellerSection,
           authenticate,
-          setAuthenticate
+          setAuthenticate,
+          showTravellerSection,
+          setShowTravellerSection
+          
         }}
       >
         <FlightContext.Provider
@@ -163,13 +168,16 @@ function LandingPage() {
                   <Route path="/flight/:itemId" element={<BookNowPage />} />
                   <Route path="/hotels/details" element={<HotelDetails />} />
                   <Route path="/trains/details" element={<TrainDetails />} />
-                  <Route path="/asach" element={<SourceTrainStationList />} />
                   <Route path="/railways/bookingpage/:itemId" element={<TrainBookingShow />} />
                   <Route path="/selectionseat" element={< SeatSelection />} />
                   <Route path="/payment" element={< Payment />} />
                   <Route path="/inputCities" element={< HotelCarousel />} />
                   <Route path="/hotels/:itemId" element={<IndividualDetailHotel />} />
                   <Route path="/hotels/bookingpage/:itemId" element={< HotelBookingPage />} />
+                  <Route path="/bus/bookingpage/:itemId" element={< BusBookingPage />} />
+                  <Route path="/mytrips" element={< MyTrips />} />
+
+
                 </Routes>
               </BusContext.Provider>
             </TrainContext.Provider>

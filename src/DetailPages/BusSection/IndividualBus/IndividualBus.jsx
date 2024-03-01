@@ -99,7 +99,7 @@ function IndividualBus(bus) {
             select seats
         </div>
       </div>
-      <div  className={showSelectionSeat === true ? "block" : "hidden"}><SeatSelection /></div>
+      <div  className={showSelectionSeat === true ? "block" : "hidden"}><SeatSelection bus={bus?.bus} /></div>
     </div>
   );
 }

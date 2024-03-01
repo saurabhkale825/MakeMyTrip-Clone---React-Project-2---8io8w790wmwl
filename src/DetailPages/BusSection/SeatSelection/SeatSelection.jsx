@@ -4,32 +4,35 @@ import Seat from "../../../Assest/Logo/busListingSprite2.91d970f4 (1).png";
 import BusSteering from "../../../Assest/Logo/Bus-sterring.png";
 import HoverSeat from "../../../Assest/Logo/HoverSeat.png"
 import InfoIcon from '@mui/icons-material/Info';
+import { Link, useParams } from "react-router-dom";
 
-function SeatSelection() {
+function SeatSelection(bus) {
 
   const [hovered , setHovered] = useState(0);
+  const {itemId} = useParams();
 
-  useEffect(() => {
-    console.log(hovered);
+  // useEffect(() => {
+  //   console.log(bus.bus._id);
 
-  }, [hovered]);
+  // }, [hovered]);
   return (
     <div className="SeatSelection">
-      <div className="w-3/5 ">
-      <div className="flex justify-between p-2 ">
+      <div className="w-1/2 ">
+      <div className="flex justify-between p-2 w-4/5">
         <div className="font-semibold text-black">Select Seats</div>
-        <div className="flex text-xs">
-          <span><img src={InfoIcon} alt="info" width="30px"/></span>
-          <span>Know your seat</span></div>
+        <div className="flex items-center text-xs">
+          <span><InfoIcon sx={{fontSize : 20}} /></span>
+          <span className="text-sm">Know your seat</span></div>
       </div>
      
       <div className="bus-layout ml-10 ">
         <div className="bus-layout-line">
+        <Link to={`/bus/bookingpage/${bus.bus._id}`}>
           <div className="bus-layout-line-left">
             <div className="p-4 mt-5">
               <div></div>
             </div>
-            
+           
             <div className="flex justify-evenly mb-4" >
               <img src={hovered === 1?HoverSeat:Seat} alt="logo" width="40px" className="individual-bus-hovered === id?HoverSeat:Seat" id="1" onMouseEnter={() => setHovered(1)} onMouseLeave={() => setHovered(0)}/>
               <img src={hovered === 2?HoverSeat:Seat} alt="logo" width="40px" className="individual-bus-hovered === id?HoverSeat:Seat" id="2" onMouseEnter={() => setHovered(2)} onMouseLeave={() => setHovered(0)}/>
@@ -60,6 +63,7 @@ function SeatSelection() {
             </div>
             
           </div>
+          </Link>
         </div>
         <div className="bus-layout-line">
           <div className="bus-layout-line-left">
@@ -98,6 +102,22 @@ function SeatSelection() {
           </div>
         </div>
       </div>
+      </div>
+
+      <div className="w-2/5 h-40 border border-black relative top-10 flex justify-between p-3">
+        <div className="w-2/5 border border-black text-left p-2">
+            <div>
+              <p className="text-sm text-black">{bus?.bus.departureTime}</p>
+              <div className="text-base font-semibold mt-3">{bus?.bus.source}</div>
+            </div>
+        </div>
+
+        <div className="w-2/5 border border-black text-left p-2">
+        <div>
+              <p className="text-sm text-black">{bus?.bus.arrivalTime}</p>
+              <div  className="text-base font-semibold mt-3">{bus?.bus.destination}</div>
+            </div>
+        </div>
       </div>
     </div>
   );

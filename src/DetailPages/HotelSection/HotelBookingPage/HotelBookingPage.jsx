@@ -40,7 +40,7 @@ function HotelBookingPage() {
         </div>
       </div>
 
-      <div tabIndex="0" className="hotel-booking-page-container">
+      <div className="hotel-booking-page-container">
         <div className="hotel-booking-page-info">
           <div className="w-3/5 ">
             <div className="p-2 ml-2 flex justify-between ">
