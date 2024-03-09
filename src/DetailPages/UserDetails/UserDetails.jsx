@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./UserDetails.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import * as Yup from "yup";
 import axios from "axios";
 
-function UserDetails( ) {
+function UserDetails() {
+  const { itemId } = useParams();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     firstName: "",
@@ -17,8 +18,9 @@ function UserDetails( ) {
     address: "",
   });
   const [errors, setErrors] = useState({});
+ 
 
-  const user = localStorage.getItem('user-info');
+  const user = localStorage.getItem("user-info");
   const userData = user ? JSON.parse(user) : null;
   const token = userData && userData.data ? userData.token : null;
 
@@ -40,19 +42,13 @@ function UserDetails( ) {
     address: Yup.string().required("Address is required"),
   });
 
- 
-  // const BookingNow = async() = {
-  //   try{
-      
-  //   }
-  // }
 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       await validationSchema.validate(formData, { abortEarly: false });
-      navigate("/payment");
+      navigate(`/payment/${itemId}`);
     } catch (error) {
       const validationErrors = {};
       error?.inner?.forEach((err) => {

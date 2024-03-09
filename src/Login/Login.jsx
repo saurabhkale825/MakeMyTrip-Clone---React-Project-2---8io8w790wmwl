@@ -10,8 +10,7 @@ import LoginPageHotel from "../../src/Assest/Logo/LoginPageHotelLogo.png"
 import LoginPageTrain from "../../src/Assest/Logo/LoginPageTrainLogo.png"
 
 function Login() {
-  const { login , setLogin, showLogin, setShowLogin ,authenticate,
-    setAuthenticate } = useContext(MyContext);
+  const { login , setLogin, showLogin, setShowLogin ,authenticate , setAuthenticate } = useContext(MyContext);
 
   return (
     <div className="login">

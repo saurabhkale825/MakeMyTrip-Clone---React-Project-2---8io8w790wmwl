@@ -11,12 +11,11 @@ import SpiceJet from "../../Assest/Logo/SG.png";
 import Vistara from "../../Assest/Logo/UK.png";
 import AKasa from "../../Assest/Logo/QP.png";
 import Morning from "../../Assest/Logo/morning_inactive.webp";
-import Noon from "../../Assest/Logo/noon_inactive.png";
-import Evening from "../../Assest/Logo/evening_inactive.png";
 import Night from "../../Assest/Logo/night_inactive.png";
 import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
 import { useCallback } from "react";
+import FlightDetailSkeleton from "./FlightDetailSkeleton";
 
 function FlightsDetails() {
   const [data, setData] = useState([]);
@@ -24,28 +23,31 @@ function FlightsDetails() {
   const [airlineName, setAirlineName] = useState("");
   const [selectedSort, setSelectedSort] = useState("");
   const [selectedFilter, setSelectedFilter] = useState("");
+  const [isLoading, setIsloading] = useState(false)
 
   const {
     departureCity,
     setDepartureCity,
     arrivalCity,
     setArrivalCity,
+    departureCityAirportId,
     setDepartureCityAirportId,
+    arrivalCityAirportId,
     setArrivalCityAirportId,
+    day,
+    setDay
   } = useContext(FlightContext);
+  
   const [myData, setMyData] = useState(
     JSON.parse(sessionStorage.getItem("myData"))
   );
 
-  const departure = myData.departureCityAirportId;
-  const arrival = myData.arrivalCityAirportId;
-  const day = myData.day;
-
   useEffect(() => {
-    setDepartureCity(myData.departureCity);
-    setArrivalCity(myData.arrivalCity);
-    setDepartureCityAirportId(myData.departureCityAirportId);
-    setArrivalCityAirportId(myData.arrivalCityAirportId);
+    setDepartureCity(myData?.departureCity);
+    setArrivalCity(myData?.arrivalCity);
+    setDepartureCityAirportId(myData?.departureCityAirportId);
+    setArrivalCityAirportId(myData?.arrivalCityAirportId);
+    setDay(myData?.day);
   }, []);
 
   const updateAirline = (airline, airlineName) => {
@@ -73,9 +75,14 @@ function FlightsDetails() {
     updateSelectedFilter(filter);
   });
 
+  // useEffect(() => {
+  //   console.log(`https://academics.newtonschool.co/api/v1/bookingportals/flight?search={"source":"${departureCity}","destination":"${arrivalCity}"}&day=${day}&filter={${selectedFilter}}&sort={${selectedSort}}`)  
+  // }, []);
+
+
   const FetchFlights = async () => {
     const response = await axios.get(
-      `https://academics.newtonschool.co/api/v1/bookingportals/flight?search={"source":"${departure}","destination":"${arrival}"}&day=${day}&filter={${selectedFilter}}&sort={${selectedSort}}`,
+      `https://academics.newtonschool.co/api/v1/bookingportals/flight?search={"source":"${departureCityAirportId}","destination":"${arrivalCityAirportId}"}&day=${day}&filter={${selectedFilter}}&sort={${selectedSort}}`,
       {
         headers: {
           projectID: "8io8w790wmwl",
@@ -86,11 +93,15 @@ function FlightsDetails() {
   };
 
   useEffect(() => {
+    setIsloading(true);
     FetchFlights();
+    setIsloading(false);
   }, [departureCity, arrivalCity]);
 
   useEffect(() => {
+    setIsloading(true);
     FetchFlights();
+    setIsloading(false);
   }, [selectedSort, selectedFilter]);
 
   const updateClearAll = () => {
@@ -445,7 +456,7 @@ function FlightsDetails() {
             {`Flights from ${departureCity} to ${arrivalCity}`}
           </div>
 
-          <div>
+         {isLoading === false ?<div>
             {data?.length > 0 ? (
               data?.map((flight) => (
                 <div key={flight._id}>
@@ -457,7 +468,7 @@ function FlightsDetails() {
                 No Data Found
               </p>
             )}
-          </div>
+          </div>:<FlightDetailSkeleton />}
         </div>
       </div>
     </div>

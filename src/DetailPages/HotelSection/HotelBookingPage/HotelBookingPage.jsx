@@ -15,6 +15,11 @@ function HotelBookingPage() {
   const { itemId } = useParams();
   const { hotelPrice, hotelTax } = useContext(HotelContext);
 
+  useEffect(() => {
+    localStorage.setItem('value',"hotel")
+}, []);
+
+
   const FetchIndiHotel = async () => {
     const response = await axios.get(
       `https://academics.newtonschool.co/api/v1/bookingportals/hotel/${itemId}`,
@@ -24,7 +29,7 @@ function HotelBookingPage() {
         },
       }
     );
-    console.log(response.data);
+    // console.log(response.data);
     setHotel(response?.data);
   };
 

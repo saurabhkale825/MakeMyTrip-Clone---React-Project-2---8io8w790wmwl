@@ -13,6 +13,7 @@ import { format } from "date-fns";
 import SourceBusStand from "./SourceBusStand";
 import BusContext from "../../Context/BusContext";
 import DestinationBusStand from "./DestinationBusStand";
+import MyContext from "../../Context/MyContext";
 
 function BusHomePage() {
     const {busSource,
@@ -22,10 +23,20 @@ function BusHomePage() {
     busTravelDate,
     setBusTravelDate,
     } = useContext(BusContext);
+
+    const {mode , setMode} = useContext(MyContext);
     
     const [showCalendar , setShowCalendar] = useState(false);
     const [showSourceInput , setShowSourceInput]= useState(false);
     const [showDestinationInput , setShowDestinationInput] = useState(false);
+
+    // useEffect(() => {
+    //   setMode(localStorage.getItem('mode'));  
+    // }, []);
+  
+    // useEffect(() => {
+    //   setMode(localStorage.setItem('mode',mode))
+    // }, [mode]);
 
   const FormatedDate = (travelDate) => format(travelDate, "dd MMM''yy");
 

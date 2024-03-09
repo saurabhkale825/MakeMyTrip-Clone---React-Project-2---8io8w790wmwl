@@ -1,4 +1,4 @@
-import { useContext , useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./Header.css";
 import { Link } from "react-router-dom";
 import Logo from "../../Assest/Logo/mmtLogoWhite.png";
@@ -9,24 +9,31 @@ import offerbg from "../../Assest/BackGround/%-bg.png";
 import MyContext from "../../Context/MyContext";
 
 function Navbar() {
-  const { setMode, setShowLogin, showLogin, login  , setLogin , authenticate,
-    setAuthenticate} = useContext(MyContext);
-  const [showLogout , setShowLogout] = useState(false);;
+  const {
+    setMode,
+    setShowLogin,
+    showLogin,
+    login,
+    setLogin,
+    authenticate,
+    setAuthenticate,
+  } = useContext(MyContext);
+  const [showLogout, setShowLogout] = useState(false);
 
   const handleLogOut = () => {
-    setAuthenticate(false)
+    setAuthenticate(false);
     localStorage.removeItem("user-info");
   };
 
-  const user = localStorage.getItem('user-info');
+  const user = localStorage.getItem("user-info");
   const userData = user ? JSON.parse(user) : null;
   const userName = userData && userData.data ? userData.data.name : null;
 
-  useEffect(() => {
-    if(user){
-      console.log(userName);
-    }
-  },[])
+  // useEffect(() => {
+  //   if (user) {
+  //     console.log(userName);
+  //   }
+  // }, []);
 
   return (
     <>
@@ -58,55 +65,55 @@ function Navbar() {
               </div>
             </li>
 
-            <li className="my-trips">
-              <div className="my-trip-logo">
-                <img
-                  src={TravelLogo}
-                  alt="travel-logo"
-                  width="25px"
-                  height="25px"
-                  style={{ marginTop: "5px" }}
-                />
-              </div>
+            <li className="my-trips flex">
               <Link to={"/mytrips"}>
+                <div className="w-full flex ">
+                  <img
+                    src={TravelLogo}
+                    alt="travel-logo"
+                    width="25px"
+                    height="25px"
+                    style={{ marginTop: "5px" }}
+                  />
+                
+
                 <div className="super-offer-content">
                   <div className="content-1">My trips</div>
                   <div className="content-2">Manage your bookings</div>
+                </div>
                 </div>
               </Link>
             </li>
 
             <li>
               <Link to={"/"}>
-              <div
-                className="login-create-account"
-                onClick={() => setLogin(!login)}
-              >
-                {authenticate === false ? (
-                  <div>
-                    <p> Login or Create account</p>
-                  </div>
-                ) : (
-                  <div onClick={() => setShowLogout(!showLogout)}>
-                    <div className="flex gap-x-2 text-base">
-                      <div> {`Hi ${userName}`}</div>
+                <div
+                  className="login-create-account"
+                  onClick={() => setLogin(!login)}
+                >
+                  {authenticate === false ? (
+                    <div>
+                      <p> Login or Create account</p>
                     </div>
-                  </div>
-                )}
-              </div>
+                  ) : (
+                    <div onClick={() => setShowLogout(!showLogout)}>
+                      <div className="flex gap-x-2 text-base">
+                        <div> {`Hi ${userName}`}</div>
+                      </div>
+                    </div>
+                  )}
+                </div>
               </Link>
             </li>
-                
-
-           
 
             <li className="language-selector">
-              {(authenticate === true  ) ?<div className="logout" onClick={handleLogOut
-          }>Logout</div> : null}
+              {authenticate === true ? (
+                <div className="logout" onClick={handleLogOut}>
+                  Logout
+                </div>
+              ) : null}
             </li>
           </ul>
-
-          
         </div>
       </div>
     </>

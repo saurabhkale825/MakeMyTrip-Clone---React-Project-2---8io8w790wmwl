@@ -10,17 +10,27 @@ import SourceTrainStationList from "./SourceTrainStationList";
 import TrainContext from "../../Context/TrainContext";
 import DestinationTrainStationList from "./DestinationTrainStation";
 import { Link } from "react-router-dom";
+import MyContext from "../../Context/MyContext";
 
 
 
 function TrainHomePage() {
 
   const[showCalender , setShowCalender] = useState(false);
+  const{mode , setMode} = useContext(MyContext);
   const {source , setSource ,destination , setDestination ,travelDate , setTravelDate ,trainDay , setTrainDay} = useContext(TrainContext);
   
   const [showSource, setShowSource] = useState(false);
   const [showDestination , setShowDestination] = useState(false);
 
+  // useEffect(() => {
+  //   setMode(localStorage.getItem('mode'));  
+  // }, []);
+
+  // useEffect(() => {
+  //   setMode(localStorage.setItem('mode',mode))
+  // }, [mode]);
+  
   const FormatedDate = (date) => format(date, "dd MMM'' yy");
 
   const UpdateTrainDay = (date) => {

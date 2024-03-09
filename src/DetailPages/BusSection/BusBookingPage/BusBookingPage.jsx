@@ -12,7 +12,10 @@ function BusBookingPage() {
   const { itemId } = useParams();
   const [bus, setBus] = useState({});
 
-  // console.log(itemId);
+  useEffect(() => {
+      localStorage.setItem('value',"bus")
+  }, []);
+
 
   const FetchBus = async () => {
     const response = await axios.get(
@@ -23,7 +26,7 @@ function BusBookingPage() {
         },
       }
     );
-      console.log(response?.data);
+      // console.log(response?.data);
       setBus(response?.data.data);
   };
   useEffect(() => {

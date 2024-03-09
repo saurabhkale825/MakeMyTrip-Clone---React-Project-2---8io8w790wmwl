@@ -9,8 +9,12 @@ import Login from "../Login/Login"
 
 function HomePage() {
 
-  const { login, authenticate , setAuthenticate } = useContext(MyContext);
+  const { login, authenticate , setAuthenticate, mode , setMode} = useContext(MyContext);
   const data = localStorage.getItem('user-info');
+  // useEffect(() => {
+  //   localStorage.setItem('mode', mode);
+  //   setMode(localStorage.getItem('mode'));  
+  // }, []);
 
   useEffect(() => {
     if(data){
@@ -18,6 +22,9 @@ function HomePage() {
     }
   }, []);
 
+  useEffect(() => {
+    localStorage.setItem('value' , "");
+  })
   return (
     <>
       {login === true ? <Login /> :null}

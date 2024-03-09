@@ -12,6 +12,11 @@ function TrainBookingShow() {
   const{itemId} = useParams();
   const [train , setTrain] = useState({});
 
+  useEffect(() => {
+    localStorage.setItem('value',"train")
+}, []);
+
+
   const FetchIndiTrain = async() => {
     const response = await axios.get(`https://academics.newtonschool.co/api/v1/bookingportals/train/${itemId}`,
     {

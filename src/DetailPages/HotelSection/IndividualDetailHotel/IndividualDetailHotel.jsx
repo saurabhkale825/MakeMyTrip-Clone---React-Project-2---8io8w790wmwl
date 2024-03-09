@@ -202,8 +202,8 @@ function IndividualDetailHotel() {
         </div>
 
         <div className="indi-hotel-rooms">
-          {hotel?.data?.rooms.map((room) => (
-            <div className="indi-room">
+          {hotel?.data?.rooms.map((room , index) => (
+            <div className="indi-room" key={index}>
               <div className="w-full border border-black h-40 flex">
                 <div className="w-3/5 border-r border-black p-3">
                   <h3 className="text-xl  font-semibold ">{room.roomType}</h3>

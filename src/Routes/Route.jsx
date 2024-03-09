@@ -27,6 +27,7 @@ import HotelBookingPage from "../DetailPages/HotelSection/HotelBookingPage/Hotel
 import TrainBookingShow from "../DetailPages/TrainSection/TrainBookingPage/TrainBookingPage";
 import BusBookingPage from "../DetailPages/BusSection/BusBookingPage/BusBookingPage";
 import MyTrips from "../MyTrips/MyTrips";
+import ComingSoon from "../Homepage/ComingSoon/ComingSoon";
 
 
 function LandingPage() {
@@ -170,12 +171,13 @@ function LandingPage() {
                   <Route path="/trains/details" element={<TrainDetails />} />
                   <Route path="/railways/bookingpage/:itemId" element={<TrainBookingShow />} />
                   <Route path="/selectionseat" element={< SeatSelection />} />
-                  <Route path="/payment" element={< Payment />} />
+                  <Route path="/payment/:itemId" element={< Payment />} />
                   <Route path="/inputCities" element={< HotelCarousel />} />
                   <Route path="/hotels/:itemId" element={<IndividualDetailHotel />} />
                   <Route path="/hotels/bookingpage/:itemId" element={< HotelBookingPage />} />
                   <Route path="/bus/bookingpage/:itemId" element={< BusBookingPage />} />
                   <Route path="/mytrips" element={< MyTrips />} />
+                  <Route path="/comingsoon" element={< ComingSoon />} />
 
 
                 </Routes>

@@ -16,6 +16,11 @@ function BookNowPage() {
   const [data, setData] = useState({});
   const { startDate } = useContext(FlightContext);
 
+  useEffect(() => {
+    localStorage.setItem('value',"flight")
+}, []);
+
+
   const FormatAirlineName = (airline) => {
     if (airline === "65144a1b664a43628887c45e") {
       return "Indigo";

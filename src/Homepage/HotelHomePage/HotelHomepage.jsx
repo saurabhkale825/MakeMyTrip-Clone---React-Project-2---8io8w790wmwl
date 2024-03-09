@@ -12,14 +12,24 @@ import HotelContext from "../../Context/HotelContext";
 import { format } from "date-fns";
 import { Link } from "react-router-dom";
 import InputCities from "./InputCities";
+import MyContext from "../../Context/MyContext";
 
 function HotelHomepage() {
   const { location, setLocation, checkin, setCheckin, checkout, setCheckout , showInputCities , setShowInputCities } =
     useContext(HotelContext);
+  const{mode , setMode} = useContext(MyContext); 
   /* State required only for Hotels HOmePage*/
   const [selectedMode, setSelectedMode] = useState("4Rooms");
   const [hotelData, setHotelData] = useState({});
  
+
+  // useEffect(() => {
+  //   setMode(localStorage.getItem('mode'));  
+  // }, []);
+
+  // useEffect(() => {
+  //   setMode(localStorage.setItem('mode',mode))
+  // }, [mode]);
 
   const FormatedDate = (date) => format(date, "dd MMM'' yy");
 

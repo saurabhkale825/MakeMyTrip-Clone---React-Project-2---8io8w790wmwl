@@ -1,0 +1,54 @@
+.coming-soon-page{
+    width: 100vw;
+    height: 100vh;
+    background-color: #000000;
+}
+
+.coming-soon{
+    /* border: 1px solid rgb(253, 253, 253); */
+    position: absolute;
+    top: 22%;
+    left: 1%;
+    width: 98%;
+    height: 400px;
+    border-radius: 8px;
+    background: #8f8f8f86;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.coming-soon-tag{
+    text-decoration: none;
+    color: inherit;
+    font-size: 24px;
+  }
+  
+  .coming-soon-para{
+    font-weight: 700;
+    text-align: center;
+    font-size: 40px;
+    font-family: Hack, sans-serif;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #000000, #293b3b, #000000);
+    letter-spacing: 5px;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-repeat: no-repeat;
+    background-size: 80%;
+    animation: shine 5s linear infinite;
+    position: relative;
+  }
+  
+  @keyframes shine {
+    0% {
+      background-position-x: -500%;
+    }
+    100% {
+      background-position-x: 500%;
+    }
+  }
+  
+

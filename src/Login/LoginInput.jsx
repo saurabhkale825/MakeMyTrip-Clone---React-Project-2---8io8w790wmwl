@@ -33,11 +33,12 @@ function LoginInput() {
       if (response.status === "success") {
         localStorage.setItem("user-info", JSON.stringify(response));
         alert("You are Logging in Successfully");
+        setLogin(false);
         handleLogin();
         setEmail("");
         setPassword("");
         setAuthenticate(true);
-        setLogin(false);;
+        
       } else {
         alert(response.message);
       }

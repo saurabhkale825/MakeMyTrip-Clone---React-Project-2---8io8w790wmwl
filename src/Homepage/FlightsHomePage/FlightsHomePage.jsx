@@ -13,16 +13,16 @@ import MyContext from "../../Context/MyContext";
 import FlightContext from "../../Context/FlightsContext";
 import DepartureAirportList from "./AirportList/DepartureAirPortList";
 import ArrivalAirportList from "./AirportList/ArrivalAirportList";
-import Login from "../../Login/Login";
+
 
 function FlightsHomePage() {
   const [selectedFare, setSelectedFare] = useState("regular");
-  const [departureCityAirport, setDepartureCityAirport] = useState("");
+  const [departureCityAirport, setDepartureCityAirport] = useState("");   
   const [arrivalCityAirport, setArrivalCityAirport] = useState("");
   const [ myData , setMyData] = useState({});
  
   //contexts
-  const { showTravellerSection, setShowTravellerSection , showLogin ,setShowLogin  } = useContext(MyContext);
+  const { showTravellerSection, setShowTravellerSection , showLogin ,setShowLogin, mode , setMode } = useContext(MyContext);
   const {
     departureCity,
     setDepartureCity,
@@ -31,6 +31,7 @@ function FlightsHomePage() {
     startDate,
     setStartDate,
     day,
+    setDay,
     traveller,
     setTraveller,
     selectedClass,
@@ -44,7 +45,16 @@ function FlightsHomePage() {
     setShowArrivalAirportList
   } = useContext(FlightContext);
 
+
   const FormatedDate = (date) => format(date, "dd MMM'' yy");
+  const FormatDay = (date) => date.toLocaleDateString("en-US", { weekday: "short" })
+  
+  useEffect(() => {
+    setDay(FormatDay(startDate));
+  }, [startDate])
+  
+
+  console.log(day);
 
   useEffect(() => {
     const storedData = sessionStorage.getItem('myData');
@@ -71,8 +81,8 @@ function FlightsHomePage() {
           }
         );
 
-        setDepartureCityAirport(response.data.data.airports[0]?.name);
-        setDepartureCityAirportId(response.data.data?.airports[0]?.iata_code);
+        setDepartureCityAirport(response?.data?.data?.airports[0]?.name);
+        setDepartureCityAirportId(response?.data?.data?.airports[0]?.iata_code);
       };
       fetchAirport();
     }, 100);

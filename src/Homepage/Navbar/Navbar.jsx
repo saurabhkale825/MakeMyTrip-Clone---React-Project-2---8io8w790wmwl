@@ -72,6 +72,8 @@ function Navbar() {
         
       
         <li className="individual-nav" onClick={() => setMode("HomeVillas")}>
+          <Link to={'/comingsoon'}>
+          <div>
         {mode === "HomeVillas" ? (
             <img
               src={HomeVillasSelected}
@@ -83,9 +85,13 @@ function Navbar() {
             <img src={HomeVillas} alt="flights" width="32px" height="22px" />
           )}
           <p className={(mode==="HomeVillas"?"nav-text-selected":"nav-text")}>Homestays & Viilas</p>
+          </div>
+          </Link>
         </li>
 
         <li className="individual-nav" onClick={() => setMode("Holiday")}>
+          <Link to={"/comingsoon"}>
+          <div>
         {mode === "Holiday" ? (
             <img
               src={HolidaySelected}
@@ -97,6 +103,8 @@ function Navbar() {
             <img src={Holiday} alt="flights" width="32px" height="22px" />
           )}
           <p className={(mode==="Holiday"?"nav-text-selected":"nav-text")}>Holiday Packages</p>
+          </div>
+          </Link>
         </li>
 
         <li className="individual-nav" onClick={() => setMode("Trains")}>
@@ -136,7 +144,8 @@ function Navbar() {
         </li>
 
         <li className="individual-nav" onClick={() => setMode("Cabs")}>
-        
+          <Link to={'/comingsoon'}>
+        <div>
         {mode === "Cabs" ? (
             <img
               src={cabsSelected}
@@ -148,9 +157,13 @@ function Navbar() {
             <img src={Cabs} alt="flights" width="32px" height="22px" />
           )}
           <p className={(mode==="Cabs"?"nav-text-selected":"nav-text")}>Cabs</p>
-          
+          </div>
+          </Link>
         </li>
+
         <li className="individual-nav" onClick={() => setMode("ForexCard")}>
+          <Link to={'/comingsoon'}>
+          <div>
         {mode === "ForexCard" ? (
             <img
               src={ForexCardSelected}
@@ -162,12 +175,16 @@ function Navbar() {
             <img src={ForexCard} alt="flights" width="32px" height="22px" />
           )}
           <p className={(mode==="ForexCard"?"nav-text-selected":"nav-text")}>ForexCard & Currency</p>
+          </div>
+          </Link>
         </li>
 
         <li
           className="individual-nav"
           onClick={() => setMode("TravelInsurance")}
         >
+          <Link to={'/comingsoon'}>
+          <div>
           {mode === "TravelInsurance" ? (
             <img
               src={TravelInsuranceSelected}
@@ -179,6 +196,8 @@ function Navbar() {
             <img src={TravelInsurance} alt="flights" width="32px" height="22px" />
           )}
           <p className={(mode==="TravelInsurance"?"nav-text-selected":"nav-text")}>Travel Insurance</p>
+          </div>
+          </Link>
         </li>
       </ul>
     </div>
