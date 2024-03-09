@@ -15,28 +15,24 @@ import InputCities from "./InputCities";
 import MyContext from "../../Context/MyContext";
 
 function HotelHomepage() {
-  const { location, setLocation, checkin, setCheckin, checkout, setCheckout , showInputCities , setShowInputCities } =
-    useContext(HotelContext);
-  const{mode , setMode} = useContext(MyContext); 
+  const {
+    location,
+    setLocation,
+    checkin,
+    setCheckin,
+    checkout,
+    setCheckout,
+    showInputCities,
+    setShowInputCities,
+  } = useContext(HotelContext);
+  const { mode, setMode } = useContext(MyContext);
   /* State required only for Hotels HOmePage*/
   const [selectedMode, setSelectedMode] = useState("4Rooms");
   const [hotelData, setHotelData] = useState({});
- 
-
-  // useEffect(() => {
-  //   setMode(localStorage.getItem('mode'));  
-  // }, []);
-
-  // useEffect(() => {
-  //   setMode(localStorage.setItem('mode',mode))
-  // }, [mode]);
 
   const FormatedDate = (date) => format(date, "dd MMM'' yy");
 
-  const updateCheckout = useCallback((checkout) => {
-    const currentDate = checkout;
-    setCheckout(new Date(currentDate.setUTCDate(currentDate.getUTCDate() + 1)));
-  });
+  const FormatedDay = (date) => date.toLocaleDateString("en-US", { weekday: "long" });
 
   useEffect(() => {
     const storedData = sessionStorage.getItem("hotelData");
@@ -80,58 +76,63 @@ function HotelHomepage() {
           <div>
             Book Domestic and International Property Online.To List your
             Property.
-            <span style={{ color: "blue" }}>Click here.</span>{" "}
+            <span style={{ color: "blue" }}>Click here.</span>
           </div>
         </div>
 
         <div className="hotel-homepage-content">
-        {showInputCities === true ? <InputCities />:null}
+          {showInputCities === true ? <InputCities /> : null}
           <div className="hotel-location">
-          <div className="flex flex-col">
-            <p className="hotel-location-text">
-              City,Property Name or Location
-            </p>
-            <div>
-              <div className="hotel-location-city"  onClick={() => setShowInputCities(!showInputCities)}>{location}</div>
+            <div className="flex flex-col">
+              <p className="hotel-location-text">
+                City,Property Name or Location
+              </p>
+              <div>
+                <div
+                  className="hotel-location-city"
+                  onClick={() => setShowInputCities(!showInputCities)}
+                >
+                  {location}
+                </div>
+              </div>
+              <p>India</p>
             </div>
-            <p>India</p>
-            
-          </div>
-          
-         
           </div>
 
           <div className="check-in">
             <div>
-              <DatePicker
-                label="Check-in"
-                className="flights-section-calendar"
-                value="Check-in"
-                onChange={(date) => setCheckin(date)}
-                dateFormat="MMM/d/YY"
-              />
+              Check-in
             </div>
             <p>
-              <span className="depature-month">{FormatedDate(checkin)}</span>
+              <span className="depature-month">
+                <DatePicker
+                  label="Check-in"
+                  className="flights-section-calendar mt-1"
+                  value={FormatedDate(checkin)}
+                  onChange={(date) => setCheckin(date)}
+                  dateFormat="MMM/d/YY"
+                />
+              </span>
             </p>
 
-            <p>Saturday</p>
+            <p>{FormatedDay(checkin)}</p>
           </div>
           <div className="check-out">
             <div>
-              <DatePicker
-                label="Check-in"
-                className="flights-section-calendar"
-                value="Check-out"
-                onChange={(date) => setCheckout(date)}
-                dateFormat="MMM/d/YY"
-              />
+              Check-out
             </div>
             <p>
-              <span className="depature-month">{FormatedDate(checkout)}</span>
+              <span className="depature-month"><DatePicker
+                label="Check-in"
+                className="flights-section-calendar"
+                value={FormatedDate(checkout)}
+                onChange={(date) => setCheckin(date)}
+                dateFormat="MMM/d/YY"
+              />
+              </span>
             </p>
 
-            <p>Sunday</p>
+            <p>{FormatedDay(checkout)}</p>
           </div>
           <div className="rooms-guest">
             <div>Rooms & Guests</div>

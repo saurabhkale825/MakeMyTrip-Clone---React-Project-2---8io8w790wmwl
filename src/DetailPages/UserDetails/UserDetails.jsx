@@ -65,6 +65,7 @@ function UserDetails() {
       [name]: value,
     });
   };
+  
 
   return (
     <div className="user-deatils">

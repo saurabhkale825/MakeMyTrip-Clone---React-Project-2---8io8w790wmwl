@@ -1,0 +1,12 @@
+.gift-cards{
+    border: 1px solid black;
+    border-radius: 8px;
+    text-align: left;
+    padding: 15px;
+}
+
+.border-giftcards{
+    border-radius: 4px;
+    border: solid 1px #dfdfdf;
+    position: relative;
+}

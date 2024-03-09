@@ -11,10 +11,8 @@ function HomePage() {
 
   const { login, authenticate , setAuthenticate, mode , setMode} = useContext(MyContext);
   const data = localStorage.getItem('user-info');
-  // useEffect(() => {
-  //   localStorage.setItem('mode', mode);
-  //   setMode(localStorage.getItem('mode'));  
-  // }, []);
+  
+  
 
   useEffect(() => {
     if(data){

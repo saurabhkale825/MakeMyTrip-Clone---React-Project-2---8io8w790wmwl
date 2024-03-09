@@ -1,0 +1,51 @@
+.book-now-payment{
+    margin-top:10%;
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+
+.benefits-of-pay-later{
+    text-align: left;
+}
+
+.green-text{
+    color: #249b95;
+    font-weight: 700;
+}
+
+.eligibility-check{
+    display: flex;
+    flex-direction: column;
+    border: solid 1px #e7e7e7;
+    border-radius: 4px;
+    align-items: flex-start;
+}
+.book-now-proceed-btn{
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -webkit-align-items: center;
+    align-items: center;
+    border: none;
+    border-radius: 36px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: flex;
+    font-weight: 700;
+    -webkit-justify-content: center;
+    justify-content: center;
+    outline: 0;
+    text-transform: uppercase;
+    background-image: -webkit-linear-gradient(354deg, #53b2fe, #065af3);
+    background-image: -moz-linear-gradient(354deg, #53b2fe, #065af3);
+    background-image: linear-gradient(96deg, #53b2fe, #065af3);
+    -webkit-box-shadow: 0 1px 7px 0 rgba(0,0,0,.2);
+    box-shadow: 0 1px 7px 0 rgba(0,0,0,.2);
+    color: #fff;
+    cursor: pointer;
+    height: 40px;
+    min-width: 100px;
+    padding: 0 20px;
+}

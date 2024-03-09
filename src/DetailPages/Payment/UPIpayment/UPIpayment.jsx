@@ -13,68 +13,107 @@ import Axis from "../../../Assest/Logo/BanklogoSprite-c0931f75 (4).png";
 import Paytm from "../../../Assest/Logo/BanklogoSprite-c0931f75 (5).png";
 import PaymentContainer from "../../PaymentContainer/PaymentContainer";
 import { useParams } from "react-router-dom";
-import axios from "axios";
+import * as Yup from "yup";
+import {useFormik} from 'formik'
+  
 
 
 function UPIpayment() {
   const { itemId } = useParams();
   const value = localStorage.getItem('value');
-  let bodyContent;
-  useEffect(() => {
-    bodyContent = {
-      bookingType:{value},
-        bookingDetails: {
-          '`${value}Id`': {itemId},
-          startDate: "2023-10-09T10:03:53.554+00:00",
-          endDate: "2023-10-09T10:03:53.554+00:00",
-        }
-    }
-  }, [itemId]);
+  const[isUpiValide, setIsUpiValide] = useState(false);
+  const [ showConfirmationPage , setShowConfirmationPage] = useState(false)
+  const user = JSON.parse(localStorage.getItem('user-info'));
+  const token = user.token;
+  const[upiId , setUpiId] = useState("")
   
+
  
-  console.log(bodyContent);
 
-
-
+  
+  
+  
   const Booking = async() => {
+    let body ;
+    if(value === "flight"){
+      body = {
+        "bookingType": "flight",
+        "bookingDetails": {
+          "flightId": itemId,
+          "startDate": "2023-10-09T10:03:53.554+00:00",
+          "endDate": "2023-10-09T10:03:53.554+00:00"
+        }
+      }
+    }
+
+    if(value === "hotel"){
+      body = {
+        "bookingType": "hotel",
+        "bookingDetails": {
+          "hotelId": {itemId},
+          "startDate": "2023-10-09T10:03:53.554+00:00",
+          "endDate": "2023-10-09T10:03:53.554+00:00"
+        }
+      }
+    }
+
+    if(value === "train"){
+      body = {
+        "bookingType": "train",
+        "bookingDetails": {
+          "trainId": itemId,
+          "startDate": "2023-10-09T10:03:53.554+00:00",
+          "endDate": "2023-10-09T10:03:53.554+00:00"
+        }
+      }
+    }
+
+    if(value === "bus"){
+      body = {
+        "bookingType": "bus",
+        "bookingDetails": {
+          "busId":itemId,
+          "startDate": "2023-10-09T10:03:53.554+00:00",
+          "endDate": "2023-10-09T10:03:53.554+00:00"
+        }
+      }
+    }
+    
+      
     try{
         const response = await fetch('https://academics.newtonschool.co/api/v1/bookingportals/booking',{
           method :'POST',
           headers : {
             'Content-Type': 'application/json',
-            'Authorization' : 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZDU4YTgyYmJkOGMzMWJkZDU1ZTIzOCIsImlhdCI6MTcwOTMwNTM2MSwiZXhwIjoxNzQwODQxMzYxfQ.Wi4bD8A05jozmmhO8odNkVBC6O-InIG5gSnoNa8sHyM',
+            'Authorization' : `Bearer ${token}`,
             'projectID' :"8io8w790wmwl"
           },
-          body: JSON.stringify({
-            "bookingType": "hotel",
-            "bookingDetails": {
-              "hotelId": "6527dc50de44dd75f5271d99",
-              "startDate": "2023-10-09T10:03:53.554+00:00",
-              "endDate": "2023-10-09T10:03:53.554+00:00"
-            }
-          })
+          body: JSON.stringify(body)
         })
       
 
         const result = await response.json();
-       
-        // console.log(result);
+        
+        const functionThatReturnPromise = () =>
+        new Promise((resolve) => setTimeout(resolve, 3000));
+
+      toast
+        .promise(functionThatReturnPromise, {
+          pending: "Payment in Process",
+          success: "Booking Successful",
+          error: "Promise rejected 🤯",
+        })
+        .then(() => {
+          // Code to execute after the promise is resolved (PaymentContainer is shown)
+          setShowConfirmationPage(true);
+        });
+        console.log(result);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
   }
 
-  useEffect(() => {
-    Booking();   
-  }, []);
-
-  const notify = () => {
-    toast(
-      <div>
-        <PaymentContainer />
-      </div>
-    );
-  };
+ 
 
   return (
     <div>
@@ -113,8 +152,13 @@ function UPIpayment() {
                 autoComplete="off"
                 className="upi-input"
                 placeholder="@upi"
+                value={upiId}
+                onChange={(e) => setUpiId(e.target.value)}
               />
-              <button className="pay-button" onClick={Booking}>
+              <button className={upiId === ""?"pay-button":"primary-btn mt-3"}
+              onClick={Booking}
+                disabled={upiId === ""?true :false}
+              >
                 <div>Verify & Pay</div>
               </button>
 
@@ -125,6 +169,8 @@ function UPIpayment() {
                 autoClose={5000}
                 closeOnClick={true}
               />
+
+              {showConfirmationPage === true ? <div><PaymentContainer /></div> : null}
             </div>
             <div className="font-semibold">Enter your registered VPA</div>
           </div>

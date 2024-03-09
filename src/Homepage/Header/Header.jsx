@@ -29,11 +29,7 @@ function Navbar() {
   const userData = user ? JSON.parse(user) : null;
   const userName = userData && userData.data ? userData.data.name : null;
 
-  // useEffect(() => {
-  //   if (user) {
-  //     console.log(userName);
-  //   }
-  // }, []);
+
 
   return (
     <>

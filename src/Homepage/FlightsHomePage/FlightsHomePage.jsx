@@ -22,7 +22,8 @@ function FlightsHomePage() {
   const [ myData , setMyData] = useState({});
  
   //contexts
-  const { showTravellerSection, setShowTravellerSection , showLogin ,setShowLogin, mode , setMode } = useContext(MyContext);
+  const { showTravellerSection, setShowTravellerSection , setLogin ,setShowLogin, mode , setMode , authenticate,
+    setAuthenticate } = useContext(MyContext);
   const {
     departureCity,
     setDepartureCity,
@@ -45,6 +46,12 @@ function FlightsHomePage() {
     setShowArrivalAirportList
   } = useContext(FlightContext);
 
+  // useEffect(() => {
+  //   if(authenticate === false){
+  //     setLogin(true);
+  //   }  
+  // }, [authenticate]);
+
 
   const FormatedDate = (date) => format(date, "dd MMM'' yy");
   const FormatDay = (date) => date.toLocaleDateString("en-US", { weekday: "short" })
@@ -52,9 +59,6 @@ function FlightsHomePage() {
   useEffect(() => {
     setDay(FormatDay(startDate));
   }, [startDate])
-  
-
-  console.log(day);
 
   useEffect(() => {
     const storedData = sessionStorage.getItem('myData');
@@ -112,9 +116,11 @@ function FlightsHomePage() {
     }, 100);
   }, [arrivalCity]);
 
+  
+
   return (
     <>
-    
+
       <div className="flights-homepage">
         <div className="flights-homepage-content">
           <div className="trip-route">
@@ -169,17 +175,17 @@ function FlightsHomePage() {
 
             <div className="trip-depature">
               <div>
-                <DatePicker
-                  label="Depature"
-                  className="flights-section-calendar"
-                  value="Departure"
-                  onChange={(date) => setStartDate(date)}
-                  dateFormat="MMM/d/YY"
-                />
+               Departure
               </div>
 
               <div>
-                <span className="depature-date">{FormatedDate(startDate)}</span>
+                <span className="depature-date"> <DatePicker
+                  label="Depature"
+                  className="flights-section-calendar mt-2"
+                  value={FormatedDate(startDate)}
+                  onChange={(date) => setStartDate(date)}
+                  dateFormat="MMM/d/YY"
+                /></span>
               </div>
               <div
                 style={{

@@ -12,6 +12,7 @@ import BookNowPayment from "./BookNowPayment/BookNowPayment";
 import NetBankingPayment from "./NetBanking/NetBankingPayment";
 import GiftCardsPayment from "./GiftCardsPayment/GiftCardsPayment";
 import GooglePayPayment from "./GooglePay/GooglePayPayment";
+import { Link } from "react-router-dom";
 
 function Payment() {
 
@@ -28,6 +29,7 @@ function Payment() {
     <>
       <div className="payment-header">
         <div className="flex items-center gap-6">
+          <Link to={"/"}>
           <div>
             <img
               src="https://imgak.mmtcdn.com/pwa_v3/pwa_hotel_assets/header/mmtLogoWhite.png"
@@ -35,6 +37,7 @@ function Payment() {
               width="150px"
             />
           </div>
+          </Link>
           <div>
             <span className="text-lg text-white">Hey,</span>
             <span className="text-teal-600 ml-1">

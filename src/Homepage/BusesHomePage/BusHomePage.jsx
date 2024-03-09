@@ -30,13 +30,6 @@ function BusHomePage() {
     const [showSourceInput , setShowSourceInput]= useState(false);
     const [showDestinationInput , setShowDestinationInput] = useState(false);
 
-    // useEffect(() => {
-    //   setMode(localStorage.getItem('mode'));  
-    // }, []);
-  
-    // useEffect(() => {
-    //   setMode(localStorage.setItem('mode',mode))
-    // }, [mode]);
 
   const FormatedDate = (travelDate) => format(travelDate, "dd MMM''yy");
 
@@ -77,16 +70,16 @@ function BusHomePage() {
             }}
           >
             <div className="bus-homepage-hard-text">
-              <DatePicker
+              TravelDate
+            </div>
+            <div className="bus-homepage-date-text">
+            <DatePicker
                 label="Return"
                 className="flights-section-calendar"
-                value="TravelDate"
+                value={FormatedDate(busTravelDate)}
                 onChange={(date) => setBusTravelDate(date)}
                 dateFormat="MMM/d/YY"
               />
-            </div>
-            <div className="bus-homepage-date-text">
-              {FormatedDate(busTravelDate)}
             </div>
             <div className="bus-homepage-hard-text">
               {busTravelDate.toLocaleDateString("en-US", { weekday: "long" })}

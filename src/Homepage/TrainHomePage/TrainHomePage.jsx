@@ -23,14 +23,6 @@ function TrainHomePage() {
   const [showSource, setShowSource] = useState(false);
   const [showDestination , setShowDestination] = useState(false);
 
-  // useEffect(() => {
-  //   setMode(localStorage.getItem('mode'));  
-  // }, []);
-
-  // useEffect(() => {
-  //   setMode(localStorage.setItem('mode',mode))
-  // }, [mode]);
-  
   const FormatedDate = (date) => format(date, "dd MMM'' yy");
 
   const UpdateTrainDay = (date) => {
@@ -66,17 +58,18 @@ function TrainHomePage() {
             </div>
             <div className="train-homepage-travel border-radius-right" onClick={() => setShowCalender(!showCalender)}>
               <div className="train-homepage-label">
-                <DatePicker
+               Travel Date
+              </div>
+              <div className="train-homepage-date ">
+              <DatePicker
                   label="Depature"
                   className="flights-section-calendar"
-                  value="Travel Date"
+                  value={FormatedDate(travelDate)}
                   onChange={(date) => setTravelDate(date)}
                   dateFormat="MMM/d/YY"
                   
                 />
-                
               </div>
-              <div className="train-homepage-date ">{FormatedDate(travelDate)}</div>
               <div className="m-1 text-xs">{trainDay}</div>
               
             </div>
