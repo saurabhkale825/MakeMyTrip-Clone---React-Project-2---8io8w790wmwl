@@ -28,14 +28,17 @@ import TrainBookingShow from "../DetailPages/TrainSection/TrainBookingPage/Train
 import BusBookingPage from "../DetailPages/BusSection/BusBookingPage/BusBookingPage";
 import MyTrips from "../MyTrips/MyTrips";
 import ComingSoon from "../Homepage/ComingSoon/ComingSoon";
+import FlightsHomePage from "../Homepage/FlightsHomePage/FlightsHomePage";
 
 
 function LandingPage() {
-  
+  //States rquired for overall project.
   const [mode, setMode] = useState("Flights");
   const [authenticate , setAuthenticate] = useState(false);
   const [login, setLogin] = useState(false);
   const [showLogin, setShowLogin] = useState(true);
+
+  // States rquired for Flight-section.
   const [traveller, setTraveller] = useState(1);
   const [selectedClass, setSelectedClass] = useState("economy");
   const [showTravellerSection, setShowTravellerSection] = useState(false);
@@ -48,25 +51,29 @@ function LandingPage() {
   const [airportList, setAirportList] = useState([]);
   const [showDepartureAirportList, setShowDepartureAirportList] =useState(false);
   const [showArrivalAirportList, setShowArrivalAirportList] = useState(false);
+
+  //States rquired for HotelSection.
   const [location, setLocation] = useState("Mumbai");
   const [showInputCities , setShowInputCities] = useState(false);
   const [checkin, setCheckin] = useState(new Date());
   const [checkout, setCheckout] = useState(new Date());
   const [hotelPrice , setHotelPrice] = useState("");
   const [hotelTax , setHotelTax] = useState("");
+
+
+  //States rquired for Train-section.
   const [source, setSource] = useState("Delhi Junction");
   const [destination, setDestination] = useState("Surat");
   const [travelDate, setTravelDate] = useState(new Date());
   const [trainDay, setTrainDay] = useState("");
   const [coachType , setCoachType] = useState("");
   const [seats , setSeats] = useState("");
+
+  //States rquired for bus-section.
   const [busSource, setBusSource] = useState("Mumbai");
   const [busDestination, setBusDestination] = useState("Pune");
   const [busTravelDate, setBusTravelDate] = useState(new Date());
 
-  useEffect(() => {
-    setLogin((JSON.parse(sessionStorage.getItem("isLoggedIn"))) === true ? true : false)  
-  }, []);
 
   return (
     <BrowserRouter>
@@ -156,25 +163,29 @@ function LandingPage() {
                 }}
               >
                 <Routes>
-                  <Route path="/" element={<HomePage />} />
+                  <Route path="/" element={<FlightsHomePage />} />
                   <Route path="/flights/details" element={<FlightsDetails />} />
-                  <Route path="/hotels" element={<HotelHomepage />} />
-                  <Route path="/trains" element={<TrainHomePage />} />
-                  <Route path="/buses" element={<BusHomePage />} />
-                  <Route path="/datepicker" element={<Date />} />
-                  <Route path="/calender" element={<Calender />} />
-                  <Route path="/traveller" element={<TravellerSection />} />
-                  <Route path="/buses/details" element={<BusesDetails />} />
-                  <Route path="/airports" element={<AirportList />} />
                   <Route path="/flight/:itemId" element={<BookNowPage />} />
+
+                  <Route path="/hotels" element={<HotelHomepage />} />
                   <Route path="/hotels/details" element={<HotelDetails />} />
-                  <Route path="/trains/details" element={<TrainDetails />} />
-                  <Route path="/railways/bookingpage/:itemId" element={<TrainBookingShow />} />
-                  <Route path="/selectionseat" element={< SeatSelection />} />
-                  <Route path="/payment/:itemId" element={< Payment />} />
                   <Route path="/inputCities" element={< HotelCarousel />} />
                   <Route path="/hotels/:itemId" element={<IndividualDetailHotel />} />
                   <Route path="/hotels/bookingpage/:itemId" element={< HotelBookingPage />} />
+                  <Route path="/trains" element={<TrainHomePage />} />
+                  <Route path="/buses" element={<BusHomePage />} />
+                  {/* <Route path="/datepicker" element={<Date />} /> */}
+                  {/* <Route path="/calender" element={<Calender />} />
+                  <Route path="/traveller" element={<TravellerSection />} /> */}
+                  <Route path="/buses/details" element={<BusesDetails />} />
+                  {/* <Route path="/airports" element={<AirportList />} /> */}
+                  
+                 
+                  <Route path="/trains/details" element={<TrainDetails />} />
+                  <Route path="/railways/bookingpage/:itemId" element={<TrainBookingShow />} />
+                  {/* <Route path="/selectionseat" element={< SeatSelection />} /> */}
+                  <Route path="/payment/:itemId" element={< Payment />} />
+                 
                   <Route path="/bus/bookingpage/:itemId" element={< BusBookingPage />} />
                   <Route path="/mytrips" element={< MyTrips />} />
                   <Route path="/comingsoon" element={< ComingSoon />} />

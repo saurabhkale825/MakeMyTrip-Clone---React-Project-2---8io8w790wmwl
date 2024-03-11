@@ -26,7 +26,7 @@ function IndividualHotel(hotel) {
        
         <div>
           <img src={hotel?.hotels.images[0]} alt="logo" className="card-image"/>
-          {/* <HotelCarousel images={hotel?.hotels} /> */}
+          
         </div>
         <div className="individual-hotel-content-Left">
           <div className="individual-hotel-content-name">{hotel?.hotels.name}</div>

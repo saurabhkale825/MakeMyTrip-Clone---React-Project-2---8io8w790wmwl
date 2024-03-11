@@ -13,17 +13,32 @@ import MyContext from "../../Context/MyContext";
 import FlightContext from "../../Context/FlightsContext";
 import DepartureAirportList from "./AirportList/DepartureAirPortList";
 import ArrivalAirportList from "./AirportList/ArrivalAirportList";
-
+import Header from "../Header/Header";
+import Navbar from "../Navbar/Navbar";
+import OfferSection from "../../OfferSection/OfferSection";
+import Footer from "../../Footer/Footer";
+import Login from "../../Login/Login";
 
 function FlightsHomePage() {
   const [selectedFare, setSelectedFare] = useState("regular");
-  const [departureCityAirport, setDepartureCityAirport] = useState("");   
+  const [departureCityAirport, setDepartureCityAirport] = useState("");
   const [arrivalCityAirport, setArrivalCityAirport] = useState("");
-  const [ myData , setMyData] = useState({});
- 
+  const [myData, setMyData] = useState({});
+
   //contexts
-  const { showTravellerSection, setShowTravellerSection , setLogin ,setShowLogin, mode , setMode , authenticate,
-    setAuthenticate } = useContext(MyContext);
+  const {
+    showTravellerSection,
+    setShowTravellerSection,
+    login,
+    setLogin,
+    showLogin,
+    setShowLogin,
+    mode,
+    setMode,
+    authenticate,
+    setAuthenticate,
+  } = useContext(MyContext);
+
   const {
     departureCity,
     setDepartureCity,
@@ -43,34 +58,46 @@ function FlightsHomePage() {
     showDepartureAirportList,
     setShowDepartureAirportList,
     showArrivalAirportList,
-    setShowArrivalAirportList
+    setShowArrivalAirportList,
   } = useContext(FlightContext);
 
+  //To set value for payment option.
+  useEffect(() => {
+    localStorage.setItem("value", "");
+  });
+
+  // //To check wheather user is login or not.
+  // const data = localStorage.getItem("user-info");
   // useEffect(() => {
-  //   if(authenticate === false){
+  //   console.log("before", authenticate);
+  //   if (data) {
+  //     setAuthenticate(true);
+  //   }
+  //   console.log("after", authenticate);
+  //   if (authenticate === false) {
   //     setLogin(true);
-  //   }  
+  //   }
   // }, [authenticate]);
 
-
   const FormatedDate = (date) => format(date, "dd MMM'' yy");
-  const FormatDay = (date) => date.toLocaleDateString("en-US", { weekday: "short" })
-  
+  const FormatDay = (date) =>
+    date.toLocaleDateString("en-US", { weekday: "short" });
+
   useEffect(() => {
     setDay(FormatDay(startDate));
-  }, [startDate])
+  }, [startDate]);
 
+  //To set data for Details page
   useEffect(() => {
-    const storedData = sessionStorage.getItem('myData');
+    const storedData = sessionStorage.getItem("myData");
     if (storedData) {
       setMyData(JSON.parse(storedData));
     }
   }, []);
 
-
   const updateData = (newData) => {
     setMyData(newData);
-    sessionStorage.setItem('myData', JSON.stringify(newData));
+    sessionStorage.setItem("myData", JSON.stringify(newData));
   };
 
   useEffect(() => {
@@ -116,17 +143,19 @@ function FlightsHomePage() {
     }, 100);
   }, [arrivalCity]);
 
-  
-
   return (
     <>
-
+      {login === true ? <Login /> : null}
+      <Header />
+      <Navbar />
       <div className="flights-homepage">
         <div className="flights-homepage-content">
           <div className="trip-route">
             <div
               className="trip-date"
-              onClick={() => setShowDepartureAirportList(!showDepartureAirportList)}
+              onClick={() =>
+                setShowDepartureAirportList(!showDepartureAirportList)
+              }
             >
               <div>
                 <p className="mx-5">From</p>
@@ -149,8 +178,10 @@ function FlightsHomePage() {
               </div>
             ) : null}
 
-            <div className="trip-date"
-            onClick={() => setShowArrivalAirportList(!showArrivalAirportList)}>
+            <div
+              className="trip-date"
+              onClick={() => setShowArrivalAirportList(!showArrivalAirportList)}
+            >
               <div>
                 <p className="mx-5">To</p>
                 <div className="trip-start">{arrivalCity}</div>
@@ -172,27 +203,23 @@ function FlightsHomePage() {
               </div>
             ) : null}
 
-
             <div className="trip-depature">
-              <div>
-               Departure
-              </div>
+              <div>Departure</div>
 
               <div>
-                <span className="depature-date"> <DatePicker
-                  label="Depature"
-                  className="flights-section-calendar mt-2"
-                  value={FormatedDate(startDate)}
-                  onChange={(date) => setStartDate(date)}
-                  dateFormat="MMM/d/YY"
-                /></span>
+                <span className="depature-date">
+                  {" "}
+                  <DatePicker
+                    label="Depature"
+                    className="flights-section-calendar mt-2"
+                    value={FormatedDate(startDate)}
+                    onChange={(date) => setStartDate(date)}
+                    dateFormat="MMM/d/YY"
+                  />
+                </span>
               </div>
               <div
-                style={{
-                  marginLeft: "0px",
-                  marginTop: "5px",
-                  textAlign: "left",
-                }}
+                className="ml-0 mt-1 text-left"
               >
                 {startDate.toLocaleDateString("en-US", { weekday: "long" })}
               </div>
@@ -304,8 +331,26 @@ function FlightsHomePage() {
       </div>
 
       <Link to={"/flights/details"}>
-        <div className="search-button" onClick={() => updateData({"departureCity" :`${departureCity}`, "arrivalCity":`${arrivalCity}` , "startDate" : `${startDate}` , "traveller" :`${traveller}` , "departureCityAirportId":`${departureCityAirportId}` , "arrivalCityAirportId" :`${arrivalCityAirportId}` , "day" :`${day}`})}>SEARCH</div>
+        <div
+          className="search-button"
+          onClick={() =>
+            updateData({
+              departureCity: `${departureCity}`,
+              arrivalCity: `${arrivalCity}`,
+              startDate: `${startDate}`,
+              traveller: `${traveller}`,
+              departureCityAirportId: `${departureCityAirportId}`,
+              arrivalCityAirportId: `${arrivalCityAirportId}`,
+              day: `${day}`,
+            })
+          }
+        >
+          SEARCH
+        </div>
       </Link>
+
+      <OfferSection />
+      <Footer />
     </>
   );
 }

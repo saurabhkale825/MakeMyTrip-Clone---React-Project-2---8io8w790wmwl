@@ -1,18 +1,26 @@
 import { useState, useEffect } from "react";
 import "./OfferSection.css";
 import axios from "axios";
-import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
+
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import OfferCard from "./OfferCard";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from "react-responsive-carousel";
 
 function OfferSection() {
   const [offers, setOffers] = useState([]);
-  const [offerSelected, SetOfferSelected] = useState("all");
+  const [offerSelected, SetOfferSelected] = useState("ALL");
+
+  // console.log(`https://academics.newtonschool.co/api/v1/bookingportals/offers?filter={"type":"${offerSelected}"}`)
 
   useEffect(() => {
     const fetchApi = async () => {
       const response = await axios.get(
-        "https://academics.newtonschool.co/api/v1/bookingportals/offers?limit=6",
+        `https://academics.newtonschool.co/api/v1/bookingportals/offers?filter={"type":"${offerSelected}"}&limit=6`,
         {
           method: "GET",
           headers: {
@@ -24,7 +32,15 @@ function OfferSection() {
       setOffers(data.offers);
     };
     fetchApi();
-  }, []);
+  }, [offerSelected]);
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1
+  };
 
   return (
     <div className="offer-section">
@@ -32,29 +48,25 @@ function OfferSection() {
         <div className="offer-section-navbar-text">Offers</div>
 
         <div className="offer-section-navbar-content">
-          <div className={offerSelected==="all"?"offer-section-navbar-content-selected":"offer-section-navbar-content-notselected"}
-          onClick={()=> SetOfferSelected("all")}>
+          <div className={offerSelected==="ALL"?"offer-section-navbar-content-selected":"offer-section-navbar-content-notselected"}
+          onClick={()=> SetOfferSelected("ALL")}>
             <p> All Offers </p>
           </div>
 
-          <div className={offerSelected==="flights"?"offer-section-navbar-content-selected":"offer-section-navbar-content-notselected"}
-          onClick={()=> SetOfferSelected("flights")}>
+          <div className={offerSelected==="FLIGHTS"?"offer-section-navbar-content-selected":"offer-section-navbar-content-notselected"}
+          onClick={()=> SetOfferSelected("FLIGHTS")}>
             Flights
           </div>
 
-          <div className={offerSelected==="hotels"?"offer-section-navbar-content-selected":"offer-section-navbar-content-notselected"}
-          onClick={()=> SetOfferSelected("hotels")}>Hotels</div>
+          <div className={offerSelected==="HOTELS"?"offer-section-navbar-content-selected":"offer-section-navbar-content-notselected"}
+          onClick={()=> SetOfferSelected("HOTELS")}>Hotels</div>
 
-          <div className={offerSelected==="trains"?"offer-section-navbar-content-selected":"offer-section-navbar-content-notselected"}
-          onClick={()=> SetOfferSelected("trains")}>Trains</div>
+          <div className={offerSelected==="RAILS"?"offer-section-navbar-content-selected":"offer-section-navbar-content-notselected"}
+          onClick={()=> SetOfferSelected("RAILS")}>Trains</div>
         </div>
 
         <div className="offer-section-navbar-button-section">
-          <div className="all-offfer-navbar">
-            <span>View All</span>
-            <span><ArrowRightAltIcon/></span>
-          </div>
-          <button className="offer-navbar-prev-section" disabled>
+          <button className="offer-navbar-prev-section " disabled>
           <ChevronLeftIcon/>
           </button>
 
@@ -65,26 +77,15 @@ function OfferSection() {
       </div>
 
       <div className="offer-section-content">
-        {offers.map((offer) => (
-          <div key={offer._id} className="offer-card">
-            <div className="offer-card-content">
-              <div className="offer-card-image">
-                <img src={offer.newHeroUrl} alt="logo" />
-              </div>
-              <div className="offer-card-text">
-                <div className="offer-card-text-heading">{offer.pTl}</div>
-                <div className="offer-card-text-seperation"></div>
-                <div className="offer-card-text-data">{offer.pTx}</div>
-              </div>
-            </div>
-            <div className="offer-card-footer">
-              <div className="offer-card-footer-left">{offer.tncCtaText}</div>
-              <div className="offer-card-footer-right">{offer.cardCTAText}</div>
-            </div>
-
-
-          </div>
+      
+        {offers.map((offer , index) => (
+            // <Slider {...settings}>
+          <OfferCard offer={offer}key={index} />
+          // </Slider>
         ))}
+        
+          
+        
       </div>
     </div>
   );

@@ -48,8 +48,9 @@
 }
 
 .individual-hotel-content-rating {
+  width: -moz-fit-content;
   width: fit-content;
-  height: fit-content;
+  height: auto;
   margin: 10px;
   color: #1288ff;
   display: flex;
@@ -71,7 +72,7 @@
     border-radius: 5px;
     background-color: #ffffff4c;
     color: rgb(0, 0, 0);
-    width: fit-content;
+    width: min-content;
 }
 
 .individual-hotel-content-right {
@@ -81,7 +82,7 @@
   text-align: right;
   display: flex;
   flex-direction: column;
-  align-items: end;
+  align-items: flex-end;
 }
 
 

@@ -40,6 +40,7 @@
     display: flex;
     justify-content: space-between;
     margin-left: 2%;
+    /* border: 1px solid black; */
 }
 .offer-section-navbar-text{
     width: 10%;
@@ -77,6 +78,8 @@
     width: 20%;
     display: flex;
     align-items: center;
+    justify-content: right;
+    margin-right: 15px;
     /* border: 1px solid red; */
 
 }

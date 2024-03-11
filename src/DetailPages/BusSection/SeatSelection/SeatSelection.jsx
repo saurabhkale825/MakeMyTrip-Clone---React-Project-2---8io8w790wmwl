@@ -66,6 +66,7 @@ function SeatSelection(bus) {
           </Link>
         </div>
         <div className="bus-layout-line">
+        <Link to={`/bus/bookingpage/${bus.bus._id}`}>
           <div className="bus-layout-line-left">
             <div className="flex justify-right mb-4">
               <img src={BusSteering} alt="logo" width="30px" className="ml-16 mt-2"/>
@@ -100,6 +101,7 @@ function SeatSelection(bus) {
             </div>
             
           </div>
+          </Link>
         </div>
       </div>
       </div>

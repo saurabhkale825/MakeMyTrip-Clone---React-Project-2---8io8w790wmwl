@@ -34,7 +34,6 @@ function LoginInput() {
         localStorage.setItem("user-info", JSON.stringify(response));
         alert("You are Logging in Successfully");
         setLogin(false);
-        handleLogin();
         setEmail("");
         setPassword("");
         setAuthenticate(true);
