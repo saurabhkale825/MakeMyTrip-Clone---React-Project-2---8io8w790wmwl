@@ -4,13 +4,15 @@ import Google from "../Assest/Logo/Google logo.png"
 import MyContext from '../Context/MyContext'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import AuthContext from '../Context/AuthContext';
 
 
 
 function LoginInput() {
 
-  const {login , setLogin , authenticate,
-    setAuthenticate,} = useContext(MyContext);
+  const{authenticate,
+    setAuthenticate} = useContext(AuthContext);
+  const {setLogin } = useContext(MyContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 

@@ -38,11 +38,6 @@ function TrainSearchNav() {
                 <div className='text-white font-bold text-xl text-left ml-2 mt-2'>{FormatedDate(travelDate)}</div>
            </div>
         </div>
-        
-        
-
-        <div className='details-search'>SEARCH</div>
-
     </div>
     </>
   )

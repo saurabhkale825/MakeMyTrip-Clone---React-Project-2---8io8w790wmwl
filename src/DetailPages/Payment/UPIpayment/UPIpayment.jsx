@@ -13,24 +13,17 @@ import Axis from "../../../Assest/Logo/BanklogoSprite-c0931f75 (4).png";
 import Paytm from "../../../Assest/Logo/BanklogoSprite-c0931f75 (5).png";
 import PaymentContainer from "../../PaymentContainer/PaymentContainer";
 import { useParams } from "react-router-dom";
-import * as Yup from "yup";
-import {useFormik} from 'formik'
+
   
 
 
 function UPIpayment() {
   const { itemId } = useParams();
   const value = localStorage.getItem('value');
-  const[isUpiValide, setIsUpiValide] = useState(false);
   const [ showConfirmationPage , setShowConfirmationPage] = useState(false)
   const user = JSON.parse(localStorage.getItem('user-info'));
   const token = user.token;
-  const[upiId , setUpiId] = useState("")
-  
-
- 
-
-  
+  const[upiId , setUpiId] = useState("");
   
   
   const Booking = async() => {
@@ -95,7 +88,7 @@ function UPIpayment() {
         const result = await response.json();
         
         const functionThatReturnPromise = () =>
-        new Promise((resolve) => setTimeout(resolve, 3000));
+        new Promise((resolve) => setTimeout(resolve, 2000));
 
       toast
         .promise(functionThatReturnPromise, {
@@ -107,7 +100,7 @@ function UPIpayment() {
           // Code to execute after the promise is resolved (PaymentContainer is shown)
           setShowConfirmationPage(true);
         });
-        console.log(result);
+        // console.log(result);
       } catch (error) {
         console.error('Error fetching data:', error);
       }

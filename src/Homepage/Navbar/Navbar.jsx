@@ -24,6 +24,14 @@ import MyContext from "../../Context/MyContext";
 function Navbar() {
  const{mode,setMode} = useContext(MyContext);
 
+ useEffect(() => {
+  sessionStorage.setItem("mode",mode); 
+ }, [mode]);
+
+  useEffect(() => {
+    setMode(sessionStorage.getItem("mode"));
+  }, []);
+
   return (
     <div className="navbar">
       <ul className="navbar-list">

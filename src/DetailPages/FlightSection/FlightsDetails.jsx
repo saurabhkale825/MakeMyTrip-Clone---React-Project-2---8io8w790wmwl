@@ -23,7 +23,7 @@ function FlightsDetails() {
   const [airlineName, setAirlineName] = useState("");
   const [selectedSort, setSelectedSort] = useState("");
   const [selectedFilter, setSelectedFilter] = useState("");
-  const [isLoading, setIsloading] = useState(false)
+  const [isLoading, setIsloading] = useState(false);
 
   const {
     departureCity,
@@ -75,10 +75,7 @@ function FlightsDetails() {
     updateSelectedFilter(filter);
   });
 
-  // useEffect(() => {
-  //   console.log(`https://academics.newtonschool.co/api/v1/bookingportals/flight?search={"source":"${departureCity}","destination":"${arrivalCity}"}&day=${day}&filter={${selectedFilter}}&sort={${selectedSort}}`)  
-  // }, []);
-
+ 
 
   const FetchFlights = async () => {
     const response = await axios.get(
@@ -112,7 +109,7 @@ function FlightsDetails() {
   return (
     <div className="flights-details">
       <NavbarDetails />
-      <DetailSearchNav />
+      <DetailSearchNav FetchFlights = {FetchFlights} />
       <div className="flights-details-content">
         <div className="flights-details-filter-wrapper">
           <div className="filterouter">

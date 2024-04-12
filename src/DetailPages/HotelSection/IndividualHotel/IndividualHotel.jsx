@@ -35,9 +35,9 @@ function IndividualHotel(hotel) {
           </div>
           
           <div className="individual-hotel-content-ammenities">
-            <ul className="grid grid-cols-2 grid-rows-3 gap-4" >
+            <ul className="grid grid-cols-2 grid-rows-2 gap-2 " >
               {hotel?.hotels.amenities.map((item) => (
-                <li className="aeminities-item">{item}</li>
+                <li className="aeminities-item ">{item}</li>
               ))}
             </ul>
           </div>

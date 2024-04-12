@@ -126,7 +126,7 @@ function HotelHomepage() {
                 label="Check-in"
                 className="flights-section-calendar"
                 value={FormatedDate(checkout)}
-                onChange={(date) => setCheckin(date)}
+                onChange={(date) => setCheckout(date)}
                 dateFormat="MMM/d/YY"
               />
               </span>

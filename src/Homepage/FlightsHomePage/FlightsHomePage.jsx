@@ -18,6 +18,7 @@ import Navbar from "../Navbar/Navbar";
 import OfferSection from "../../OfferSection/OfferSection";
 import Footer from "../../Footer/Footer";
 import Login from "../../Login/Login";
+import AuthContext from "../../Context/AuthContext";
 
 function FlightsHomePage() {
   const [selectedFare, setSelectedFare] = useState("regular");
@@ -26,17 +27,17 @@ function FlightsHomePage() {
   const [myData, setMyData] = useState({});
 
   //contexts
+
+  const {authenticate,
+    setAuthenticate} = useContext(AuthContext);
   const {
     showTravellerSection,
     setShowTravellerSection,
     login,
     setLogin,
-    showLogin,
-    setShowLogin,
     mode,
     setMode,
-    authenticate,
-    setAuthenticate,
+    
   } = useContext(MyContext);
 
   const {
@@ -49,7 +50,6 @@ function FlightsHomePage() {
     day,
     setDay,
     traveller,
-    setTraveller,
     selectedClass,
     departureCityAirportId,
     setDepartureCityAirportId,
@@ -64,21 +64,18 @@ function FlightsHomePage() {
   //To set value for payment option.
   useEffect(() => {
     localStorage.setItem("value", "");
+    sessionStorage.setItem("mode" , mode);
   });
 
-  // //To check wheather user is login or not.
-  // const data = localStorage.getItem("user-info");
-  // useEffect(() => {
-  //   console.log("before", authenticate);
-  //   if (data) {
-  //     setAuthenticate(true);
-  //   }
-  //   console.log("after", authenticate);
-  //   if (authenticate === false) {
-  //     setLogin(true);
-  //   }
-  // }, [authenticate]);
+  //To check weather user is loggedin or not
+  useEffect(() => {
+    const storedData = sessionStorage.getItem("myData");
+    if(storedData){
+      setAuthenticate(true);
+    }
+  },[authenticate])
 
+  //To set date and day according to format in real website.
   const FormatedDate = (date) => format(date, "dd MMM'' yy");
   const FormatDay = (date) =>
     date.toLocaleDateString("en-US", { weekday: "short" });
@@ -92,6 +89,7 @@ function FlightsHomePage() {
     const storedData = sessionStorage.getItem("myData");
     if (storedData) {
       setMyData(JSON.parse(storedData));
+      
     }
   }, []);
 
@@ -145,7 +143,7 @@ function FlightsHomePage() {
 
   return (
     <>
-      {login === true ? <Login /> : null}
+      {authenticate === false ? <Login /> : null}
       <Header />
       <Navbar />
       <div className="flights-homepage">
@@ -218,25 +216,22 @@ function FlightsHomePage() {
                   />
                 </span>
               </div>
-              <div
-                className="ml-0 mt-1 text-left"
-              >
+              <div className="ml-0 mt-1 text-left">
                 {startDate.toLocaleDateString("en-US", { weekday: "long" })}
               </div>
             </div>
 
             <div className="trip-class">
-              <div
-                className="trip-class-heading"
-                onClick={() => setShowTravellerSection(!showTravellerSection)}
-              >
+              <div className="trip-class-heading">
                 <span>Traveller & Class</span>
                 <span>
                   <KeyboardArrowDownIcon className="trip-class-heading-icon" />
                 </span>
               </div>
               <>{showTravellerSection === true ? <TravellerSection /> : null}</>
-              <div>
+              <div
+                onClick={() => setShowTravellerSection(!showTravellerSection)}
+              >
                 <span className="no-of-passengers">{traveller}</span>
                 <span className="no-of-passengers-text">Traveller</span>
               </div>

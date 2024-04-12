@@ -19,9 +19,11 @@ import ForexSelected from "../../Assest/Logo/Forex-card-selected.png";
 import Forex from "../../Assest/Logo/Forex-card.png";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import { Link } from "react-router-dom";
+import AuthContext from "../../Context/AuthContext";
 
 function NavbarDetails() {
-  const { mode, setMode, authenticate, setAuthenticate } =
+  const{ authenticate, setAuthenticate} = useContext(AuthContext);
+  const { mode, setMode } =
     useContext(MyContext);
 
   const data = localStorage.getItem("user-info");
@@ -244,5 +246,4 @@ function NavbarDetails() {
 
 export default NavbarDetails;
 
-/*
- */
+

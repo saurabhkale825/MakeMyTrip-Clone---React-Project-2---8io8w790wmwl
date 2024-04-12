@@ -1,17 +1,16 @@
-import { useState , useEffect } from "react";
+import { useState , useEffect, useContext } from "react";
 import "./SignUp.css";
+import AuthContext from "../Context/AuthContext";
+import MyContext from "../Context/MyContext";
 
 function SignUp (){
 
   const[name , setName] = useState("");
   const[email, setEmail] = useState("");
   const[password , setPassword] = useState("");
+  const{authenticate , setAuthenticate} = useContext(AuthContext);
+  const {login , setLogin} = useContext(MyContext);
 
-  const [formData , setFormData] = useState({
-    name:name,
-    email:email,
-    password:password,
-  }) ;
 
    async function UserSingUp() {
     try {
@@ -35,6 +34,8 @@ function SignUp (){
       console.log(response);
       if (response.status === "success") {
         alert("You SingUp in Successfully");
+        setAuthenticate(true)
+        setLogin(false);
         setName("");
         setEmail("");
         setPassword("");

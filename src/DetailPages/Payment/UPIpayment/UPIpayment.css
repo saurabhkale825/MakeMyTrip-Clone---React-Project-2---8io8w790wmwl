@@ -50,7 +50,7 @@
 .pay-button{
     box-shadow: 0 1px 7px #0003;
     color: #fff;
-    cursor: pointer;
+    cursor: not-allowed;
     height: 40px;
     width: 150px;
     padding: 0 20px;

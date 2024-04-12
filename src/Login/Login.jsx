@@ -10,7 +10,7 @@ import LoginPageHotel from "../../src/Assest/Logo/LoginPageHotelLogo.png"
 import LoginPageTrain from "../../src/Assest/Logo/LoginPageTrainLogo.png"
 
 function Login() {
-  const { login , setLogin, showLogin, setShowLogin ,authenticate , setAuthenticate } = useContext(MyContext);
+  const { setLogin, toggleSignin, setToggleSignin,authenticate , setAuthenticate } = useContext(MyContext);
 
   return (
     <div className="login">
@@ -40,27 +40,27 @@ function Login() {
         <div className="login-page-navbar">
           <div
             className={
-              showLogin === true
+              toggleSignin === true
                 ? "login-page-personal-account-selected"
                 : "login-page-personal-account"
             }
-            onClick={() => setShowLogin(true)}
+            onClick={() => setToggleSignin(true)}
           >
             Personal Account
           </div>
           <div
             className={
-              showLogin === false
+              toggleSignin === false
                 ? "login-page-signup-selected"
                 : "login-page-signup"
             }
-            onClick={() => setShowLogin(false)}
+            onClick={() => setToggleSignin(false)}
           >
             Signup
           </div>
         </div>
 
-        {showLogin === true ? <LoginInput/>:<SignUp/>}
+        {toggleSignin === true ? <LoginInput/>:<SignUp/>}
 
         <div className="login-page-footer">
         <span className="login-page-footer-text">By proceeding, you agree to MakeMyTrip's</span>

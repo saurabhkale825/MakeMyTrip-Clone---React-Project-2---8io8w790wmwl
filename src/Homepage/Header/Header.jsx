@@ -3,22 +3,14 @@ import "./Header.css";
 import { Link } from "react-router-dom";
 import Logo from "../../Assest/Logo/mmtLogoWhite.png";
 import TravelLogo from "../../Assest/Logo/My Travel logo.png";
-import India from "../../Assest/Logo/india.png";
-import { ExpandMore } from "@mui/icons-material";
 import offerbg from "../../Assest/BackGround/%-bg.png";
 import MyContext from "../../Context/MyContext";
+import AuthContext from "../../Context/AuthContext";
 
 function Navbar() {
-  const {
-    setMode,
-    setShowLogin,
-    showLogin,
-    login,
-    setLogin,
-    authenticate,
-    setAuthenticate,
-  } = useContext(MyContext);
-  const [showLogout, setShowLogout] = useState(false);
+  const { authenticate, setAuthenticate } = useContext(AuthContext);
+  const { setMode , login, setLogin } = useContext(MyContext);
+  
 
   const handleLogOut = () => {
     setAuthenticate(false);
@@ -27,9 +19,9 @@ function Navbar() {
 
   const user = localStorage.getItem("user-info");
   const userData = user ? JSON.parse(user) : null;
-  const userName = userData && userData.data ? userData.data.name : null;
+  const userName = userData && userData.data ? userData.data.name : "";
 
-
+  // console.log(login);
 
   return (
     <>
@@ -71,12 +63,11 @@ function Navbar() {
                     height="25px"
                     style={{ marginTop: "5px" }}
                   />
-                
 
-                <div className="super-offer-content">
-                  <div className="content-1">My trips</div>
-                  <div className="content-2">Manage your bookings</div>
-                </div>
+                  <div className="super-offer-content">
+                    <div className="content-1">My trips</div>
+                    <div className="content-2">Manage your bookings</div>
+                  </div>
                 </div>
               </Link>
             </li>
@@ -92,7 +83,7 @@ function Navbar() {
                       <p> Login or Create account</p>
                     </div>
                   ) : (
-                    <div onClick={() => setShowLogout(!showLogout)}>
+                    <div onClick={() => setLogin(!login)}>
                       <div className="flex gap-x-2 text-base">
                         <div> {`Hi ${userName}`}</div>
                       </div>

@@ -1,7 +1,98 @@
-import React from "react";
+import React,{useState} from "react";
 import "./BookNowPayment.css";
+import {useParams} from 'react-router-dom';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import PaymentContainer from "../../PaymentContainer/PaymentContainer";
 
 function BookNowPayment() {
+  const { itemId } = useParams();
+  const value = localStorage.getItem('value');
+  const [ showConfirmationPage , setShowConfirmationPage] = useState(false)
+  const user = JSON.parse(localStorage.getItem('user-info'));
+  const token = user.token;
+
+  const Booking = async() => {
+    let body ;
+    if(value === "flight"){
+      body = {
+        "bookingType": "flight",
+        "bookingDetails": {
+          "flightId": itemId,
+          "startDate": "2023-10-09T10:03:53.554+00:00",
+          "endDate": "2023-10-09T10:03:53.554+00:00"
+        }
+      }
+    }
+
+    if(value === "hotel"){
+      body = {
+        "bookingType": "hotel",
+        "bookingDetails": {
+          "hotelId": {itemId},
+          "startDate": "2023-10-09T10:03:53.554+00:00",
+          "endDate": "2023-10-09T10:03:53.554+00:00"
+        }
+      }
+    }
+
+    if(value === "train"){
+      body = {
+        "bookingType": "train",
+        "bookingDetails": {
+          "trainId": itemId,
+          "startDate": "2023-10-09T10:03:53.554+00:00",
+          "endDate": "2023-10-09T10:03:53.554+00:00"
+        }
+      }
+    }
+
+    if(value === "bus"){
+      body = {
+        "bookingType": "bus",
+        "bookingDetails": {
+          "busId":itemId,
+          "startDate": "2023-10-09T10:03:53.554+00:00",
+          "endDate": "2023-10-09T10:03:53.554+00:00"
+        }
+      }
+    }
+    
+      
+    try{
+        const response = await fetch('https://academics.newtonschool.co/api/v1/bookingportals/booking',{
+          method :'POST',
+          headers : {
+            'Content-Type': 'application/json',
+            'Authorization' : `Bearer ${token}`,
+            'projectID' :"8io8w790wmwl"
+          },
+          body: JSON.stringify(body)
+        })
+      
+
+        const result = await response.json();
+        
+        const functionThatReturnPromise = () =>
+        new Promise((resolve) => setTimeout(resolve, 2000));
+
+      toast
+        .promise(functionThatReturnPromise, {
+          pending: "Payment in Process",
+          success: "Booking Successful",
+          error: "Promise rejected 🤯",
+        })
+        .then(() => {
+          // Code to execute after the promise is resolved (PaymentContainer is shown)
+          setShowConfirmationPage(true);
+        });
+        // console.log(result);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+  }
+  
+
   return (
     <div className="book-now-payment">
       <div className="benefits-of-pay-later">
@@ -46,8 +137,18 @@ function BookNowPayment() {
             <p>+91-9876543210</p>
           </div>
 
-          <div className="book-now-proceed-btn">PROCEED</div>
+          <div className="book-now-proceed-btn" onClick={Booking}>PROCEED</div>
         </div>
+
+        <ToastContainer
+                position="top-center"
+                type="success"
+                theme="light"
+                autoClose={5000}
+                closeOnClick={true}
+              />
+
+              {showConfirmationPage === true ? <div><PaymentContainer /></div> : null}
 
         <div className="flex justify-evenly items-center w-4/5 ml-12 mt-4 p-2">
           <div className="border border-gray px-2">

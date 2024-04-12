@@ -9,28 +9,32 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
 function HotelSearchNav() {
     const {location, setLocation , checkin , checkout } = useContext(HotelContext);
-    const [selectedInput , setSelectedInput] = useState(false);
+    // const [selectedInput , setSelectedInput] = useState(false);
+
+    // const HandleChangeLocation = (e) =>{
+    //     setTimeout((setLocation(e.target.value))),500
+    // }
 
     const FormatedDate = (date) => format(date, "dd MMM''yy");
 
   return (
     <div className='hotel-search-nav'>
         <div className='hotel-search-nav-location-inputbox'>
-            <div onClick={() => setSelectedInput(!selectedInput)} className='flex-col '>
+            <div  className='flex-col '>
                 <div className='search-nav-label' >
                 <span >City , area or property</span>
-                <span>{selectedInput === true?<KeyboardArrowUpIcon />:<KeyboardArrowDownIcon />}</span>
+                <span><KeyboardArrowDownIcon /></span>
                 </div>
-                <div className='text-white font-bold text-xl text-left ml-2'>{location}</div>
+                <div className='text-white font-bold text-xl text-left ml-2 capitalize'>{location}</div>
             </div>
-            {selectedInput === true ?<div>
+            {/* {selectedInput === true ?<div>
                 <input type='name'
                     value={location}
-                    onChange={(e) => setLocation(e.target.value)}
+                    // onChange={(e) => HandleChangeLocation(e)}
                     autoComplete='off'
                     className='hotel-search-nav-input-container'
                 ></input>
-            </div>:null}
+            </div>:null} */}
         </div>
 
         <div className='hotel-search-nav-checkin-inputbox'>
@@ -54,7 +58,7 @@ function HotelSearchNav() {
            </div>
         </div>
 
-        <div className='details-search'>SEARCH</div>
+        
 
     </div>
   )

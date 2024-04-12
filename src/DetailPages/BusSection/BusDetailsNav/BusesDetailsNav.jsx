@@ -27,8 +27,6 @@ function BusesDetailsNav() {
             <div className='lbl-input'>Departs</div> 
                 <div  className='bsw-inputField'>{FormatedDate(busTravelDate)}</div>
             </div>
-
-            <div className='bsw-inner-search'>search</div>
         </div>
     </div>
   )

@@ -6,9 +6,8 @@ import MyContext from "../../../Context/MyContext";
 import { format } from "date-fns";
 import DepartureAirportList from "../../../Homepage/FlightsHomePage/AirportList/DepartureAirPortList";
 import ArrivalAirportList from "../../../Homepage/FlightsHomePage/AirportList/ArrivalAirportList";
-import { Link } from "react-router-dom";
 
-function DetailSearchNav() {
+function DetailSearchNav({ FetchFlights }) {
   const [showDepartureAirport, setShowDepartureAirport] = useState(false);
   const [showArrivalAirport, setShowArrivalAirport] = useState(false);
   const [activeSearch, setActiveSearch] = useState("false");
@@ -59,14 +58,19 @@ function DetailSearchNav() {
     const arrival = arrivalCity;
     if (departure === arrival) {
       setSameCityCheck(true);
-      console.log("CityCheck")
+      console.log("CityCheck");
     }
     setSameCityCheck(false);
   };
 
+  const handleClick = () => {
+    FetchFlights();
+    console.log("FetchFlights called from DetailSearchNav");
+  };
+
   useEffect(() => {
     CityCheck();
-  }, [departureCity , arrivalCity]);
+  }, [departureCity, arrivalCity]);
 
   return (
     <div className="flight-detail-page-searchbar">
@@ -78,7 +82,7 @@ function DetailSearchNav() {
           >
             <div className="lbl-input">FROM</div>
             <div className="hsw-inputbox-fromcity">{departureCity}</div>
-            {showDepartureAirport === true ? (
+            {/* {showDepartureAirport === true ? (
               <div className="departure-airport-list">
                 <input
                   type="text"
@@ -89,9 +93,13 @@ function DetailSearchNav() {
                 />
                 <DepartureAirportList setShowDepatureAirportList="setShowDepatureAirportList" />
               </div>
-            ) : null}
+            ) : null} */}
           </div>
-          {sameCityCheck === true? <div className="text-white ">*departure and arrival can't be same.</div>:null}
+          {sameCityCheck === true ? (
+            <div className="text-white ">
+              *departure and arrival can't be same.
+            </div>
+          ) : null}
         </div>
 
         <div className="hsw-swap-functionality">
@@ -105,7 +113,7 @@ function DetailSearchNav() {
           >
             <div className="lbl-input">To</div>
             <div className="hsw-inputbox-fromcity">{arrivalCity}</div>
-            {showArrivalAirport === true ? (
+            {/* {showArrivalAirport === true ? (
               <div className="departure-airport-list">
                 <input
                   type="text"
@@ -116,7 +124,7 @@ function DetailSearchNav() {
                 />
                 <ArrivalAirportList setShowArrivalAirportList="setShowArrivalAirport" />
               </div>
-            ) : null}
+            ) : null} */}
           </div>
         </div>
 
@@ -130,14 +138,9 @@ function DetailSearchNav() {
           </div>
         </div>
 
-        <Link to={"/flights/details"}>
-          <button
-            className="details-search"
-            disabled={activeSearch === false ? true : false}
-          >
-            Search
-          </button>
-        </Link>
+        {/* <button className="details-search" onClick={FetchFlights}>
+          Search
+        </button> */}
       </div>
     </div>
   );

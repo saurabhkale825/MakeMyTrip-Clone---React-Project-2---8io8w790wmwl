@@ -1,25 +1,18 @@
-import React, { useState , useEffect } from "react";
-import { BrowserRouter, Routes, Route, json } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MyContext from "../Context/MyContext";
 import FlightContext from "../Context/FlightsContext";
 import HotelContext from "../Context/HotelContext";
 import TrainContext from "../Context/TrainContext";
 import BusContext from "../Context/BusContext";
-import HomePage from "../Homepage/HomePage";
 import HotelHomepage from "../Homepage/HotelHomePage/HotelHomepage";
 import TrainHomePage from "../Homepage/TrainHomePage/TrainHomePage";
 import BusHomePage from "../Homepage/BusesHomePage/BusHomePage";
 import FlightsDetails from "../DetailPages/FlightSection/FlightsDetails";
-import Login from "../Login/Login";
-import Calender from "../Calender/Calender";
-import TravellerSection from "../Homepage/FlightsHomePage/TrvellerSection/TravellerSection";
 import BusesDetails from "../DetailPages/BusSection/BusesDetails";
-import AirportList from "../Homepage/FlightsHomePage/AirportList/DepartureAirPortList";
 import BookNowPage from "../DetailPages/FlightSection/BookNowPage/BookNowPage";
 import HotelDetails from "../DetailPages/HotelSection/HotelDetails";
-import SourceTrainStationList from "../Homepage/TrainHomePage/SourceTrainStationList";
 import TrainDetails from "../DetailPages/TrainSection/TrainDetails";
-import SeatSelection from "../DetailPages/BusSection/SeatSelection/SeatSelection";
 import Payment from "../DetailPages/Payment/Payment";
 import HotelCarousel from "../DetailPages/HotelSection/HotelCarousel/HotelCarousel";
 import IndividualDetailHotel from "../DetailPages/HotelSection/IndividualDetailHotel/IndividualDetailHotel";
@@ -29,14 +22,17 @@ import BusBookingPage from "../DetailPages/BusSection/BusBookingPage/BusBookingP
 import MyTrips from "../MyTrips/MyTrips";
 import ComingSoon from "../Homepage/ComingSoon/ComingSoon";
 import FlightsHomePage from "../Homepage/FlightsHomePage/FlightsHomePage";
-
+import AuthContext from "../Context/AuthContext";
 
 function LandingPage() {
-  //States rquired for overall project.
-  const [mode, setMode] = useState("Flights");
-  const [authenticate , setAuthenticate] = useState(false);
+  //States required for Authentication of user
+
+  const [authenticate, setAuthenticate] = useState(false);
   const [login, setLogin] = useState(false);
-  const [showLogin, setShowLogin] = useState(true);
+  const [toggleSignin, setToggleSignin] = useState(true);
+
+  //States required for overall project.
+  const [mode, setMode] = useState("Flights");
 
   // States rquired for Flight-section.
   const [traveller, setTraveller] = useState(1);
@@ -49,154 +45,168 @@ function LandingPage() {
   const [startDate, setStartDate] = useState(new Date());
   const [day, setDay] = useState("");
   const [airportList, setAirportList] = useState([]);
-  const [showDepartureAirportList, setShowDepartureAirportList] =useState(false);
+  const [showDepartureAirportList, setShowDepartureAirportList] =
+    useState(false);
   const [showArrivalAirportList, setShowArrivalAirportList] = useState(false);
 
   //States rquired for HotelSection.
   const [location, setLocation] = useState("Mumbai");
-  const [showInputCities , setShowInputCities] = useState(false);
+  const [showInputCities, setShowInputCities] = useState(false);
   const [checkin, setCheckin] = useState(new Date());
   const [checkout, setCheckout] = useState(new Date());
-  const [hotelPrice , setHotelPrice] = useState("");
-  const [hotelTax , setHotelTax] = useState("");
-
+  const [hotelPrice, setHotelPrice] = useState("");
+  const [hotelTax, setHotelTax] = useState("");
 
   //States rquired for Train-section.
   const [source, setSource] = useState("Delhi Junction");
   const [destination, setDestination] = useState("Surat");
   const [travelDate, setTravelDate] = useState(new Date());
   const [trainDay, setTrainDay] = useState("");
-  const [coachType , setCoachType] = useState("");
-  const [seats , setSeats] = useState("");
+  const [coachType, setCoachType] = useState("");
+  const [seats, setSeats] = useState("");
 
   //States rquired for bus-section.
   const [busSource, setBusSource] = useState("Mumbai");
   const [busDestination, setBusDestination] = useState("Pune");
   const [busTravelDate, setBusTravelDate] = useState(new Date());
 
+  useEffect(() => {
+    const storedData = localStorage.getItem("user-info");
+    if(storedData){
+      setAuthenticate(true);
+    }  
+  }, []);
+
+
 
   return (
     <BrowserRouter>
-      <MyContext.Provider
+      <AuthContext.Provider
         value={{
-          mode,
-          setMode,
-          login,
-          setLogin,
-          showLogin,
-          setShowLogin,
           authenticate,
           setAuthenticate,
-          showTravellerSection,
-          setShowTravellerSection
-          
         }}
       >
-        <FlightContext.Provider
+        <MyContext.Provider
           value={{
-            departureCity,
-            setDepartureCity,
-            arrivalCity,
-            setArrivalCity,
-            startDate,
-            setStartDate,
-            traveller,
-            setTraveller,
-            selectedClass,
-            setSelectedClass,
-            departureCityAirportId,
-            setDepartureCityAirportId,
-            arrivalCityAirportId,
-            setArrivalCityAirportId,
-            day,
-            setDay,
-            airportList,
-            setAirportList,
-            showDepartureAirportList,
-            setShowDepartureAirportList,
-            showArrivalAirportList,
-            setShowArrivalAirportList,
+            mode,
+            setMode,
+            login,
+            setLogin,
+            toggleSignin,
+            setToggleSignin,
+            showTravellerSection,
+            setShowTravellerSection,
           }}
         >
-          <HotelContext.Provider
+          <FlightContext.Provider
             value={{
-              location,
-              setLocation,
-              checkin,
-              setCheckin,
-              checkout,
-              setCheckout,
-              showInputCities,
-              setShowInputCities,
-              hotelPrice , 
-              setHotelPrice ,
-              hotelTax , 
-              setHotelTax
+              departureCity,
+              setDepartureCity,
+              arrivalCity,
+              setArrivalCity,
+              startDate,
+              setStartDate,
+              traveller,
+              setTraveller,
+              selectedClass,
+              setSelectedClass,
+              departureCityAirportId,
+              setDepartureCityAirportId,
+              arrivalCityAirportId,
+              setArrivalCityAirportId,
+              day,
+              setDay,
+              airportList,
+              setAirportList,
+              showDepartureAirportList,
+              setShowDepartureAirportList,
+              showArrivalAirportList,
+              setShowArrivalAirportList,
             }}
           >
-
-            
-            <TrainContext.Provider
+            <HotelContext.Provider
               value={{
-                source,
-                setSource,
-                destination,
-                setDestination,
-                travelDate,
-                setTravelDate,
-                trainDay,
-                setTrainDay,
-                coachType , 
-                setCoachType ,
-                seats , 
-                setSeats
+                location,
+                setLocation,
+                checkin,
+                setCheckin,
+                checkout,
+                setCheckout,
+                showInputCities,
+                setShowInputCities,
+                hotelPrice,
+                setHotelPrice,
+                hotelTax,
+                setHotelTax,
               }}
             >
-              <BusContext.Provider
+              <TrainContext.Provider
                 value={{
-                  busSource,
-                  setBusSource,
-                  busDestination,
-                  setBusDestination,
-                  busTravelDate,
-                  setBusTravelDate
+                  source,
+                  setSource,
+                  destination,
+                  setDestination,
+                  travelDate,
+                  setTravelDate,
+                  trainDay,
+                  setTrainDay,
+                  coachType,
+                  setCoachType,
+                  seats,
+                  setSeats,
                 }}
               >
-                <Routes>
-                  <Route path="/" element={<FlightsHomePage />} />
-                  <Route path="/flights/details" element={<FlightsDetails />} />
-                  <Route path="/flight/:itemId" element={<BookNowPage />} />
-
-                  <Route path="/hotels" element={<HotelHomepage />} />
-                  <Route path="/hotels/details" element={<HotelDetails />} />
-                  <Route path="/inputCities" element={< HotelCarousel />} />
-                  <Route path="/hotels/:itemId" element={<IndividualDetailHotel />} />
-                  <Route path="/hotels/bookingpage/:itemId" element={< HotelBookingPage />} />
-                  <Route path="/trains" element={<TrainHomePage />} />
-                  <Route path="/buses" element={<BusHomePage />} />
-                  {/* <Route path="/datepicker" element={<Date />} /> */}
-                  {/* <Route path="/calender" element={<Calender />} />
-                  <Route path="/traveller" element={<TravellerSection />} /> */}
-                  <Route path="/buses/details" element={<BusesDetails />} />
-                  {/* <Route path="/airports" element={<AirportList />} /> */}
-                  
-                 
-                  <Route path="/trains/details" element={<TrainDetails />} />
-                  <Route path="/railways/bookingpage/:itemId" element={<TrainBookingShow />} />
-                  {/* <Route path="/selectionseat" element={< SeatSelection />} /> */}
-                  <Route path="/payment/:itemId" element={< Payment />} />
-                 
-                  <Route path="/bus/bookingpage/:itemId" element={< BusBookingPage />} />
-                  <Route path="/mytrips" element={< MyTrips />} />
-                  <Route path="/comingsoon" element={< ComingSoon />} />
-
-
-                </Routes>
-              </BusContext.Provider>
-            </TrainContext.Provider>
-          </HotelContext.Provider>
-        </FlightContext.Provider>
-      </MyContext.Provider>
+                <BusContext.Provider
+                  value={{
+                    busSource,
+                    setBusSource,
+                    busDestination,
+                    setBusDestination,
+                    busTravelDate,
+                    setBusTravelDate,
+                  }}
+                >
+                  <Routes>
+                    <Route path="/" element={<FlightsHomePage />} />
+                    <Route
+                      path="/flights/details"
+                      element={<FlightsDetails />}
+                    />
+                    <Route path="/flight/:itemId" element={<BookNowPage />} />
+                    <Route path="/hotels" element={<HotelHomepage />} />
+                    <Route path="/hotels/details" element={<HotelDetails />} />
+                    <Route path="/inputCities" element={<HotelCarousel />} />
+                    <Route
+                      path="/hotels/:itemId"
+                      element={<IndividualDetailHotel />}
+                    />
+                    <Route
+                      path="/hotels/bookingpage/:itemId"
+                      element={<HotelBookingPage />}
+                    />
+                    <Route path="/trains" element={<TrainHomePage />} />
+                    <Route path="/buses" element={<BusHomePage />} />
+                    <Route path="/buses/details" element={<BusesDetails />} />
+                    <Route path="/trains/details" element={<TrainDetails />} />
+                    <Route
+                      path="/railways/bookingpage/:itemId"
+                      element={<TrainBookingShow />}
+                    />
+                    <Route path="/payment/:itemId" element={<Payment />} />
+                    <Route
+                      path="/bus/bookingpage/:itemId"
+                      element={<BusBookingPage />}
+                    />
+                    <Route path="/mytrips" element={<MyTrips />} />
+                    <Route path="/comingsoon" element={<ComingSoon />} />
+                  </Routes>
+                </BusContext.Provider>
+              </TrainContext.Provider>
+            </HotelContext.Provider>
+          </FlightContext.Provider>
+        </MyContext.Provider>
+      </AuthContext.Provider>
     </BrowserRouter>
   );
 }
