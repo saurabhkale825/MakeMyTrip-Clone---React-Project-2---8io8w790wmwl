@@ -32,16 +32,19 @@ function LoginInput() {
 
       let response = await getData.json();
 
+      
+
       if (response.status === "success") {
         localStorage.setItem("user-info", JSON.stringify(response));
-        alert("You are Logging in Successfully");
+        // alert("You are Logging in Successfully");
+        toast.success("Logging Successfully.");
         setLogin(false);
         setEmail("");
         setPassword("");
         setAuthenticate(true);
         
       } else {
-        alert(response.message);
+        toast.error("Logging failed.");
       }
     } catch (e) {
       console.log(e);
@@ -68,6 +71,8 @@ function LoginInput() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}></input>
           </div>
+
+          
 
           <div className="login-page-continue-button" onClick={Login}>Continue</div>
 

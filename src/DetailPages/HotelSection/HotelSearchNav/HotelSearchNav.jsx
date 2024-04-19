@@ -8,7 +8,7 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
 
 function HotelSearchNav() {
-    const {location, setLocation , checkin , checkout } = useContext(HotelContext);
+    const {location, setLocation , checkin , checkout ,rooms , adults} = useContext(HotelContext);
     // const [selectedInput , setSelectedInput] = useState(false);
 
     // const HandleChangeLocation = (e) =>{
@@ -54,7 +54,7 @@ function HotelSearchNav() {
         <div className='hotel-search-nav-room-inputbox'>
         <div  className='flex-col ' >
                 <div className="search-nav-label">Rooms</div>
-                <div className='text-white font-bold text-sm text-left ml-2 mt-3'> 1 Rooms 2 Adults </div>
+                <div className='text-white font-bold text-sm text-left ml-2 mt-3'> {rooms} Rooms {adults} Adults </div>
            </div>
         </div>
 

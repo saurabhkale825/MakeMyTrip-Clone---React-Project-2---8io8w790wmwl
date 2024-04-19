@@ -9,7 +9,7 @@ import TripContainer from "./TripContainer";
 
 function MyTrips() {
   const [data, setData] = useState([]);
-  // const [renderingData , setRenderingData] = useState([]);
+  const [displayData, setDisplayData] = useState([]);
   const [showUpcoming, setShowUpcoming] = useState(true);
 
   const user = localStorage.getItem("user-info");
@@ -17,23 +17,31 @@ function MyTrips() {
   const token = userData && userData.data ? userData.token : null;
 
   const FetchMyTrips = async () => {
-    const response = await axios.get(
-      `https://academics.newtonschool.co/api/v1/bookingportals/booking/`,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          projectID: "8io8w790wmwl",
-        },
-      }
-    );
+    try {
+      const response = await axios.get(
+        `https://academics.newtonschool.co/api/v1/bookingportals/booking/`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            projectID: "8io8w790wmwl",
+          },
+        }
+      );
 
-    console.log(response.data.data);
-    setData(response?.data?.data);
+      console.log(response.data.data);
+      setData(response.data.data);
+    } catch (error) {
+      console.error("Error fetching trips:", error);
+    }
   };
 
   useEffect(() => {
     FetchMyTrips();
-  }, []);
+  }, [token]); // Fetch data whenever token changes
+
+  useEffect(() => {
+    setDisplayData(data.slice(-5)); // Update displayData whenever data changes
+  }, [data]);
 
   return (
     <div className="mytrips">
@@ -89,7 +97,7 @@ function MyTrips() {
           ) : (
             <div className="planned-container">
               <ul>
-                {data.map((item) => (
+                {displayData.map((item) => (
                   <li key={item._id} className="mt-2 w-full">
                     <TripContainer trip={item} />
                   </li>

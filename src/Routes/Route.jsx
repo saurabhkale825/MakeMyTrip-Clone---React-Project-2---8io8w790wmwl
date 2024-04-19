@@ -23,6 +23,7 @@ import MyTrips from "../MyTrips/MyTrips";
 import ComingSoon from "../Homepage/ComingSoon/ComingSoon";
 import FlightsHomePage from "../Homepage/FlightsHomePage/FlightsHomePage";
 import AuthContext from "../Context/AuthContext";
+import { ToastContainer } from "react-toastify";
 
 function LandingPage() {
   //States required for Authentication of user
@@ -54,6 +55,8 @@ function LandingPage() {
   const [showInputCities, setShowInputCities] = useState(false);
   const [checkin, setCheckin] = useState(new Date());
   const [checkout, setCheckout] = useState(new Date());
+  const [rooms , setRooms] = useState(1);
+  const [adults , setAdults] = useState(2);
   const [hotelPrice, setHotelPrice] = useState("");
   const [hotelTax, setHotelTax] = useState("");
 
@@ -81,6 +84,13 @@ function LandingPage() {
 
   return (
     <BrowserRouter>
+    <ToastContainer
+                position="top-center"
+                type="success"
+                theme="light"
+                autoClose={5000}
+                closeOnClick={true}
+              />
       <AuthContext.Provider
         value={{
           authenticate,
@@ -139,6 +149,10 @@ function LandingPage() {
                 setHotelPrice,
                 hotelTax,
                 setHotelTax,
+                rooms,
+                setRooms,
+                adults,
+                setAdults
               }}
             >
               <TrainContext.Provider

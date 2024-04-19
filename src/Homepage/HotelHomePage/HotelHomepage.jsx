@@ -6,7 +6,7 @@ import Footer from "../../Footer/Footer";
 import CircleOutlinedIcon from "@mui/icons-material/CircleOutlined";
 import CheckBoxTwoToneIcon from "@mui/icons-material/CheckBoxTwoTone";
 import OfferSection from "../../OfferSection/OfferSection";
-import axios from "axios";
+// import axios from "axios";
 import DatePicker from "react-datepicker";
 import HotelContext from "../../Context/HotelContext";
 import { format } from "date-fns";
@@ -24,15 +24,20 @@ function HotelHomepage() {
     setCheckout,
     showInputCities,
     setShowInputCities,
-  } = useContext(HotelContext);
+    rooms ,
+    setRooms, 
+    adults, 
+    setAdults
+    } = useContext(HotelContext);
+
   const { mode, setMode } = useContext(MyContext);
   /* State required only for Hotels HOmePage*/
   const [selectedMode, setSelectedMode] = useState("4Rooms");
   const [hotelData, setHotelData] = useState({});
-
-  const FormatedDate = (date) => format(date, "dd MMM'' yy");
-
-  const FormatedDay = (date) => date.toLocaleDateString("en-US", { weekday: "long" });
+  const [showRooms, setShowRooms] = useState(false); // To toggle shoe the block of room change.
+  const FormatedDate = (date) => format(date, "dd MMM'' yy"); // to set date in required format.
+  const FormatedDay = (date) =>
+    date.toLocaleDateString("en-US", { weekday: "long" }); // to get Day of date.
 
   useEffect(() => {
     const storedData = sessionStorage.getItem("hotelData");
@@ -45,6 +50,10 @@ function HotelHomepage() {
     setHotelData(newData);
     sessionStorage.setItem("hotelData", JSON.stringify(newData));
   };
+
+  useEffect(() => {
+    console.log(showRooms);
+  }, [showRooms]);
 
   return (
     <>
@@ -100,9 +109,7 @@ function HotelHomepage() {
           </div>
 
           <div className="check-in">
-            <div>
-              Check-in
-            </div>
+            <div>Check-in</div>
             <p>
               <span className="depature-month">
                 <DatePicker
@@ -118,32 +125,61 @@ function HotelHomepage() {
             <p>{FormatedDay(checkin)}</p>
           </div>
           <div className="check-out">
-            <div>
-              Check-out
-            </div>
+            <div>Check-out</div>
             <p>
-              <span className="depature-month"><DatePicker
-                label="Check-in"
-                className="flights-section-calendar"
-                value={FormatedDate(checkout)}
-                onChange={(date) => setCheckout(date)}
-                dateFormat="MMM/d/YY"
-              />
+              <span className="depature-month">
+                <DatePicker
+                  label="Check-in"
+                  className="flights-section-calendar"
+                  value={FormatedDate(checkout)}
+                  onChange={(date) => setCheckout(date)}
+                  dateFormat="MMM/d/YY"
+                />
               </span>
             </p>
 
             <p>{FormatedDay(checkout)}</p>
           </div>
-          <div className="rooms-guest">
+          <div className="rooms-guest" onClick={() => setShowRooms(!showRooms)}>
             <div>Rooms & Guests</div>
-            <span className="hotel-location-city">1</span>
+            <span className="hotel-location-city">{rooms}</span>
             <span className="depature-month">Room</span>
-            <span className="hotel-location-city "> 2</span>
+            <span className="hotel-location-city "> {adults}</span>
             <span className="depature-month">Adults</span>
           </div>
         </div>
+        {showRooms === true ? (
+          <div className="w-52 h-24 border-2 border-red absolute top-44 right-6 bg-slate-50 flex items-center flex-col justify-center gap-y-2">
+            <div>
+              <span className="mx-2 text-base">No. of Rooms:</span>
+              <span>
+                <span className={`border border-black px-2 text-black text-base ${rooms > 1 ? "bg-sky-200" : "bg-gray-200 cursor-not-allowed"}`} onClick={() => rooms > 1 && setRooms(rooms - 1)}>
+                  -
+                </span>
+                <span className="border border-black px-2 bg-sky-200 text-black text-base">{rooms}</span>
+                <span className="border border-black px-2 bg-sky-200 text-black text-base" onClick={() => setRooms(rooms + 1)}>
+                  <button >+</button>
+                </span>
+              </span>
+            </div>
+
+            <div>
+              <span className="mx-2 text-base">No. of Adults :</span>
+              <span>
+                <span className={`border border-black px-2 text-black text-base ${adults > 2 ? "bg-sky-200" : "bg-gray-200 cursor-not-allowed"}`} onClick={() => (adults > 2 && setAdults(adults - 1))}  disabled={adults <= 2 ? true : false}>
+                 -
+                </span>
+                <span className="border border-black px-2  bg-sky-200 text-black text-base">{adults}</span>
+                <span className="border border-black px-2  bg-sky-200 text-black text-base"  onClick={() => setAdults(adults + 1)}>
+                  <button>+</button>
+                </span>
+              </span>
+            </div>
+          </div>
+        ) : null}
 
         <Link to={"/hotels/details"}>
+          
           <div
             className="hotelhomepge-search-button"
             onClick={() =>

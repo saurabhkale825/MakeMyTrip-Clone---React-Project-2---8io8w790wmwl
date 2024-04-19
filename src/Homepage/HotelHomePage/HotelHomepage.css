@@ -112,3 +112,7 @@
     position: relative;
     top: 15px;
 }
+
+.button-disabled{
+    cursor: no-drop;
+}
