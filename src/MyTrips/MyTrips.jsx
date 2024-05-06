@@ -37,7 +37,7 @@ function MyTrips() {
 
   useEffect(() => {
     FetchMyTrips();
-  }, [token]); // Fetch data whenever token changes
+  },[token]); // Fetch data whenever token changes
 
   useEffect(() => {
     setDisplayData(data.slice(-5)); // Update displayData whenever data changes

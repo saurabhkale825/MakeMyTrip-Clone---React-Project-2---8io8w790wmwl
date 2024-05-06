@@ -7,15 +7,17 @@ function TripContainer(trip) {
 
     const Date = trip.trip.start_date;
 
-    console.log(Date.slice(0,10));
-    // console.log(trip.trip.start_date);
+    // console.log(Date.slice(0,10));
+    console.log(trip);
 
   return (
     <div className='trip-container mt-3'>
               <div className='flex justify-left items-center gap-x-40 items-center trip-individual-container'> 
                 <BookmarkIcon />
                 <div className='flex justify-between  items-center gap-x-5'>
-                  <span className='text-blue-500 text-lg font-semibold capitalize mr-8'>{trip.trip.booking_type}</span>
+                  <div>
+                  <p className='text-blue-500 text-lg font-semibold capitalize mr-8'>{trip.trip.booking_type}</p>
+                  </div>
                   <span >
                     <p >Travel Date:</p>
                     <p className='font-semibold'>{Date.slice(0,10)}</p>

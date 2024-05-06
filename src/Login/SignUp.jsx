@@ -2,6 +2,8 @@ import { useState , useEffect, useContext } from "react";
 import "./SignUp.css";
 import AuthContext from "../Context/AuthContext";
 import MyContext from "../Context/MyContext";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function SignUp (){
 
@@ -33,7 +35,7 @@ function SignUp (){
       let response = await getData.json();
       console.log(response);
       if (response.status === "success") {
-        alert("You SingUp in Successfully");
+        toast.success("Signed In.");
         setAuthenticate(true)
         setLogin(false);
         setName("");

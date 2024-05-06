@@ -10,21 +10,25 @@ import AuthContext from "../../Context/AuthContext";
 function Navbar() {
   const { authenticate, setAuthenticate } = useContext(AuthContext);
   const { setMode, login, setLogin } = useContext(MyContext);
+  const [userName, setUserName] = useState("Traveller");
 
-  useEffect(() => {
-    console.log("Authenticate value =>", authenticate);
-  }, [authenticate]);
+  // useEffect(() => {
+  //   console.log("Authenticate value =>", authenticate);
+  // }, [authenticate]);
 
   const handleLogOut = () => {
     setAuthenticate(!authenticate);
     localStorage.removeItem("user-info");
-    console.log("authenticate value =>", authenticate);
+    // console.log("authenticate value =>", authenticate);
   };
 
+  useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user-info"));
-    const userName = user ? user.data.name : "Traveller";
-    // console.log("userName =>",JSON.parse(localStorage.getItem("user-info")).data.name);
-    
+    console.log("user =>" , user);
+    if (user) {
+      setUserName(user?.data?.user.name); 
+    }
+  }, [authenticate]);
 
   return (
     <>

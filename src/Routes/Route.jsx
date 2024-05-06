@@ -55,8 +55,8 @@ function LandingPage() {
   const [showInputCities, setShowInputCities] = useState(false);
   const [checkin, setCheckin] = useState(new Date());
   const [checkout, setCheckout] = useState(new Date());
-  const [rooms , setRooms] = useState(1);
-  const [adults , setAdults] = useState(2);
+  const [rooms, setRooms] = useState(1);
+  const [adults, setAdults] = useState(2);
   const [hotelPrice, setHotelPrice] = useState("");
   const [hotelTax, setHotelTax] = useState("");
 
@@ -75,22 +75,20 @@ function LandingPage() {
 
   useEffect(() => {
     const storedData = localStorage.getItem("user-info");
-    if(storedData){
+    if (storedData) {
       setAuthenticate(true);
-    }  
+    }
   }, []);
-
-
 
   return (
     <BrowserRouter>
-    <ToastContainer
-                position="top-center"
-                type="success"
-                theme="light"
-                autoClose={5000}
-                closeOnClick={true}
-              />
+      <ToastContainer
+        position="top-center"
+        type="success"
+        theme="light"
+        autoClose={5000}
+        closeOnClick={true}
+      />
       <AuthContext.Provider
         value={{
           authenticate,
@@ -152,7 +150,7 @@ function LandingPage() {
                 rooms,
                 setRooms,
                 adults,
-                setAdults
+                setAdults,
               }}
             >
               <TrainContext.Provider

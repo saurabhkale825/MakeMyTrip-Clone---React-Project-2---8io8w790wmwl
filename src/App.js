@@ -1,5 +1,4 @@
 import "./App.css";
-import GettingAirport from "./GettingAirport/GettingAirport";
 import LandingPage from "./Routes/Route";
 
 
