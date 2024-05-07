@@ -22,5 +22,33 @@
     height: 100%;
 }
 
+.disabled-btn{
+    cursor: not-allowed;
+    background-color: #67676759;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -webkit-align-items: center;
+    align-items: center;
+    border: none;
+    border-radius: 36px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: flex;
+    font-weight: 700;
+    -webkit-justify-content: center;
+    justify-content: center;
+    outline: 0;
+    text-transform: uppercase;
+    -webkit-box-shadow: 0 1px 7px 0 rgba(0,0,0,.2);
+    box-shadow: 0 1px 7px 0 rgba(0,0,0,.2);
+    color: #ffffff;
+    height: 40px;
+    width: 200px;
+    padding: 0 20px;
+}
+
 
 

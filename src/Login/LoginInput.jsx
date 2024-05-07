@@ -36,7 +36,6 @@ function LoginInput() {
 
       if (response.status === "success") {
         localStorage.setItem("user-info", JSON.stringify(response));
-        // alert("You are Logging in Successfully");
         toast.success("Logging Successfully.");
         setLogin(false);
         setEmail("");
@@ -44,7 +43,7 @@ function LoginInput() {
         setAuthenticate(true);
         
       } else {
-        toast.error("Logging failed.");
+        toast.warning(response.message);
       }
     } catch (e) {
       console.log(e);
@@ -55,7 +54,7 @@ function LoginInput() {
     <div className="login-page-input-section">
           <div className="w-min mb-1 px-1 bg-white text-xs font-medium text-left tracking-wider">Email</div>
           <div className="login-page-input">
-            <input className='mx-1'
+            <input 
             type='email'
             autoComplete='off'
             value={email}
@@ -65,7 +64,7 @@ function LoginInput() {
 
           <div className="w-min mb-1 px-1 bg-white text-xs font-medium text-left tracking-wider">Password</div>
           <div className="login-page-input">
-            <input className='mx-1'
+            <input 
             type='password'
             autoComplete='off'
             value={password}

@@ -572,9 +572,13 @@ function SeatSelection(bus) {
         </div>
 
 
+        {numberSelected > 0 ? (
         <Link to={`/bus/bookingpage/${bus.bus._id}`}>
           <div className="primary-btn mx-16 my-4">Continue</div>
         </Link>
+      ) : (
+        <div className="disabled-btn mx-16 my-4" disabled>Continue</div>
+      )}
       </div>
     </div>
   );

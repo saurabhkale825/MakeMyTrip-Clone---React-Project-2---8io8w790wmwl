@@ -189,7 +189,7 @@ function BusesDetails() {
             ))
           ) : (
             <p className="text-4xl font-bold text-black subpixel-antialiased relative border-2 border-black p-5 rounded-2xl">
-              No Data Found
+             Please Wait ...
             </p>
           )}
         </div>

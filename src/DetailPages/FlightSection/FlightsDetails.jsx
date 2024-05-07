@@ -453,7 +453,7 @@ function FlightsDetails() {
             {`Flights from ${departureCity} to ${arrivalCity}`}
           </div>
 
-         {isLoading === false ?<div>
+         <div>
             {data?.length > 0 ? (
               data?.map((flight) => (
                 <div key={flight._id}>
@@ -462,10 +462,10 @@ function FlightsDetails() {
               ))
             ) : (
               <p className="text-4xl font-bold text-black subpixel-antialiased absolute start-80 top-40 border-2 border-black p-5 rounded-2xl">
-                No Data Found
+                Please Wait ...
               </p>
             )}
-          </div>:<FlightDetailSkeleton />}
+          </div>
         </div>
       </div>
     </div>

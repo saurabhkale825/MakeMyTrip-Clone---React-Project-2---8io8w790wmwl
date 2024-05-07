@@ -28,7 +28,7 @@ function NavbarDetails() {
 
   const data = localStorage.getItem("user-info");
   const userData = data ? JSON.parse(data) : null;
-  const userName = userData && userData.data ? userData.data.name : null;
+  const userName = userData && userData.data ? userData.data.user.name : null;
 
   useEffect(() => {
     if (data) {
