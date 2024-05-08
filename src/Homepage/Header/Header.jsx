@@ -12,14 +12,13 @@ function Navbar() {
   const { setMode, login, setLogin } = useContext(MyContext);
   const [userName, setUserName] = useState("Traveller");
 
-  // useEffect(() => {
-  //   console.log("Authenticate value =>", authenticate);
-  // }, [authenticate]);
+  useEffect(() => {
+    console.log(authenticate);
+  }, [authenticate]);
 
   const handleLogOut = () => {
-    setAuthenticate(!authenticate);
+    setAuthenticate(false);
     localStorage.removeItem("user-info");
-    // console.log("authenticate value =>", authenticate);
   };
 
   useEffect(() => {
@@ -87,7 +86,7 @@ function Navbar() {
                 >
                   {authenticate === false ? (
                     <div>
-                      <p> Login or Create account</p>
+                      <div> Login or Create account</div>
                     </div>
                   ) : (
                     <div onClick={() => setLogin(!login)}>

@@ -2,42 +2,49 @@
   color: #4a4a4a;
   border: 1px solid rgb(253, 253, 253);
   position: absolute;
-  top: 22%;
-  left: 1%;
-  width: 98%;
-  min-height: 70%;
+  top: 22vh;
+  left: 0.5vw;
+  width: 98vw;
+  height: 70vh;
   border-radius: 8px;
   background-color: white;
   margin: auto;
 }
 
 .trip-route {
-  width: 100%;
+  width: 98%;
   height: 40%;
-  /* margin: 0 auto 20px; */
+  margin: auto 1vw;
+  border: 1px solid red;
   border-radius: 10px;
   display: flex;
   align-items: center;
-  border: solid 1px #e7e7e7;
+  /* border: solid 1px #e7e7e7; */
   position: absolute;
   top: 20%;
-  /* border: 1px solid red; */
+
 }
 
 .trip-date {
-  width: 380px;
-  height: auto;
+  width: 35%;
+  height: 100%;
   text-align: left;
+  display: flex;
+  align-items: center;
   border-right: 1px solid #e7e7e7;
-  /* border: 1px solid black; */
+  
 }
 
 .trip-depature {
-  width: 170px;
+  width: 15%;
   height: 105px;
   text-align: left;
   border-right: 1px solid #e7e7e7;
   margin-left: 20px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .trip-class {
@@ -100,7 +107,7 @@
 }
 
 .search-button {
-  width: 216px;
+  width: 16vw;
   padding: 10px;
   margin-bottom: -32px;
   opacity: 1;
@@ -116,8 +123,9 @@
   outline: 0;
   border: 0;
   text-align: center;
-  position: relative;
-  top: -60px;
+  position: absolute;
+  left: 41vw;
+  top: 88vh;
 }
 
 .fare-type {

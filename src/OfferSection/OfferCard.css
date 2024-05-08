@@ -1,0 +1,143 @@
+.offer-card {
+  width: 25vw;
+  height: 25vh;
+
+  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+.offer-section-navbar {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 2%;
+}
+.offer-section-navbar-text {
+  width: 10%;
+  color: rgb(57, 57, 57);
+  font-size: 32px;
+  font-weight: 700 !important;
+  text-align: left;
+}
+
+.offer-section-navbar-content {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 30%;
+  margin-right: 35%;
+}
+
+.offer-section-navbar-content-selected {
+  color: #008cff;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.offer-section-navbar-content-notselected {
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.offer-section-navbar-button-section {
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  margin-right: 15px;
+}
+
+.all-offfer-navbar {
+  color: #008cff;
+  font-size: 16px;
+  font-weight: 700;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.offer-navbar-prev-section {
+  width: 30px;
+  height: 30px;
+  border-radius: 50% 0 0 50%;
+  background-color: #6eb8f552;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.offer-navbar-next-section {
+  width: 30px;
+  height: 30px;
+  border-radius: 0 50% 50% 0;
+  background-color: #6eb8f552;
+  margin-left: 1px;
+  cursor: pointer;
+}
+
+.offer-card-content {
+  width: 95%;
+  height: 75%;
+  margin: 2% 2.5%;
+  display: flex;
+}
+
+.offer-card-image {
+  width: 40%;
+  height: 90%;
+  margin: 2% 2%;
+}
+
+.offer-card-image img {
+  width: 100%;
+  height: 90%;
+  margin: 5% 0;
+  border-radius: 5px;
+}
+
+.offer-card-text {
+  width: 70%;
+  height: 90%;
+  margin: 2% 2%;
+}
+
+.offer-card-text-heading {
+  height: 45%;
+  font-weight: 700;
+  font-size: 14px;
+  color: black;
+  text-align: left;
+}
+
+.offer-card-text-seperation {
+  height: 1%;
+  margin: 5% 0%;
+  width: 20%;
+}
+
+.offer-card-text-data {
+  height: 35%;
+  text-align: left;
+  font-size: 12px;
+}
+
+.offer-card-footer {
+  width: 95%;
+  height: 15%;
+  margin: 2% 2.5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.offer-card-footer-left {
+  margin-left: 10px;
+  font-size: 10px;
+}
+
+.offer-card-footer-right {
+  margin-right: 10px;
+  font-weight: 700;
+  color: #008cff;
+  font-size: 15px;
+}

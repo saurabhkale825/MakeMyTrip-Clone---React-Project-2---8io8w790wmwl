@@ -37,7 +37,6 @@ function FlightsHomePage() {
     setLogin,
     mode,
     setMode,
-    
   } = useContext(MyContext);
 
   const {
@@ -67,13 +66,13 @@ function FlightsHomePage() {
     sessionStorage.setItem("mode" , mode);
   });
 
-  //To check weather user is loggedin or not
-  useEffect(() => {
-    const storedData = sessionStorage.getItem("myData");
-    if(storedData){
-      setAuthenticate(true);
-    }
-  },[authenticate])
+  // //To check weather user is loggedin or not
+  // useEffect(() => {
+  //   const storedData = sessionStorage.getItem("myData");
+  //   if(storedData){
+  //     setAuthenticate(true);
+  //   }
+  // },[authenticate])
 
   //To set date and day according to format in real website.
   const FormatedDate = (date) => format(date, "dd MMM'' yy");

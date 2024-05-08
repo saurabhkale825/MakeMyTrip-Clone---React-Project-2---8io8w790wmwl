@@ -1,7 +1,7 @@
 import React from "react";
 
 const OfferCard = (offer) => {
-  // console.log("Offer in each card", offer);
+  
   return (
     <div key={offer?.offer._id} className="offer-card">
       <div className="offer-card-content">

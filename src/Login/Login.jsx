@@ -14,8 +14,6 @@ function Login() {
     setLogin,
     toggleSignin,
     setToggleSignin,
-    authenticate,
-    setAuthenticate,
   } = useContext(MyContext);
 
   return (

@@ -27,10 +27,9 @@ import { ToastContainer } from "react-toastify";
 
 function LandingPage() {
   //States required for Authentication of user
-
-  const [authenticate, setAuthenticate] = useState(false);
-  const [login, setLogin] = useState(false);
-  const [toggleSignin, setToggleSignin] = useState(true);
+  const [authenticate, setAuthenticate] = useState(false);  //To check wheather login and authenticated or not.
+  const [login, setLogin] = useState(false); //To toggle login model
+  const [toggleSignin, setToggleSignin] = useState(true);  //To toggle between login and signup options
 
   //States required for overall project.
   const [mode, setMode] = useState("Flights");
@@ -39,20 +38,19 @@ function LandingPage() {
   const [traveller, setTraveller] = useState(1);
   const [selectedClass, setSelectedClass] = useState("economy");
   const [showTravellerSection, setShowTravellerSection] = useState(false);
-  const [departureCity, setDepartureCity] = useState("Mumbai");
-  const [arrivalCity, setArrivalCity] = useState("Bengaluru");
+  const [departureCity, setDepartureCity] = useState("Mumbai");  //To set depatureCity
+  const [arrivalCity, setArrivalCity] = useState("Bengaluru");  //To set depatureCity
   const [departureCityAirportId, setDepartureCityAirportId] = useState("");
   const [arrivalCityAirportId, setArrivalCityAirportId] = useState("");
-  const [startDate, setStartDate] = useState(new Date());
-  const [day, setDay] = useState("");
-  const [airportList, setAirportList] = useState([]);
-  const [showDepartureAirportList, setShowDepartureAirportList] =
-    useState(false);
+  const [startDate, setStartDate] = useState(new Date()); //To set flight date
+  const [day, setDay] = useState(""); // To set flight day
+  const [airportList, setAirportList] = useState([]);  // to set airport name list
+  const [showDepartureAirportList, setShowDepartureAirportList] = useState(false);
   const [showArrivalAirportList, setShowArrivalAirportList] = useState(false);
 
   //States rquired for HotelSection.
-  const [location, setLocation] = useState("Mumbai");
-  const [showInputCities, setShowInputCities] = useState(false);
+  const [location, setLocation] = useState("Mumbai"); //To define location for hotel search
+  const [showInputCities, setShowInputCities] = useState(false); 
   const [checkin, setCheckin] = useState(new Date());
   const [checkout, setCheckout] = useState(new Date());
   const [rooms, setRooms] = useState(1);
