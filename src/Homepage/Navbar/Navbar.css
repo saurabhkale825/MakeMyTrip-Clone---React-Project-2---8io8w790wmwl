@@ -1,9 +1,9 @@
 .navbar{
-    width: 75%;
+    width: 76vw;
     height: 100px;
     position: absolute;
-    top: 10%;
-    left: 12%;
+    top: 12vh;
+    left: 12vw;
     align-items: center;
     background: #fff;
     border-radius: 8px;

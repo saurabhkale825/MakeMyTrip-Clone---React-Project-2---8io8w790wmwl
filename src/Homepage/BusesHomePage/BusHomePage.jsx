@@ -79,6 +79,7 @@ function BusHomePage() {
                 value={FormatedDate(busTravelDate)}
                 onChange={(date) => setBusTravelDate(date)}
                 dateFormat="MMM/d/YY"
+                minDate={new Date()}
               />
             </div>
             <div className="bus-homepage-hard-text">

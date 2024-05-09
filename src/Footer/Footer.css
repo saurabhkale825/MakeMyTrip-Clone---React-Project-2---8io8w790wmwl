@@ -1,105 +1,98 @@
-.footer{
-    width: 100%;
-    padding: 20px 0px;
-    margin: 5vh auto;
-
+.footer {
+  width: 98%;
+  padding: 20px 0px;
+  margin: 10vh 0 0 1%;
 }
-.product-offering-title{
-    width: 98%;
-    height: 15px;
-    margin:  10px 2vw;
-    color: black;
-    display: flex;
-    align-items: center;
-    font-weight: 900;
-    font-size: 10px;
-    text-align: left;
-    line-height: 12px;
-    /* border: 1px solid black; */
+.product-offering-title {
+  width: 98%;
+  height: 15px;
+  margin: 10px 0;
+  color: black;
+  display: flex;
+  align-items: center;
+  font-weight: 900;
+  font-size: 10px;
+  text-align: left;
+  line-height: 12px;
 }
 
-.product-container-content{
-    text-align: left;
-    margin: 5px 2vw;
-    width: 96vw;
+.product-container-content {
+  text-align: left;
+  width: 98%;
 }
 
-.product-container-content span{
-    font-size: 12px;  
+.product-container-content span {
+  font-size: 12px;
 }
 
-
-
-
-.product-container-content span:hover{
-    color: #008cff;
-    cursor: pointer;
+.product-container-content span:hover {
+  color: #008cff;
+  cursor: pointer;
 }
 
-.footer-section-1{
-    width: 100vw;
-    margin: 0 0vw;
-    border: 1px solid black;
+.footer-section-1 {
+  width: 100%;
+  margin: 2% 0%;
+  /* border: 1px solid black; */
 }
 
-.footer-section-2{
-    width: 100vw;
-    background: #e7e7e7;
-    padding: 5vh 2vw;
-
+.footer-section-2 {
+  width: 100%;
+  background: #e7e7e7;
+  padding: 5vh 0%;
 }
-.footer-section-2-subsection{
-    display: flex;
-    justify-content: space-between;
-    margin: 30px 20px 30px 0px;
-    border-bottom: 0.5px solid black;
+.footer-section-3 {
+  background-color: black;
+  width: 100%;
+  height: 150px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  margin-left: 0%;
 }
-
-.footer-section-2-subsection div{
-    width: 45%;
-    margin-bottom: 30px;
-}
-
-
-.subsection-header{
-    text-align: left;
-    font-size: 16px;
-    font-weight: 750;
-    letter-spacing: 0.31px;
-    margin-bottom: 25px;
-    color: black;
-}
-.subsection-paragraph{
-    text-align: left;
-    font-size: 12px;
+.footer-section-2-subsection {
+  display: flex;
+  justify-content: space-between;
+  margin: 30px 20px 30px 0px;
+  /* border-bottom: 0.5px solid black; */
 }
 
-.footer-section-3{
-    background-color: black;
-    width: 100vw;
-    height: 150px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: #fff;
+.footer-section-2-subsection div {
+  width: 45%;
+  margin-bottom: 30px;
 }
 
-.social-media-section{
-    width: 8%;
-    margin-left: 20px;
-    display: flex;
-    justify-content: space-between;
-    cursor: pointer;
+.subsection-header {
+  text-align: left;
+  font-size: 16px;
+  font-weight: 750;
+  letter-spacing: 0.31px;
+  margin-bottom: 25px;
+  color: black;
+}
+.subsection-paragraph {
+  text-align: left;
+  font-size: 12px;
 }
 
-.makemytrip-signature{
-    width: 25%;
-    text-align: right;
-    margin-right: 10px;
+.social-media-section {
+  width: 6%;
+  margin-left: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
 }
 
-.makemytrip-signature div{
-    font-size: 16px;
-    line-height: 16px;
-    font-weight: 700;
+.makemytrip-signature {
+  width: 25%;
+  text-align: right;
+  margin-right: 10px;
+}
+
+.makemytrip-signature div {
+  font-size: 16px;
+  line-height: 16px;
+  font-weight: 700;
 }

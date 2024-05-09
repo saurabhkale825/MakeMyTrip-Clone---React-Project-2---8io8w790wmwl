@@ -1,25 +1,23 @@
 .flights-homepage {
-  color: #4a4a4a;
-  border: 1px solid rgb(253, 253, 253);
   position: absolute;
   top: 22vh;
-  left: 0.5vw;
-  width: 98vw;
-  height: 70vh;
+  left: 1%;
+  width:97%;
+  height: 50vh;
   border-radius: 8px;
   background-color: white;
-  margin: auto;
+  color: #4a4a4a;
+  margin: auto; 
 }
 
 .trip-route {
   width: 98%;
   height: 40%;
   margin: auto 1vw;
-  border: 1px solid red;
   border-radius: 10px;
   display: flex;
   align-items: center;
-  /* border: solid 1px #e7e7e7; */
+  border: solid 1px #e7e7e7;
   position: absolute;
   top: 20%;
 
@@ -123,9 +121,8 @@
   outline: 0;
   border: 0;
   text-align: center;
-  position: absolute;
-  left: 41vw;
-  top: 88vh;
+  position: relative;
+  top: -11.5vh;
 }
 
 .fare-type {
@@ -189,7 +186,6 @@
 #airportList-input{
   width: 90%;
   height: 30px;
-  /* border: 1px solid black; */
   text-align: left;
   margin-left: 10px;
   padding: 10px;

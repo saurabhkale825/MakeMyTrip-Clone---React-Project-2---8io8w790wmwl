@@ -24,12 +24,13 @@ import ComingSoon from "../Homepage/ComingSoon/ComingSoon";
 import FlightsHomePage from "../Homepage/FlightsHomePage/FlightsHomePage";
 import AuthContext from "../Context/AuthContext";
 import { ToastContainer } from "react-toastify";
+import HomePage from "../Homepage/HomePage";
 
 function LandingPage() {
   //States required for Authentication of user
-  const [authenticate, setAuthenticate] = useState(false);  //To check wheather login and authenticated or not.
+  const [authenticate, setAuthenticate] = useState(false); //To check wheather login and authenticated or not.
   const [login, setLogin] = useState(false); //To toggle login model
-  const [toggleSignin, setToggleSignin] = useState(true);  //To toggle between login and signup options
+  const [toggleSignin, setToggleSignin] = useState(true); //To toggle between login and signup options
 
   //States required for overall project.
   const [mode, setMode] = useState("Flights");
@@ -38,19 +39,20 @@ function LandingPage() {
   const [traveller, setTraveller] = useState(1);
   const [selectedClass, setSelectedClass] = useState("economy");
   const [showTravellerSection, setShowTravellerSection] = useState(false);
-  const [departureCity, setDepartureCity] = useState("Mumbai");  //To set depatureCity
-  const [arrivalCity, setArrivalCity] = useState("Bengaluru");  //To set depatureCity
+  const [departureCity, setDepartureCity] = useState("Mumbai"); //To set depatureCity
+  const [arrivalCity, setArrivalCity] = useState("Bengaluru"); //To set depatureCity
   const [departureCityAirportId, setDepartureCityAirportId] = useState("");
   const [arrivalCityAirportId, setArrivalCityAirportId] = useState("");
   const [startDate, setStartDate] = useState(new Date()); //To set flight date
   const [day, setDay] = useState(""); // To set flight day
-  const [airportList, setAirportList] = useState([]);  // to set airport name list
-  const [showDepartureAirportList, setShowDepartureAirportList] = useState(false);
+  const [airportList, setAirportList] = useState([]); // to set airport name list
+  const [showDepartureAirportList, setShowDepartureAirportList] =
+    useState(false);
   const [showArrivalAirportList, setShowArrivalAirportList] = useState(false);
 
   //States rquired for HotelSection.
   const [location, setLocation] = useState("Mumbai"); //To define location for hotel search
-  const [showInputCities, setShowInputCities] = useState(false); 
+  const [showInputCities, setShowInputCities] = useState(false);
   const [checkin, setCheckin] = useState(new Date());
   const [checkout, setCheckout] = useState(new Date());
   const [rooms, setRooms] = useState(1);
@@ -178,12 +180,12 @@ function LandingPage() {
                   }}
                 >
                   <Routes>
-                    <Route path="/" element={<FlightsHomePage />} />
+                    <Route path="/" element={<HomePage />} />
                     <Route
                       path="/flights/details"
                       element={<FlightsDetails />}
                     />
-                    <Route path="/flight/:itemId" element={<BookNowPage />} />
+                    <Route path="/flight/:itemId" element={authenticate ? <BookNowPage /> : <HomePage/>} />
                     <Route path="/hotels" element={<HotelHomepage />} />
                     <Route path="/hotels/details" element={<HotelDetails />} />
                     <Route path="/inputCities" element={<HotelCarousel />} />
@@ -193,7 +195,7 @@ function LandingPage() {
                     />
                     <Route
                       path="/hotels/bookingpage/:itemId"
-                      element={<HotelBookingPage />}
+                      element={authenticate ? <HotelBookingPage /> : <HomePage/>}
                     />
                     <Route path="/trains" element={<TrainHomePage />} />
                     <Route path="/buses" element={<BusHomePage />} />
@@ -201,12 +203,12 @@ function LandingPage() {
                     <Route path="/trains/details" element={<TrainDetails />} />
                     <Route
                       path="/railways/bookingpage/:itemId"
-                      element={<TrainBookingShow />}
+                      element={authenticate ? <TrainBookingShow /> : <HomePage/>}
                     />
                     <Route path="/payment/:itemId" element={<Payment />} />
                     <Route
                       path="/bus/bookingpage/:itemId"
-                      element={<BusBookingPage />}
+                      element={authenticate ? <BusBookingPage /> : <HomePage/>}
                     />
                     <Route path="/mytrips" element={<MyTrips />} />
                     <Route path="/comingsoon" element={<ComingSoon />} />

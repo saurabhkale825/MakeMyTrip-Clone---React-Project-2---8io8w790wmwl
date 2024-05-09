@@ -6,6 +6,7 @@ import TravelLogo from "../../Assest/Logo/My Travel logo.png";
 import offerbg from "../../Assest/BackGround/%-bg.png";
 import MyContext from "../../Context/MyContext";
 import AuthContext from "../../Context/AuthContext";
+import Login from "../../Login/Login";
 
 function Navbar() {
   const { authenticate, setAuthenticate } = useContext(AuthContext);
@@ -13,8 +14,8 @@ function Navbar() {
   const [userName, setUserName] = useState("Traveller");
 
   useEffect(() => {
-    console.log(authenticate);
-  }, [authenticate]);
+    console.log(login);
+  }, [login]);
 
   const handleLogOut = () => {
     setAuthenticate(false);
@@ -23,23 +24,27 @@ function Navbar() {
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user-info"));
-    console.log("user =>" , user);
+    console.log("user =>", user);
     if (user) {
-      setUserName(user?.data?.user.name); 
+      setUserName(user?.data?.user.name);
     }
   }, [authenticate]);
 
   return (
     <>
+      {login ? <Login/> : null} 
       <div className="header">
+        <div className="header-container">
         <div className="header-heading">
           <Link to={"/"}>
             <div className="logo" onClick={() => setMode("Flights")}>
               <img src={Logo} alt="logo" width="113px" height="36px" />
             </div>
           </Link>
+        </div>
 
-          <ul className="header-content flex justify-end">
+        <div className="header-content">
+          <ul className=" w-full flex justify-end">
             <li className="super-offer">
               <div>
                 <div
@@ -91,7 +96,7 @@ function Navbar() {
                   ) : (
                     <div onClick={() => setLogin(!login)}>
                       <div className="flex gap-x-2 text-base">
-                        <div> {`Hi ${userName}`}</div>
+                        <div className="capitalize"> {`Hi ${userName}`}</div>
                       </div>
                     </div>
                   )}
@@ -108,6 +113,8 @@ function Navbar() {
             </li>
           </ul>
         </div>
+        </div>
+        
       </div>
     </>
   );

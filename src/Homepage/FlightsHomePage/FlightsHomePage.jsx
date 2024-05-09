@@ -142,9 +142,6 @@ function FlightsHomePage() {
 
   return (
     <>
-      {authenticate === false ? <Login /> : null}
-      <Header />
-      <Navbar />
       <div className="flights-homepage">
         <div className="flights-homepage-content">
           <div className="trip-route">
@@ -212,6 +209,7 @@ function FlightsHomePage() {
                     value={FormatedDate(startDate)}
                     onChange={(date) => setStartDate(date)}
                     dateFormat="MMM/d/YY"
+                    minDate={new Date()}
                   />
                 </span>
               </div>
@@ -342,9 +340,6 @@ function FlightsHomePage() {
           SEARCH
         </div>
       </Link>
-
-      <OfferSection />
-      <Footer />
     </>
   );
 }

@@ -1,6 +1,6 @@
 .hotel-homepage{
-    width: 98%;
-    min-height:50% ;
+    width: 97%;
+    min-height:50vh ;
     margin: 0 1%;
     position: absolute;
     top: 20%;
@@ -77,6 +77,9 @@
     padding: 15px;
 }
 
+.flights-section-calendar{
+    display: block;
+}
 .rooms-guest{
     width: 200px;
     min-height: 95px;
@@ -93,7 +96,7 @@
 }
 
 .hotelhomepge-search-button{
-    width: 216px;
+    width: 16vw;
     padding: 10px;
     margin-bottom: -32px;
     opacity: 1;
@@ -110,7 +113,7 @@
     border: 0;
     text-align: center;
     position: relative;
-    top: 15px;
+    top: 3vh;
 }
 
 .button-disabled{

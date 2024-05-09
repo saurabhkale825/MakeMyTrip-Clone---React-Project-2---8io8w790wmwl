@@ -118,6 +118,7 @@ function HotelHomepage() {
                   value={FormatedDate(checkin)}
                   onChange={(date) => setCheckin(date)}
                   dateFormat="MMM/d/YY"
+                  minDate={new Date()}
                 />
               </span>
             </p>
