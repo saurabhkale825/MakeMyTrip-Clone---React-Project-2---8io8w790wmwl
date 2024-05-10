@@ -23,7 +23,7 @@ import AuthContext from "../../Context/AuthContext";
 
 function NavbarDetails() {
   const{ authenticate, setAuthenticate} = useContext(AuthContext);
-  const { mode, setMode } =
+  const { mode, setMode ,login, setLogin } =
     useContext(MyContext);
 
   const data = localStorage.getItem("user-info");
@@ -229,10 +229,7 @@ function NavbarDetails() {
 
       <div>
         {authenticate === false ? (
-          <div className="navbar-details-right">
-            <p>Login or</p>
-            <p>Create Account</p>
-          </div>
+          null
         ) : (
           <div className="w-fit h-3/4 py-2 px-5 border border text-sky-600  font-medium text-lg rounded-lg bg-transprant flex items-center justify-center ">
             <span className="font-serif">Hi</span>

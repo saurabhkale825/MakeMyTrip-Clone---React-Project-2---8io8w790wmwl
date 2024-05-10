@@ -17,7 +17,6 @@ import Evening from "../../Assest/Logo/evening_inactive.png";
 import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
 import { useCallback } from "react";
-import FlightDetailSkeleton from "./FlightDetailSkeleton";
 
 function FlightsDetails() {
   const [data, setData] = useState([]);
