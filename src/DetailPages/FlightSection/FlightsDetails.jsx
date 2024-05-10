@@ -12,6 +12,8 @@ import Vistara from "../../Assest/Logo/UK.png";
 import AKasa from "../../Assest/Logo/QP.png";
 import Morning from "../../Assest/Logo/morning_inactive.webp";
 import Night from "../../Assest/Logo/night_inactive.png";
+import Afternoon from "../../Assest/Logo/noon_inactive.png";
+import Evening from "../../Assest/Logo/evening_inactive.png";
 import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
 import { useCallback } from "react";
@@ -23,6 +25,7 @@ function FlightsDetails() {
   const [airlineName, setAirlineName] = useState("");
   const [selectedSort, setSelectedSort] = useState("");
   const [selectedFilter, setSelectedFilter] = useState("");
+  const [selectedTime , setSelectedTime] = useState(0);
   const [isLoading, setIsloading] = useState(false);
 
   const {
@@ -35,9 +38,9 @@ function FlightsDetails() {
     arrivalCityAirportId,
     setArrivalCityAirportId,
     day,
-    setDay
+    setDay,
   } = useContext(FlightContext);
-  
+
   const [myData, setMyData] = useState(
     JSON.parse(sessionStorage.getItem("myData"))
   );
@@ -72,10 +75,8 @@ function FlightsDetails() {
   };
 
   const handleUpdateSelectedFilter = useCallback((filter) => {
-    updateSelectedFilter(filter);
+    updateSelectedFilter(filter );
   });
-
- 
 
   const FetchFlights = async () => {
     const response = await axios.get(
@@ -104,12 +105,13 @@ function FlightsDetails() {
   const updateClearAll = () => {
     setSelectedFilter("");
     setSelectedSort("");
+    setSelectedTime(0);
   };
 
   return (
     <div className="flights-details">
       <NavbarDetails />
-      <DetailSearchNav FetchFlights = {FetchFlights} />
+      <DetailSearchNav FetchFlights={FetchFlights} />
       <div className="flights-details-content">
         <div className="flights-details-filter-wrapper">
           <div className="filterouter">
@@ -320,41 +322,81 @@ function FlightsDetails() {
               <div className="filter-option-outer">
                 <h3 className="filtering-heading">{`Depature From ${departureCity}`}</h3>
                 <div className="filtering-departure-option">
-                  <div className="flight-departure-time-inner">
-                    <div
-                      className="flex-col content-center justify-center"
-                      onClick={() =>
-                        handleUpdateSelectedFilter(
-                          `"departureTime":{"$lte":"15:00"}`
-                        )
-                      }
-                    >
-                      <img
-                        src={Morning}
-                        alt="logo"
-                        width="30px"
-                        className="mx-3"
-                      />
-                      <span className="font-bold">Before 3 PM</span>
+                  <div className="flex justify-evenly items-center gap-x-10">
+                    <div className={selectedTime === 1? "flight-departure-time-inner-slot-selected ":"flight-departure-time-inner "} onClick={() => setSelectedTime(1)}>
+                      <div
+                        className="flex-col content-center justify-center"
+                        onClick={() =>
+                          handleUpdateSelectedFilter(
+                            `"departureTime":{"$lte":"06:00"}`
+                          )
+                        }
+                      >
+                        <img
+                          src={Morning}
+                          alt="logo"
+                          width="30px"
+                          className="mx-3"
+                        />
+                        <span className="font-bold">Before 6 AM</span>
+                      </div>
+                    </div>
+                    <div className={selectedTime === 2? "flight-departure-time-inner-slot-selected ":"flight-departure-time-inner "} onClick={() => setSelectedTime(2)}>
+                      <div
+                        className="flex-col content-center justify-center"
+                        onClick={() =>
+                          handleUpdateSelectedFilter(
+                            `"departureTime":{"$lte":"12:00" , "$gte":"06:00" }`
+                          )
+                        }
+                      >
+                        <img
+                          src={Afternoon}
+                          alt="logo"
+                          width="30px"
+                          className="mx-3"
+                        />
+                        <span className="font-bold">6 AM - 12PM</span>
+                      </div>
                     </div>
                   </div>
 
-                  <div className="flight-departure-time-inner">
-                    <div
-                      className="flex-col content-center justify-center"
-                      onClick={() =>
-                        handleUpdateSelectedFilter(
-                          `"departureTime":{"$lte":"18:00"}`
-                        )
-                      }
-                    >
-                      <img
-                        src={Night}
-                        alt="logo"
-                        width="30px"
-                        className="mx-3"
-                      />
-                      <span className="font-bold">After 6 PM</span>
+                  <div className="flex justify-evenly items-center gap-x-10">
+                    <div className={selectedTime === 3? "flight-departure-time-inner-slot-selected ":"flight-departure-time-inner "} onClick={() => setSelectedTime(3)}>
+                      <div
+                        className="flex-col content-center justify-center"
+                        onClick={() =>
+                          handleUpdateSelectedFilter(
+                            `"departureTime":{"$gte":"12:00" , "$lte":"18:00"}`
+                          )
+                        }
+                      >
+                        <img
+                          src={Evening}
+                          alt="logo"
+                          width="30px"
+                          className="mx-3"
+                        />
+                        <span className="font-bold">12 PM - 6PM</span>
+                      </div>
+                    </div>
+                    <div className={selectedTime === 4? "flight-departure-time-inner-slot-selected ":"flight-departure-time-inner "} onClick={() => setSelectedTime(4)}>
+                      <div
+                        className="flex-col content-center justify-center"
+                        onClick={() =>
+                          handleUpdateSelectedFilter(
+                            `"departureTime":{"$gte":"18:00"}`
+                          )
+                        }
+                      >
+                        <img
+                          src={Night}
+                          alt="logo"
+                          width="30px"
+                          className="mx-3"
+                        />
+                        <span className="font-bold">After 6 PM</span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -365,41 +407,83 @@ function FlightsDetails() {
               <div className="filter-option-outer">
                 <h3 className="filtering-heading">{`Arrival to ${arrivalCity}`}</h3>
                 <div className="filtering-departure-option">
-                  <div className="flight-departure-time-inner">
-                    <div
-                      className="flex-col content-center justify-center"
-                      onClick={() =>
-                        handleUpdateSelectedFilter(
-                          `"arrivalTime":{"$lte":"15:00"}`
-                        )
-                      }
-                    >
-                      <img
-                        src={Morning}
-                        alt="logo"
-                        width="30px"
-                        className="mx-3"
-                      />
-                      <span className="font-bold">Before 3 AM</span>
+                  <div className="flex justify-evenly items-center gap-x-10">
+                    <div className={selectedTime === 5? "flight-departure-time-inner-slot-selected ":"flight-departure-time-inner "} onClick={() => setSelectedTime(5)}>
+                      <div
+                        className="flex-col content-center justify-center"
+                        onClick={() =>
+                          handleUpdateSelectedFilter(
+                            `"arrivalTime":{"$lte":"06:00"}`
+                          )
+                        }
+                      >
+                        <img
+                          src={Morning}
+                          alt="logo"
+                          width="30px"
+                          className="mx-3"
+                        />
+                        <span className="font-bold">Before 6 AM</span>
+                      </div>
+                    </div>
+
+                    <div className={selectedTime === 6? "flight-departure-time-inner-slot-selected ":"flight-departure-time-inner "} onClick={() => setSelectedTime(6)}>
+                      <div
+                        className="flex-col content-center justify-center"
+                        onClick={() =>
+                          handleUpdateSelectedFilter(
+                            `"arrivalTime":{"$gte":"06:00" , "$lte":"12:00"}`
+                          )
+                        }
+                      >
+                        <img
+                          src={Afternoon}
+                          alt="logo"
+                          width="30px"
+                          className="mx-3"
+                        />
+                        <span className="font-bold">6 AM - 12PM</span>
+                      </div>
                     </div>
                   </div>
 
-                  <div className="flight-departure-time-inner">
-                    <div
-                      className="flex-col content-center justify-center"
-                      onClick={() =>
-                        handleUpdateSelectedFilter(
-                          `"arrivalTime":{"$gte":"15:00"}`
-                        )
-                      }
-                    >
-                      <img
-                        src={Night}
-                        alt="logo"
-                        width="30px"
-                        className="mx-3"
-                      />
-                      <span className="font-bold">After 6 PM</span>
+                  <div className="flex justify-evenly items-center gap-x-10">
+                    <div className={selectedTime === 7? "flight-departure-time-inner-slot-selected ":"flight-departure-time-inner "} onClick={() => setSelectedTime(7)}>
+                      <div
+                        className="flex-col content-center justify-center"
+                        onClick={() =>
+                          handleUpdateSelectedFilter(
+                            `"arrivalTime":{"$gte":"12:00" , "$lte":"18:00"}`
+                          )
+                        }
+                      >
+                        <img
+                          src={Evening}
+                          alt="logo"
+                          width="30px"
+                          className="mx-3"
+                        />
+                        <span className="font-bold">12 PM - 6 PM</span>
+                      </div>
+                    </div>
+
+                    <div className={selectedTime === 8? "flight-departure-time-inner-slot-selected ":"flight-departure-time-inner "} onClick={() => setSelectedTime(8)}>
+                      <div
+                        className="flex-col content-center justify-center"
+                        onClick={() =>
+                          handleUpdateSelectedFilter(
+                            `"arrivalTime":{"$gte":"18:00"}`
+                          )
+                        }
+                      >
+                        <img
+                          src={Night}
+                          alt="logo"
+                          width="30px"
+                          className="mx-3"
+                        />
+                        <span className="font-bold">After 6 PM</span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -453,7 +537,7 @@ function FlightsDetails() {
             {`Flights from ${departureCity} to ${arrivalCity}`}
           </div>
 
-         <div>
+          <div>
             {data?.length > 0 ? (
               data?.map((flight) => (
                 <div key={flight._id}>

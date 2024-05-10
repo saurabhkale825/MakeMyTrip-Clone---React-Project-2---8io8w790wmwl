@@ -21,34 +21,7 @@ function UPIpayment() {
   const user = JSON.parse(localStorage.getItem("user-info"));
   const token = user.token;
   const [upiId, setUpiId] = useState("");
-  const date = new Date();
- 
-  const startDate =
-    date.getFullYear() +
-    "-" +
-    0 +
-    date.getMonth() +
-    1 +
-    "-" +
-    date.getDate() +
-    "T" +
-    "10:03:53.554+00:00";
-  const endDate =
-    date.getFullYear() +
-    "-" +
-    0 +
-    date.getMonth() +
-    1 +
-    "-" +
-    date.getDate() +
-    1 +
-    "T" +
-    "10:03:53.554+00:00";
-
-  //2023-10-09T10:03:53.554+00:00
-
-  console.log("startDAte => ", startDate);
-  console.log("endDate => ", endDate);
+  const [validUPI , setValidUPI] = useState(false);
 
   const Booking = async () => {
     let body;
@@ -129,6 +102,14 @@ function UPIpayment() {
     }
   };
 
+  useEffect(() => {
+    const isValidUPI = () => {
+      const upiRegex = /^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+$/;
+      setValidUPI(upiRegex.test(upiId) && upiId.length === 14);
+    };
+    isValidUPI();
+  }, [upiId]);
+
   return (
     <div>
       <div className="text-left ml-10 ">
@@ -170,20 +151,13 @@ function UPIpayment() {
                 onChange={(e) => setUpiId(e.target.value)}
               />
               <button
-                className={upiId === "" ? "pay-button" : "primary-btn mt-3"}
+                className={validUPI ? "primary-btn mt-3" : "pay-button" }
                 onClick={Booking}
-                disabled={upiId === "" ? true : false}
+                // disabled={validUPI ? true : false}
               >
-                <div>Verify & Pay</div>
+                Verify & Pay
               </button>
 
-              {/* <ToastContainer
-                position="top-center"
-                type="success"
-                theme="light"
-                autoClose={5000}
-                closeOnClick={true}
-              /> */}
 
               {showConfirmationPage === true ? (
                 <div>

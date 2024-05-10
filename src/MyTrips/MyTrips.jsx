@@ -9,7 +9,6 @@ import TripContainer from "./TripContainer";
 
 function MyTrips() {
   const [data, setData] = useState([]);
-  const [displayData, setDisplayData] = useState([]);
   const [showUpcoming, setShowUpcoming] = useState(true);
 
   const user = localStorage.getItem("user-info");
@@ -37,11 +36,8 @@ function MyTrips() {
 
   useEffect(() => {
     FetchMyTrips();
-  },[token]); // Fetch data whenever token changes
+  }, [token]); // Fetch data whenever token changes
 
-  useEffect(() => {
-    setDisplayData(data.slice(-5)); // Update displayData whenever data changes
-  }, [data]);
 
   return (
     <div className="mytrips">
@@ -96,13 +92,15 @@ function MyTrips() {
             </div>
           ) : (
             <div className="planned-container">
-              <ul>
-                {displayData.map((item) => (
-                  <li key={item._id} className="mt-2 w-full">
-                    <TripContainer trip={item} />
-                  </li>
-                ))}
-              </ul>
+              {data.length ? 
+                <ul>
+                  {data.map((item) => (
+                    <li key={item._id} className="mt-2 w-full">
+                      <TripContainer trip={item} />
+                    </li>
+                  ))}
+                </ul> : <div className="flex justify-center items-center m-auto font-bold text-3xl antialiasedtext-zinc-800">No Trips Not Planned Yet!</div>
+              }
             </div>
           )}
         </div>

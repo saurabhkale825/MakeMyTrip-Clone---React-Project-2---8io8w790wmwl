@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import "./UserDetails.css";
 import { useNavigate, useParams } from "react-router-dom";
 import * as Yup from "yup";
-import axios from "axios";
 
 function UserDetails() {
   const { itemId } = useParams();

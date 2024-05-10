@@ -101,7 +101,6 @@
   position: absolute;
   top: 45vh;
   left: 42vw;
-  z-index: 999;
 }
 
 .button-disabled{

@@ -63,7 +63,6 @@ function BookNowPage() {
       }
     );
     setData(response.data.data);
-    // console.log(response?.data?.data);
   };
 
   useEffect(() => {

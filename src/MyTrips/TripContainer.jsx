@@ -4,10 +4,7 @@ import { format } from "date-fns";
 
 function TripContainer(trip) {
     const FormatedDate = (date) => format(date, "dd MMM'' yy");
-
     const Date = trip.trip.start_date;
-
-    // console.log(Date.slice(0,10));
     console.log(trip);
 
   return (

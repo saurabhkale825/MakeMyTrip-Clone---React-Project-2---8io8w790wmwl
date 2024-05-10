@@ -74,7 +74,10 @@
 
 .filtering-departure-option{
     display: flex;
+    flex-direction: column;
     justify-content: space-evenly;
+    align-items: center;
+    gap: 10px 0;
 }
 
 .flight-departure-time-inner{
@@ -94,6 +97,25 @@
     align-items: center;
     margin-right: 10px;
 }
+
+.flight-departure-time-inner-slot-selected{
+    cursor: pointer;
+    width: 55px;
+    height: 64px;
+    border-radius: 4px;
+    border: 1.7px solid #068eff;
+    background-color: #fff;
+    text-align: center;
+    color: #000;
+    font-size: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 5px 0 ;
+    align-items: center;
+    margin-right: 10px;
+}
+
 
 
 .flights-details-list{
