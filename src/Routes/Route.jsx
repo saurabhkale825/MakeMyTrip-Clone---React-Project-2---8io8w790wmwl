@@ -21,7 +21,7 @@ import TrainBookingShow from "../DetailPages/TrainSection/TrainBookingPage/Train
 import BusBookingPage from "../DetailPages/BusSection/BusBookingPage/BusBookingPage";
 import MyTrips from "../MyTrips/MyTrips";
 import ComingSoon from "../Homepage/ComingSoon/ComingSoon";
-import FlightsHomePage from "../Homepage/FlightsHomePage/FlightsHomePage";
+// import FlightsHomePage from "../Homepage/FlightsHomePage/FlightsHomePage";
 import AuthContext from "../Context/AuthContext";
 import { ToastContainer } from "react-toastify";
 import HomePage from "../Homepage/HomePage";
@@ -210,7 +210,7 @@ function LandingPage() {
                       path="/bus/bookingpage/:itemId"
                       element={authenticate ? <BusBookingPage /> : <HomePage/>}
                     />
-                    <Route path="/mytrips" element={<MyTrips />} />
+                    <Route path="/mytrips" element={authenticate ? <MyTrips /> : <HomePage/>} />
                     <Route path="/comingsoon" element={<ComingSoon />} />
                   </Routes>
                 </BusContext.Provider>
