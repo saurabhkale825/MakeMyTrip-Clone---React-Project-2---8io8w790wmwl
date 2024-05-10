@@ -2,12 +2,13 @@
   position: absolute;
   top: 22vh;
   left: 1%;
-  width:97%;
+  ;width:97%;
   height: 50vh;
   border-radius: 8px;
   background-color: white;
   color: #4a4a4a;
-  margin: auto; 
+  margin: auto ;
+  border: 3px solid red;
 }
 
 .trip-route {
