@@ -236,7 +236,7 @@ function NavbarDetails() {
         ) : (
           <div className="w-fit h-3/4 py-2 px-5 border border text-sky-600  font-medium text-lg rounded-lg bg-transprant flex items-center justify-center ">
             <span className="font-serif">Hi</span>
-            <span className="font-serif ml-2">{`${userName}`}</span>
+            <span className="font-serif ml-2 capitalize">{`${userName}`}</span>
             </div>
         )}
       </div>

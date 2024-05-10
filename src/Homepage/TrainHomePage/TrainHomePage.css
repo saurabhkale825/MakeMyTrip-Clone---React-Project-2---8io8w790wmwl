@@ -1,18 +1,19 @@
 .train-homepage {
-  width: 96%;
   position: absolute;
   top: 22vh;
-  left: 2%;
-  height: 40vh;
-  padding:10vh 0 0 0;
+  left: 1%;
+  ;width:97%;
+  height: 50vh;
   border-radius: 8px;
   background-color: white;
   color: #4a4a4a;
+  margin: auto ;
+  
 }
 
 .train-homepage-option-text {
   display: flex;
-  margin-top: 10px;
+  margin-top: 10vh;
   text-align: left;
 }
 
@@ -103,8 +104,9 @@
   outline: 0;
   border: 0;
   text-align: center;
-  position: relative;
-  top:5vh ;
+  position: absolute;
+  top:45vh ;
+  left: 41vw;
 }
 
 .train-homepage-city:hover,
