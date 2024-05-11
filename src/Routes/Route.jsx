@@ -180,7 +180,7 @@ function LandingPage() {
                   }}
                 >
                   <Routes>
-                    <Route path="/" element={<HomePage />} />
+                    <Route path="/" element={<HomePage />} /> 
                     <Route
                       path="/flights/details"
                       element={<FlightsDetails />}

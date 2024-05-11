@@ -66,13 +66,6 @@ function FlightsHomePage() {
     sessionStorage.setItem("mode" , mode);
   });
 
-  // //To check weather user is loggedin or not
-  // useEffect(() => {
-  //   const storedData = sessionStorage.getItem("myData");
-  //   if(storedData){
-  //     setAuthenticate(true);
-  //   }
-  // },[authenticate])
 
   //To set date and day according to format in real website.
   const FormatedDate = (date) => format(date, "dd MMM'' yy");
@@ -97,6 +90,7 @@ function FlightsHomePage() {
     sessionStorage.setItem("myData", JSON.stringify(newData));
   };
 
+  //Gets AirportDetails of the required city.
   useEffect(() => {
     setTimeout(() => {
       const fetchAirport = async () => {

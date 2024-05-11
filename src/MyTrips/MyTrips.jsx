@@ -15,6 +15,7 @@ function MyTrips() {
   const userData = user ? JSON.parse(user) : null;
   const token = userData && userData.data ? userData.token : null;
 
+  // To fetch trips from the database.
   const FetchMyTrips = async () => {
     try {
       const response = await axios.get(

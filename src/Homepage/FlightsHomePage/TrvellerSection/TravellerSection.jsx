@@ -16,7 +16,7 @@ function TravellerSection() {
 
   console.log(setTraveller);
 
-  
+  //Adds total traveller based user selection.
   const handleApply = () => {
     setTraveller(selectedAdults + selectedChildren + selectedInfants);
     setShowTravellerSection(false);

@@ -2,9 +2,9 @@ import axios from "axios";
 import { useState, useEffect } from 'react';
 
 function GettingAirport(city) {
-  const [airport, setAirport] = useState([]);
+  const [airport, setAirport] = useState([]); // Stores the details of the Airport.
   
-
+  // To get Airportdetails of the provided city.
   useEffect(() => {
     const fetchAirport = async () => {
       try {

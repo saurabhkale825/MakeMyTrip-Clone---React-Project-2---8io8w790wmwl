@@ -4,12 +4,11 @@ import FlightContext from "../../../Context/FlightsContext";
 import "./AirportList.css";
 
 function ArrivalAirportList() {
-  const {arrivalCity ,setArrivalCity ,setShowArrivalAirportList} = useContext(FlightContext)
+  const { arrivalCity, setArrivalCity, setShowArrivalAirportList } =
+    useContext(FlightContext);
   const [air, setAir] = useState([]);
 
-  
-
-
+  //To display airportList available in the databases.
   useEffect(() => {
     const fetchAirportList = async () => {
       const response = await axios.get(
@@ -30,22 +29,33 @@ function ArrivalAirportList() {
     <div className="airport-list-main">
       <ul>
         {air.map((air) => (
-          <li key={air._id} onClick={() => (setArrivalCity(air.city) , setShowArrivalAirportList(false))}>
-            <div className="airport-list-individual" >
+          <li
+            key={air._id}
+            onClick={() => (
+              setArrivalCity(air.city), setShowArrivalAirportList(false)
+            )}
+          >
+            <div className="airport-list-individual">
               <div className="flex justify-center content-center w-8 h-8 mt-2">
-                <img src="https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/ic-flight-onward.png" alt="logo"
-                width="20px" height="10px"/>
-                </div>
-                
-                <div className="airport-list-content">
+                <img
+                  src="https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/ic-flight-onward.png"
+                  alt="logo"
+                  width="20px"
+                  height="10px"
+                />
+              </div>
+
+              <div className="airport-list-content">
                 <h3>{air.city}</h3>
                 <p className="text-xs">{air.name}</p>
-                </div>
+              </div>
 
-                <div className="
-                ">
-                    {air.iata_code}
-                </div>
+              <div
+                className="
+                "
+              >
+                {air.iata_code}
+              </div>
             </div>
           </li>
         ))}

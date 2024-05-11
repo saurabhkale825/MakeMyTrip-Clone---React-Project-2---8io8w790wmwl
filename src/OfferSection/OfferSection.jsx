@@ -15,9 +15,8 @@ function OfferSection() {
   const [offers, setOffers] = useState([]);
   const [offerSelected, SetOfferSelected] = useState("ALL");
 
-  // console.log(`https://academics.newtonschool.co/api/v1/bookingportals/offers?filter={"type":"${offerSelected}"}`)
-
-  useEffect(() => {
+    
+    useEffect(() => {
     const fetchApi = async () => {
       const response = await axios.get(
         `https://academics.newtonschool.co/api/v1/bookingportals/offers?filter={"type":"${offerSelected}"}&limit=6`,
@@ -34,13 +33,7 @@ function OfferSection() {
     fetchApi();
   }, [offerSelected]);
 
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1
-  };
+ 
 
   return (
     <div className="offer-section">
@@ -79,9 +72,9 @@ function OfferSection() {
       <div className="offer-section-content">
       
         {offers.map((offer , index) => (
-            // <Slider {...settings}>
+           
           <OfferCard offer={offer}key={index} />
-          // </Slider>
+         
         ))}
         
           

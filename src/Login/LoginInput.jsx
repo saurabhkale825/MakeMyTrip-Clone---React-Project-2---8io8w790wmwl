@@ -16,7 +16,7 @@ function LoginInput() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-
+    //To login the user 
   async function Login() {
     try {
       let item = { "email": email, "password": password, "appType": "bookingportals" };

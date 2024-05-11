@@ -24,14 +24,13 @@ function BusHomePage() {
     setBusTravelDate,
     } = useContext(BusContext);
 
-    const {mode , setMode} = useContext(MyContext);
-    
+    // const {mode , setMode} = useContext(MyContext);
     const [showCalendar , setShowCalendar] = useState(false);
     const [showSourceInput , setShowSourceInput]= useState(false);
     const [showDestinationInput , setShowDestinationInput] = useState(false);
 
 
-  const FormatedDate = (travelDate) => format(travelDate, "dd MMM''yy");
+  const FormatedDate = (travelDate) => format(travelDate, "dd MMM''yy"); // Formates the date int required date-day-year format. 
 
   
 

@@ -11,14 +11,13 @@ function DepartureAirportList() {
     const storedData = JSON.parse(sessionStorage.getItem("myData")) || {};
     storedData.departureCity = departureCity;
     sessionStorage.setItem("myData" , JSON.stringify(storedData));
-    // console.log(sessionStorage.getItem("myData"));
   }
 
   useEffect(() => {
     updateDepartureCity(departureCity);
   }, [departureCity]);
 
-
+  //To display airportList available in the databases.
   useEffect(() => {
     const fetchAirportList = async () => {
       const response = await axios.get(

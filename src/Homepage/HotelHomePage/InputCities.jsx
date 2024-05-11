@@ -14,7 +14,7 @@ function InputCities() {
     setShowInputCities(false);
   }
 
-
+  //To get cities for which hoteks are available
   const FetchCities = async() => {
     const response = await axios.get(
       `https://academics.newtonschool.co/api/v1/bookingportals/city`,
