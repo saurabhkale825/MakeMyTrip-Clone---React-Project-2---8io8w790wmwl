@@ -15,16 +15,16 @@ function HomePage() {
 
   const data = localStorage.getItem("user-info");
 
-  useEffect(() => {
-    console.log("before", authenticate);
-    if (data) {
-      setAuthenticate(true);
-    }
-    console.log("after", authenticate);
-    if (authenticate === false) {
-      setLogin(true);
-    }
-  }, []);
+  // useEffect(() => {
+  //   console.log("before", authenticate);
+  //   if (data) {
+  //     setAuthenticate(true);
+  //   }
+  //   console.log("after", authenticate);
+  //   if (authenticate === false) {
+  //     setLogin(true);
+  //   }
+  // }, []);
 
   useEffect(() => {
     localStorage.setItem("value", "");
