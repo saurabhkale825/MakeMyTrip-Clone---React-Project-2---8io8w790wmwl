@@ -4,16 +4,23 @@ import NavbarDetails from "../Homepage/Navbar/NavbarDetails";
 import axios from "axios";
 import Coming from "../Assest/Logo/Upcoming.png";
 import Planned from "../Assest/Logo/Planned.png";
-
+import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
+import CheckBoxIcon from "@mui/icons-material/CheckBox";
 import TripContainer from "./TripContainer";
 
 function MyTrips() {
   const [data, setData] = useState([]);
+  const [displayData , setDisplayData] = useState([]);
   const [showUpcoming, setShowUpcoming] = useState(true);
+  const [displayingSection, setDisplayingSection] = useState([]);
 
   const user = localStorage.getItem("user-info");
   const userData = user ? JSON.parse(user) : null;
   const token = userData && userData.data ? userData.token : null;
+
+
+  
+  
 
   // To fetch trips from the database.
   const FetchMyTrips = async () => {
@@ -28,7 +35,7 @@ function MyTrips() {
         }
       );
 
-      console.log(response.data.data);
+      console.log("data",response.data.data);
       setData(response.data.data);
     } catch (error) {
       console.error("Error fetching trips:", error);
@@ -39,6 +46,24 @@ function MyTrips() {
     FetchMyTrips();
   }, [token]); // Fetch data whenever token changes
 
+  
+  const isPresent = (target) => {
+    return (displayingSection.includes(target) ? true : false);
+  } 
+
+  const ToggleDisplaySection = (target) => {
+    setDisplayingSection(displayingSection.includes(target) ? displayingSection.filter(x => x !== target) : [...displayingSection , target]);  
+  }
+
+  useEffect(() => {
+    const updateDisplayData = () => {
+      setDisplayData(
+        data.filter((trip) => displayingSection.includes(trip.booking_type))
+      );
+    };
+
+    updateDisplayData();
+  }, [displayingSection, data]);
 
   return (
     <div className="mytrips">
@@ -93,15 +118,51 @@ function MyTrips() {
             </div>
           ) : (
             <div className="planned-container">
-              {data.length ? 
+              <div className="trip-sorter rounded">
+                <h3 className="font-semibold text-base">Sort Trips:</h3>
+                <div className="flex justify-evenly items-center " onClick={() => ToggleDisplaySection("flight")}>
+                  <span>{isPresent("flight") ? <CheckBoxIcon /> : <CheckBoxOutlineBlankIcon />}</span>
+                  <span>Flight</span>
+                </div>
+
+                <div className="flex justify-evenly items-center " onClick={() => ToggleDisplaySection("hotel")}>
+                  <span>{isPresent("hotel") ? <CheckBoxIcon /> : <CheckBoxOutlineBlankIcon />}</span>
+                  <span>Hotel</span>
+                </div>
+
+                <div className="flex justify-evenly items-center " onClick={() => ToggleDisplaySection("train")}>
+                  <span>{isPresent("train") ? <CheckBoxIcon /> : <CheckBoxOutlineBlankIcon />}</span>
+                  <span>Train</span>
+                </div>
+
+                <div className="flex justify-evenly items-center " onClick={() => ToggleDisplaySection("bus")}>
+                  <span>{isPresent("bus") ? <CheckBoxIcon /> : <CheckBoxOutlineBlankIcon />}</span>
+                  <span>Bus</span>
+                </div>
+                </div>
+
+              { data.length ? (displayData.length > 0 ? (
+                <ul>
+                  {displayData.map((item) => (
+                    <li key={item._id} className="mt-2 w-full">
+                      <TripContainer trip={item} />
+                     
+                    </li>
+                  ))}
+                </ul>) : (
                 <ul>
                   {data.map((item) => (
                     <li key={item._id} className="mt-2 w-full">
                       <TripContainer trip={item} />
+                     
                     </li>
                   ))}
-                </ul> : <div className="flex justify-center items-center m-auto font-bold text-3xl antialiasedtext-zinc-800">No Trips Not Planned Yet!</div>
-              }
+                </ul>)
+              ) : (
+                <div className="flex justify-center items-center m-auto font-bold text-3xl antialiasedtext-zinc-800">
+                  No Trips Not Planned Yet!
+                </div>
+              )}
             </div>
           )}
         </div>

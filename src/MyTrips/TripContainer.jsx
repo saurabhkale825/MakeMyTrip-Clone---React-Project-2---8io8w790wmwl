@@ -5,7 +5,7 @@ import { format } from "date-fns";
 function TripContainer(trip) {
     const FormatedDate = (date) => format(date, "dd MMM'' yy");
     const Date = trip.trip.start_date;
-    console.log(trip);
+    
 
   return (
     <div className='trip-container mt-3'>

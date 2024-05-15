@@ -62,7 +62,7 @@
     margin: auto;
     margin-top: 50px;
     padding: 30px;
-    display: flex;
+
 }
 .upcoming-images{
     width: 100px;
@@ -72,3 +72,13 @@
 .trip-individual-container{
     width: 700px;
 }
+
+.trip-sorter{
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 5vh;
+    margin: 0 0 2vh 0;
+    padding: 1vh 1vw
+}   
