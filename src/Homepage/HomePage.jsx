@@ -7,6 +7,7 @@ import OfferSection from "../OfferSection/OfferSection";
 import MyContext from "../Context/MyContext";
 import Login from "../Login/Login";
 import AuthContext from "../Context/AuthContext";
+import { ClassNames } from "@emotion/react";
 
 function HomePage() {
   const { setLogin, mode, setMode } = useContext(MyContext);
@@ -14,17 +15,6 @@ function HomePage() {
   const { authenticate, setAuthenticate } = useContext(AuthContext);
 
   const data = localStorage.getItem("user-info");
-
-  // useEffect(() => {
-  //   console.log("before", authenticate);
-  //   if (data) {
-  //     setAuthenticate(true);
-  //   }
-  //   console.log("after", authenticate);
-  //   if (authenticate === false) {
-  //     setLogin(true);
-  //   }
-  // }, []);
 
   useEffect(() => {
     localStorage.setItem("value", "");

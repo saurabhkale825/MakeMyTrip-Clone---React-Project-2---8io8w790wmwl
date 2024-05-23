@@ -26,7 +26,8 @@ function Navbar() {
 
  useEffect(() => {
   sessionStorage.setItem("mode",mode); 
- }, [mode]);
+ }, [mode]
+);
 
   useEffect(() => {
     setMode(sessionStorage.getItem("mode"));
@@ -39,6 +40,7 @@ function Navbar() {
         <li className="individual-nav" onClick={() => setMode("Flights")}>
          <Link to={"/"}>
          <div>
+         
           {mode === "Flights" ? (
             <img
               src={FlightSelected}
@@ -49,6 +51,7 @@ function Navbar() {
           ) : (
             <img src={Flights} alt="flights" width="32px" height="22px" />
           )}
+          
           <p className={(mode==="Flights"?"nav-text-selected":"nav-text")}>Flights</p>
           </div>
           </Link>

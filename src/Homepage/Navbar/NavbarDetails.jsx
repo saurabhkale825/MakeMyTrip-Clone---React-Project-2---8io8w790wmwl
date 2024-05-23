@@ -40,12 +40,14 @@ function NavbarDetails() {
     <div className="navbar-details">
       <div className="navbar-details-left">
         <div className="navbar-details-logo">
-          <img
+          <Link to={"/"}>
+         <img
             src="https://imgak.mmtcdn.com/pwa_v3/pwa_hotel_assets/header/logo@2x.png"
             alt="logo"
             width="113px"
             height="36px"
           />
+          </Link>
         </div>
         <div className="navbar-details-options">
           <Link to={"/"}>

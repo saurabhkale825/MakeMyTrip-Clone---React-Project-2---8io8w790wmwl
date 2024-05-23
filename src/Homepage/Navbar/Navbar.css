@@ -1,5 +1,5 @@
 .navbar{
-    width: 76vw;
+    width: 76%;
     height: 100px;
     position: absolute;
     top: 12vh;
@@ -22,8 +22,7 @@
 }
 
 .navbar-list li{
-    /* border: 1px solid red; */
-    width: 10%;
+    width: 12%;
     cursor: pointer;
     gap: 10px;
 }
@@ -55,4 +54,63 @@
     position: relative;
     top: 10%;
     height: 40%;
+}
+
+@media (max-width: 1024px){
+    .navbar{
+        width: 76%;
+        height: 14vh;
+        position: absolute;
+        top: 12vh;
+        left: 12vw;
+        align-items: center;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 20px 0 rgba(0,0,0,.1);
+        padding: 8px 30px;
+        display: flex;
+        z-index: 99;
+    }
+    
+    .navbar-list li img{
+        width: 6vw;
+        height: 6vh;
+        margin-left: 0.8vw;
+    }
+    
+
+    .navbar-list li{
+        width: 15%;
+        cursor: pointer;
+        height: 100%;
+    }
+
+    .nav-text{
+        font-size:1.0vw;
+        font-weight: 600;
+        line-height: 1.2vw;
+        text-align: center;
+        position: relative;
+        top: 10%;
+        width: 90%;
+        margin: 10% 0 0 5%;
+        height: 40%;
+      
+        color: #4a4a4a;
+    }
+    
+    .nav-text-selected{
+        color: #008cff;
+        font-weight: 600;
+        font-size: 1.0vw;
+        line-height: 1.2vw;
+        text-align: center;
+        position: relative;
+        top: 10%;
+        height: 40%;
+        width: 90%;
+        margin: 10% 0 0 5%;
+        /* border: 1px solid black; */
+    }
+
 }

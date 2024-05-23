@@ -25,6 +25,7 @@ import ComingSoon from "../Homepage/ComingSoon/ComingSoon";
 import AuthContext from "../Context/AuthContext";
 import { ToastContainer } from "react-toastify";
 import HomePage from "../Homepage/HomePage";
+import ErrorPage from "../ErrorPage/ErrorPage";
 
 function LandingPage() {
   //States required for Authentication of user
@@ -210,8 +211,9 @@ function LandingPage() {
                       path="/bus/bookingpage/:itemId"
                       element={authenticate ? <BusBookingPage /> : <HomePage/>}
                     />
-                    <Route path="/mytrips" element={authenticate ? <MyTrips /> : <HomePage/>} />
+                    <Route path="/mytrips" element={ <MyTrips /> } />
                     <Route path="/comingsoon" element={<ComingSoon />} />
+                    <Route path="/error" element={<ErrorPage />} />
                   </Routes>
                 </BusContext.Provider>
               </TrainContext.Provider>

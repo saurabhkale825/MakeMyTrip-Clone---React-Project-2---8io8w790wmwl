@@ -1,17 +1,20 @@
 import { useContext, useEffect, useState } from "react";
 import "./Header.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate  } from "react-router-dom";
 import Logo from "../../Assest/Logo/mmtLogoWhite.png";
 import TravelLogo from "../../Assest/Logo/My Travel logo.png";
 import offerbg from "../../Assest/BackGround/%-bg.png";
 import MyContext from "../../Context/MyContext";
 import AuthContext from "../../Context/AuthContext";
 import Login from "../../Login/Login";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Navbar() {
   const { authenticate, setAuthenticate } = useContext(AuthContext);
   const { setMode, login, setLogin } = useContext(MyContext);
   const [userName, setUserName] = useState("Traveller");
+  const navigate = useNavigate();
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user-info"));
@@ -29,6 +32,10 @@ function Navbar() {
     setAuthenticate(false);
     localStorage.removeItem("user-info");
   };
+
+  const Trip = () => {
+    authenticate ? navigate('/mytrips') : toast.warning("You are not logged in!")
+  }
 
   return (
     <>
@@ -64,15 +71,15 @@ function Navbar() {
                 </div>
               </li>
 
-              <li className="my-trips flex">
-                <Link to={"/mytrips"}>
+              <li className="my-trips flex" onClick={Trip}>
+                
                   <div className="w-full flex ">
                     <img
                       src={TravelLogo}
                       alt="travel-logo"
                       width="25px"
                       height="25px"
-                      style={{ marginTop: "5px" }}
+                      // style={{ marginTop: "5px" }}
                     />
 
                     <div className="super-offer-content">
@@ -80,7 +87,7 @@ function Navbar() {
                       <div className="content-2">Manage your bookings</div>
                     </div>
                   </div>
-                </Link>
+
               </li>
 
               <li>
@@ -89,9 +96,9 @@ function Navbar() {
                    
                 >
                   {!authenticate ? (
-                    <div onClick={() => setLogin(!login)} className=" w-full h-full flex justify-center items-center">
+                    <div onClick={() => setLogin(!login)} className=" w-full h-4/5 flex justify-center items-center">
                       <Link to={"/"}>
-                        <div> Login or Create account</div>
+                        <div > Login or Create account</div>
                       </Link>
                     </div>
                   ) : (

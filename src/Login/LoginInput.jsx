@@ -2,7 +2,7 @@ import React, {useState, useContext } from 'react'
 import "./LoginInput.css"
 import Google from "../Assest/Logo/Google logo.png"
 import MyContext from '../Context/MyContext'
-import { ToastContainer, toast } from 'react-toastify';
+import {toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AuthContext from '../Context/AuthContext';
 

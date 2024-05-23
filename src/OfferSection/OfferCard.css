@@ -5,6 +5,7 @@
   border-radius: 6px;
   background-color: #ffffff;
   cursor: pointer;
+  border: 1px solid red;
 }
 .offer-section-navbar {
   display: flex;
@@ -79,6 +80,7 @@
   height: 75%;
   margin: 2% 2.5%;
   display: flex;
+  border: 1px solid red;
 }
 
 .offer-card-image {
@@ -139,4 +141,9 @@
   font-weight: 700;
   color: #008cff;
   font-size: 15px;
+}
+
+@media (max-width: 1024px){
+
+
 }

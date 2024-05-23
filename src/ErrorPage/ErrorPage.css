@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+
+.error-page{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(167, 162, 162, 0.266);
+}
+
+.error-page-content{
+    width: 80%;
+    height: 80%;
+    border-radius: 10px;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    background-color: rgba(0, 0, 0, 0.859);
+    color: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+.error-page-heading{
+    font-size: 120px;
+    padding: 10px;
+    text-shadow: 
+     2px 2px 5px rgba(216, 175, 11, 0.685),
+    -2px -2px 5px rgba(255, 0, 0, 0.7);
+    height: 25%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+.error-page-text{
+    height: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:50%;
+}
+
+.error-page-button{
+    margin-top: 10%;
+    height: 10%;
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 40px;
+    background:linear-gradient(to right,rgb(22, 108, 207),rgb(3, 3, 82));
+    /* border: 1px solid white; */
+    font-size: large;
+
+}
+
+@media only screen and (max-width: 1024px) {
+    .error-page-content{
+        width: 80%;
+        height: 80%;
+    }
+
+    .error-page-button{
+    margin-top: 10%;
+    height: 10%;
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 40px;
+    background:linear-gradient(to right,rgb(22, 108, 207),rgb(3, 3, 82));
+    font-size: 14px;
+    }
+  }

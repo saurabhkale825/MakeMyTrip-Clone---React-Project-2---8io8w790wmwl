@@ -73,7 +73,7 @@ function OfferSection() {
       
         {offers.map((offer , index) => (
            
-          <OfferCard offer={offer}key={index} />
+          <OfferCard offer={offer} key={index} />
          
         ))}
         

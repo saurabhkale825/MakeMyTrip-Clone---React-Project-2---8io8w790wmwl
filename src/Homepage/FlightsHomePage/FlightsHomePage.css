@@ -2,13 +2,12 @@
   position: absolute;
   top: 22vh;
   left: 1%;
-  ;width:97%;
+  width:97%;
   height: 50vh;
   border-radius: 8px;
   background-color: white;
   color: #4a4a4a;
-  margin: auto ;
-  
+  margin: auto ; 
 }
 
 .trip-route {
@@ -21,22 +20,19 @@
   border: solid 1px #e7e7e7;
   position: absolute;
   top: 20%;
-
 }
 
 .trip-date {
-  width: 35%;
+  width: 25vw;
   height: 100%;
   text-align: left;
   display: flex;
   align-items: center;
-  border-right: 1px solid #e7e7e7;
-  
 }
 
 .trip-depature {
-  width: 15%;
-  height: 105px;
+  width: 15vw;
+  height: 100%;
   text-align: left;
   border-right: 1px solid #e7e7e7;
   margin-left: 20px;
@@ -47,9 +43,10 @@
 }
 
 .trip-class {
-  width: 265px;
+  width: 25vw;
   height: 105px;
   text-align: left;
+  
 }
 
 .trip-class-heading {
@@ -76,17 +73,19 @@
   margin-left: 20px;
   color: black;
   text-transform: capitalize;
-  width: 200px;
+  width: 20vw;
   border: none;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .depature-date {
-  font-size: 22px;
-  font-weight: 650;
-  color: #4a4a4ac7;
+  font-size: 2vw;
+  font-weight: 700;
+  color: #070707c3;
   text-transform: capitalize;
-  width: 240px;
-  padding: 6px 2px;
+  width: 10vw;
+  padding: 6px 0;
   margin-bottom: 5px;
 }
 
@@ -96,7 +95,7 @@
   overflow: hidden;
   display: inline-block;
   margin-left: 20px;
-  width: 90%;
+  width: 30%;
 }
 
 .depature-month {
@@ -144,7 +143,7 @@
 }
 
 .fare-type-content {
-  width: 8%;
+  width: 12%;
   font-size: 12px;
   display: flex;
   justify-content: space-around;
@@ -192,4 +191,33 @@
   padding: 10px;
   font-size: 16px;
   font-weight: 700;
+}
+
+.flights-section-calendar {
+  width: 14vw;
+}
+
+@media (max-width: 1024px){
+  .fare-type-content {
+    width: 12%;
+    font-size: 8px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .fare-type-text{
+    margin-left: 5px;
+    width: 100%;
+  }
+
+  .fare-type-heading {
+    width: 12%;
+    font-size: 12px;
+    font-weight: 700;
+    color: #000000;
+    text-align: left;
+  }
 }
