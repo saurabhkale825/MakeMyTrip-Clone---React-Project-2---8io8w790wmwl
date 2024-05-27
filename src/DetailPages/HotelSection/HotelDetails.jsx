@@ -120,9 +120,9 @@ function HotelDetails() {
             </div>
 
             <div className="functionality-content">
-                <div className="flex justify-between mx-3 ">
-                <h1 className="filter-text">Filters</h1>
-                <div className="text-blue-400 font-bold cursor-pointer" onClick={() => updateClearAll()}>Clear All</div>
+                <div className="flex justify-between mx-3  ">
+                <h1 className="filter-text ">Filters</h1>
+                <div className="text-blue-400 font-bold cursor-pointer  \" onClick={() => updateClearAll()}>Clear All</div>
                 </div>
                 <div className="hotel-filter-by-rating">
                   <h3 className="hotel-filter-heading">User Rating</h3>

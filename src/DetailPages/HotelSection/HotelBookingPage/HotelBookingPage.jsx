@@ -49,12 +49,13 @@ function HotelBookingPage() {
         <div className="hotel-booking-page-info">
           <div className="w-3/5 ">
             <div className="p-2 ml-2 flex justify-between ">
-              <div>
-                <h3 className="text-xl font-semibold text-black">
+              <div >
+                <h3 className="font-semibold text-black hotel-booking-page-name">
                   {hotel?.data?.name}
                 </h3>
-                <div className="my-1">{hotel?.data?.location}</div>
-                <div>
+                <div className="my-1  hotel-booking-page-location">{hotel?.data?.location}</div>
+                <div className="hotel-booking-page-hard-text">
+                  <div>
                   <span>
                     <StarIcon sx={{ fontSize: 16 }} />
                   </span>
@@ -70,10 +71,11 @@ function HotelBookingPage() {
                   <span>
                     <StarBorderIcon sx={{ fontSize: 16 }} />
                   </span>
+                  </div>
 
                   {hotel?.data?.houseRules.guestProfile
                     .unmarriedCouplesAllowed === true ? (
-                    <span className="w-fit border border-black px-2 bg-gray-500 ml-4 text-white rounded-xl">
+                    <span className="w-fit border border-black px-2 bg-gray-500  text-white rounded-xl  hotel-booking-page-nature">
                       Couple Friendly
                     </span>
                   ) : null}
@@ -89,64 +91,64 @@ function HotelBookingPage() {
               />
             </div>
 
-            <div className="border-black border w-1/2 rounded-xl">
-              <h4 className="ml-2 mt-1 text-lg font-medium text-red-500">Important information</h4>
+            <div className="border-black border rounded-xl lg:w-1/2 w-full">
+              <h4 className="ml-2 mt-1 lg:text-lg text-sm font-medium text-red-500">Important information</h4>
               <div className="ml-2 p-1 flex gap-x-8">
                 <span><CircleIcon sx={{fontSize : 8}} /></span>
-                <span className="ml-1">Room only</span>
+                <span className="ml-1 lg:text-sm text-xs">Room only</span>
               </div>
 
               <div className="ml-2 p-1 flex gap-x-8">
                 <span><CircleIcon sx={{fontSize : 8}} /></span>
-                <span className="ml-1">No meals included</span>
+                <span className="ml-1 lg:text-sm text-xs">No meals included</span>
               </div>
 
               <div className="ml-2 p-1 flex gap-x-6">
                 <span><img src="https://promos.makemytrip.com/Hotels_product/Inclusions/Icons/Food&Beverage_F&BServices.png" alt="logo" width="20px"/></span>
-                <span>20 % Discount On F&B Services</span>
+                <span className="lg:text-sm text-xs">20 % Discount On F&B Services</span>
               </div>
               
               <div className="ml-2 p-1 flex gap-x-6">
                 <span><CloseIcon sx={{fontSize : 14 , color: red[500]}} /></span>
-                <span className="ml-1">Non-Refundable</span>
+                <span className="ml-1 lg:text-sm text-xs">Non-Refundable</span>
               </div>
               
             </div>
           </div>
 
           <div className="w-2/6 p-2 ml-2 border border-black h-fit rounded">
-            <h3 className="text-base font-semibold text-black">
+            <h3 className="lg:text-base text-xs lg:font-semibold  font-medium text-black">
               Price Breakup
             </h3>
 
             <div className="flex justify-between items-center mt-2 border-b border-black px-2">
               <div>
-                <p className="font-semibold">1 Room x 1 Night</p>
-                <p className="text-xs">Base Price</p>
+                <p className="lg:font-semibold font-medium lg:text-base text-xs" >1 Room x 1 Night</p>
+                <p className="text-xs hotel-homepage-base-price">Base Price</p>
               </div>
 
-              <div className="text-lg font-semibold text-black">
+              <div className="lg:text-lg  text-xs lg:font-semibold text-black">
                 {`₹ ${hotelPrice}`}
               </div>
             </div>
 
             <div className="flex justify-between items-center mt-2 border-b border-black px-2">
               <div>
-                <p className="font-semibold">Hotel Taxes </p>
+                <p className="lg:font-semibold text-xs">Hotel Taxes </p>
                 
               </div>
 
-              <div className="text-lg font-semibold text-black">
+              <div className="lg:text-lg  text-xs lg:font-semibold text-black">
                 {`₹ ${hotelTax}`}
               </div>
             </div>
 
             <div className="flex justify-between items-center mt-2 bg-slate-300 py-1 px-2">
               <div>
-                <p className="font-semibold">Total Amount to be paid </p>
+                <p className="lg:font-semibold text-xs">Total Amount to be paid </p>
               </div>
 
-              <div className="text-lg font-semibold text-black">
+              <div className="lg:text-lg  text-xs lg:font-semibold text-black">
                 {`₹ ${hotelPrice + hotelTax}`}
               </div>
             </div>

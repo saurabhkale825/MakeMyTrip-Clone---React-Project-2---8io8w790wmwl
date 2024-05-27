@@ -5,3 +5,14 @@
     margin-top: 10%;
     text-align: left;
 }
+
+@media (max-width : 1024px){
+    .google-pay-payment{
+        border-radius: 4px;
+        border: solid 1px #dfdfdf;
+        padding: 20px;
+        margin-top: 10%;
+        text-align: left;
+        width: 70%;
+    }
+}

@@ -108,3 +108,62 @@
   object-position: center;
   border-radius: 8px;
 }
+
+@media (max-width: 1024px){
+  .individual-hotel-content-name{
+    font-size: 3vw;
+  }
+
+  .individual-hotel-content-location{
+    font-size: 1.5vw;
+    margin-top: -10px;
+  }
+
+  .aeminities-item{
+    border: 0.8px solid #676767c2;
+    padding: 2px 5px;
+    border-radius: 5px;
+    background-color: #ffffff4c;
+    color: rgb(0, 0, 0);
+    width: fit-content;
+    width: -moz-fit-content;
+    font-size: min(1vh , 1vw);
+    display: inline;
+  }
+  .individual-hotel-content-rating{
+    width: -moz-fit-content;
+    width: fit-content;
+    height: auto;
+    margin: 10px;
+    color: #1288ff;
+    display: flex;
+    text-align: left;
+    font-size:min(2.2vw , 2.5vh);
+    font-weight: 500;
+    margin-top: 15px;
+  }
+
+  .individual-hotel-content-price{
+    width: 100px;
+    height: 80px;
+    margin-right: 10px;
+    margin-top: 25px;
+  }
+
+  .hotel-base-cost{
+    font-size: 20px;
+    font-weight: 700;
+    color: #000;
+  }
+
+  .hotel-base-text{
+    font-size: 12px;
+    font-weight: 500;
+    color: #585858;
+  }
+
+  .hotel-base-hard{
+    margin-top: 10px;
+    font-size: 1.8vw;
+  }
+}

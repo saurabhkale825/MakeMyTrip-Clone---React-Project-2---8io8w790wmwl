@@ -5,10 +5,6 @@
     padding: 15px;
 }
 
-.border-giftcards{
-   
-}
-
 .indi-gift-card{
     width: 96px;
     border-radius: 4px;
@@ -31,4 +27,53 @@
     align-items: center;
     flex-direction: column;
     text-align: center;
+    font-size: 16px;
+}
+
+@media (max-width : 1024px){
+    .gift-cards{
+        border: 1px solid black;
+        border-radius: 8px;
+        text-align: left;
+        padding: 15px;
+        width: 70%;
+    }
+    
+.indi-gift-card{
+    width: 96px;
+    border-radius: 4px;
+    border: solid 1px #dfdfdf;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    font-size: 12px;
+}
+
+    
+}
+
+@media (max-width : 720px){
+    .gift-cards{
+        border: 1px solid black;
+        border-radius: 8px;
+        text-align: left;
+        padding: 15px;
+        width: 70%;
+    }
+    
+.indi-gift-card{
+    width: 96px;
+    border-radius: 4px;
+    border: solid 1px #dfdfdf;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    font-size: 10px;
+}
 }

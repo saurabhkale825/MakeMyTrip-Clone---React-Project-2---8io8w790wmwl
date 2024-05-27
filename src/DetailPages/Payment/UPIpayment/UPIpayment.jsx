@@ -122,25 +122,25 @@ function UPIpayment() {
       <div className="scanner-container">
         <div className="scanner-container-top">
           <div className="width-selection  flex flex-col items-center justify-between">
-            <h4 className="font-semibold text-black">Scan and pay </h4>
+            <h4 className="font-semibold text-black lg:text-lg text-xs">Scan and pay </h4>
             <div className="scanner-container-internal">
               <img
                 src={Scanner}
                 alt="logo"
-                width="100px"
-                height="100px"
-                className="mb-1"
+                width="90%"
+                height="90%"
+                className="m-1"
               />
             </div>
-            <div className="font-semibold">
+            <div className="lg:font-semibold lg:text-base text-sm">
               Scan and pay using any banking app
             </div>
           </div>
-          <div className="width-selction-second  flex items-center justify-center">
+          <div className="width-selction-second  flex items-center justify-center lg:ml-1 ml-3">
             OR
           </div>
           <div className="width-selection flex flex-col items-center justify-between ">
-            <h4 className="font-semibold text-black">Enter UPI ID</h4>
+            <h4 className="font-semibold text-black lg:text-lg text-xs">Enter UPI ID</h4>
             <div>
               <input
                 type="email"
@@ -165,7 +165,7 @@ function UPIpayment() {
                 </div>
               ) : null}
             </div>
-            <div className="font-semibold">Enter your registered VPA</div>
+            <div className="lg:font-semibold lg:text-base text-sm">Enter your registered VPA</div>
           </div>
         </div>
 
@@ -191,8 +191,8 @@ function UPIpayment() {
         </div>
       </div>
 
-      <div className="px-5 text-left ml-6">
-        <div>
+      <div className="lg:px-5 px-1 text-left lg:ml-6 lg:w-full  w-4/5 ">
+        <div className="lg:text-sm text-xs">
           <span>By coninuing to pay, I understand and agree with the </span>
           <span className="text-blue-500">privacy policy</span>
           <span>, the</span>

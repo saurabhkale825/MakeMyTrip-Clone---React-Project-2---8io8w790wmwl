@@ -84,23 +84,23 @@ function BookNowPage() {
           <div className="book-now-flight-heading">
             <div className="book-now-flight-heading-sub mb">
               <div className="text-left ">
-                <span className="font-semibold text-lg mr-2">
+                <span className="font-semibold lg:text-lg md:text-base text-sm mr-2">
                   {data.source}
                 </span>
                 <span>
                   <ArrowRightAltIcon />
                 </span>
-                <span className="font-semibold text-lg ml-2">
+                <span className="font-semibold lg:text-lg md:text-base text-sm mr-2">
                   {data.destination}
                 </span>
               </div>
               <div className="flex items-center">
-                <div className="book-now-date-section">{`${day} , ${FormatedDate(
+                <div className="book-now-date-section lg:text-base text-xs lg:font-semibold font-medium">{`${day} , ${FormatedDate(
                   startDate
                 )}`}</div>
-                <div className="flex gap-1">
-                  <p>{data.stops}</p>
-                  <p>.</p>
+                <div className="flex gap-1 lg:text-sm text-xs">
+                  <p>{data.stops} stop</p>
+                  <p>-</p>
                   <p>{`${data.duration}hr`}</p>
                 </div>
               </div>
@@ -123,20 +123,20 @@ function BookNowPage() {
                 alt="logo"
                 width="25px"
               />
-              <div className="font-bold">{FormatAirlineName(data.airline)}</div>
-              <div>{data.flightID}</div>
-              <div className="text-xs font-semibold text-gray-500 p-1 border border-black rounded-2xl">
+              <div className="font-bold lg:text-lg text-xs">{FormatAirlineName(data.airline)}</div>
+              <div className="text-s">{data.flightID}</div>
+              <div className="text-s font-semibold text-gray-500 p-1 border border-black rounded-2xl">
                 Airbus A321
               </div>
             </div>
             <div>
-              <span className="text-xs mr-2">{`Economy >`}</span>
-              <span className="color-249995 font-semibold">SAVER</span>
+              <span className="text-s mr-2">{`Economy >`}</span>
+              <span className="color-249995 font-semibold lg:text-base text-xs">SAVER</span>
             </div>
           </div>
 
           <div className="book-now-flight-timing">
-            <div className="flex items-center justify-around  w-1/5 ">
+            <div className="md:flex items-center justify-around  w-1/5  hidden ">
               <div>{data.departureTime}</div>
               <div>
                 <RadioButtonUncheckedIcon sx={{ fontSize: 14 }} />
@@ -144,13 +144,13 @@ function BookNowPage() {
               <div>{data.source}</div>
             </div>
 
-            <div className="border-l-2 border-dashed border-gray-500 w-1/4 h-10 relative flex items-center book-now-filght-duration">
+            <div className="border-l-2 border-dashed border-gray-500 w-1/4 h-10 relative flex items-center book-now-filght-duration md:block hidden">
               <div className="ml-7 text-gray-500 font-thin">
                 {data.duration} hr
               </div>
             </div>
 
-            <div className="flex items-center justify-around  w-1/5">
+            <div className="md:flex items-center justify-around  w-1/5  hidden ">
               <div>{data.arrivalTime}</div>
               <div>
                 <RadioButtonUncheckedIcon sx={{ fontSize: 14 }} />
@@ -169,14 +169,14 @@ function BookNowPage() {
                     />
                   </span>
                   <span className="ml-1">
-                    <span>Cabin Baggage:</span>
-                    <span className="text-xs font-thin ml-2">
+                    <span className="lg:text-base text-xs">Cabin Baggage:</span>
+                    <span className=" lg:text-xs text-s font-thin ml-1">
                       7 Kgs (1 piece only) / Adult
                     </span>
                   </span>
                 </div>
 
-                <div className="flex w-fit">
+                <div className="flex w-fit lg:ml-1 ml-2">
                   <span>
                     <img
                       src="https://imgak.mmtcdn.com/flights/assets/media/dt/review/checkin_baggage_icon.png"
@@ -185,8 +185,8 @@ function BookNowPage() {
                     />
                   </span>
                   <span className="ml-1">
-                    <span>Check-in Baggage:</span>
-                    <span className="text-xs font-thin ml-2">
+                    <span className="lg:text-base text-xs">Check-in Baggage:</span>
+                    <span className="lg:text-xs text-s font-thin ml-1">
                       15 Kgs (1 piece only) / Adult
                     </span>
                   </span>
@@ -196,29 +196,29 @@ function BookNowPage() {
           </div>
         </div>
         <div className="book-now-fare">
-          <h3 className="font-semibold text-lg text-left ">Fare Summary</h3>
+          <h3 className="font-semibold text-heading text-left  ">Fare Summary</h3>
           <div className="border-t border-gray-300 flex justify-between mt-2 pt-2 font-semibold">
             <div>
               <span>
-                <AddCircleOutlineIcon sx={{ fontSize: 20 }} />
+                <AddCircleOutlineIcon sx={{ fontSize: 20 }}  className='toggle-visibility' />
               </span>
-              <span className="ml-1 font-gray-300">Base Fare</span>
+              <span className="lg:ml-1 font-gray-300 text-s">Base Fare</span>
             </div>
-            <span className="font-thin">{`₹ ${data.ticketPrice}`}</span>
+            <span className="font-thin lg:text-sm text-xs lg:ml-0 ml-1">{`₹ ${data.ticketPrice}`}</span>
           </div>
           <div className="border-t border-gray-300 flex justify-between mt-2 pt-2 font-semibold">
           <div>
               <span>
-                <AddCircleOutlineIcon sx={{ fontSize: 20 }} />
+                <AddCircleOutlineIcon sx={{ fontSize: 20 }}  className='toggle-visibility'/>
               </span>
-              <span className="ml-1">Taxes</span>
+              <span className="ml-1 font-gray-300 text-s">Taxes</span>
             </div>
-            <span className="font-thin">{`₹ ${updateTax(data.ticketPrice)}`}</span>
+            <span className="font-thin lg:text-sm text-xs">{`₹ ${updateTax(data.ticketPrice)}`}</span>
           </div>
 
           <div className="border-t border-black flex justify-between  pt-2 font-semibold mt-5">
-            <span className="ml-1">Total Amount </span>
-            <span className="font-semibold ">
+            <span className="lg:ml-1 font-gray-300 text-s">Total Amount </span>
+            <span className="font-thin lg:text-sm text-xs ">
               {`₹${data.ticketPrice + updateTax(data.ticketPrice)}`}
             </span>
           </div>

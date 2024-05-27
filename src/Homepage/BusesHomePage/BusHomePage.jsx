@@ -81,7 +81,7 @@ function BusHomePage() {
                 minDate={new Date()}
               />
             </div>
-            <div className="bus-homepage-hard-text">
+            <div className="bus-homepage-day-text">
               {busTravelDate.toLocaleDateString("en-US", { weekday: "long" })}
             </div>
           </div>

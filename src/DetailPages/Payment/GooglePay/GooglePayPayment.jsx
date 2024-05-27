@@ -109,12 +109,12 @@ function GooglePayPayment() {
         <div>
           <img src={Google} alt='logo' width="50px" />
         </div>
-        <div className='mt-3 flex justify-between items-center p-2'>
-        <div>
+        <div className='mt-3 lg:flex lg:justify-between lg:items-center p-2'>
+        <div className='lg:w-48'>
           <label htmlFor='upiId' className='text-base font-medium text-black mb-2'>Enter UPI ID</label><br/>
-        <input type='email' id="upiId" placeholder='userName@upi' required  className='border border-grey p-2' onChange={(e) => handleGooglePayChange(e)}/>
+        <input type='email' id="upiId" placeholder='userName@upi' required  className='border border-grey p-2 lg:w-40 w-full' onChange={(e) => handleGooglePayChange(e)}/>
         </div>
-        <div className={googlePay === ""?"btn-disabled":"primary-btn"} onClick={Booking}>Verify & Pay</div>
+        <div className={googlePay === ""?"btn-disabled mt-2":"primary-btn mt-2"} onClick={Booking}>Verify & Pay</div>
         </div>
       </div>
 
@@ -129,7 +129,7 @@ function GooglePayPayment() {
               {showConfirmationPage === true ? <div><PaymentContainer /></div> : null}
       
       <div className="px-5 text-left mt-6">
-        <div>
+        <div className='lg:text-base text-xs'>
           <span>By coninuing to pay, I understand and agree with the </span>
           <span className="text-blue-500">privacy policy</span>
           <span>, the</span>

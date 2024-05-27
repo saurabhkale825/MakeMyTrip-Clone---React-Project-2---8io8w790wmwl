@@ -39,3 +39,38 @@
     text-align: left;
 }
 
+.hotel-booking-page-name{
+    font-size: 26px;
+}
+
+.min-w{
+    max-width: 50%;
+}
+
+
+
+@media (max-width: 1024px){
+    .hotel-booking-page-name{
+        font-size: max(3vw,3vh);
+    }
+
+    .hotel-booking-page-location{
+        font-size:min(2.5vw ,14px);
+    }
+
+    .hotel-booking-page-nature{
+        font-size: 8px;
+    }
+
+    .hotel-booking-page-hard-text{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;    
+    }
+
+    .hotel-homepage-base-price{
+        font-size: 8px;
+    }
+    
+    
+}

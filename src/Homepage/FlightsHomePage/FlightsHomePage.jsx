@@ -146,7 +146,7 @@ function FlightsHomePage() {
               }
             >
               <div>
-                <p className="mx-5">From</p>
+                <p className="mx-5 trip-date-text">From</p>
                 <div className="trip-start">{departureCity}</div>
                 <div className="airport">
                   {departureCityAirportId},{departureCityAirport}
@@ -171,7 +171,7 @@ function FlightsHomePage() {
               onClick={() => setShowArrivalAirportList(!showArrivalAirportList)}
             >
               <div>
-                <p className="mx-5">To</p>
+                <p className="mx-5 trip-date-text">To</p>
                 <div className="trip-start">{arrivalCity}</div>
                 <div className="airport">
                   {arrivalCityAirportId},{arrivalCityAirport}
@@ -192,11 +192,10 @@ function FlightsHomePage() {
             ) : null}
 
             <div className="trip-depature">
-              <div>Departure</div>
+              <div className="trip-date-text">Departure</div>
 
               <div>
                 <span className="depature-date">
-                  {" "}
                   <DatePicker
                     label="Depature"
                     className="flights-section-calendar mt-2"
@@ -207,7 +206,7 @@ function FlightsHomePage() {
                   />
                 </span>
               </div>
-              <div className="ml-0 mt-1 text-left">
+              <div className="ml-0 text-left trip-date-text">
                 {startDate.toLocaleDateString("en-US", { weekday: "long" })}
               </div>
             </div>
@@ -215,13 +214,14 @@ function FlightsHomePage() {
             <div className="trip-class">
               <div className="trip-class-heading">
                 <span>Traveller & Class</span>
-                <span>
-                  <KeyboardArrowDownIcon className="trip-class-heading-icon" />
+                <span className="trip-class-heading-icon" >
+                  <KeyboardArrowDownIcon />
                 </span>
               </div>
               <>{showTravellerSection === true ? <TravellerSection /> : null}</>
               <div
                 onClick={() => setShowTravellerSection(!showTravellerSection)}
+                className="trip-class-content"
               >
                 <span className="no-of-passengers">{traveller}</span>
                 <span className="no-of-passengers-text">Traveller</span>

@@ -143,10 +143,10 @@ function HotelHomepage() {
           </div>
           <div className="rooms-guest" onClick={() => setShowRooms(!showRooms)}>
             <div>Rooms & Guests</div>
-            <span className="hotel-location-city">{rooms}</span>
-            <span className="depature-month">Room</span>
-            <span className="hotel-location-city "> {adults}</span>
-            <span className="depature-month">Adults</span>
+            <span className="rooms-guest-no">{rooms}</span>
+            <span className="rooms-guest-text">Room</span>
+            <span className="rooms-guest-no"> {adults}</span>
+            <span className="rooms-guest-text">Adults</span>
           </div>
         </div>
         {showRooms === true ? (

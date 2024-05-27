@@ -117,8 +117,8 @@
     text-align: left;
     font-size: 24px;
     font-weight: 700;
-    margin-bottom: 25px;
-    margin-top: -10px;
+    /* margin-bottom: 25px;
+    margin-top: -10px; */
 }
 
 .hotel-filter-rating-content-options{
@@ -126,4 +126,28 @@
     text-align: left;
     display: flex;
     gap: 10px;
+}
+
+@media (max-width: 1024px){
+    .hotel-details-sorting-innerrbox{
+        width: 98%;
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .sorting-values{
+        font-size: 10px;
+    }
+
+    .explore-on-map{
+        font-size: 8px;
+    }
+
+    .filter-text{
+        font-size: 14px;
+    }
+
+    .hotel-filter-heading{
+        font-size: 14px;
+    }
 }

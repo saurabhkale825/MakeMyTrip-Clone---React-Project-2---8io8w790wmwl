@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./UserDetails.css";
 import { useNavigate, useParams } from "react-router-dom";
 import * as Yup from "yup";
@@ -17,7 +17,6 @@ function UserDetails() {
     address: "",
   });
   const [errors, setErrors] = useState({});
- 
 
   const user = localStorage.getItem("user-info");
   const userData = user ? JSON.parse(user) : null;
@@ -31,17 +30,14 @@ function UserDetails() {
       .email("Invalid email format"),
     phoneNumber: Yup.string()
       .matches(/^\d{10}$/, "Phone Number must be 10 digits")
-      .required("Phone Number is Required")
-      .min(10, "At least 10 number required."),
+      .required("Phone Number is Required"),
     gender: Yup.string().required("Gender is required"),
     pincode: Yup.string()
-      .required("Pincode is Required")
-      .min(6, "PinCode of min length of 6"),
+      .matches(/^\d{6}$/, "Pincode must be 6 digits")
+      .required("Pincode is Required"),
     state: Yup.string().required("State is Required"),
     address: Yup.string().required("Address is required"),
   });
-
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -59,15 +55,14 @@ function UserDetails() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+      setFormData({
+        ...formData,
+        [name]: value,
+      });
   };
-  
 
   return (
-    <div className="user-deatils">
+    <div className="user-detail">
       <h3 className="font-black text-lg font-medium text-left ml-4">
         User Details
       </h3>
@@ -75,17 +70,16 @@ function UserDetails() {
       <div className="text-left user-details-text">
         <span className="font-black font-semibold">Important:</span>
         <span className="text-xs ml-2">
-          {" "}
           Enter name as mentioned on your passport or Government approved IDs.
         </span>
       </div>
 
       <div className="userdetails-maindiv">
-        <form className="w-full h-full">
-          <div className="flex gap-8  w-full p-4  indi-box ">
+        <form className="lg:w-full h-full" onSubmit={handleSubmit}>
+          <div className="flex gap-8 w-full p-4 indi-box">
             <div className="flex flex-col">
               <label htmlFor="firstName" className="text-left mb-2">
-                First Name{" "}
+                First Name
               </label>
               <input
                 type="text"
@@ -95,7 +89,7 @@ function UserDetails() {
                 value={formData.firstName}
                 className="name-input"
                 autoComplete="off"
-                placeholder=" Enter First Name"
+                placeholder="Enter First Name"
                 onChange={handleChange}
               />
               {errors.firstName && (
@@ -109,14 +103,14 @@ function UserDetails() {
               </label>
               <input
                 type="text"
-                id="lastname"
+                id="lastName"
                 name="lastName"
                 className="name-input"
                 onChange={handleChange}
                 value={formData.lastName}
                 required
                 autoComplete="off"
-                placeholder=" Enter Last Name"
+                placeholder="Enter Last Name"
               />
               {errors.lastName && (
                 <div className="error-message">{errors.lastName}</div>
@@ -126,13 +120,14 @@ function UserDetails() {
             <div className="flex items-center gap-6 px-2">
               <select
                 name="gender"
+                id="gender"
                 value={formData.gender}
                 onChange={handleChange}
               >
                 <option value="">Select Gender</option>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
-                <option value="other">other</option>
+                <option value="other">Other</option>
               </select>
               {errors.gender && (
                 <div className="error-message">{errors.gender}</div>
@@ -140,13 +135,13 @@ function UserDetails() {
             </div>
           </div>
 
-          <div className="flex gap-8  w-full p-4 mt-2 indi-box ">
+          <div className="flex gap-8 w-full p-4 mt-2 indi-box">
             <div className="flex flex-col">
               <label htmlFor="mobile" className="text-left mb-2">
-                Mobile Number{" "}
+                Mobile Number
               </label>
               <input
-                type="tel"
+                type="text"
                 id="mobile"
                 name="phoneNumber"
                 maxLength="10"
@@ -154,8 +149,10 @@ function UserDetails() {
                 value={formData.phoneNumber}
                 className="name-input"
                 autoComplete="off"
-                placeholder=" Enter 10 digit Number"
+                placeholder="Enter 10 digit Number"
                 onChange={handleChange}
+                pattern="[0-9]*"
+                inputMode="numeric"
               />
               {errors.phoneNumber && (
                 <div className="error-message">{errors.phoneNumber}</div>
@@ -174,7 +171,7 @@ function UserDetails() {
                 value={formData.email}
                 className="name-input"
                 autoComplete="off"
-                placeholder=" Enter E-mail"
+                placeholder="Enter E-mail"
                 onChange={handleChange}
               />
               {errors.email && (
@@ -183,7 +180,7 @@ function UserDetails() {
             </div>
           </div>
 
-          <div className=" w-full p-4 mt-2 indi-box">
+          <div className="w-full p-4 mt-2 indi-box">
             <h3 className="flex mb-3 items-center">
               <span className="font-semibold text-lg">
                 Your pincode and state
@@ -196,7 +193,7 @@ function UserDetails() {
             <div className="flex gap-8">
               <div className="flex flex-col">
                 <label htmlFor="pincode" className="text-left mb-2">
-                  PinCode{" "}
+                  PinCode
                 </label>
                 <input
                   type="text"
@@ -207,8 +204,10 @@ function UserDetails() {
                   value={formData.pincode}
                   className="name-input"
                   autoComplete="off"
-                  placeholder=" Enter Pincode"
+                  placeholder="Enter Pincode"
                   onChange={handleChange}
+                  pattern="[0-9]*"
+                  inputMode="numeric"
                 />
                 {errors.pincode && (
                   <div className="error-message">{errors.pincode}</div>
@@ -227,7 +226,7 @@ function UserDetails() {
                   required
                   className="name-input"
                   autoComplete="off"
-                  placeholder=" State"
+                  placeholder="State"
                   onChange={handleChange}
                 />
                 {errors.state && (
@@ -247,7 +246,7 @@ function UserDetails() {
                   required
                   className="name-input"
                   autoComplete="off"
-                  placeholder=" Enter Address"
+                  placeholder="Enter Address"
                   onChange={handleChange}
                 />
                 {errors.address && (
@@ -267,3 +266,4 @@ function UserDetails() {
 }
 
 export default UserDetails;
+

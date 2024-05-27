@@ -1,11 +1,8 @@
 import React from "react";
 import "./IndividualHotel.css";
-import ImageGallery from "react-image-gallery";
-import HotelCarousel from "../HotelCarousel/HotelCarousel";
+
 
 function IndividualHotel(hotel) {
-  
-
   const FormatRating = (rating) => {
     if (rating >= 4.5) {
       return "Exceptional";
@@ -53,8 +50,8 @@ function IndividualHotel(hotel) {
 
           <div className="individual-hotel-content-price">
             <div className="hotel-base-cost">₹{Math.floor(hotel?.hotels.avgCostPerNight)}</div>
-            <div>{`+ ₹ ${hotel?.hotels.rooms[0].costDetails.taxesAndFees} taxes & fees `}</div>
-            <div>Per Night for 2 Rooms</div>
+            <div className="hotel-base-text">{`+ ₹ ${hotel?.hotels.rooms[0].costDetails.taxesAndFees} taxes & fees `}</div>
+            <div className="hotel-base-hard">Per Night for 2 Rooms</div>
           </div>
       </div>
     </div>

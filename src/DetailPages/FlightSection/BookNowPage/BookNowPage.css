@@ -48,8 +48,8 @@
 .book-now-date-section{
     background-color: rgb(255, 237, 209);
     padding: 2px 5px;
-    font-size: 14px;
-    font-weight: 700;
+    /* font-size: 14px;
+    font-weight: 700; */
     margin-right: 10px;
 }
 
@@ -97,4 +97,66 @@
     border-top: 1px solid #8a8989;
     padding-top: 12px;
     margin-top: 12px;
+}
+
+.text-heading{
+    font-size: 16px;
+}
+
+.text-s{
+    font-size: 10px;
+}
+
+.toggle-visibility{
+    display: block;
+}
+
+
+@media (max-width:1024px){
+    
+.book-now-flight-sub-right-top{
+    background-image: linear-gradient(to right, rgb(45, 193, 140), rgb(33, 147, 147));
+    color: #fff;
+    text-transform: uppercase;
+    padding: 1px;
+    font-size: 8px;
+    word-spacing: 1px;
+    letter-spacing: 0.2px;
+}
+
+.book-now-flight-sub-right-bottom{
+    all: unset;
+    color: #0091ff;
+    cursor: pointer;
+    margin-top: 10px ;
+    font-size: 10px;
+}
+
+.book-now-flight-timing{
+    width: 97%;
+    height: 55%;
+    padding: 20px 10px;
+    background-color: rgba(156, 155, 155, 0.219);
+    margin: 10px 0 0 10px;
+    color: black;
+    font-weight: 600;
+}
+
+.text-s{
+    font-size: 8px;
+}
+
+.text-heading{
+    font-size: 12px;
+}
+
+.toggle-visibility{
+    display: none;
+}
+}
+
+@media (max-width: 600px){
+    .text-heading{
+        font-size:8px;
+    }
 }

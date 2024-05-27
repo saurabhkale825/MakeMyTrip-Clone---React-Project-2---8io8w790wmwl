@@ -153,29 +153,29 @@ function CardsPayment() {
         </div>
 
         <div className='flex flex-col gap-1'>
-          <label className='text-base font-semibold text-black mt-5'>Name on Card</label>
+          <label className='lg:text-base text-xs lg:font-semibold font-semibold text-black mt-5'>Name on Card</label>
           <input type='text' placeholder='Enter Your Name On Card' required 
           className='border border-gray-400 rounded w-4/5 p-2'  onChange={(e) => setNameOnCard(e.target.value)}/> 
         </div>
 
         <div className='flex gap-x-4 mt-3' >
           <div >
-          <label className='text-base font-semibold text-black mt-5'>Expiry Month & Year</label>
+          <label className='lg:text-base text-xs lg:font-semibold font-semibold text-black mt-5'>Expiry Month & Year</label>
             <div className='flex'>
-            <div className='border border-gray-400 rounded w-40 p-2 flex justify-between'>
+            <div className='border border-gray-400 rounded lg:w-40 md:w-16 w-12 p-2 flex justify-between text-xs'>
               <input type='number' max="12" min="1"  required placeholder='Month' className='w-full border border-gray-50 px-2' onChange={(e) => handleMonthChange(e)}></input>
               
             </div>
-            <div className='border border-gray-400 rounded w-32 p-2 flex justify-between'>
+            <div className='border border-gray-400 rounded lg:w-40 md:w-20  w-12 p-2 flex justify-between'>
             <input type='number' required placeholder='Year' minLength="4" maxLength="4" min="2023" max="2050" className='w-full border border-gray-50 px-2' onChange={(e) => handleYearChange(e)}></input>
             </div>
             </div>
           </div>
 
           <div>
-            <label className='text-base font-semibold text-black mt-5'>Card CVV</label>
+            <label className='lg:text-base text-xs lg:font-semibold font-semibold text-black mt-5'>Card CVV</label>
             <input type= "text"  maxLength="3" placeholder="Enter Card CVV" 
-            className='border border-gray-400 rounded w-40 p-2 flex justify-between' onChange={(e) => handleCVVChange(e)}/>
+            className='border border-gray-400 rounded lg:w-40  md:w-20 w-12 p-2 flex justify-between' onChange={(e) => handleCVVChange(e)}/>
           </div>
         </div>
 
@@ -194,7 +194,7 @@ function CardsPayment() {
               {showConfirmationPage === true ? <div><PaymentContainer /></div> : null}
 
         <div className="px-1 text-left mt-3">
-        <div>
+        <div className='lg:text-base text-xs'>
           <span>By coninuing to pay, I understand and agree with the </span>
           <span className="text-blue-500">privacy policy</span>
           <span>, the</span>

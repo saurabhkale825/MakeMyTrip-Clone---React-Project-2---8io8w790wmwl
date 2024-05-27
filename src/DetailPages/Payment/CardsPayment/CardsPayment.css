@@ -33,3 +33,50 @@
     width: 200px;
     padding: 0 20px;
 }
+
+@media (max-width:1024px){
+    .primary-btn{
+        -webkit-box-align: center;
+        -moz-box-align: center;
+        -webkit-box-pack: center;
+        -moz-box-pack: center;
+        -webkit-align-items: center;
+        align-items: center;
+        border: none;
+        border-radius: 20px;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-box;
+        display: flex;
+        font-weight: 700;
+        -webkit-justify-content: center;
+        justify-content: center;
+        outline: 0;
+        text-transform: uppercase;
+        background-image: -webkit-linear-gradient(354deg, #53b2fe, #065af3);
+        background-image: -moz-linear-gradient(354deg, #53b2fe, #065af3);
+        background-image: linear-gradient(96deg, #53b2fe, #065af3);
+        -webkit-box-shadow: 0 1px 7px 0 rgba(0,0,0,.2);
+        box-shadow: 0 1px 7px 0 rgba(0,0,0,.2);
+        color: #fff;
+        cursor: pointer;
+        height: 40px;
+        width: 10vw;
+        font-size: 10px;
+        padding: 0 20px;
+    }
+
+    .cards-payment{
+        width: 80%;
+        height: 90%;
+        border: 1px solid black;
+    }
+}
+
+@media (max-width:760px){
+    .cards-payment{
+        width: 70%;
+        height: 90%;
+        border: 1px solid black;
+    }
+}

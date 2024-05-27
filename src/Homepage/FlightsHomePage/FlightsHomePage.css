@@ -2,12 +2,12 @@
   position: absolute;
   top: 22vh;
   left: 1%;
-  width:97%;
+  width: 97%;
   height: 50vh;
   border-radius: 8px;
   background-color: white;
   color: #4a4a4a;
-  margin: auto ; 
+  margin: auto;
 }
 
 .trip-route {
@@ -35,39 +35,59 @@
   height: 100%;
   text-align: left;
   border-right: 1px solid #e7e7e7;
-  margin-left: 20px;
+  margin-left: 0px;
+  padding-left: 10px;
   display: flex;
-  align-items: flex-start;
   flex-direction: column;
   justify-content: center;
+  overflow-x: hidden;
+}
+
+.trip-depature-text{
+  margin-bottom: 0px;
 }
 
 .trip-class {
   width: 25vw;
-  height: 105px;
+  height: 100%;
   text-align: left;
-  
+  display: flex;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 20px;
 }
 
 .trip-class-heading {
-  margin-left: 20px;
   cursor: pointer;
 }
 
 .trip-class-heading-icon {
   color: #4885f5;
-  border: 0px solid;
+}
+
+.trip-class-content {
+  width: 80%;
 }
 .flights-section-calendar {
-  width: 150px;
+  width: 90%;
   text-align: left;
-  margin-bottom: 5px;
-  cursor: pointer;
+  margin-bottom: 0px;
+}
+
+.no-of-passengers {
+  font-size: 28px;
+  font-weight: 750;
+  color: black;
+  text-transform: capitalize;
+  width: 20vw;
+  border: none;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .trip-start,
-.trip-destination,
-.no-of-passengers {
+.trip-destination {
   font-size: 28px;
   font-weight: 750;
   margin-left: 20px;
@@ -80,7 +100,7 @@
 }
 
 .depature-date {
-  font-size: 2vw;
+  font-size: 28px;
   font-weight: 700;
   color: #070707c3;
   text-transform: capitalize;
@@ -152,18 +172,16 @@
   cursor: pointer;
 }
 
-.no-of-passengers-text{
+.no-of-passengers-text {
   color: #000000;
-  margin-left: 5px;
   font-size: 20px;
   font-weight: 700;
-
 }
-.no-of-passengers-class{
-  margin-left: 20px;
+.no-of-passengers-class {
+  /* margin-left: 20px; */
   text-transform: capitalize;
 }
-.departure-airport-list{
+.departure-airport-list {
   width: 250px;
   height: 270px;
   z-index: 90;
@@ -173,7 +191,7 @@
   background-color: #fff;
 }
 
-.arrival-airport-list{
+.arrival-airport-list {
   width: 250px;
   height: 270px;
   z-index: 90;
@@ -183,7 +201,7 @@
   background-color: #fff;
 }
 
-#airportList-input{
+#airportList-input {
   width: 90%;
   height: 30px;
   text-align: left;
@@ -193,11 +211,7 @@
   font-weight: 700;
 }
 
-.flights-section-calendar {
-  width: 14vw;
-}
-
-@media (max-width: 1024px){
+@media (max-width: 1024px) {
   .fare-type-content {
     width: 12%;
     font-size: 8px;
@@ -208,7 +222,7 @@
     cursor: pointer;
   }
 
-  .fare-type-text{
+  .fare-type-text {
     margin-left: 5px;
     width: 100%;
   }
@@ -219,5 +233,88 @@
     font-weight: 700;
     color: #000000;
     text-align: left;
+  }
+
+  .search-button {
+    width: 16vw;
+    padding: 10px;
+    margin-bottom: -32px;
+    opacity: 1;
+    color: #fff;
+    border-radius: 34px;
+    background: linear-gradient(93deg, #53b2fe, #065af3);
+    box-shadow: 0 1px 7px 0 rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    flex-shrink: 0;
+    color: #fff;
+    text-transform: uppercase;
+    cursor: pointer;
+    outline: 0;
+    border: 0;
+    text-align: center;
+    position: relative;
+    top: -11.5vh;
+    font-size: 12px;
+  }
+
+  .trip-date-text {
+    font-size: 12px;
+  }
+
+  .no-of-passengers ,.no-of-passengers-text{
+    font-size: 4vw;
+    font-weight: 750;
+    color: black;
+    text-transform: capitalize;
+    /* width: 20vw; */
+    border: none;
+    white-space: nowrap;
+    overflow-x: hidden;
+  }
+
+  .trip-start,
+  .trip-destination {
+    font-size: 22px;
+    font-weight: 750;
+    margin-left: 20px;
+    color: black;
+    text-transform: capitalize;
+    width: 20vw;
+    border: none;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  .depature-date {
+    font-size: 22px;
+    font-weight: 700;
+    color: #070707;
+    text-transform: capitalize;
+    width: 10vw;
+    margin-bottom: 0px;
+    overflow-x: hidden;
+  }
+
+  .flights-section-calendar {
+    width: 90%;
+    text-align: left;
+    font-size: 20px;
+  }
+
+  .trip-class-heading {
+    cursor: pointer;
+    font-size: 12px;
+
+  }
+
+  .trip-class-heading-icon {
+    display: none;
+  }
+
+  .trip-class-content{
+   overflow-x: hidden;
+  }
+
+  .no-of-passengers-class{
+    font-size: 12px;
   }
 }

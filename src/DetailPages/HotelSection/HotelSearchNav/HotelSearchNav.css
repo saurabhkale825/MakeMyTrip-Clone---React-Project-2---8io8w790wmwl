@@ -1,5 +1,6 @@
 .hotel-search-nav{
     position: sticky;
+    position: moz-sticky;
     width:100%;
     height: 100px;
     left: 0;
@@ -46,13 +47,12 @@
 
 .search-nav-label{
     color: #0084ff;
-    padding: 4px 9px 5px;
+    padding: 4px 5px 5px;
     text-transform: uppercase;
     font-size: 12px;
     line-height: 12px;
     font-weight: 700;
     opacity: 1;
-    /* border: 1px solid red; */
     display: flex;
     justify-content: space-between;   
     align-items: center;
@@ -74,4 +74,45 @@
     text-transform: capitalize;
     transition: all .5s linear;
 
+}
+
+.location-city{
+    margin-left: 0.9vw;
+    font-size: 1.8vw;
+}
+
+.hotel-serach-nav-text{
+    font-size: 16px;
+}
+
+
+@media (max-width: 1024px){
+    .search-nav-label span{
+        font-size: 12px;
+        text-align: left;
+    }
+
+    .location-city{
+        margin-left: 2vw;
+        font-size: 3vw;
+
+    }
+
+    .hotel-serach-nav-text{
+        font-size: 12px;
+    }
+
+    .search-nav-label{
+        color: #0084ff;
+    padding: 4px 5px 5px;
+    text-transform: uppercase;
+    font-size: 10px;
+    line-height: 10px;
+    font-weight: 500;
+    opacity: 1;
+    display: flex;
+    justify-content: space-between;   
+    align-items: center;
+    width: 90%;
+    }
 }

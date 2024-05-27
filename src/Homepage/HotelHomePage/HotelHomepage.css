@@ -8,7 +8,6 @@
     background-color: white;
     color: #4a4a4a;
     margin: auto ;
-    /* border: 3px solid red; */
 }
 
 .hotel-homepage-heading{
@@ -21,7 +20,7 @@
 .hotel-homepage-content{
     display: flex;
     margin-top: 50px;
-    
+    height: 40%;
 }
 
 .hotel-location{
@@ -40,7 +39,7 @@
 }
 
 .hotel-location-text{
-    font-size: 14px;
+    font-size: 12px;
     color: #4a4a4a;
 }
 
@@ -50,8 +49,10 @@
     margin-left: -5px;
     color: black;
     text-transform: capitalize;
-    width: 200px;
+    width: 100%;
     border: none;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .check-in ,.check-out {
@@ -67,7 +68,7 @@
     display: block;
 }
 .rooms-guest{
-    width: 200px;
+    width: 20%;
     min-height: 95px;
     position: relative;
     text-align: left;
@@ -105,4 +106,95 @@
 
 .button-disabled{
     cursor: no-drop;
+}
+
+.rooms-guest-no{
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.rooms-guest-text{
+    font-size: 20px;
+    font-weight: 400;
+}
+@media (max-width: 1024px){
+
+    .hotel-homepage{
+        position: absolute;
+        top: 22vh;
+        left: 1%;
+        width:97%;
+        height: 47vh;
+        border-radius: 8px;
+        background-color: white;
+        color: #4a4a4a;
+        margin: auto ;
+    }
+
+    .hotel-homepage-heading{
+        display: flex;
+        width: 80%;
+        justify-content: space-evenly;
+        margin-top: 10vh;
+        font-size: 10px;
+    }
+    .hotel-homepage-content{
+        display: flex;
+        margin-top: 20px;
+        height: auto;
+    }
+
+    .hotel-location-text{
+        font-size: 10px;
+        color: #4a4a4a;
+    }
+
+    .check-in ,.check-out {
+        width: 20%;
+        min-height: 97px;
+        border-right: solid 1px #e7e7e7;
+        position: relative;
+        text-align: left;
+        padding: 15px;
+        font-size: 10px;
+    }
+
+    .flights-section-calendar{
+        font-size: 2.5vw;
+    }
+
+    .hotel-location-city{
+        font-size: 24px;
+        font-weight: 750;
+        margin-left: -5px;
+        color: black;
+        text-transform: capitalize;
+        width: 100%;
+        border: none;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    .rooms-guest{
+        width: 20%;
+        min-height: 95px;
+        position: relative;
+        text-align: left;
+        display: inline;
+    }
+
+    .rooms-guest div{
+        display: block;
+        font-size: 8px;
+        font-weight: 400;
+    }
+
+    .rooms-guest-no{
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    .rooms-guest-text{
+        font-size: 14px;
+        font-weight: 600;
+    }
 }

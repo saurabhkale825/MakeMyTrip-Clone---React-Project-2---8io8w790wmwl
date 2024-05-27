@@ -39,8 +39,8 @@ function Payment() {
           </div>
           </Link>
           <div>
-            <span className="text-lg text-white">Hey,</span>
-            <span className="text-teal-600 ml-1">
+            <span className="lg:text-lg text-sm text-white">Hey,</span>
+            <span className="text-teal-600 lg:text-base text-xs ml-1">
               You are viewing this booking at the best price
             </span>
           </div>
@@ -49,7 +49,7 @@ function Payment() {
           <span>
             <img src={logo} alt="logo" width="30px" />
           </span>
-          <span className="font-semibold  text-white ml-2">
+          <span className="font-semibold  lg:text-lg text-xs text-white ml-2">
             Safe and secure
           </span>
         </div>
@@ -57,7 +57,7 @@ function Payment() {
 
       <div className="payment-content">
         <div className="payment-option pr-2 ">
-          <h3 className="text-xl pb-4 font-black font-bold h-1/10 border-b border-black w-full text-left p-2">
+          <h3 className="lg:text-xl md:text-base text-sm pb-4 font-black font-bold h-1/10 border-b border-black w-full text-left p-2">
             Payment Option
           </h3>
           <div className=" flex flex-col pt-2 h-full w-full">
@@ -66,10 +66,10 @@ function Payment() {
                 <img src={UPI} alt="logo" width="30px" />
               </div>
               <div className="text-left">
-                <div className="text-lg font-semibold text-blue-600">
+                <div className="lg:text-lg text-sm font-semibold text-blue-600">
                   UPI Options
                 </div>
-                <p className="font-black font-semibold text-xs">
+                <p className="font-black lg:font-medium font-medium text-xs lg:block hidden">
                   Pay Directly From Your Bank Account
                 </p>
               </div>
@@ -80,10 +80,10 @@ function Payment() {
                 <img src={Credit} alt="logo" width="30px" />
               </div>
               <div className="text-left">
-                <div className="text-lg font-semibold text-blue-600">
+                <div className="text-format font-semibold text-blue-600 ">
                   Credit/Debit/ATM Card
                 </div>
-                <p className="font-black font-semibold text-xs">
+                <p className="font-black lg:font-medium font-medium text-xs lg:block hidden">
                   Visa,MAsterCard,Amex,Rupay And More
                 </p>
               </div>
@@ -94,10 +94,10 @@ function Payment() {
                 <img src={BNPL} alt="logo" width="40px" height="40px" />
               </div>
               <div className="text-left w-4/5">
-                <div className="text-lg font-semibold text-blue-600">
+                <div className="lg:text-lg text-sm font-semibold text-blue-600">
                   Book Now Pay Later
                 </div>
-                <p className="font-black font-semibold text-xs ">
+                <p className="font-black lg:font-medium font-medium text-xs lg:block hidden">
                   Tripmoney,Lazypay,Simpl,ZestMoney
                 </p>
               </div>
@@ -108,10 +108,10 @@ function Payment() {
                 <img src={NetBanking} alt="logo" width="30px" />
               </div>
               <div className="text-left w-4/5">
-                <div className="text-lg font-semibold text-blue-600">
+                <div className="lg:text-lg text-sm font-semibold text-blue-600">
                   Net Banking
                 </div>
-                <p className="font-black font-semibold text-xs">
+                <p className="font-black lg:font-medium font-medium text-xs lg:block hidden">
                   All Major Banks Available
                 </p>
               </div>
@@ -122,10 +122,10 @@ function Payment() {
                 <img src={GiftCard} alt="logo" width="30px" />
               </div>
               <div className="text-left w-4/5">
-                <div className="text-lg font-semibold text-blue-600">
+                <div className="lg:text-lg text-sm font-semibold text-blue-600">
                   Gift Cards,Wallets & More
                 </div>
-                <p className="font-black font-semibold text-xs">
+                <p className="font-black lg:font-medium font-medium text-xs lg:block hidden">
                   Gift cards, AmazonPay
                 </p>
               </div>
@@ -140,10 +140,10 @@ function Payment() {
                 />
               </div>
               <div className="text-left w-4/5">
-                <div className="text-lg font-semibold text-blue-600">
+                <div className="lg:text-lg text-sm font-semibold text-blue-600">
                   GooglePay
                 </div>
-                <p className="font-black font-semibold text-xs">
+                <p className="font-black lg:font-medium font-medium text-xs lg:block hidden">
                   Pay with Google Pay
                 </p>
               </div>

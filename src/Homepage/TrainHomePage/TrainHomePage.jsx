@@ -84,7 +84,7 @@ function TrainHomePage() {
                 minDate={new Date()}
               />
             </div>
-            <div className="m-1 text-xs">{trainDay}</div>
+            <div className="text-xs">{trainDay}</div>
           </div>
         </div>
         <Link to={"/trains/details"}>

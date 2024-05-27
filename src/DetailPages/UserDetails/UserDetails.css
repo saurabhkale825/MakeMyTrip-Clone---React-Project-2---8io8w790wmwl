@@ -1,10 +1,9 @@
-.user-deatils{
+.user-deatil{
     width: 80%;
     height: max-content;
     margin: 1% 10%;
     background-color: transparent;
-    /* border: 1px solid black; */
-    padding: 10px 10px 50px 10px;
+    /* padding: 10px 10px 50px 10px; */
 }
 
 .user-details-text{
@@ -26,7 +25,7 @@
     height: 700px;
 }
 
-#email , #firstName , #lastname , #mobile , #state , #pincode , #address{
+#email , #firstName , #lastName ,#mobile , #state , #pincode , #address{
     border-radius: 4px;
     border: 1px solid hsla(0, 0%, 60.8%, .5);
     padding: 10px;
@@ -69,4 +68,67 @@
 .error-message{
     color: red;
     text-align: left;
+}
+
+@media (max-width : 1024px){
+    #email , #firstName , #lastName , #mobile , #state , #pincode , #address{
+        border-radius: 4px;
+        border: 1px solid hsla(0, 0%, 60.8%, .5);
+        padding: 10px;
+        color: #4a4a4a;
+        outline: 0;
+        width: 25vw;
+        font-size: 14px;
+    }
+
+     #state , #pincode , #address{
+        border-radius: 4px;
+        border: 1px solid hsla(0, 0%, 60.8%, .5);
+        padding: 10px;
+        color: #4a4a4a;
+        outline: 0;
+        width: 20vw;
+        font-size: 12px;
+    }
+
+    #gender{
+        border-radius: 4px;
+        /* border: 1px solid hsla(0, 0%, 60.8%, .5); */
+        padding: 10px;
+        color: #4a4a4a;
+        outline: 0;
+        width: 10vw;
+        font-size: 12px;
+    }
+
+    .indi-box{
+        border: 1px solid hsla(0, 0%, 60.8%, .5);
+        box-shadow: 0 1px 4px #00000036;
+        margin-left: 25px;
+        width: 90vw;
+        margin-top: 20px;
+    }
+
+    
+.userdetails-submit-button{
+    display: flex;
+    border-radius: 35px;
+    box-shadow: 0 1px 7px 0 rgba(0,0,0,.22);
+    cursor: pointer;
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    height: 40px;
+    padding: 0 20px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    font-weight: 700;
+    background-image: linear-gradient(97deg, #53b2fe, #065af3 130%);
+    width: 25%;
+    position: relative;
+    top: 20px;
+    left: 70%;
+}
 }

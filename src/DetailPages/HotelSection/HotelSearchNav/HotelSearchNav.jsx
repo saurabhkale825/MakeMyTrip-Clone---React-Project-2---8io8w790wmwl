@@ -9,11 +9,7 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
 function HotelSearchNav() {
     const {location, setLocation , checkin , checkout ,rooms , adults} = useContext(HotelContext);
-    // const [selectedInput , setSelectedInput] = useState(false);
 
-    // const HandleChangeLocation = (e) =>{
-    //     setTimeout((setLocation(e.target.value))),500
-    // }
 
     const FormatedDate = (date) => format(date, "dd MMM''yy");
 
@@ -25,36 +21,28 @@ function HotelSearchNav() {
                 <span >City , area or property</span>
                 <span><KeyboardArrowDownIcon /></span>
                 </div>
-                <div className='text-white font-bold text-xl text-left ml-2 capitalize'>{location}</div>
+                <div className='text-white font-bold  text-left capitalize location-city'>{location}</div>
             </div>
-            {/* {selectedInput === true ?<div>
-                <input type='name'
-                    value={location}
-                    // onChange={(e) => HandleChangeLocation(e)}
-                    autoComplete='off'
-                    className='hotel-search-nav-input-container'
-                ></input>
-            </div>:null} */}
         </div>
 
         <div className='hotel-search-nav-checkin-inputbox'>
         
         <div className='flex-col '>
                 <div className="search-nav-label">Check-In</div>
-                <div className='text-white font-bold text-xl text-left ml-2 mt-2'>{FormatedDate(checkin)}</div>
+                <div className='text-white font-bold  text-left ml-2 mt-2 hotel-serach-nav-text'>{FormatedDate(checkin)}</div>
            </div>
         </div>
         
         <div className='hotel-search-nav-checkout-inputbox'>
         <div className='flex-col '>
                 <div className="search-nav-label">Check-Out</div>
-                <div className='text-white font-bold text-xl text-left ml-2 mt-2'>{FormatedDate(checkout)}</div>
+                <div className='text-white font-bold text-left ml-2 mt-2 hotel-serach-nav-text'>{FormatedDate(checkout)}</div>
            </div>
         </div>
         <div className='hotel-search-nav-room-inputbox'>
         <div  className='flex-col ' >
                 <div className="search-nav-label">Rooms</div>
-                <div className='text-white font-bold text-sm text-left ml-2 mt-3'> {rooms} Rooms {adults} Adults </div>
+                <div className='text-white font-bold  text-left ml-2 hotel-serach-nav-text'> {rooms} Rooms {adults} Adults </div>
            </div>
         </div>
 

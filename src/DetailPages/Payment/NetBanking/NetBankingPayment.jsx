@@ -167,7 +167,7 @@ function NetBankingPayment() {
               {showConfirmationPage === true ? <div><PaymentContainer /></div> : null}
 
       <div className="px-5 text-left ml-6 mt-4">
-        <div>
+        <div className='lg:text-base text-xs'>
           <span>By coninuing to pay, I understand and agree with the </span>
           <span className="text-blue-500">privacy policy</span>
           <span>, the</span>
