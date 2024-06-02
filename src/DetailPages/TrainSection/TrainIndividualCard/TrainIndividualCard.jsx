@@ -34,12 +34,12 @@ function TrainIndividualCard(Trains) {
         <div className="train-individual-cart-name">
           <h2 className="trainName">{Trains?.Trains.trainName}</h2>
           <div className="flex items-between flex-col">
-            <span className="trainNumber text-xs">{`${Trains?.Trains.trainNumber}`}</span>
-            <div className="flex justify-between items-center text-xs">
-              <div>
+            <span className="trainNumber text-s">{`${Trains?.Trains.trainNumber}`}</span>
+            <div className="lg:flex justify-between items-center text-xs hidden">
+              <div className="text-xs">
                 departs on:
                 {Trains?.Trains.daysOfOperation?.map((item , index) => (
-                  <span className="xl-1" key={index}>{FormatDay(item)} </span>
+                  <span className="xl-1 text-s" key={index}>{FormatDay(item)} </span>
                 ))}
               </div>
             </div>
@@ -47,30 +47,30 @@ function TrainIndividualCard(Trains) {
         </div>
 
         <div className="train-departure-time">
-          <div className="text-lg font-bold">{Trains?.Trains.departureTime}</div>
-          <div className="text-xs">{Trains?.Trains.source}</div>
+          <div className="lg:text-lg text-sm font-bold">{Trains?.Trains.departureTime}</div>
+          <div className="text-s">{Trains?.Trains.source}</div>
         </div>
-        <div className="empty-space mx-2"></div>
+        <div className="empty-space mx-2  lg:block hidden"></div>
         <div className="train-duration ">
-          <div className="text-lg font-bold">{Trains?.Trains.travelDuration}</div>
-          <div className="text-xs text-blue-700 font-semibold ml-1">
+          <div className="lg:text-lg text-xs lg:font-bold font-medium">{Trains?.Trains.travelDuration}</div>
+          <div className="text-s text-blue-700 font-semibold ml-1">
             View Route
           </div>
         </div>
-        <div className="empty-space mx-2"></div>
+        <div className="empty-space mx-2 lg:block hidden"></div>
         <div className="train-arrival-time ">
-          <div className="text-lg font-bold">{Trains?.Trains.arrivalTime}</div>
-          <div className="text-xs ">{Trains?.Trains.destination}</div>
+          <div className="lg:text-lg text-sm font-bold">{Trains?.Trains.arrivalTime}</div>
+          <div className="text-s ">{Trains?.Trains.destination}</div>
         </div>
 
         <div className="train-fare">
-          <div className="text-xs font-normal">Train Fare</div>
+          <div className="text-s lg:font-semibold font-normal">Train Fare</div>
           <div className="train-fare-content"> ₹{Trains?.Trains.fare}</div>
         </div>
 
         <div className="train-availableSeats">
           <div className="update-seat">Available Seats </div>
-          <div className="text-xl text-sky-500">{Trains?.Trains.availableSeats}</div>
+          <div className="lg:text-xl text-sky-500">{Trains?.Trains.availableSeats}</div>
         </div>
       </div>
 
@@ -79,10 +79,10 @@ function TrainIndividualCard(Trains) {
           <Link to={`/railways/bookingpage/${Trains?.Trains._id}`}>
           <div className="individual-coach-details" key={coach._id}  onClick={() => UpdateSeats(coach.coachType , coach.numberOfSeats)}>
             <div className="flex justify-between items-center">
-              <div className="text-lg font-semibold text-black">
+              <div className="lg:text-lg text-xs font-semibold text-black">
                 {coach.coachType}
               </div>
-              <div className="text-xs text-sky-500">
+              <div className="text-s text-sky-500">
                 <span>AVL </span>
                 <span>{coach.numberOfSeats}</span>
               </div>

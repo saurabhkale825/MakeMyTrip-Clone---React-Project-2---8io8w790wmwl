@@ -1,0 +1,30 @@
+.download-app{
+    width: 98%;
+    height: 25vh;
+    margin: 1vh 1%;
+    background-color: white;
+    border-radius: 16px;
+    display: flex;
+    position: relative;
+    top: 5vh;
+}
+
+.download-app-left{
+    width: 70%;
+    height: 100%;
+    display: block;
+}
+
+.download-app-right{
+    width: 30%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+
+#mobile-homepage{
+    height: 35px;
+    border: 1px solid rgb(255, 255, 255);
+    margin-left: 5px;
+}

@@ -11,6 +11,7 @@ import TrainContext from "../../Context/TrainContext";
 import DestinationTrainStationList from "./DestinationTrainStation";
 import { Link } from "react-router-dom";
 import MyContext from "../../Context/MyContext";
+import DownloadApp from "../../DownloadApp/DownloadApp";
 
 function TrainHomePage() {
   const [showCalender, setShowCalender] = useState(false);
@@ -92,6 +93,7 @@ function TrainHomePage() {
         </Link>
       </div>
       <OfferSection />
+      <DownloadApp />
       <Footer />
     </>
   );

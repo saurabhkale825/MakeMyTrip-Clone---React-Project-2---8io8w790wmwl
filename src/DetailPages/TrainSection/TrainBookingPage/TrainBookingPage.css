@@ -17,3 +17,21 @@
     align-items: center;
     padding: 0 10%;
 }
+
+.text-medium-font{
+    font-size: 16px;
+}
+
+.text-medium-text{
+    font-size: 14px;
+}
+
+@media (max-width : 1024px) {
+    .text-medium-font{
+        font-size: 10px;
+    } 
+
+    .text-medium-text{
+        font-size: 8px;
+    }
+}

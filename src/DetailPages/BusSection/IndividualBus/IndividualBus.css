@@ -31,7 +31,6 @@
     font-weight: 700;
     line-height: 16px;
     color: black;
-
 }
 
 
@@ -63,7 +62,7 @@
     width: 30px;
     height: 2px;
     background-color: #e7e7e7;
-
+    margin-top: 30%;
 }
 
 .individual-bus-fare{
@@ -171,4 +170,24 @@
     cursor: pointer;
     background: rgb(0, 140, 255);
     border: 1px solid rgb(0, 140, 255);
+}
+
+@media (max-width:1024px){
+    .time-seperator{
+       display: none;
+    }
+    .bus-name{
+        font-size:12px;
+        font-weight: 600;
+        line-height: 14px;
+        color: black;
+    }
+
+    .individual-bus-middle-right-text{
+        display: inline-block;
+        font-size: 10px;
+        line-height: 12px;
+        color: rgb(0, 0, 0);
+    }
+    
 }

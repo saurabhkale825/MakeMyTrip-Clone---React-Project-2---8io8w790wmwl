@@ -66,9 +66,9 @@ function BusBookingPage() {
                     <div className="flex">
                     <div className="ml-2 bg-cyan-600 px-2">
                         <span><StarIcon  sx={{fontSize : 12 , color : grey[50]}} /></span>
-                        <span className="ml-1 text-white font-semibold">4.6</span>
+                        <span className="ml-1 text-white font-semibold text-medium">4.6</span>
                     </div>
-                    <div className="ml-2 text-black">601 Ratings</div>
+                    <div className="ml-2 text-black lg:text-sm text-xs">601 Ratings</div>
                     </div>
 
                     <div><img src={Primo} alt="logo" width="80px" /></div>
@@ -77,29 +77,29 @@ function BusBookingPage() {
                 <div className="flex items-center border mt-5 ">
                     <div className="w-2/5">
                         <p className="text-black font-semibold ">{bus.departureTime}</p>
-                        <div>{bus.source}</div>
+                        <div className="text-medium">{bus.source}</div>
                     </div>
 
-                    <div className="border border-black p-1 w-fit h-fit ">8 h 40 min</div>
+                    <div className="border border-black p-1 w-fit h-fit text-medium">8 h 40 min</div>
 
                     <div className="w-2/5">
                         <p className="text-black font-semibold ">{bus.arrivalTime}</p>
-                        <div>{bus.destination}</div>
+                        <div  className="text-medium">{bus.destination}</div>
                     </div>
                 </div>
             </div>
 
             <div className="w-1/3 border border-black rounded-xl p-3 text-left h-fit relative top-5 right-5 ">
-                <h3 className="text-lg font-semibold text-black border-b border-black">Price Breakup</h3>
+                <h3 className="lg:text-lg text-sm font-semibold text-black border-b border-black">Price Breakup</h3>
 
                 <div className="w-full py-3 flex justify-between border-b border-zinc-400 px-2">
-                    <div>Base Fare</div>
-                    <div className="text-sm font-semibold text-black">{`₹${bus.fare}`}</div>
+                    <div className="text-xs lg:text-base">Base Fare</div>
+                    <div className="lg:text-sm text-xs font-semibold text-black">{`₹${bus.fare}`}</div>
                 </div>
 
                 <div className="w-full py-3 flex justify-between bg-gray-100 px-2">
-                    <div className="text-black font-semibold">Total Amount</div>
-                    <div className="text-base font-semibold text-black">{`₹${bus.fare}`}</div>
+                    <div className="text-black font-semibold text-xs lg:text-base">Total Amount</div>
+                    <div className="lg:text-sm text-xs font-semibold text-black">{`₹${bus.fare}`}</div>
                 </div>
             </div>
       </div>
@@ -107,14 +107,14 @@ function BusBookingPage() {
       <div className="w-4/5 m-auto h-16 border bg-primo text-left">
         <div className="flex items-center ">
             <div><img  src="https://jsak.mmtcdn.com/bus_cdn_dt/static/media/double_tick_white.8b9d3d2b.svg" alt="logo" width="15px"/></div>
-            <div className="flex text-white items-center text-sm text-left  ml-3">
-                <p>You have selected a</p>
+            <div className="flex text-white items-center lg:text-sm text-xs text-left  ml-3">
+                <p >You have selected a</p>
                 <p className="ml-1"><img src="https://jsak.mmtcdn.com/bus_cdn_dt/static/media/bus_primo_transparent.4fc16f60.svg" alt="logo" width="40px" /></p>
                 <p className="ml-1">bus for travel.</p>
             </div>
         </div>
 
-        <div className="ml-7 text-white">This bus is best-in-class when it comes to comfort ans amenities.</div>
+        <div className="ml-7 text-white lg:text-sm text-xs">This bus is best-in-class when it comes to comfort ans amenities.</div>
       </div>
       <UserDetails />
     </div>

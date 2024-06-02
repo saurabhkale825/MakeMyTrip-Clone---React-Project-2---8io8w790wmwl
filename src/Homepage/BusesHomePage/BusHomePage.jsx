@@ -14,6 +14,8 @@ import SourceBusStand from "./SourceBusStand";
 import BusContext from "../../Context/BusContext";
 import DestinationBusStand from "./DestinationBusStand";
 import MyContext from "../../Context/MyContext";
+import DownloadApp from "../../DownloadApp/DownloadApp";
+import BusLocation from "../../SpecialComponents/BuspageLocation/BusLocation";
 
 function BusHomePage() {
     const {busSource,
@@ -92,6 +94,8 @@ function BusHomePage() {
       </div>
 
       <OfferSection />
+      <DownloadApp />
+      <BusLocation />
       <Footer />
     </>
   );

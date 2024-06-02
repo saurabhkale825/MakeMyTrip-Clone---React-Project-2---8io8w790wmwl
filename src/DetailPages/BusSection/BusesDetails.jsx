@@ -61,16 +61,16 @@ function BusesDetails() {
       <div className="bus-details">
         <div className="bus-filter-container">
           <div className="bus-filter-container-heading">
-            <div className="text-lg font-semibold text-black">Filters</div>
-            <div className="text-sm text-blue-500 cursor-pointer" onClick={updateClearAll}>
+            <div className="lg:text-lg text-sm font-semibold text-black">Filters</div>
+            <div className="lg:text-sm text-xs text-blue-500 cursor-pointer mr-1" onClick={updateClearAll}>
               Clear All
             </div>
           </div>
 
           <div className="bus-filter-container-section">
-            <h3 className="ml-3 text-base font-semibold mb-2">Sort</h3>
+            <h3 className="ml-3 lg:text-base text-sm font-semibold mb-2">Sort</h3>
             <div className="py-1 w-full">
-              <div className="flex justify-around py-1">
+              <div className="flex justify-around items-center py-1">
                 <div onClick={() => setSort(`"fare":1`)}>
                   {sort === `"fare":1` ? (
                     <CheckBoxIcon />
@@ -78,9 +78,9 @@ function BusesDetails() {
                     <CheckBoxOutlineBlankIcon />
                   )}
                 </div>
-                <div>Price (Low to High)</div>
+                <div className="lg:text-base text-xs">Price (Low to High)</div>
               </div>
-              <div className="flex justify-around py-1">
+              <div className="flex justify-around items-center py-1">
                 <div onClick={() => setSort(`"fare":-1`)}>
                   {sort ===`"fare":-1` ? (
                     <CheckBoxIcon />
@@ -88,9 +88,9 @@ function BusesDetails() {
                     <CheckBoxOutlineBlankIcon />
                   )}
                 </div>
-                <div>Price (High to Low)</div>
+                <div className="lg:text-base text-xs">Price (High to Low)</div>
               </div>
-              <div className="flex justify-around py-1">
+              <div className="flex justify-around items-center py-1">
                 <div onClick={() => setSort(`"departureTime":1`)}>
                   {sort ===`"departureTime":1` ? (
                     <CheckBoxIcon />
@@ -98,28 +98,28 @@ function BusesDetails() {
                     <CheckBoxOutlineBlankIcon />
                   )}
                 </div>
-                <div>Departure(Earliest)</div>
+                <div className="lg:text-base text-xs">Departure(Earliest)</div>
               </div>
               
             </div>
           </div>
 
           <div className="bus-filter-container-section">
-            <h3 className="ml-3 text-base font-semibold mb-2">AC</h3>
+            <h3 className="ml-3 lg:text-base text-sm font-semibold mb-2">AC</h3>
             <div className="flex justify-around items-center gap-5 ml-2 mb-3">
               <div className={filter === `"type":"AC"`?"bus-individual-filter activeSlot":"bus-individual-filter"} onClick={() => setFilter(`"type":"AC"`)}>
                 <div><img src={Ac} alt="logo" width="25px"/></div>
-                <div className="ml-2">AC</div>
+                <div className="mx-2 lg:text-sm text-medium">AC</div>
               </div>
               <div className={filter === `"type":"Non-AC"`?"bus-individual-filter activeSlot":"bus-individual-filter"}  onClick={() => setFilter(`"type":"Non-AC"`)}>
                 <div><img src={NonAc} alt="logo" width="25px"/></div>
-                <div className="ml-2">Non AC</div>
+                <div className="mx-2 lg:text-sm text-medium">Non AC</div>
               </div>
             </div>
           </div>
 
           <div className="bus-filter-container-section">
-            <h3 className="ml-3 text-base font-semibold mb-2">{`Pick up Time-${busSource}`}</h3>
+            <h3 className="ml-3 lg:text-base text-sm font-semibold mb-2">{`Pick up Time-${busSource}`}</h3>
             <div className="timeFilterOptionsContainer">
               <div className={filter === `"departureTime":{"$gte":"06:00","$lte":"11:00"}`?"time-filter-option activeSlot":"time-filter-option"} onClick={() => setFilter(`"departureTime":{"$gte":"06:00","$lte":"11:00"}` )}>
                 <div >
@@ -149,7 +149,7 @@ function BusesDetails() {
           </div>
 
           <div className="bus-filter-container-section">
-            <h3 className="ml-3 text-base font-semibold mb-2">{`Pick up Time-${busDestination}`}</h3>
+            <h3 className="ml-3 lg:text-base text-sm font-semibold mb-2">{`Pick up Time-${busDestination}`}</h3>
             <div className="timeFilterOptionsContainer">
               <div  className={filter === `"arrivalTime":{"$gte":"06:00","$lte":"11:00"}`?"time-filter-option activeSlot":"time-filter-option"} onClick={() => setFilter(`"arrivalTime":{"$gte":"06:00","$lte":"11:00"}` )}>
                 <div>

@@ -98,7 +98,7 @@ function BookNowPage() {
                 <div className="book-now-date-section lg:text-base text-xs lg:font-semibold font-medium">{`${day} , ${FormatedDate(
                   startDate
                 )}`}</div>
-                <div className="flex gap-1 lg:text-sm text-xs">
+                <div className="lg:flex lg:gap-1 lg:text-sm  hidden">
                   <p>{data.stops} stop</p>
                   <p>-</p>
                   <p>{`${data.duration}hr`}</p>

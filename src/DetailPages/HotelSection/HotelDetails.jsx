@@ -129,27 +129,27 @@ function HotelDetails() {
                   <div className="hotel-filter-rating-content">
                     <div className="hotel-filter-rating-content-options" onClick={() => setSelectedHotelFilter(`"rating":5`)}>
                       <span>{selectedHotelFilter === `"rating":5`? <CheckBox /> : <CheckBoxOutlineBlank/>}</span>
-                      <span>Exceptional</span>
+                      <span className="lg:text-base text-xs">Exceptional</span>
                     </div>
  
                     <div className="hotel-filter-rating-content-options" onClick={() => setSelectedHotelFilter(`"rating":4.5`)}>
                       <span>{selectedHotelFilter === `"rating":4.5`? <CheckBox /> : <CheckBoxOutlineBlank/>}</span>
-                      <span>Excellent</span>
+                      <span className="lg:text-base text-xs">Excellent</span>
                     </div>
 
                     <div className="hotel-filter-rating-content-options" onClick={() => setSelectedHotelFilter(`"rating":4`)}>
                       <span>{selectedHotelFilter === `"rating":4`? <CheckBox /> : <CheckBoxOutlineBlank/>}</span>
-                      <span>Very Good</span>
+                      <span className="lg:text-base text-xs">Very Good</span>
                     </div>
 
                     <div className="hotel-filter-rating-content-options" onClick={() => setSelectedHotelFilter(`"rating":3.5`)}>
                       <span>{selectedHotelFilter === `"rating":3.5`? <CheckBox /> : <CheckBoxOutlineBlank/>}</span>
-                      <span>Good</span>
+                      <span className="lg:text-base text-xs">Good</span>
                     </div>
 
                     <div className="hotel-filter-rating-content-options" onClick={() => setSelectedHotelFilter(`"rating":3`)}>
                       <span>{selectedHotelFilter === `"rating":3`? <CheckBox /> : <CheckBoxOutlineBlank/>}</span>
-                      <span>Pleasant</span>
+                      <span className="lg:text-base text-xs">Pleasant</span>
                     </div>
                   </div>
                 </div>
@@ -159,37 +159,37 @@ function HotelDetails() {
                 <div className="hotel-filter-rating-content">
                     <div className="hotel-filter-rating-content-options" onClick={() => setSelectedHotelFilter(`"avgCostPerNight":{"$gte":"00","$lte":"2000"}`)}>
                       <span>{selectedHotelFilter === `"avgCostPerNight":{"$gte":"00","$lte":"2000"}`? <CheckBox /> : <CheckBoxOutlineBlank/>}</span>
-                      <span>₹0 - ₹2000</span>
+                      <span className="lg:text-base text-xs">₹0 - ₹2000</span>
                     </div>
 
                     <div className="hotel-filter-rating-content-options" onClick={() => setSelectedHotelFilter(`"avgCostPerNight":{"$gte":"2000","$lte":"4000"}`)}>
                       <span>{selectedHotelFilter === `"avgCostPerNight":{"$gte":"2000","$lte":"4000"}`? <CheckBox /> : <CheckBoxOutlineBlank/>}</span>
-                      <span>₹2000 - ₹4000</span>
+                      <span className="lg:text-base text-xs">₹2000 - ₹4000</span>
                     </div>
 
                     <div className="hotel-filter-rating-content-options" onClick={() => setSelectedHotelFilter(`"avgCostPerNight":{"$gte":"4000","$lte":"6000"}`)}>
                       <span>{selectedHotelFilter === `"avgCostPerNight":{"$gte":"4000","$lte":"6000"}`? <CheckBox /> : <CheckBoxOutlineBlank/>}</span>
-                      <span>₹4000 - ₹6000</span>
+                      <span className="lg:text-base text-xs" >₹4000 - ₹6000</span>
                     </div>
 
                     <div className="hotel-filter-rating-content-options" onClick={() => setSelectedHotelFilter(`"avgCostPerNight":{"$gte":"6000","$lte":"9000"}`)}>
                       <span>{selectedHotelFilter === `"avgCostPerNight":{"$gte":"6000","$lte":"9000"}`? <CheckBox /> : <CheckBoxOutlineBlank/>}</span>
-                      <span>₹6000 - ₹9000</span>
+                      <span className="lg:text-base text-xs">₹6000 - ₹9000</span>
                     </div>
 
                     <div className="hotel-filter-rating-content-options" onClick={() => setSelectedHotelFilter(`"avgCostPerNight":{"$gte":"9000","$lte":"15000"}`)}>
                       <span>{selectedHotelFilter === `"avgCostPerNight":{"$gte":"9000","$lte":"15000"}`? <CheckBox /> : <CheckBoxOutlineBlank/>}</span>
-                      <span>₹9000 - ₹15000</span>
+                      <span className="lg:text-base text-xs">₹9000 - ₹15000</span>
                     </div>
 
                     <div className="hotel-filter-rating-content-options" onClick={() => setSelectedHotelFilter(`"avgCostPerNight":{"$gte":"15000","$lte":"30000"}`)}>
                       <span>{selectedHotelFilter === `"avgCostPerNight":{"$gte":"15000","$lte":"30000"}`? <CheckBox /> : <CheckBoxOutlineBlank/>}</span>
-                      <span>₹15000 - ₹30000</span>
+                      <span className="lg:text-base text-xs">₹15000 - ₹30000</span>
                     </div>
 
                     <div className="hotel-filter-rating-content-options" onClick={() => setSelectedHotelFilter(`"avgCostPerNight":{"$gte":"30000"}`)}>
                       <span>{selectedHotelFilter === `"avgCostPerNight":{"$gte":"30000"}`? <CheckBox /> : <CheckBoxOutlineBlank/>}</span>
-                      <span>₹30000+</span>
+                      <span className="lg:text-base text-xs">₹30000+</span>
                     </div>
                     </div>
                 

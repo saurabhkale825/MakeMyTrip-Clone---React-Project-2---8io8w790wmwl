@@ -111,3 +111,42 @@
     color: #008cff !important;
     background-color: #ebf6ff;
 }
+
+.text-medium{
+    font-size: 14px;
+}
+
+@media (max-width : 1024px){
+
+    .bus-individual-filter{
+        border: 1px solid #999999;
+        border-radius: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40%;
+        height: 32px;
+        cursor: pointer;
+        margin: 0;
+    }
+
+    .text-medium{
+        font-size: 8px;
+    }
+
+    .bus-filter-container-section{
+        width: 100%;
+        height: max-content;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        margin-top: 10px;
+        border-bottom: 1px solid #999999;  
+    }
+
+    .timeFilterOptionsContainer{
+        height: 20%;
+        margin-right: -16px;
+        overflow-y: unset;
+    }
+}

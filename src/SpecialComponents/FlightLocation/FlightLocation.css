@@ -1,0 +1,13 @@
+.flight-location{
+    width: 98%;
+    margin: 0 1%;
+    height: auto;
+    background-color: white;
+    border-radius: 16px;
+    /* border: 1px solid red; */
+    position: relative;
+    top: 15vh;
+    padding: 2%;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}

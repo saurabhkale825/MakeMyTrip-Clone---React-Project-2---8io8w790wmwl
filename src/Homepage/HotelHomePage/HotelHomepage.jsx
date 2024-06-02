@@ -13,6 +13,9 @@ import { format } from "date-fns";
 import { Link } from "react-router-dom";
 import InputCities from "./InputCities";
 import MyContext from "../../Context/MyContext";
+import DownloadApp from "../../DownloadApp/DownloadApp";
+import HotelpageLocation from "../../SpecialComponents/HotelpageLocations/HotelpageLocation";
+import SaudiImage from "../../SpecialComponents/SaudiImage/Saudi"
 
 function HotelHomepage() {
   const {
@@ -195,7 +198,10 @@ function HotelHomepage() {
           </div>
         </Link>
       </div>
+      <SaudiImage />
       <OfferSection />
+      <DownloadApp />
+      <HotelpageLocation />
       <Footer />
     </>
   );

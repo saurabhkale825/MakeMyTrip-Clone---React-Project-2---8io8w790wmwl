@@ -1,5 +1,6 @@
 import React from 'react'
 import "./ErrorPage.css"
+import { Link } from 'react-router-dom'
 
 function ErrorPage() {
   return (
@@ -12,7 +13,9 @@ function ErrorPage() {
         
 
         <div className='error-page-button'>
+          <Link to={"/"}>
           Back To Homepage
+          </Link>
         </div>
         </div>
 

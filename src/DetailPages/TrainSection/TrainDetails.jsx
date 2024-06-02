@@ -145,9 +145,9 @@ function TrainDetails() {
         <div className="flex gap-1">
           <div className="train-details-functionality">
             <div className="flex justify-between items-center mx-3 mt-4 ">
-              <div className="text-xl font-bold">Filters</div>
+              <div className="lg:text-xl text-sm font-bold">Filters</div>
               <div
-                className="text-sm text-center text-blue-700 font-semibold cursor-pointer"
+                className="lg:text-sm  text-xs text-center text-blue-700 font-semibold cursor-pointer"
                 onClick={updateClearAll}
               >
                 Clear All
@@ -155,7 +155,7 @@ function TrainDetails() {
             </div>
 
             <div className="trains-details-functionality-container">
-              <h3 className="text-left text-xl font-semibold text-black ml-3 mt-3">
+              <h3 className="text-left lg:text-xl text-sm font-semibold text-black ml-3 mt-3">
                 Journey Class Filters
               </h3>
               <div className="text-base font-normal w-full">
@@ -172,7 +172,7 @@ function TrainDetails() {
                       <CheckBoxOutlineBlankIcon />
                     )}
                   </div>
-                  <div className="w-3/4 text-left">AC Chair car- CC</div>
+                  <div className="w-3/4 text-left lg:text-base md:text-sm text-xs">AC Chair car- CC</div>
                 </div>
 
                 <div className="flex mt-2">
@@ -188,7 +188,7 @@ function TrainDetails() {
                       <CheckBoxOutlineBlankIcon />
                     )}
                   </div>
-                  <div className="w-3/4 text-left">Executive Chair car- EC</div>
+                  <div className="w-3/4 text-left lg:text-base md:text-sm text-xs">Executive Chair car- EC</div>
                 </div>
 
                 <div className="flex mt-2">
@@ -204,7 +204,7 @@ function TrainDetails() {
                       <CheckBoxOutlineBlankIcon />
                     )}
                   </div>
-                  <div className="w-3/4 text-left">1st Class AC - 1A</div>
+                  <div className="w-3/4 text-left lg:text-base md:text-sm text-xs">1st Class AC - 1A</div>
                 </div>
 
                 <div className="flex mt-2">
@@ -220,7 +220,7 @@ function TrainDetails() {
                       <CheckBoxOutlineBlankIcon />
                     )}
                   </div>
-                  <div className="w-3/4 text-left">2nd Tier AC 2A</div>
+                  <div className="w-3/4 text-left lg:text-base md:text-sm text-xs">2nd Tier AC 2A</div>
                 </div>
 
                 <div className="flex mt-2">
@@ -236,7 +236,7 @@ function TrainDetails() {
                       <CheckBoxOutlineBlankIcon />
                     )}
                   </div>
-                  <div className="w-3/4 text-left">3 Tier Ac-3A</div>
+                  <div className="w-3/4 text-left lg:text-base md:text-sm text-xs">3 Tier Ac-3A</div>
                 </div>
 
                 <div className="flex mt-2">
@@ -252,7 +252,7 @@ function TrainDetails() {
                       <CheckBoxOutlineBlankIcon />
                     )}
                   </div>
-                  <div className="w-3/4 text-left">
+                  <div className="w-3/4 text-left lg:text-base md:text-sm text-xs">
                     AC three tier(economy)-3E
                   </div>
                 </div>
@@ -270,7 +270,7 @@ function TrainDetails() {
                       <CheckBoxOutlineBlankIcon />
                     )}
                   </div>
-                  <div className="w-3/4 text-left">Sleeper-SL</div>
+                  <div className="w-3/4 text-left lg:text-base md:text-sm text-xs">Sleeper-SL</div>
                 </div>
 
                 <div className="flex mt-2">
@@ -286,7 +286,7 @@ function TrainDetails() {
                       <CheckBoxOutlineBlankIcon />
                     )}
                   </div>
-                  <div className="w-3/4 text-left">Second Sitting- 2S</div>
+                  <div className="w-3/4 text-left lg:text-base md:text-sm text-xs">Second Sitting- 2S</div>
                 </div>
 
                 <div className="flex mt-2">
@@ -302,13 +302,13 @@ function TrainDetails() {
                       <CheckBoxOutlineBlankIcon />
                     )}
                   </div>
-                  <div className="w-3/4 text-left">Executive Anubhuti- EA</div>
+                  <div className="w-3/4 text-left lg:text-base md:text-sm text-xs">Executive Anubhuti- EA</div>
                 </div>
               </div>
             </div>
 
             <div className="trains-details-functionality-container">
-              <h3 className="text-left text-xl font-semibold text-black ml-3 mt-3">
+              <h3 className="text-left lg:text-xl text-sm font-semibold text-black ml-3 mt-3">
                 {`Departure from ${source}`}
               </h3>
               <div className="text-base font-normal w-full flex mt-2">
@@ -324,7 +324,7 @@ function TrainDetails() {
                     <CheckBoxOutlineBlankIcon />
                   )}
                 </div>
-                <div className="w-3/4 text-left">Night - 12AM to 6AM</div>
+                <div className="w-3/4 text-left lg:text-base md:text-sm text-xs">Night - 12AM to 6AM</div>
               </div>
 
               <div className="text-base font-normal w-full flex mt-2">
@@ -343,7 +343,7 @@ function TrainDetails() {
                     <CheckBoxOutlineBlankIcon />
                   )}
                 </div>
-                <div className="w-3/4 text-left">Morning - 6AM to 12PM</div>
+                <div className="w-3/4 text-left lg:text-base md:text-sm text-xs">Morning - 6AM to 12PM</div>
               </div>
 
               <div className="text-base font-normal w-full flex mt-2">
@@ -362,7 +362,7 @@ function TrainDetails() {
                     <CheckBoxOutlineBlankIcon />
                   )}
                 </div>
-                <div className="w-3/4 text-left">Afternoon - 12PM to 6PM</div>
+                <div className="w-3/4 text-left lg:text-base md:text-sm text-xs">Afternoon - 12PM to 6PM</div>
               </div>
 
               <div className="text-base font-normal w-full flex mt-2">
@@ -378,12 +378,12 @@ function TrainDetails() {
                     <CheckBoxOutlineBlankIcon />
                   )}
                 </div>
-                <div className="w-3/4 text-left">Evening - 6PM to 12AM</div>
+                <div className="w-3/4 text-left lg:text-base md:text-sm text-xs">Evening - 6PM to 12AM</div>
               </div>
             </div>
 
             <div className="trains-details-functionality-container">
-              <h3 className="text-left text-xl font-semibold text-black ml-3 mt-3">
+              <h3 className="text-left lg:text-xl text-sm font-semibold text-black ml-3 mt-3">
                 {`Arrival from ${destination}`}
               </h3>
               <div className="text-base font-normal w-full flex mt-2">
@@ -399,7 +399,7 @@ function TrainDetails() {
                     <CheckBoxOutlineBlankIcon />
                   )}
                 </div>
-                <div className="w-3/4 text-left">Night - 12AM to 6AM</div>
+                <div className="w-3/4 text-left lg:text-base  text-xs">Night - 12AM to 6AM</div>
               </div>
 
               <div className="text-base font-normal w-full flex mt-2">
@@ -418,7 +418,7 @@ function TrainDetails() {
                     <CheckBoxOutlineBlankIcon />
                   )}
                 </div>
-                <div className="w-3/4 text-left">Morning - 6AM to 12PM</div>
+                <div className="w-3/4 text-left lg:text-base md:text-sm text-xs">Morning - 6AM to 12PM</div>
               </div>
 
               <div className="text-base font-normal w-full flex mt-2">
@@ -437,7 +437,7 @@ function TrainDetails() {
                     <CheckBoxOutlineBlankIcon />
                   )}
                 </div>
-                <div className="w-3/4 text-left">Afternoon - 12PM to 6PM</div>
+                <div className="w-3/4 text-left lg:text-base md:text-sm text-xs">Afternoon - 12PM to 6PM</div>
               </div>
 
               <div className="text-base font-normal w-full flex mt-2">
@@ -453,7 +453,7 @@ function TrainDetails() {
                     <CheckBoxOutlineBlankIcon />
                   )}
                 </div>
-                <div className="w-3/4 text-left">Evening - 6PM to 12AM</div>
+                <div className="w-3/4 text-left lg:text-base md:text-sm text-xs">Evening - 6PM to 12AM</div>
               </div>
             </div>
 

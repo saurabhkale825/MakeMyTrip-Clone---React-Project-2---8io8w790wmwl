@@ -43,13 +43,13 @@ function IndividualBus(bus) {
         </div>
         <div className="individual-bus-info">
           <div className="bus-departure">
-            <div className="font-bold text-black">{bus.bus.departureTime}</div>
-            <div className="text-xs">{bus.bus.source.split(",")[0]}</div>
+            <div className="lg:font-bold font-semibold text-black lg:text-sm text-xs">{bus.bus.departureTime}</div>
+            <div className="text-s">{bus.bus.source.split(",")[0]}</div>
           </div>
           <div className="bus-seperator">
             <div className="time-seperator"></div>
           </div>
-          <div className="flex justify-center items-center h-1/2 bus-departure">{`${DurationHours(
+          <div className="flex justify-center items-center h-1/2 bus-departure text-medium lg:text-sm">{`${DurationHours(
             bus.bus.arrivalTime,
             bus.bus.departureTime
           )}hrs${DurationMins(bus.bus.arrivalTime, bus.bus.departureTime)}min`}</div>
@@ -57,13 +57,13 @@ function IndividualBus(bus) {
             <div className="time-seperator"></div>
           </div>
           <div className="bus-departure">
-            <div className="font-bold text-black">{bus.bus.arrivalTime}</div>
-            <div className="text-xs">{bus.bus.destination.split(",")[0]}</div>
+            <div className="lg:font-bold font-semibold text-black lg:text-sm text-xs">{bus.bus.arrivalTime}</div>
+            <div className="text-s">{bus.bus.destination.split(",")[0]}</div>
           </div>
         </div>
         <div className="individual-bus-fare">
-          <div className="text-xs font-thin">Fare</div>
-          <div>{`₹ ${bus.bus.fare}`}</div>
+          <div className="text-medium font-thin">Fare</div>
+          <div className="text-medium lg:font-bold font-semibold">{`₹ ${bus.bus.fare}`}</div>
         </div>
       </div>
 
