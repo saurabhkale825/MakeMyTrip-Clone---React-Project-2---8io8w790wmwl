@@ -5,6 +5,7 @@ import MyContext from '../Context/MyContext'
 import {toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AuthContext from '../Context/AuthContext';
+import { Link } from 'react-router-dom';
 
 
 
@@ -82,7 +83,9 @@ function LoginInput() {
           </div>
 
           <div className='google-logo' >
+            <Link to={"/error"}>
             <img src={Google} alt='google logo' width="40px" height="40px"/>
+            </Link>
           </div>
         </div>
   )

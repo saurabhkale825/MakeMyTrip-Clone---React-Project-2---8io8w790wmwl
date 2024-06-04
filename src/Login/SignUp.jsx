@@ -10,7 +10,7 @@ function SignUp() {
   const [email, setEmail] = useState(""); // state  for User mail address.
   const [password, setPassword] = useState(""); // state  for user set password
   const { setAuthenticate } = useContext(AuthContext);
-  const { login, setLogin } = useContext(MyContext);
+  const {  setLogin } = useContext(MyContext);
 
   //to signup user and also validates required input values.
   async function UserSingUp() {

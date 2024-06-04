@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const OfferCard = (offer) => {
   
@@ -15,7 +16,8 @@ const OfferCard = (offer) => {
         </div>
       </div>
       <div className="offer-card-footer">
-        <div className="offer-card-footer-left">{offer?.offer.tncCtaText}</div>
+        <div className="offer-card-footer-left">
+          <Link to={"/error"}>{offer?.offer.tncCtaText}</Link></div>
       </div>
     </div>
   );

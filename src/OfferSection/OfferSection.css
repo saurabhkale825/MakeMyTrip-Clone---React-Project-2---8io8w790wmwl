@@ -34,7 +34,7 @@
 }
 .offer-section-navbar {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   margin-left: 2%;
 }
 .offer-section-navbar-text {
@@ -49,10 +49,12 @@
 
 .offer-section-navbar-content {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
-  width: 70%;
-  margin-right: 35%;
+  width: 60%;
+  padding: 0 5%;
+  margin-right: 15%;
+  
 }
 
 .offer-section-navbar-content-selected {
@@ -84,23 +86,6 @@
   cursor: pointer;
 }
 
-.offer-navbar-prev-section {
-  width: 30px;
-  height: 30px;
-  border-radius: 50% 0 0 50%;
-  background-color: #6eb8f552;
-  margin-left: 10px;
-  cursor: pointer;
-}
-
-.offer-navbar-next-section {
-  width: 30px;
-  height: 30px;
-  border-radius: 0 50% 50% 0;
-  background-color: #6eb8f552;
-  margin-left: 1px;
-  cursor: pointer;
-}
 
 .offer-card-content {
   width: 95%;

@@ -21,27 +21,29 @@ import TrainBookingShow from "../DetailPages/TrainSection/TrainBookingPage/Train
 import BusBookingPage from "../DetailPages/BusSection/BusBookingPage/BusBookingPage";
 import MyTrips from "../MyTrips/MyTrips";
 import ComingSoon from "../Homepage/ComingSoon/ComingSoon";
-// import FlightsHomePage from "../Homepage/FlightsHomePage/FlightsHomePage";
 import AuthContext from "../Context/AuthContext";
 import { ToastContainer } from "react-toastify";
 import HomePage from "../Homepage/HomePage";
 import ErrorPage from "../ErrorPage/ErrorPage";
+import ScrollToTop from "../ScrollTop";
+import AllOffer from "../OfferSection/AllOffer";
+import PrivateRoute from "./PrivateRoute";
 
 function LandingPage() {
   //States required for Authentication of user
-  const [authenticate, setAuthenticate] = useState(false); //To check wheather login and authenticated or not.
+  const [authenticate, setAuthenticate] = useState(false); //To check whether login and authenticated or not.
   const [login, setLogin] = useState(false); //To toggle login model
   const [toggleSignin, setToggleSignin] = useState(true); //To toggle between login and signup options
 
   //States required for overall project.
   const [mode, setMode] = useState("Flights");
 
-  // States rquired for Flight-section.
+  // States required for Flight-section.
   const [traveller, setTraveller] = useState(1);
   const [selectedClass, setSelectedClass] = useState("economy");
   const [showTravellerSection, setShowTravellerSection] = useState(false);
-  const [departureCity, setDepartureCity] = useState("Mumbai"); //To set depatureCity
-  const [arrivalCity, setArrivalCity] = useState("Bengaluru"); //To set depatureCity
+  const [departureCity, setDepartureCity] = useState("Mumbai"); //To set departureCity
+  const [arrivalCity, setArrivalCity] = useState("Bengaluru"); //To set departureCity
   const [departureCityAirportId, setDepartureCityAirportId] = useState("");
   const [arrivalCityAirportId, setArrivalCityAirportId] = useState("");
   const [startDate, setStartDate] = useState(new Date()); //To set flight date
@@ -51,7 +53,7 @@ function LandingPage() {
     useState(false);
   const [showArrivalAirportList, setShowArrivalAirportList] = useState(false);
 
-  //States rquired for HotelSection.
+  //States required for HotelSection.
   const [location, setLocation] = useState("Mumbai"); //To define location for hotel search
   const [showInputCities, setShowInputCities] = useState(false);
   const [checkin, setCheckin] = useState(new Date());
@@ -61,7 +63,7 @@ function LandingPage() {
   const [hotelPrice, setHotelPrice] = useState("");
   const [hotelTax, setHotelTax] = useState("");
 
-  //States rquired for Train-section.
+  //States required for Train-section.
   const [source, setSource] = useState("Delhi Junction");
   const [destination, setDestination] = useState("Surat");
   const [travelDate, setTravelDate] = useState(new Date());
@@ -69,7 +71,7 @@ function LandingPage() {
   const [coachType, setCoachType] = useState("");
   const [seats, setSeats] = useState("");
 
-  //States rquired for bus-section.
+  //States required for bus-section.
   const [busSource, setBusSource] = useState("Mumbai");
   const [busDestination, setBusDestination] = useState("Pune");
   const [busTravelDate, setBusTravelDate] = useState(new Date());
@@ -180,40 +182,27 @@ function LandingPage() {
                     setBusTravelDate,
                   }}
                 >
+                  <ScrollToTop />
                   <Routes>
                     <Route path="/" element={<HomePage />} /> 
-                    <Route
-                      path="/flights/details"
-                      element={<FlightsDetails />}
-                    />
-                    <Route path="/flight/:itemId" element={authenticate ? <BookNowPage /> : <HomePage/>} />
+                    <Route path="/flights/details" element={<FlightsDetails />} />
+                    <Route path="/flight/:itemId" element={<PrivateRoute element={<BookNowPage />} />} />
                     <Route path="/hotels" element={<HotelHomepage />} />
                     <Route path="/hotels/details" element={<HotelDetails />} />
                     <Route path="/inputCities" element={<HotelCarousel />} />
-                    <Route
-                      path="/hotels/:itemId"
-                      element={<IndividualDetailHotel />}
-                    />
-                    <Route
-                      path="/hotels/bookingpage/:itemId"
-                      element={authenticate ? <HotelBookingPage /> : <HomePage/>}
-                    />
+                    <Route path="/hotels/:itemId" element={<IndividualDetailHotel />} />
+                    <Route path="/hotels/bookingpage/:itemId" element={<PrivateRoute element={<HotelBookingPage />} />} />
                     <Route path="/trains" element={<TrainHomePage />} />
                     <Route path="/buses" element={<BusHomePage />} />
                     <Route path="/buses/details" element={<BusesDetails />} />
                     <Route path="/trains/details" element={<TrainDetails />} />
-                    <Route
-                      path="/railways/bookingpage/:itemId"
-                      element={authenticate ? <TrainBookingShow /> : <HomePage/>}
-                    />
+                    <Route path="/railways/bookingpage/:itemId" element={<PrivateRoute element={<TrainBookingShow />} />} />
                     <Route path="/payment/:itemId" element={<Payment />} />
-                    <Route
-                      path="/bus/bookingpage/:itemId"
-                      element={authenticate ? <BusBookingPage /> : <HomePage/>}
-                    />
-                    <Route path="/mytrips" element={ <MyTrips /> } />
+                    <Route path="/bus/bookingpage/:itemId" element={<PrivateRoute element={<BusBookingPage />} />} />
+                    <Route path="/mytrips" element={<MyTrips />} />
                     <Route path="/comingsoon" element={<ComingSoon />} />
                     <Route path="/error" element={<ErrorPage />} />
+                    <Route path="/all-offer" element={<AllOffer />} />
                   </Routes>
                 </BusContext.Provider>
               </TrainContext.Provider>
@@ -226,3 +215,4 @@ function LandingPage() {
 }
 
 export default LandingPage;
+

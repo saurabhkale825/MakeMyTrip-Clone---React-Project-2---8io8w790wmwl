@@ -16,6 +16,28 @@ function GiftCardsPayment() {
   const [showConfirmationPage, setShowConfirmationPage] = useState(false);
   const user = JSON.parse(localStorage.getItem("user-info"));
   const token = user.token;
+  const [date , setDate] = useState("");
+  const myData = sessionStorage.getItem("myData");
+  const StartDate = JSON.parse(myData).startDate;
+
+  const formatMonth = (e) => {
+    const Month = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sept","Nov","Dec"];
+    if(Month.indexOf(e) < 10){
+      console.log(`0${Month.indexOf(e)+1}`)
+      return (`0${Month.indexOf(e)+1}`);
+    }
+    else{
+      console.log(Month.indexOf(e))
+      return (`0${Month.indexOf(e)+1}`);
+    }
+  }
+  
+  useEffect(() => {
+    console.log(StartDate.split(' ')[2]);
+    formatMonth(StartDate.split(' ')[1]);
+    setDate(`${StartDate.split(' ')[3]}-${formatMonth(StartDate.split(' ')[1])}-${StartDate.split(' ')[2]}T10:03:53.554+00:00`);
+    console.log("date =>",date);
+  }, []);
 
   const Booking = async () => {
     let body;
@@ -24,8 +46,8 @@ function GiftCardsPayment() {
         bookingType: "flight",
         bookingDetails: {
           flightId: itemId,
-          startDate: "2023-10-09T10:03:53.554+00:00",
-          endDate: "2023-10-09T10:03:53.554+00:00",
+          startDate: date,
+          endDate: date,
         },
       };
     }
@@ -35,8 +57,8 @@ function GiftCardsPayment() {
         bookingType: "hotel",
         bookingDetails: {
           hotelId: { itemId },
-          startDate: "2023-10-09T10:03:53.554+00:00",
-          endDate: "2023-10-09T10:03:53.554+00:00",
+          startDate: date,
+          endDate: date,
         },
       };
     }
@@ -46,8 +68,8 @@ function GiftCardsPayment() {
         bookingType: "train",
         bookingDetails: {
           trainId: itemId,
-          startDate: "2023-10-09T10:03:53.554+00:00",
-          endDate: "2023-10-09T10:03:53.554+00:00",
+          startDate: date,
+          endDate: date,
         },
       };
     }
@@ -57,8 +79,8 @@ function GiftCardsPayment() {
         bookingType: "bus",
         bookingDetails: {
           busId: itemId,
-          startDate: "2023-10-09T10:03:53.554+00:00",
-          endDate: "2023-10-09T10:03:53.554+00:00",
+          startDate: date,
+          endDate: date,
         },
       };
     }
