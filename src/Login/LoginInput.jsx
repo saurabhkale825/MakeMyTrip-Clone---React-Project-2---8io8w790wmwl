@@ -78,7 +78,7 @@ function LoginInput() {
 
           <div className='login-page-google-text'>
             <span className='login-page-line'>---------------</span>
-            <span className='mx-6'>or Login/Signup with</span>
+            <span className='mx-6 lg:text-sm text-xs'>or Login/Signup with</span>
             <span className='login-page-line'>---------------</span>
           </div>
 

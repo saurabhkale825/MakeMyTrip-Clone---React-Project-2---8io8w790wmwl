@@ -60,8 +60,8 @@ function Login() {
           <div
             className={
               toggleSignin === true
-                ? "login-page-personal-account-selected"
-                : "login-page-personal-account"
+                ? "login-page-personal-account-selected lg:text-base md:text-sm text-xs"
+                : "login-page-personal-account lg:text-base md:text-sm text-xs"
             }
             onClick={() => setToggleSignin(true)}
           >
@@ -70,8 +70,8 @@ function Login() {
           <div
             className={
               toggleSignin === false
-                ? "login-page-signup-selected"
-                : "login-page-signup"
+                ? "login-page-signup-selected lg:text-base md:text-sm text-xs"
+                : "login-page-signup lg:text-base md:text-sm text-xs"
             }
             onClick={() => setToggleSignin(false)}
           >

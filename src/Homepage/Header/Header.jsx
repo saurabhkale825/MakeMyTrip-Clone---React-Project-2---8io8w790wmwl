@@ -52,6 +52,7 @@ function Navbar() {
 
           <div className="header-content">
             <ul className=" w-full flex justify-end">
+              <Link to={"/all-offer"}>
               <li className="super-offer">
                 <div>
                   <div
@@ -70,6 +71,7 @@ function Navbar() {
                   <div className="content-2">Explore great deals & offers</div>
                 </div>
               </li>
+              </Link>
 
               <li className="my-trips flex" onClick={Trip}>
                 

@@ -55,7 +55,7 @@
     background-position: center;
     position: relative;
     top: 20%;
-    left: 45%;
+    left: 40%;
 }
 
 .login-page-google-text{
@@ -64,6 +64,11 @@
 }
 
 .login-page-line{
-    width: 60px;
-    height: 2px;
+   display: inline;
+}
+
+@media (max-width:1024px){
+    .login-page-line{
+        display: none;
+     }
 }
