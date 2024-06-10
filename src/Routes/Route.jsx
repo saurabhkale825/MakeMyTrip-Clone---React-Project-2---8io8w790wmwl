@@ -199,7 +199,7 @@ function LandingPage() {
                     <Route path="/railways/bookingpage/:itemId" element={<PrivateRoute element={<TrainBookingShow />} />} />
                     <Route path="/payment/:itemId" element={<Payment />} />
                     <Route path="/bus/bookingpage/:itemId" element={<PrivateRoute element={<BusBookingPage />} />} />
-                    <Route path="/mytrips" element={<MyTrips />} />
+                    <Route path="/mytrips" element={<PrivateRoute element={<MyTrips />} />} />
                     <Route path="/comingsoon" element={<ComingSoon />} />
                     <Route path="/error" element={<ErrorPage />} />
                     <Route path="/all-offer" element={<AllOffer />} />

@@ -15,6 +15,7 @@ import img9 from "../../Assest/Logo/img9.png";
 import img10 from "../../Assest/Logo/img10.png";
 
 import Slider from "react-slick";
+import { Link } from "react-router-dom";
 
 function HandPicked() {
   const images = [img1 , img2 ,img3 ,img4 , img5 , img6 , img7 , img8 , img9 , img10 ];
@@ -72,6 +73,7 @@ function HandPicked() {
       >
         {images.map((item , index) => 
             <div className="w-4/5 lg:h-64 h-40 p-3 ">
+              <Link to={"/error"}>
                <div style={{
                 backgroundImage: `url(${item})`,
                 backgroundSize: "cover",
@@ -83,6 +85,7 @@ function HandPicked() {
               }} className="flex items-end">
                 <p className="text-white text-d text-left font-semibold ml-2 mb-2 w-4/5 lg:block ">{text[index]}</p>
                 </div> 
+                </Link>
             </div>
         )}
       </Slider>

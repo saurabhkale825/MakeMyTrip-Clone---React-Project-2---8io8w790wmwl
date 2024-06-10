@@ -30,6 +30,7 @@ function Navbar() {
 
   const handleLogOut = () => {
     setAuthenticate(false);
+    toast.success("Logged Out Successfully.");
     localStorage.removeItem("user-info");
   };
 

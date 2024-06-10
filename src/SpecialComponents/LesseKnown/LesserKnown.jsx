@@ -20,6 +20,7 @@ import photo14 from "../../Assest/Logo/photo14.png"
 import photo15 from "../../Assest/Logo/photo15.png"
 import photo16 from "../../Assest/Logo/photo16.png"
 import photo17 from "../../Assest/Logo/photo17.png"
+import { Link } from "react-router-dom";
 
 
 function LesserKnown() {
@@ -120,6 +121,8 @@ function LesserKnown() {
     speed: 54,
     slidesToShow: 5,
     slidesToScroll: 1,
+    nextArrow: null,
+    prevArrow:null
   };
   return (
     <div className="lesser-known">
@@ -147,6 +150,7 @@ function LesserKnown() {
       >
         {data.map((item , index) => 
             <div className="w-4/5 lg:h-64 h-44 p-3 ">
+                <Link to={"/error"}>
                <div style={{
                 backgroundImage: `url(${item.image})`,
                 backgroundSize: "cover",
@@ -158,6 +162,7 @@ function LesserKnown() {
               }} className="flex items-end">
                 <p className="text-white text-d text-left font-semibold ml-2 mb-2 w-4/5 lg:block ">{item.text}</p>
                 </div> 
+                </Link>
             </div>
         )}
       </Slider>
