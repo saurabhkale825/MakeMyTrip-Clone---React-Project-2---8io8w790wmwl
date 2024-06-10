@@ -1,13 +1,13 @@
 .handpicked{
-    width: 90%;
+    width: 98%;
     height: auto;
     position: relative;
     top: 10vh;
-    margin: 0 1%;
+    margin: 2% 0 2%  1%;
     background-color: white;
     border-radius: 16px;
     display: block;
-    border: 1px solid red;
+    
 }
 .handpicked-heading{
     height: 10vh;

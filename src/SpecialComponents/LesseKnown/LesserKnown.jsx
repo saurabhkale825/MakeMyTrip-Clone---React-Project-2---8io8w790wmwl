@@ -122,7 +122,8 @@ function LesserKnown() {
     slidesToShow: 5,
     slidesToScroll: 1,
     nextArrow: null,
-    prevArrow:null
+    prevArrow:null,
+    arrows : false
   };
   return (
     <div className="lesser-known">

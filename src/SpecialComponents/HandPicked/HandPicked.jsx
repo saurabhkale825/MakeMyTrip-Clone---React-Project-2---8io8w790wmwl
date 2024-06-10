@@ -46,6 +46,7 @@ function HandPicked() {
     speed: 500,
     slidesToShow: 5,
     slidesToScroll: 1,
+    arrows : false
   };
   return (
     <div className="handpicked">
