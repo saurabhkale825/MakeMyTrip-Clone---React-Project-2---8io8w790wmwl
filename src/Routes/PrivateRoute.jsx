@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import { Route, Navigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import AuthContext from "../Context/AuthContext";
 import MyContext from "../Context/MyContext";
 
-const PrivateRoute = ({ element: Component, ...rest }) => {
+const PrivateRoute = ({ element }) => {
   const { authenticate } = useContext(AuthContext);
   const { setLogin } = useContext(MyContext);
 
@@ -12,7 +12,7 @@ const PrivateRoute = ({ element: Component, ...rest }) => {
     return <Navigate to="/" />;
   }
 
-  return <Route {...rest} element={Component} />;
+  return element;
 };
 
 export default PrivateRoute;
