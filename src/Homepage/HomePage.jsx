@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from "react";
+import "./HomePage.css"
 import Header from "./Header/Header";
 import Navbar from "../Homepage/Navbar/Navbar";
 import FlightsHomePage from "./FlightsHomePage/FlightsHomePage";
@@ -24,18 +25,18 @@ function HomePage() {
   });
 
   return (
-    <>
+    <div className="homepage">
       <Header />
       <Navbar />
       <FlightsHomePage />
       <Saudi />
       <OfferSection />
       <DownloadApp />
-      <HandPicked />
+       <HandPicked />
       <LesserKnown />
       <FlightLocation />
       <Footer />
-    </>
+    </div>
   );
 }
 

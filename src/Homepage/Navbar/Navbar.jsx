@@ -45,11 +45,10 @@ function Navbar() {
             <img
               src={FlightSelected}
               alt="flights"
-              width="32px"
-              height="22px"
+             
             />
           ) : (
-            <img src={Flights} alt="flights" width="32px" height="22px" />
+            <img src={Flights} alt="flights"  />
           )}
           
           <p className={(mode==="Flights"?"nav-text-selected":"nav-text")}>Flights</p>

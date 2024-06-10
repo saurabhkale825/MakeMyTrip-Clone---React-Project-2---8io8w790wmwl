@@ -1,13 +1,14 @@
 .flights-homepage {
   position: absolute;
   top: 22vh;
-  left: 1%;
+  left: 2%;
   width: 97%;
   height: 50vh;
   border-radius: 8px;
   background-color: white;
   color: #4a4a4a;
   margin: auto;
+  
 }
 
 .trip-route {
@@ -212,6 +213,19 @@
 }
 
 @media (max-width: 1024px) {
+
+  .flights-homepage {
+    position: absolute;
+    top: 22vh;
+    left: 4%;
+    width: 90%;
+    height: 50vh;
+    border-radius: 8px;
+    background-color: white;
+    color: #4a4a4a;
+    margin: auto;
+    
+  }
   .fare-type-content {
     width: 12%;
     font-size: 8px;
